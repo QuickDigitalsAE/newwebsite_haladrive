@@ -12,7 +12,13 @@
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="shortcut icon" href="./images/logo.webp" type="image/x-icon">
+    <link rel="preload" rel="shortcut icon" href="./images/logo.webp" type="image/x-icon">
+    <link rel="preload" fetchpriority="high" as="image" href="images/banner/mobile-slider-1.webp" type="image/webp">
+    <link rel="preload" fetchpriority="high" as="image" href="images/banner/mobile-slider-2.webp" type="image/webp">
+    <link rel="preload" fetchpriority="high" as="image" href="images/banner/mobile-slider-4.webp" type="image/webp">
+    <link rel="preload" fetchpriority="high" as="image" href="images/banner/slider.webp" type="image/webp">
+    <link rel="preload" fetchpriority="high" as="image" href="images/banner/slider2.webp" type="image/webp">
+    <link rel="preload" fetchpriority="high" as="image" href="images/banner/slider3.webp" type="image/webp">
 </head>
 
 <body>
@@ -20,9 +26,17 @@
     <!--------------------------------- header ------------------------------->
 
     <header class="relative">
-        <img src="images/logo/Hala-Drive-resize.webp" class="absolute top-[40%] -translate-y-1/2 left-10 w-[110px]"
-            alt="">
-        <div class="flex justify-between items-center container mx-auto py-2">
+        <div class="bg-black py-3 px-6 flex items-center z-[9999] min-[1023px]:hidden relative justify-between">
+            <img src="images/logo/Hala-Drive-resize.webp" class="w-[80px] " alt="">
+            <div class="flex items-center gap-4">
+                <div class="-skew-x-12 w-fit bg-[#ff000d] cursor-pointer text-white px-3 py-1 text-[12px]">Send Inquiry
+                </div>
+                <img src="images/icons/hamburger.svg" class="w-8" alt="" id="menuBtn" />
+            </div>
+        </div>
+        <img src="images/logo/Hala-Drive-resize.webp"
+            class="absolute top-[40%] -translate-y-1/2 left-10 w-[110px] max-[1023px]:hidden" alt="">
+        <div class="flex justify-between items-center container mx-auto py-2 max-[1024px]:hidden">
             <div class="w-[85%] ml-auto flex items-center justify-between">
                 <ul class="flex items-center gap-5 ">
                     <li class="flex items-center gap-2 max-[1000px]:ml-auto">
@@ -53,19 +67,25 @@
                 </div>
             </div>
         </div>
-        <nav class="bg-black border-b-4 border-[#ff000d]">
-            <ul class="uppercase flex items-center gap-6 justify-center text-white relative">
+        <nav id="mobileMenu"
+            class="bg-black border-b-4 max-[1024px]:pb-12 border-[#ff000d] max-[1024px]:w-full max-[1024px]:fixed max-[1024px]:z-[999] transition-all duration-500 max-[1024px]:top-[-100%]">
+            <ul
+                class="uppercase flex max-[1024px]:flex-col items-center gap-6 justify-center max-[1024px]:items-start max-[1024px]:gap-0 max-[1024px]:pb-4 max-[1024px]:pt-24 text-white relative max-[1024px]:mx-5">
                 <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 first:before:hidden">
-                    <a href="#" class="transition-all duration-300 hover:bg-[#ff000d] block py-6 px-3">Home</a>
+                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                    <a href="#"
+                        class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">Home</a>
                 </li>
                 <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 first:before:hidden">
-                    <a href="#" class="transition-all duration-300 hover:bg-[#ff000d] block py-6 px-3">About Us</a>
+                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                    <a href="#"
+                        class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">About
+                        Us</a>
                 </li>
                 <li
-                    class="relative group before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 first:before:hidden">
-                    <a href="#" class="transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 block">Brands</a>
+                    class="relative group before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                    <a href="#"
+                        class="transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 max-[1024px]:py-2 block">Brands</a>
                     <ul
                         class="absolute left-0 mt-3 bg-[#e9ecef] rounded-md w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                         <li><a href="#"
@@ -83,24 +103,30 @@
                     </ul>
                 </li>
                 <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 first:before:hidden">
-                    <a href="#" class="transition-all duration-300 hover:bg-[#ff000d] block py-6 px-3">Cars</a>
+                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                    <a href="#"
+                        class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">Cars</a>
                 </li>
                 <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 first:before:hidden">
-                    <a href="#" class="transition-all duration-300 hover:bg-[#ff000d] block py-6 px-3">FAQ</a>
+                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                    <a href="#"
+                        class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">FAQ</a>
                 </li>
                 <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 first:before:hidden">
-                    <a href="#" class="transition-all duration-300 hover:bg-[#ff000d] block py-6 px-3">Blogs</a>
+                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                    <a href="#"
+                        class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">Blogs</a>
                 </li>
                 <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 first:before:hidden">
-                    <a href="#" class="transition-all duration-300 hover:bg-[#ff000d] block py-6 px-3">Our Locations</a>
+                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                    <a href="#"
+                        class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">Our
+                        Locations</a>
                 </li>
                 <li
-                    class="relative group before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 first:before:hidden">
-                    <a href="#" class="transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 block">Lease</a>
+                    class="relative group before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                    <a href="#"
+                        class="transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 max-[1024px]:py-2 block">Lease</a>
                     <ul
                         class="absolute left-0 mt-3 bg-[#e9ecef] rounded-md w-44 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                         <li><a href="#"
@@ -115,10 +141,21 @@
                     </ul>
                 </li>
                 <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 first:before:hidden">
-                    <a href="#" class="transition-all duration-300 hover:bg-[#ff000d] block py-6 px-3">Contact</a>
+                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                    <a href="#"
+                        class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">Contact</a>
                 </li>
             </ul>
+            <div
+                class="flex items-center gap-2 min-[1024px]:hidden text-[12px] w-fit mx-8 mb-6 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
+                <img src="images/flags/flag-en.webp" alt="" class="w-6">
+                <div class="">English</div>
+            </div>
+            <div
+                class="flex items-center gap-2 min-[1024px]:hidden text-[12px] w-fit mx-8 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
+                <img src="images/flags/flag-ar.webp" alt="" class="w-6">
+                <div class="">العربية</div>
+            </div>
         </nav>
     </header>
 
@@ -128,24 +165,41 @@
         <div class="swiper mySwiper w-full h-full">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="images/banner/slider.webp" class="w-full h-full object-cover" alt="Car 1" />
+                    <picture>
+                        <source srcset="images/banner/mobile-slider-1.webp" type="image/webp"
+                            media="(max-width: 768px)">
+                        <source srcset="images/banner/slider.webp" type="image/webp" media="(min-width: 769px)">
+                        <img src="images/banner/slider.webp" alt="Banner" class="w-full h-auto object-cover">
+                    </picture>
                 </div>
+
                 <div class="swiper-slide">
-                    <img src="images/banner/slider2.webp" class="w-full h-full object-cover" alt="Car 2" />
+                    <picture>
+                        <source srcset="images/banner/mobile-slider-2.webp" type="image/webp"
+                            media="(max-width: 768px)">
+                        <source srcset="images/banner/slider2.webp" type="image/webp" media="(min-width: 769px)">
+                        <img src="images/banner/slider2.webp" alt="Banner" class="w-full h-auto object-cover">
+                    </picture>
                 </div>
+
                 <div class="swiper-slide">
-                    <img src="images/banner/slider3.webp" class="w-full h-full object-cover" alt="Car 3" />
+                    <picture>
+                        <source srcset="images/banner/mobile-slider-4.webp" type="image/webp"
+                            media="(max-width: 768px)">
+                        <source srcset="images/banner/slider3.webp" type="image/webp" media="(min-width: 769px)">
+                        <img src="images/banner/slider3.webp" alt="Banner" class="w-full h-auto object-cover">
+                    </picture>
                 </div>
             </div>
 
-            <div class="swiper-button-next !text-white !right-6 after:!text-3xl"></div>
-            <div class="swiper-button-prev !text-white !left-6 after:!text-3xl"></div>
+            <div class="swiper-button-next !text-white !right-6 after:!text-3xl max-[1024px]:hidden"></div>
+            <div class="swiper-button-prev !text-white !left-6 after:!text-3xl max-[1024px]:hidden"></div>
         </div>
     </section>
 
     <!--------------------------------- filter ------------------------------->
 
-    <section class="relative bg-[#f1f4f8] py-8">
+    <section class="relative bg-[#f1f4f8] py-8 max-[1024px]:hidden">
         <div class="container mx-auto flex justify-between items-center">
             <ul class="flex gap-4 items-center">
                 <li
@@ -178,22 +232,24 @@
 
     <!--------------------------------- cars ------------------------------->
 
-    <section class="relative bg-white py-16">
+    <section class="relative bg-white py-16 max-[1024px]:py-10">
         <div class="container mx-auto">
-            <div class="text-black font-semibold text-[2.5rem] leading-[1] text-center w-[80%] mx-auto">Rent a Car in
+            <div
+                class="text-black font-semibold text-[2.5rem] max-[1024px]:text-[1.5rem] leading-[1] text-center w-[80%] max-[1024px]:w-[90%] mx-auto">
+                Rent a Car in
                 Dubai with Hala Drive - Affordable, Reliable & Hassle-Free Car Rentals</div>
-            <div class="grid grid-cols-2 gap-8 mt-12 w-[80%] mx-auto">
-                <div class="relative p-4 shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
+            <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 gap-8 mt-12 w-[80%] max-[1024px]:w-[90%] mx-auto">
+                <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
                     <div class="flex items-center justify-between mb-2">
                         <div
                             class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
                             in Stock</div>
                         <img src="images/cars/brand.webp" class="w-16" alt="">
                     </div>
-                    <div class="flex gap-4">
-                        <div class="w-[50%]">
+                    <div class="flex max-[1024px]:flex-col gap-4">
+                        <div class="w-[50%] max-[1024px]:w-full">
                             <img src="images/cars/hala_web_image_2.jpg" alt="">
-                            <div class="flex gap-2 items-center mt-3">
+                            <div class="flex gap-2 max-[1024px]:justify-center items-center mt-3">
                                 <div
                                     class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                     <div class="">Daily</div>
@@ -211,27 +267,29 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-[50%]">
-                            <div class="text-[1.5rem] font-bold leading-[1]">Mercedes C200 2025</div>
-                            <ul class="list-disc text-[#939393] text-[11px] mt-4">
-                                <li class="flex items-center gap-2">
+                        <div class="w-[50%] max-[1024px]:w-full">
+                            <div class="text-[1.5rem] font-bold leading-[1] max-[1024px]:text-center">Mercedes C200 2025
+                            </div>
+                            <ul
+                                class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class="">Engine Size 1.5 L</div>
                                 </li>
-                                <li class="flex items-center gap-2">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class=""> Bluetooth Yes</div>
                                 </li>
-                                <li class="flex items-center gap-2">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class="">Cruise Control Yes</div>
                                 </li>
-                                <li class="flex items-center gap-2">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class="">Luggage Yes</div>
                                 </li>
                             </ul>
-                            <div class="flex items-center gap-4 mt-4">
+                            <div class="flex items-center max-[1024px]:justify-center gap-4 mt-4">
                                 <div
                                     class="text-white bg-[#ff000d] px-2 py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-[12px]">
                                     Send Inquiry</div>
@@ -241,17 +299,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative p-4 shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
+                <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
                     <div class="flex items-center justify-between mb-2">
                         <div
                             class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
                             in Stock</div>
                         <img src="images/cars/brand.webp" class="w-16" alt="">
                     </div>
-                    <div class="flex gap-4">
-                        <div class="w-[50%]">
+                    <div class="flex max-[1024px]:flex-col gap-4">
+                        <div class="w-[50%] max-[1024px]:w-full">
                             <img src="images/cars/hala_web_image_2.jpg" alt="">
-                            <div class="flex gap-2 items-center mt-3">
+                            <div class="flex gap-2 max-[1024px]:justify-center items-center mt-3">
                                 <div
                                     class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                     <div class="">Daily</div>
@@ -269,27 +327,29 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-[50%]">
-                            <div class="text-[1.5rem] font-bold leading-[1]">Mercedes C200 2025</div>
-                            <ul class="list-disc text-[#939393] text-[11px] mt-4">
-                                <li class="flex items-center gap-2">
+                        <div class="w-[50%] max-[1024px]:w-full">
+                            <div class="text-[1.5rem] font-bold leading-[1] max-[1024px]:text-center">Mercedes C200 2025
+                            </div>
+                            <ul
+                                class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class="">Engine Size 1.5 L</div>
                                 </li>
-                                <li class="flex items-center gap-2">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class=""> Bluetooth Yes</div>
                                 </li>
-                                <li class="flex items-center gap-2">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class="">Cruise Control Yes</div>
                                 </li>
-                                <li class="flex items-center gap-2">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class="">Luggage Yes</div>
                                 </li>
                             </ul>
-                            <div class="flex items-center gap-4 mt-4">
+                            <div class="flex items-center max-[1024px]:justify-center gap-4 mt-4">
                                 <div
                                     class="text-white bg-[#ff000d] px-2 py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-[12px]">
                                     Send Inquiry</div>
@@ -299,17 +359,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative p-4 shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
+                <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
                     <div class="flex items-center justify-between mb-2">
                         <div
                             class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
                             in Stock</div>
                         <img src="images/cars/brand.webp" class="w-16" alt="">
                     </div>
-                    <div class="flex gap-4">
-                        <div class="w-[50%]">
+                    <div class="flex max-[1024px]:flex-col gap-4">
+                        <div class="w-[50%] max-[1024px]:w-full">
                             <img src="images/cars/hala_web_image_2.jpg" alt="">
-                            <div class="flex gap-2 items-center mt-3">
+                            <div class="flex gap-2 max-[1024px]:justify-center items-center mt-3">
                                 <div
                                     class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                     <div class="">Daily</div>
@@ -327,27 +387,29 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-[50%]">
-                            <div class="text-[1.5rem] font-bold leading-[1]">Mercedes C200 2025</div>
-                            <ul class="list-disc text-[#939393] text-[11px] mt-4">
-                                <li class="flex items-center gap-2">
+                        <div class="w-[50%] max-[1024px]:w-full">
+                            <div class="text-[1.5rem] font-bold leading-[1] max-[1024px]:text-center">Mercedes C200 2025
+                            </div>
+                            <ul
+                                class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class="">Engine Size 1.5 L</div>
                                 </li>
-                                <li class="flex items-center gap-2">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class=""> Bluetooth Yes</div>
                                 </li>
-                                <li class="flex items-center gap-2">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class="">Cruise Control Yes</div>
                                 </li>
-                                <li class="flex items-center gap-2">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class="">Luggage Yes</div>
                                 </li>
                             </ul>
-                            <div class="flex items-center gap-4 mt-4">
+                            <div class="flex items-center max-[1024px]:justify-center gap-4 mt-4">
                                 <div
                                     class="text-white bg-[#ff000d] px-2 py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-[12px]">
                                     Send Inquiry</div>
@@ -357,17 +419,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative p-4 shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
+                <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
                     <div class="flex items-center justify-between mb-2">
                         <div
                             class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
                             in Stock</div>
                         <img src="images/cars/brand.webp" class="w-16" alt="">
                     </div>
-                    <div class="flex gap-4">
-                        <div class="w-[50%]">
+                    <div class="flex max-[1024px]:flex-col gap-4">
+                        <div class="w-[50%] max-[1024px]:w-full">
                             <img src="images/cars/hala_web_image_2.jpg" alt="">
-                            <div class="flex gap-2 items-center mt-3">
+                            <div class="flex gap-2 max-[1024px]:justify-center items-center mt-3">
                                 <div
                                     class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                     <div class="">Daily</div>
@@ -385,27 +447,29 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-[50%]">
-                            <div class="text-[1.5rem] font-bold leading-[1]">Mercedes C200 2025</div>
-                            <ul class="list-disc text-[#939393] text-[11px] mt-4">
-                                <li class="flex items-center gap-2">
+                        <div class="w-[50%] max-[1024px]:w-full">
+                            <div class="text-[1.5rem] font-bold leading-[1] max-[1024px]:text-center">Mercedes C200 2025
+                            </div>
+                            <ul
+                                class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class="">Engine Size 1.5 L</div>
                                 </li>
-                                <li class="flex items-center gap-2">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class=""> Bluetooth Yes</div>
                                 </li>
-                                <li class="flex items-center gap-2">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class="">Cruise Control Yes</div>
                                 </li>
-                                <li class="flex items-center gap-2">
+                                <li class="flex items-center gap-2 ">
                                     <img src="images/cars/star.svg" class="w-3" alt="">
                                     <div class="">Luggage Yes</div>
                                 </li>
                             </ul>
-                            <div class="flex items-center gap-4 mt-4">
+                            <div class="flex items-center max-[1024px]:justify-center gap-4 mt-4">
                                 <div
                                     class="text-white bg-[#ff000d] px-2 py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-[12px]">
                                     Send Inquiry</div>
@@ -422,8 +486,9 @@
     <!--------------------------------- 1st content ------------------------------->
 
     <section>
-        <div class="container mx-auto pb-16">
-            <div class="grid grid-cols-2 items-center gap-10 w-[80%] mx-auto">
+        <div class="container mx-auto pb-16 max-[1024px]:py-10">
+            <div
+                class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
                 <div class="">
                     <div class="text-[1.7rem] leading-[1] font-bold">Welcome to Hala Drive - Your Trusted Car Rental
                         Partner in Dubai</div>
@@ -453,11 +518,12 @@
 
     <!--------------------------------- 2nd content ------------------------------->
 
-    <section class="py-16 bg-[#f2fdff]">
+    <section class="py-16 max-[1024px]:py-10 bg-[#f2fdff]">
         <div class="container mx-auto relative">
             <img src="images/sections/arrow.webp"
-                class="absolute w-fit left-0 right-0 mx-auto top-[53%] -translate-y-1/2" alt="">
-            <div class="grid grid-cols-2 items-center gap-10 w-[80%] mx-auto">
+                class="absolute w-fit left-0 right-0 mx-auto top-[53%] max-[1024px]:top-[53%] -translate-y-1/2" alt="">
+            <div
+                class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
                 <div class="">
                     <div class="text-[1.7rem] leading-[1] font-bold">Why Choose Hala Drive for Your Car Rental Needs?
                     </div>
@@ -479,7 +545,8 @@
                 </div>
                 <img src="images/sections/about-a.webp" class="h-full w-full object-cover" alt="">
             </div>
-            <div class="grid grid-cols-2 items-center gap-10 w-[80%] mx-auto pt-20">
+            <div
+                class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto pt-20">
                 <img src="images/sections/about-b.webp" class="h-full w-full object-cover" alt="">
                 <div class="">
                     <div class="text-[1.7rem] leading-[1] font-bold">Find the Best Car Rental Deals in Dubai</div>
@@ -502,7 +569,7 @@
 
     <!--------------------------------- faq ------------------------------->
 
-    <section class="w-[80%] mx-auto py-16">
+    <section class="w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
         <!-- Header -->
         <div class="flex flex-col md:flex-row md:items-center justify-between mb-10">
             <div>
@@ -605,16 +672,17 @@
 
     <!--------------------------------- 3rd content ------------------------------->
 
-    <section class="relative py-16 bg-[#f2fdff]">
-        <div class="w-[80%] mx-auto">
-            <div class="grid grid-cols-2 items-center gap-10">
+    <section class="relative py-16 max-[1024px]:py-10 bg-[#f2fdff]">
+        <div class="w-[80%] mx-auto max-[1024px]:w-[90%]">
+            <div
+                class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 max-[1024px]:gap-4 max-[1024px]:mb-6">
                 <img src="images/sections/no1.webp" alt="">
-                <div class="grid grid-cols-2 items-center gap-y-8">
+                <div class="grid grid-cols-2 items-center gap-y-8 max-[1024px]:gap-x-4">
                     <div class="flex items-center gap-4">
                         <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
                             <img src="images/sections/key2.svg" class="w-6" alt="">
                         </div>
-                        <div class="font-bold">
+                        <div class="font-bold max-[1024px]:leading-[1]">
                             Timely delivery
                         </div>
                     </div>
@@ -622,7 +690,7 @@
                         <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
                             <img src="images/sections/calculator.svg" class="w-6" alt="">
                         </div>
-                        <div class="font-bold">
+                        <div class="font-bold max-[1024px]:leading-[1]">
                             Unbeatable Rates
                         </div>
                     </div>
@@ -630,7 +698,7 @@
                         <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
                             <img src="images/sections/folder.svg" class="w-6" alt="">
                         </div>
-                        <div class="font-bold">
+                        <div class="font-bold max-[1024px]:leading-[1]">
                             Professional Staff
                         </div>
                     </div>
@@ -638,7 +706,7 @@
                         <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
                             <img src="images/sections/calender.svg" class="w-6" alt="">
                         </div>
-                        <div class="font-bold">
+                        <div class="font-bold max-[1024px]:leading-[1]">
                             Flexible Return Policy
                         </div>
                     </div>
@@ -646,7 +714,7 @@
                         <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
                             <img src="images/sections/tick.svg" class="w-6" alt="">
                         </div>
-                        <div class="font-bold">
+                        <div class="font-bold max-[1024px]:leading-[1]">
                             Online Reservation
                         </div>
                     </div>
@@ -654,7 +722,7 @@
                         <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
                             <img src="images/sections/lock.svg" class="w-6" alt="">
                         </div>
-                        <div class="font-bold">
+                        <div class="font-bold max-[1024px]:leading-[1]">
                             Fully Insured
                         </div>
                     </div>
@@ -670,10 +738,10 @@
 
     <!--------------------------------- blogs ------------------------------->
 
-    <section class="py-16 relative">
-        <div class="w-[80%] mx-auto">
+    <section class="py-16 max-[1024px]:py-10 relative">
+        <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
             <div class="text-black text-[1.5rem] font-bold">Our Blogs</div>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 gap-4">
                 <div class="relative">
                     <div class="bg-black/40 absolute inset-0 rounded-[10px]"></div>
                     <div class="bg-white text-black rounded-full py-1 px-3 absolute top-4 left-4 text-[10px]">06 Nov
@@ -713,13 +781,14 @@
     <!--------------------------------- section 4 ------------------------------->
 
     <section class="bg-[#0b0b0b] relative">
-        <div class="w-[80%] mx-auto py-16">
-            <div class="text-white flex gap-20">
-                <div class="text-[1.7rem] font-bold">Rent a Car Dubai Online Today and Enjoy These Perks</div>
+        <div class="w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
+            <div class="text-white flex max-[1024px]:flex-col max-[1024px]:gap-6 gap-20 max-[1024px]:mb-10">
+                <div class="text-[1.7rem] max-[1024px]:text-[1.3rem] max-[1024px]:leading-[1] font-bold">Rent a Car
+                    Dubai Online Today and Enjoy These Perks</div>
                 <div class="">Contact Us now for Updates and Promotions</div>
             </div>
             <div class="">
-                <form action="" class="flex gap-4">
+                <form action="" class="flex gap-4 max-[1024px]:flex-col">
                     <input class="focus:outline-none px-4 py-2" placeholder="Your Name" type="text">
                     <input class="focus:outline-none px-4 py-2" placeholder="Your Number" type="tel">
                     <input class="focus:outline-none px-4 py-2" placeholder="Your Email" type="email">
@@ -745,12 +814,13 @@
 
     <!--------------------------------- section 5 ------------------------------->
 
-    <section class="py-16">
-        <div class="w-[80%] mx-auto">
-            <div class="grid grid-cols-2 gap-10 items-center">
+    <section class="py-16 max-[1024px]:py-10">
+        <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
+            <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 max-[1024px]:gap-6 gap-10 items-center">
                 <div class="text-black font-bold">
-                    <div class="text-[3rem]">Join Over</div>
-                    <div class="text-[3rem] text-center leading-[1]">2000+ Satisfied Clients</div>
+                    <div class="text-[3rem] max-[1024px]:text-[2rem]">Join Over</div>
+                    <div class="text-[3rem] max-[1024px]:text-[2rem] text-center max-[1024px]:text-left leading-[1]">
+                        2000+ Satisfied Clients</div>
                     <div class="text-[1.5rem] leading-[1] mt-4">Experience the Quality and Excellence of Our Services
                     </div>
                 </div>
@@ -758,7 +828,7 @@
                     <img src="images/sections/hero-img.webp" alt="">
                 </div>
             </div>
-            <div class="grid grid-cols-3 gap-10">
+            <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 max-[1024px]:gap-6 gap-10">
                 <div class="">
                     <div class="text-black font-bold text-[1.7rem] mb-2">Junnalyn Sali</div>
                     <p class="text-[#939393]">The service at Hala Drive rent a car satisfied me completely during my
@@ -786,8 +856,8 @@
 
     <!--------------------------------- footer ------------------------------->
 
-    <section class="bg-[#f1f4f8] py-16">
-        <div class="w-[80%] mx-auto text-center text-[#939393]">
+    <section class="bg-[#f1f4f8] py-16 max-[1024px]:py-10">
+        <div class="w-[80%] max-[1024px]:w-[90%] mx-auto text-center text-[#939393]">
             <div class="text-black font-bold text-[1.7rem] leading-[1] mb-10">Experience Convenience, Comfort, and
                 Cost-Effective Car Rentals</div>
             <p>Customers can experience a smooth car rental UAE journey through Hala Drive. Our company offers the ideal
@@ -814,7 +884,7 @@
     <!--------------------------------- brands logo ------------------------------->
 
     <section>
-        <div class="slider-wrap w-[80%] mx-auto py-16">
+        <div class="slider-wrap w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
             <div class="swiper mySwiper1">
                 <div class="swiper-wrapper">
                     <!-- Replace src with your images -->
@@ -835,29 +905,31 @@
         </div>
     </section>
 
-    <!--------------------------------- footer ------------------------------->
+    <!--------------------------------- Features On ------------------------------->
 
     <section>
-        <div class="w-[80%] mx-auto py-8">
+        <div class="w-[80%] max-[1024px]:w-[90%] mx-auto py-8 ">
             <div class="text-center text-black font-bold text-[1.7rem] leading-[1] mb-10">Features On</div>
-            <div class="flex justify-center gap-6">
-                <img class="object-contain w-[10rem] h-[8rem]" src="images/sections/features/gulfnews.webp" alt="">
-                <img class="object-contain w-[10rem] h-[8rem]" src="images/sections/features/gulfstory.webp" alt="">
-                <img class="object-contain w-[10rem] h-[8rem]" src="images/sections/features/hiuae.webp" alt="">
-                <img class="object-contain w-[10rem] h-[8rem]" src="images/sections/features/khaleejtime.webp" alt="">
-                <img class="object-contain w-[10rem] h-[8rem]" src="images/sections/features/localuae.webp" alt="">
+            <div class="flex max-[1024px]:flex-wrap  justify-center gap-6">
+                <img class="object-contain w-[10rem] " src="images/sections/features/gulfnews.webp" alt="">
+                <img class="object-contain w-[10rem] " src="images/sections/features/gulfstory.webp" alt="">
+                <img class="object-contain w-[10rem] " src="images/sections/features/hiuae.webp" alt="">
+                <img class="object-contain w-[10rem] " src="images/sections/features/khaleejtime.webp" alt="">
+                <img class="object-contain w-[10rem] " src="images/sections/features/localuae.webp" alt="">
             </div>
         </div>
     </section>
 
     <!--------------------------------- footer ------------------------------->
 
-    <footer class="pt-[6rem] pb-[1rem] relative">
-        <img src="images/footer/footer-bg.webp" class="w-full h-full object-cover absolute inset-0 z-[-1]" alt="">
-        <div class="w-[80%] grid grid-cols-3 pb-[4rem] text-white m-auto gap-[3rem] banner-1">
+    <footer class="pt-[6rem] max-[1024px]:pt-[2rem] pb-[1rem] relative ">
+        <img src="images/footer/footer-bg.webp" class="w-full h-full object-cover absolute inset-0 z-[-1] " alt="">
+        <div
+            class="w-[80%] max-[1024px]:w-[90%] grid grid-cols-3 max-[1024px]:grid-cols-1 pb-[4rem] max-[1024px]:pb-[2rem] text-white m-auto gap-[3rem] max-[1024px]:gap-4 banner-1">
             <div class="">
                 <a href="#">
-                    <img src="./images/logo/Hala-Drive-resize.webp" alt="" class="max-[1000px]:m-auto">
+                    <img src="./images/logo/Hala-Drive-resize.webp" alt=""
+                        class="max-[1000px]:m-auto max-[1024px]:w-[100px]">
                 </a>
                 <p class=" py-4">Your trusted partner for affordable and luxury car rentals across Dubai and the UAE.
                     Drive with confidence and convenience every time with well-maintained vehicles, flexible booking
@@ -909,7 +981,7 @@
                 </div>
             </div>
             <div class="flex gap-[2rem] banner-1 first-1">
-                <ul class="flex flex-col gap-5 mt-6">
+                <ul class="flex flex-col gap-5 mt-6 max-[1024px]:mt-0">
                     <span class="font-bold text-[1.5rem] border-l-2 pl-2 border-[#ff000d] text-white ">Quick
                         Links</span>
                     <div class="grid grid-cols-2 gap-4 mt-6">
@@ -923,10 +995,10 @@
                 </ul>
             </div>
             <div class="flex gap-[2rem] banner-1 first-1">
-                <ul class="flex flex-col gap-5 mt-6">
+                <ul class="flex flex-col gap-5 mt-6 max-[1024px]:mt-4">
                     <span class="font-bold text-[1.5rem] border-l-2 pl-2 border-[#ff000d] text-white ">Contact
                         Details</span>
-                    <div class="flex flex-col gap-2 mt-6">
+                    <div class="flex flex-col gap-2 mt-6 max-[1024px]:mt-2">
                         <li class="flex items-center gap-2">
                             <div class="bg-[#ff000d] p-1 rounded-full">
                                 <img src="images/icons/phone.svg" class="w-4" alt="">
@@ -954,12 +1026,32 @@
                 </ul>
             </div>
         </div>
-        <div class="text-center mb-3 text-white">© <a class="border-b border-white" href="https://haladrive.ae">HALA Drive</a>, All Right Reserved. Powered By <a target="_blank" class="border-b border-white" href="https://quickdigitals.ae">Quick Digitals</a></div>
+        <div class="text-center mb-3 text-white">© <a class="border-b border-white" href="https://haladrive.ae">HALA
+                Drive</a>, All Right Reserved. Powered By <a target="_blank" class="border-b border-white"
+                href="https://quickdigitals.ae">Quick Digitals</a></div>
     </footer>
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        menuBtn.addEventListener("click", () => {
+            if (mobileMenu.classList.contains("max-[1024px]:top-[-100%]")) {
+                // Menu hidden hai → show karo
+                mobileMenu.classList.remove("max-[1024px]:top-[-100%]");
+                mobileMenu.classList.add("!top-0");
+            } else {
+                // Menu visible hai → hide karo
+                mobileMenu.classList.remove("!top-0");
+                mobileMenu.classList.add("max-[1024px]:top-[-100%]");
+            }
+        });
+    </script>
+
 
     <script>
         const swiper = new Swiper(".mySwiper", {
@@ -1001,9 +1093,9 @@
             },
             // Responsive breakpoints
             breakpoints: {
-                320: { slidesPerView: 1 },
-                640: { slidesPerView: 2 },
-                900: { slidesPerView: 3 },
+                320: { slidesPerView: 4 },
+                640: { slidesPerView: 4 },
+                900: { slidesPerView: 4 },
                 1200: { slidesPerView: 4 }
             },
             speed: 700,
@@ -1021,6 +1113,7 @@
             });
         });
     </script>
+
 
 </body>
 
