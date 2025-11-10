@@ -67,17 +67,17 @@
                     class="relative group before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 first:before:hidden">
                     <a href="#" class="transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 block">Brands</a>
                     <ul
-                        class="absolute left-0 mt-3 bg-[#e9ecef] rounded-md w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
-                        <li><a href="#"
+                        class="absolute left-0 mt-3 z-[999] bg-[#e9ecef] rounded-md w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
+                        <li><a href="/src/car.html"
                                 class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Porsche</a>
                         </li>
-                        <li><a href="#"
+                        <li><a href="/src/car.html"
                                 class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Mercedes</a>
                         </li>
-                        <li><a href="#"
+                        <li><a href="/src/car.html"
                                 class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Lamborghini</a>
                         </li>
-                        <li><a href="#"
+                        <li><a href="/src/car.html"
                                 class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Rolls
                                 Royce</a></li>
                     </ul>

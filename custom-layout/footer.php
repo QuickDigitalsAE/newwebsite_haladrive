@@ -59,12 +59,12 @@
                     <span class="font-bold text-[1.5rem] border-l-2 pl-2 border-[#ff000d] text-white ">Quick
                         Links</span>
                     <div class="grid grid-cols-2 gap-4 mt-6">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Cars</a></li>
+                        <li><a href="/src">Home</a></li>
+                        <li><a href="/src/about.html">About Us</a></li>
+                        <li><a href="/src/car.html">Cars</a></li>
                         <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Our Locations</a></li>
+                        <li><a href="/src/faq.html">FAQ</a></li>
+                        <li><a href="/src/location.html">Our Locations</a></li>
                     </div>
                 </ul>
             </div>

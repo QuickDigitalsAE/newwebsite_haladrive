@@ -596,6 +596,10 @@ video {
   visibility: hidden;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -666,6 +670,10 @@ video {
 
 .z-\[9999\] {
   z-index: 9999;
+}
+
+.z-\[999\] {
+  z-index: 999;
 }
 
 .col-span-1 {
@@ -748,6 +756,14 @@ video {
 
 .mt-10 {
   margin-top: 2.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
 }
 
 .block {
@@ -1417,6 +1433,10 @@ video {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-\[1\.6rem\] {
+  font-size: 1.6rem;
 }
 
 .font-bold {
