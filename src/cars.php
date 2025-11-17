@@ -1,0 +1,186 @@
+<?php 
+// Start session for token storage
+session_start();
+
+// Include the API handler
+require_once 'apis/ApiHandler.php';
+
+// Initialize API handler
+$api = new ApiHandler();
+
+// $slug = $_GET['slug'] ?? '';
+
+$url = 'http://localhost/haladrive/src/cars/geely-emgrand-2026';
+
+$path = parse_url($url, PHP_URL_PATH);
+$slug = basename($path);
+
+?>
+
+<?php include_once('header.php');?>
+
+<?php
+try {
+    $carSingleContent = $api->loadData('car', 'single', [], $slug);
+    
+    if ($carSingleContent['success']) {
+        $carSingleContentData = $carSingleContent['data']["data"];
+        // print_r($carSingleContentData["car"]["name_en"]);
+    }
+} catch (Exception $e) {
+    echo "Error loading featured products: " . $e->getMessage();
+}
+?>
+
+<?php
+$banner_image = "images/about/top-banner.webp";
+$banner_title = "Cars";
+$banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!";
+include_once('banner.php');
+?>
+
+    <!--------------------------------- cars ------------------------------->
+
+    <section class="relative py-16 max-[1024px]:py-10">
+        <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
+            <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 gap-10">
+                <div class="col-span-2 max-[1024px]:col-span-1 flex flex-col gap-10">
+                    <div class="relative p-4 rounded-[10px] ">
+                        <div class="">
+                            <div class="text-black text-[2rem]"><?php echo $carSingleContentData["car"]["name_en"]; ?></div>
+                            <div class="w-[100%] max-[1024px]:w-full">
+                                <img src="<?php echo $carSingleContentData["car"]["image_url"]; ?>" alt="">
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="text-black text-[1.5rem]">Car Features</div>
+                            <div class="grid grid-cols-4 max-[1024px]:grid-cols-2 gap-2">
+                                <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
+                                    <div class="">Engine Size</div>
+                                    <div class=""><?php echo $carSingleContentData["car"]["engine"]; ?></div>
+                                </div>
+                                <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
+                                    <div class="">Bluetooth</div>
+                                    <div class=""><?php echo $carSingleContentData["car"]["bluetooth"]; ?></div>
+                                </div>
+                                <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
+                                    <div class="">Cruise Control</div>
+                                    <div class=""><?php echo $carSingleContentData["car"]["cruise"]; ?></div>
+                                </div>
+                                <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
+                                    <div class="">Luggage</div>
+                                    <div class=""><?php echo $carSingleContentData["car"]["luggage"]; ?></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-black mt-6 string">
+                            <?php echo $carSingleContentData["car"]["description_en"]; ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
+                        <div class="mb-4 text-[1.3rem]">Rent Cost</div>
+                        <div class="flex gap-2 justify-center items-center mt-3">
+                            <div
+                                class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                <div class="">Daily</div>
+                                <div class="font-bold"><?php echo $carSingleContentData["car"]["price_daily"]; ?></div>
+                            </div>
+                            <div
+                                class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                <div class="">Weekly</div>
+                                <div class="font-bold"><?php echo $carSingleContentData["car"]["price_weekly"]; ?></div>
+                            </div>
+                            <div
+                                class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                <div class="">Monthly</div>
+                                <div class="font-bold"><?php echo $carSingleContentData["car"]["price_weekly"]; ?></div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <div
+                                class="text-white bg-[#ff000d] px-[5rem] py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-center mx-auto w-fit">
+                                Send Inquiry</div>
+                        </div>
+                    </div>
+                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
+                        <div class="text-[1rem] text-[#939393]">Availability</div>
+                        <div class="">In Stock</div>
+                    </div>
+                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
+                        <div class="text-[1rem] text-[#939393]">Security Amount</div>
+                        <div class="">1000 AED</div>
+                    </div>
+                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
+                        <div class="text-[1rem] text-[#939393]">Security Type</div>
+                        <div class="">Card only</div>
+                    </div>
+                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
+                        <div class="text-[1rem] text-[#939393]">Payment Type</div>
+                        <div class="">Credit Card, Cash</div>
+                    </div>
+                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
+                        <div class="text-[1rem] text-[#939393]">24x7 Customer Support</div>
+                        <div class="">Yes</div>
+                    </div>
+                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
+                        <div class="text-[1rem] text-[#939393]">Free Delivery</div>
+                        <div class="">Yes</div>
+                    </div>
+                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
+                        <div class="text-[1rem] text-[#939393]">Free Cancellation</div>
+                        <div class="">Yes</div>
+                    </div>
+                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
+                        <div class="text-[1rem] text-[#939393]">Insurance</div>
+                        <div class="">Yes</div>
+                    </div>
+                    <div class="text-black bg-[#f1f4f8] px-4 py-2 mb-6">
+                        <div class="">Requirements for UAE Residents</div>
+                        <ul class="mt-4">
+                            <li class="flex items-center gap-2">
+                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <div class="text-[#939393]">Copy of Passport</div>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <div class="text-[#939393]">Copy of Residential Visa</div>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <div class="text-[#939393]">UAE Driving License</div>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <div class="text-[#939393]">Copy of Emirates ID</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-black bg-[#f1f4f8] px-4 py-2 mb-6">
+                        <div class="">Requirements for Tourists</div>
+                        <ul class="mt-4">
+                            <li class="flex items-center gap-2">
+                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <div class="text-[#939393]">Copy of Passport</div>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <div class="text-[#939393]">Copy of Visit Visa</div>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <div class="text-[#939393]">US, Canada, EU, GCC or international Driving License</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!--------------------------------- footer ------------------------------->
+
+<?php include_once('footer.php');?>
