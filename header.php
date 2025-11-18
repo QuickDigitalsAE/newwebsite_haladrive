@@ -1,3 +1,13 @@
+<?php
+// Enable error logging
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+ini_set('error_log', dirname(__FILE__) . '/php_errors.log');
+error_reporting(E_ALL);
+
+// Your existing code below...
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
