@@ -8,7 +8,7 @@
     <meta property="og:description"
         content="Build, grow, and succeed your business with a trusted and leading e-commerce website design agency in Dubai. Boost the online presence of your business." />
     <meta name="robots" content="noindex, nofollow">
-    <base href="http://localhost/haladrive/">
+    <base href="https://new.haladrive.ae/">
     <title>Hala Drive</title>
     <!-- <link rel="stylesheet" href="<?php echo $base_url; ?>output.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>style.css"> -->
