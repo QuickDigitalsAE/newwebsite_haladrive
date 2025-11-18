@@ -1,36 +1,48 @@
-<?php 
-// Start session for token storage
+<?php
 session_start();
-
-// Include the API handler
 require_once 'apis/ApiHandler.php';
-
-// Initialize API handler
 $api = new ApiHandler();
-?>
 
-<?php include_once('header.php');?>
 
-<?php
-try {
-    // This will be processed before rendering the page
-    $carContent = $api->loadData('car', 'main', []);
-    
-    if ($carContent['success']) {
-        // Use the data in your page
-        $carContentData = $carContent['data']["data"];
-        // print_r($carContentData["cars"]);
-    }
-} catch (Exception $e) {
-    echo "Error loading featured products: " . $e->getMessage();
+// $slug = $_GET['slug'] ?? null;
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$host = $_SERVER['HTTP_HOST'];
+$uri = $_SERVER['REQUEST_URI'];
+
+$fullUrl = $protocol . $host . $uri;
+
+$slug = basename(parse_url($uri, PHP_URL_PATH));
+
+
+include_once('header.php');
+
+if (!$slug) {
+    echo "Brand not found.";
+    include_once('footer.php');
+    exit;
 }
-?>
-<?php
-$banner_image = "images/about/top-banner.webp";
-$banner_title = "Explore Our Signature Collection of Car Marvels";
-$banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!";
-include_once('banner.php');
-?>
+
+
+try {
+    $brandContent = $api->loadData('brand', 'brand', [], $slug);
+    if ($brandContent['success']) {
+        $brandData = $brandContent['data']["data"];
+        // print_r($brandData);
+    } else {
+        echo "Brand data not found.";
+        include_once('footer.php');
+        exit;
+    }
+    } catch (Exception $e) {
+        echo "Error loading brand data: " . $e->getMessage();
+        include_once('footer.php');
+        exit;
+    }
+    $banner_image = "images/about/top-banner.webp";
+    $banner_title = "Explore Our Signature Collection of Car Marvels";
+    $banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!";
+    include_once('banner.php');
+    ?>
 
     <!--------------------------------- cars ------------------------------->
 
@@ -112,13 +124,13 @@ include_once('banner.php');
                     </div>
                 </div>
                 <div class="col-span-3 max-[1024px]:col-span-1 flex flex-col gap-10">
-                    <?php foreach($carContentData["cars"]["data"] as $car): ?>
+                    <?php foreach($brandData["cars"]["data"] as $car): ?>
                     <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
                         <div class="flex items-center justify-between mb-2">
                             <div
                                 class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
                                 in Stock</div>
-                            <img src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="">
+                            <img src="<?php echo $brandData["brand"]["logo_url"]; ?>" class="w-16" alt="">
                         </div>
                         <div class="flex items-center max-[1024px]:flex-col gap-4">
                             <a href='cars/<?php echo $car["slug"]; ?>' class="w-[50%] max-[1024px]:w-full">
@@ -172,6 +184,9 @@ include_once('banner.php');
                     </div>
                     <?php endforeach; ?>
                 </div>
+                <!-- <div class="text-black mt-6 string">
+                    <?php echo $brandData["cars"]["data"]["description_en"]; ?>
+                </div> -->
             </div>
         </div>
         </div>

@@ -1,7 +1,0 @@
-RewriteEngine On
-
-RewriteBase /haladrive/src/
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^cars/([^/]+)/?$ /haladrive/src/cars.php?slug=$1 [L,QSA]

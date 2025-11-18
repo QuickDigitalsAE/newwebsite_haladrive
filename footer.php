@@ -64,11 +64,11 @@
                         Links</span>
                     <div class="grid grid-cols-2 gap-4 mt-6">
                         <li><a href="">Home</a></li>
-                        <li><a href="about.php">About Us</a></li>
-                        <li><a href="car.php">Cars</a></li>
-                        <li><a href="privacypolicy.php">Privacy Policy</a></li>
-                        <li><a href="faq.php">FAQ</a></li>
-                        <li><a href="location.php">Our Locations</a></li>
+                        <li><a href="about">About Us</a></li>
+                        <li><a href="car">Cars</a></li>
+                        <li><a href="privacy-policy">Privacy Policy</a></li>
+                        <li><a href="faq">FAQ</a></li>
+                        <li><a href="location">Our Locations</a></li>
                     </div>
                 </ul>
             </div>

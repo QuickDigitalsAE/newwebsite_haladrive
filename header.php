@@ -8,7 +8,7 @@
     <meta property="og:description"
         content="Build, grow, and succeed your business with a trusted and leading e-commerce website design agency in Dubai. Boost the online presence of your business." />
     <meta name="robots" content="noindex, nofollow">
-    <base href="https://new.haladrive.ae/src/">
+    <base href="http://localhost/haladrive/">
     <title>Hala Drive</title>
     <!-- <link rel="stylesheet" href="<?php echo $base_url; ?>output.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>style.css"> -->
@@ -83,7 +83,7 @@
                 </li>
                 <li
                     class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
-                    <a href="about.php"
+                    <a href="about"
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">About
                         Us</a>
                 </li>
@@ -92,39 +92,38 @@
                     <a href="#"
                         class="transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 max-[1024px]:py-2 block">Brands</a>
                     <ul
-                        class="absolute left-0 mt-3 z-[999] bg-[#e9ecef] rounded-md w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
-                        <li><a href="car.php"
-                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Porsche</a>
+                        class="absolute left-0 mt-3 z-[999] bg-[#e9ecef] rounded-md grid grid-cols-2 dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
+                        <li><a href="brands/rent-a-bmw"
+                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">BMW</a>
                         </li>
-                        <li><a href="car.php"
+                        <li><a href="brands/rent-a-nissan"
+                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Nissan</a>
+                        </li>
+                        <li><a href="brands/rent-a-mercedes"
                                 class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Mercedes</a>
                         </li>
-                        <li><a href="car.php"
-                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Lamborghini</a>
-                        </li>
-                        <li><a href="car.php"
-                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Rolls
-                                Royce</a></li>
+                        <li><a href="brands/rent-a-ford"
+                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Ford</a></li>
                     </ul>
                 </li>
                 <li
                     class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
-                    <a href="car.php"
+                    <a href="car"
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">Cars</a>
                 </li>
                 <li
                     class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
-                    <a href="faq.php"
+                    <a href="faq"
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">FAQ</a>
                 </li>
                 <li
                     class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
-                    <a href="blogs.php"
+                    <a href="blogs"
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">Blogs</a>
                 </li>
                 <li
                     class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
-                    <a href="location.php"
+                    <a href="locations"
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">Our
                         Locations</a>
                 </li>
@@ -133,21 +132,18 @@
                     <a href="#"
                         class="transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 max-[1024px]:py-2 block">Lease</a>
                     <ul
-                        class="absolute z-[999] left-0 mt-3 bg-[#e9ecef] rounded-md w-44 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
-                        <li><a href="car.php"
-                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Short
-                                Term Lease</a></li>
-                        <li><a href="car.php"
-                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Long
-                                Term Lease</a></li>
-                        <li><a href="car.php"
-                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Corporate
-                                Lease</a></li>
+                        class="absolute z-[999] left-0 mt-3 bg-[#e9ecef] rounded-md dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
+                        <li><a href="lease/monthly-rent-a-car"
+                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Cheap Rent a car</a></li>
+                        <li><a href="lease/monthly-rent-a-car"
+                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Monthly Rent a car</a></li>
+                        <li><a href="lease/economy-car-rental"
+                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Economy Car Rental</a></li>
                     </ul>
                 </li>
                 <li
                     class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
-                    <a href="contact.php"
+                    <a href="contact"
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">Contact</a>
                 </li>
             </ul>
