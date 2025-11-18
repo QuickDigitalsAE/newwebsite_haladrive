@@ -1,22 +1,22 @@
-# RewriteEngine On
-
-# RewriteBase /haladrive/src/
-
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteRule ^cars/([^/]+)/?$ /haladrive/src/cars.php?slug=$1 [L,QSA]
-
-
 RewriteEngine On
-RewriteBase /
 
-# Remove index.php access (optional but recommended)
-RewriteCond %{THE_REQUEST} /index\.php
-RewriteRule ^index\.php$ / [L,R=301]
-
-# Rewrite /cars/slug → /src/cars.php?slug=xxx
+# Single car page: /cars/slug
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^cars/([^/]+)/?$ cars.php?slug=$1 [L,QSA]
+RewriteRule ^cars/([^/]+)/?$ car.php?slug=$1 [L,QSA]
+
+# Brands page: /brands/slug
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^brands/([^/]+)/?$ brands.php?slug=$1 [L,QSA]
-RewriteRule ^lease/([^/]+)/?$ lease.php?slug=$1 [L,QSA]
+
+# Main car page: /car
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^car/?$ car.php [L,QSA]
+
+# General rule for all other PHP files: /pagename
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L,QSA]
