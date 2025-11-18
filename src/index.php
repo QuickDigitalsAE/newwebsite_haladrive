@@ -104,7 +104,7 @@ try {
                     <img src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="">
                     </div>
                     <div class="flex max-[1024px]:flex-col gap-4">
-                        <a href='<?php echo $car["slug"]; ?>' class="w-[50%] max-[1024px]:w-full">
+                        <a href='cars/<?php echo $car["slug"]; ?>' class="w-[50%] max-[1024px]:w-full">
                             <img src="<?php echo $car["image_url"]; ?>" alt="<?php echo $car["name_en"]; ?>">
                             <div class="flex gap-2 max-[1024px]:justify-center items-center mt-3">
                                 <div
