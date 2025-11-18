@@ -17,6 +17,6 @@ RewriteRule ^index\.php$ / [L,R=301]
 # Rewrite /cars/slug → /src/cars.php?slug=xxx
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^cars/([^/]+)/?$ src/cars.php?slug=$1 [L,QSA]
-RewriteRule ^brands/([^/]+)/?$ src/brands.php?slug=$1 [L,QSA]
-RewriteRule ^lease/([^/]+)/?$ src/lease.php?slug=$1 [L,QSA]
+RewriteRule ^cars/([^/]+)/?$ /cars.php?slug=$1 [L,QSA]
+RewriteRule ^brands/([^/]+)/?$ /brands.php?slug=$1 [L,QSA]
+RewriteRule ^lease/([^/]+)/?$ /lease.php?slug=$1 [L,QSA]
