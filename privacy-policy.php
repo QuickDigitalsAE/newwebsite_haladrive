@@ -28,7 +28,7 @@ try {
 
 
 <?php
-$banner_image = "images/about/top-banner.webp";
+$banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = "Privacy Policy";
 include_once('banner.php');
 ?>

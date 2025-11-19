@@ -1,7 +1,7 @@
 <?php include_once('header.php');?>
 
 <?php
-$banner_image = "images/about/top-banner.webp";
+$banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = "Contact Us";
 $banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!";
 include_once('banner.php');

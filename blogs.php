@@ -19,7 +19,7 @@ if ($slug) {
         echo "Error loading car details: " . $e->getMessage();
     }
 
-    $banner_image = "images/about/top-banner.webp";
+    $banner_image = "$imagePath/about/top-banner.webp";
     $banner_title = 'Blogs';
     // $banner_subtitle = "Top rated car rental in Dubai. Low prices & great deals!";
     include_once('banner.php');
@@ -62,7 +62,7 @@ try {
     echo "Error loading car list: " . $e->getMessage();
 }
 
-$banner_image = "images/about/top-banner.webp";
+$banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = "Explore Our Signature Collection";
 $banner_subtitle = "Top rated car rental in Dubai!";
 include_once('banner.php');
