@@ -216,11 +216,11 @@ include_once('banner.php');
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
                         <div class="mb-4 text-[1.3rem]">Types of cars</div>
                         <div class="grid grid-cols-2 gap-2 font-semibold text-[12px]">
-                            <div class="bg-white border border-[#b8101f] py-2 px-4">Economy</div>
-                            <div class="bg-white border border-[#b8101f] py-2 px-4">SUV</div>
-                            <div class="bg-white border border-[#b8101f] py-2 px-4">Midsize</div>
-                            <div class="bg-white border border-[#b8101f] py-2 px-4">Featured</div>
-                            <div class="bg-white border border-[#b8101f] py-2 px-4">Crossover</div>
+                            <a href='cars?sort=Economy&id=1' class="bg-white border border-[#b8101f] py-2 px-4">Economy</a>
+                            <a href='cars?sort=SUV&id=2' class="bg-white border border-[#b8101f] py-2 px-4">SUV</a>
+                            <a href='cars?sort=Midsize&id=3' class="bg-white border border-[#b8101f] py-2 px-4">Midsize</a>
+                            <a href='cars?sort=Featured&id=4' class="bg-white border border-[#b8101f] py-2 px-4">Featured</a>
+                            <a href='cars?sort=Crossover&id=5' class="bg-white border border-[#b8101f] py-2 px-4">Crossover</a>
                         </div>
                     </div>
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
