@@ -1,5 +1,15 @@
 RewriteEngine On
 
+# ----------------- ARABIC HOME -----------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ar/?$ index.php?lang=ar [L,QSA]
+
+# ----------------- ENGLISH HOME -----------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^$ index.php?lang=en [L,QSA]
+
 # Direct slug → location.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
