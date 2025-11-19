@@ -97,10 +97,11 @@ error_reporting(E_ALL);
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">About
                         Us</a>
                 </li>
-                <li
-                    class="relative group before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
-                    <a href="#"
-                        class="transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 max-[1024px]:py-2 block">Brands</a>
+                <li class="relative group before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                    <div class="flex items-center gap-1 transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 max-[1024px]:py-2">
+                        <a href="#" class="">Brands</a>
+                        <img class='z-[999] icon_dropdown' src="images/icons/arrow-down.svg" alt="">
+                    </div>
                     <ul
                         class="absolute left-0 mt-3 z-[999] bg-[#e9ecef] rounded-md grid grid-cols-2 dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                         <li><a href="brands/rent-a-bmw"
@@ -137,10 +138,11 @@ error_reporting(E_ALL);
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">Our
                         Locations</a>
                 </li>
-                <li
-                    class="relative group before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
-                    <a href="#"
-                        class="transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 max-[1024px]:py-2 block">Lease</a>
+                <li class="relative group before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                    <div class="flex items-center gap-1 transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 max-[1024px]:py-2">
+                        <a href="#" class="">lease</a>
+                        <img class='z-[999] icon_dropdown' src="images/icons/arrow-down.svg" alt="">
+                    </div>
                     <ul
                         class="absolute z-[999] left-0 mt-3 bg-[#e9ecef] rounded-md dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                         <li><a href="lease/monthly-rent-a-car"
