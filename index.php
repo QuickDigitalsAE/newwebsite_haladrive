@@ -357,7 +357,7 @@ try {
             <div class="text-black text-[1.5rem] font-bold">Our Blogs</div>
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 gap-4">
                 <?php foreach($homeContentData["blogs"] as $blog): ?>
-                <a href="bloginner.php" class="relative">
+                <a href="blogs/<?php echo $blog["slug"]; ?>" class="relative">
                     <div class="bg-black/40 absolute inset-0 rounded-[10px]"></div>
                     <div class="bg-white text-black rounded-full py-1 px-3 absolute top-4 left-4 text-[10px]"><?php echo $blog["blog_schedule"]; ?>
                     </div>
