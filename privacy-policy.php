@@ -38,7 +38,7 @@ include_once('banner.php');
 
     <section class="w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
         <div class="">
-            <?php echo $privacyPolicyContentData["policy"]["privacy_policy_en"]; ?>
+            <?php echo $privacyPolicyContentData["policy"]["privacy_policy_{$lang}"]; ?>
         </div>
     </section>
 

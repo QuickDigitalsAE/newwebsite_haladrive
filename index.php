@@ -36,8 +36,8 @@ try {
                     <picture>
                         <source srcset="images/banner/mobile-slider-1.webp" type="image/webp"
                             media="(max-width: 768px)">
-                        <source srcset="<?php echo $banner["image_en_url"]; ?>" type="image/webp" media="(min-width: 769px)">
-                        <img src="<?php echo $banner["image_en_url"]; ?>" alt="Banner" class="w-full h-auto object-cover">
+                        <source srcset="<?php echo $banner["image_{$lang}_url"]; ?>" type="image/webp" media="(min-width: 769px)">
+                        <img src="<?php echo $banner["image_{$lang}_url"]; ?>" alt="Banner" class="w-full h-auto object-cover">
                     </picture>
                 </div>
                 <?php endforeach; ?>
@@ -105,7 +105,7 @@ try {
                     </div>
                     <div class="flex max-[1024px]:flex-col gap-4">
                         <a href='cars/<?php echo $car["slug"]; ?>' class="w-[50%] max-[1024px]:w-full">
-                            <img src="<?php echo $car["image_url"]; ?>" alt="<?php echo $car["name_en"]; ?>">
+                            <img src="<?php echo $car["image_url"]; ?>" alt="<?php echo $car["name_{$lang}"]; ?>">
                             <div class="flex gap-2 max-[1024px]:justify-center items-center mt-3">
                                 <div
                                     class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
@@ -125,7 +125,7 @@ try {
                             </div>
                         </a>
                         <div class="w-[50%] max-[1024px]:w-full">
-                            <div class="text-[1.5rem] font-bold leading-[1] max-[1024px]:text-center"><?php echo $car["name_en"]; ?>
+                            <div class="text-[1.5rem] font-bold leading-[1] max-[1024px]:text-center"><?php echo $car["name_{$lang}"]; ?>
                             </div>
                             <ul
                                 class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
@@ -273,11 +273,11 @@ try {
             <div class="border border-gray-200 bg-[#f7fdff] rounded-md overflow-hidden">
                 <button
                     class="faq-toggle w-full text-left flex justify-between items-center px-5 py-4 font-medium text-gray-700">
-                    <span><?php echo $faqs["question_en"]; ?></span>
+                    <span><?php echo $faqs["question_{$lang}"]; ?></span>
                     <span class="text-2xl font-bold text-gray-400">+</span>
                 </button>
                 <div class="faq-content hidden px-5 pb-4 text-gray-600">
-                   <?php echo $faqs["answer_en"]; ?>
+                   <?php echo $faqs["answer_{$lang}"]; ?>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -361,8 +361,8 @@ try {
                     <div class="bg-black/40 absolute inset-0 rounded-[10px]"></div>
                     <div class="bg-white text-black rounded-full py-1 px-3 absolute top-4 left-4 text-[10px]"><?php echo $blog["blog_schedule"]; ?>
                     </div>
-                    <img src="<?php echo $blog["image_url"]; ?>" class="rounded-[10px]" alt="<?php echo $blog["img_alt_en"]; ?>">
-                    <div class="text-white text-[1rem] absolute bottom-4 px-4"><?php echo $blog["title_en"]; ?>
+                    <img src="<?php echo $blog["image_url"]; ?>" class="rounded-[10px]" alt="<?php echo $blog["img_alt_{$lang}"]; ?>">
+                    <div class="text-white text-[1rem] absolute bottom-4 px-4"><?php echo $blog["title_{$lang}"]; ?>
                     </div>
                 </a>
                 <?php endforeach; ?>

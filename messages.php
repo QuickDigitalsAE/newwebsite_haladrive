@@ -164,7 +164,7 @@ return [
     'locations_seo_brief' => 'Our Locations | Haladrive',
     'contact_seo_title' => 'Whispers of Connection: Reach Out to Haladrive.ae',
     'contact_seo_brief' => 'Contact Us',
-    'flag_en' => 'Flag',
+    'flag_{$lang}' => 'Flag',
     'flag_ar' => 'Flag',
     'logo' => 'Logo',
     'mobile_slider1' => 'Highlights',

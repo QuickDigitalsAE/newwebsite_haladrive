@@ -43,7 +43,7 @@ include_once('banner.php');
                 <?php foreach($locationsContentData["locations"] as $location): ?>
                     <a href="<?php echo $location["slug"]; ?>" class="bg-[#f7f7f7] text-black relative text-center py-6 overflow-hidden">
                         <span class="inline-block w-4 h-4 absolute bg-[#ff000d] top-0 right-0"></span>
-                        <div class="px-4 leading-[1]"><?php echo $location["location_en"]; ?></div>
+                        <div class="px-4 leading-[1]"><?php echo $location["location_{$lang}"]; ?></div>
                     </a>
                 <?php endforeach; ?>
             </div>

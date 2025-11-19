@@ -5,11 +5,38 @@ ini_set('log_errors', 1);
 ini_set('error_log', dirname(__FILE__) . '/php_errors.log');
 error_reporting(E_ALL);
 
-// Your existing code below...
+$lang = 'en'; // default
+$uri = $_SERVER['REQUEST_URI'];
+
+// Local base path
+$base = '/haladrive/src';
+$cleanUri = $uri;
+if (strpos($uri, $base) === 0) {
+    $cleanUri = substr($uri, strlen($base));
+}
+
+// Determine language
+if (preg_match('#^/ar/#', $cleanUri)) {
+    $lang = 'ar';
+}
+
+// Body direction
+$dir = ($lang === 'ar') ? 'rtl' : 'ltr';
+
+// English URL: remove /ar/
+$englishUrl = preg_replace('#/ar/#', '/', $cleanUri);
+$englishUrl = $base . $englishUrl;
+
+// Arabic URL: add /ar/ if not already
+if ($lang === 'ar') {
+    $arabicUrl = $uri; // already Arabic
+} else {
+    $arabicUrl = $base . '/ar' . $cleanUri;
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= $lang ?>" dir="<?= $dir ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -38,7 +65,7 @@ error_reporting(E_ALL);
 
     <!--------------------------------- header ------------------------------->
 
-    <header class="relative">
+   <header class="relative">
         <div class="bg-black py-3 px-6 flex items-center z-[9999] min-[1023px]:hidden relative justify-between">
             <img src="images/logo/Hala-Drive-resize.webp" class="w-[80px] " alt="">
             <div class="flex items-center gap-4">
@@ -48,11 +75,11 @@ error_reporting(E_ALL);
             </div>
         </div>
         <a href="" class="z-[9999]">
-<img src="images/logo/Hala-Drive-resize.webp"
-            class="absolute top-[40%] -translate-y-1/2 left-10 w-[110px] max-[1023px]:hidden" alt="">
+            <img src="images/logo/Hala-Drive-resize.webp"
+            class="absolute top-[40%] ar_logo -translate-y-1/2 left-10 w-[110px] max-[1023px]:hidden" alt="">
         </a>
-        <div class="flex justify-between items-center container mx-auto py-2 max-[1024px]:hidden">
-            <div class="w-[85%] ml-auto flex items-center justify-between">
+        <div class="flex ar_header justify-between items-center container mx-auto py-2 max-[1024px]:hidden">
+            <div class="w-[85%] ar_ml ml-auto flex items-center justify-between">
                 <ul class="flex items-center gap-5 ">
                     <li class="flex items-center gap-2 max-[1000px]:ml-auto">
                         <div class="bg-[#ff000d] py-[.2rem] px-[.3rem] flex items-center justify-center -skew-x-12">
@@ -65,16 +92,14 @@ error_reporting(E_ALL);
                     </li>
                 </ul>
                 <div class="flex items-center gap-3">
-                    <div
-                        class="flex items-center gap-2 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-4 py-2 bg-white">
+                    <a href="<?= $englishUrl; ?>" class="flex items-center gap-2 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-4 py-2 bg-white">
                         <img src="images/flags/flag-en.webp" alt="" class="w-6">
-                        <div class="">English</div>
-                    </div>
-                    <div
-                        class="flex items-center gap-2 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-4 py-2 bg-white">
+                        <div>English</div>
+                    </a>
+                    <a href="<?= $arabicUrl; ?>" class="flex items-center gap-2 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-4 py-2 bg-white">
                         <img src="images/flags/flag-ar.webp" alt="" class="w-6">
-                        <div class="">العربية</div>
-                    </div>
+                        <div>العربية</div>
+                    </a>
                     <div class="-skew-x-12 bg-[#ff000d] cursor-pointer text-white px-4 py-2">Send Inquiry</div>
                     <div class="bg-[#29a71a] -skew-x-12 px-2 py-2 cursor-pointer">
                         <img src="images/icons/whatsapp.svg" alt="" class="w-6">
@@ -98,7 +123,7 @@ error_reporting(E_ALL);
                         Us</a>
                 </li>
                 <li class="relative group before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
-                    <div class="flex items-center gap-1 transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 max-[1024px]:py-2">
+                    <div class="flex items-center gap-1 transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 max-[1024px]:py-2 ">
                         <a href="#" class="">Brands</a>
                         <img class='z-[999] icon_dropdown' src="images/icons/arrow-down.svg" alt="">
                     </div>

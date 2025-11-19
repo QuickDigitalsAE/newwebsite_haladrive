@@ -105,7 +105,7 @@ try {
                                             class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             <img class="w-6 h-6 me-2 rounded-full"
                                                 src="<?php echo $brands["logo_url"]; ?>" alt="audi">
-                                            <?php echo $brands["name_en"]; ?>
+                                            <?php echo $brands["name_{$lang}"]; ?>
                                         </a>
                                     </li>
                                     <?php endforeach; ?>
@@ -145,7 +145,7 @@ try {
                                 </div>
                             </a>
                             <div class="w-[50%] max-[1024px]:w-full">
-                                <div class="text-[2rem] font-bold leading-[1] max-[1024px]:text-center"><?php echo $car["name_en"]; ?></div>
+                                <div class="text-[2rem] font-bold leading-[1] max-[1024px]:text-center"><?php echo $car["name_{$lang}"]; ?></div>
                                 <ul
                                     class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
                                     <li class="flex items-center gap-2 ">
@@ -176,7 +176,7 @@ try {
                     <?php endforeach; ?>
                 </div>
                 <!-- <div class="text-black mt-6 string">
-                    <?php echo $locationData["cars"]["data"]["description_en"]; ?>
+                    <?php echo $locationData["cars"]["data"]["description_{$lang}"]; ?>
                 </div> -->
             </div>
         </div>

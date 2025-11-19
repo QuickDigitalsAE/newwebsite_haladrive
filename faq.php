@@ -60,11 +60,11 @@ include_once('banner.php');
                 <div class="border border-gray-200 bg-[#f7fdff] rounded-md overflow-hidden">
                     <button
                         class="faq-toggle w-full text-left flex justify-between items-center px-5 py-4 font-medium text-gray-700">
-                        <span><?php echo $faqs["question_en"]; ?></span>
+                        <span><?php echo $faqs["question_{$lang}"]; ?></span>
                         <span class="text-2xl font-bold text-gray-400">+</span>
                     </button>
                     <div class="faq-content hidden px-5 pb-4 text-gray-600">
-                        <?php echo $faqs["answer_en"]; ?>
+                        <?php echo $faqs["answer_{$lang}"]; ?>
                     </div>
                 </div>
             <?php endforeach; ?>

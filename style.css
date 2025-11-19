@@ -56,3 +56,23 @@ p {
 .icon_dropdown{
     width: 1.5rem;
 }
+
+.swiper{
+    direction: ltr;
+}
+
+html[dir="rtl"] .ar_header{
+    flex-direction: row-reverse;
+}
+html[dir="rtl"] .ar_ml{
+    margin-right: auto;
+    margin-left: unset;
+}
+html[dir="rtl"] .ar_logo{
+    right: 2.5rem;
+    left: unset;
+}
+html[dir="rtl"] .before\:-left-3::before {
+    left: unset;
+    right: -0.75rem;
+}
