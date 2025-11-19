@@ -83,7 +83,7 @@ $imagePath    = $liveBaseUrl . '/images/';
                 <ul class="flex items-center gap-5 ">
                     <li class="flex items-center gap-2 max-[1000px]:ml-auto">
                         <div class="bg-[#ff000d] py-[.2rem] px-[.3rem] flex items-center justify-center -skew-x-12">
-                            <img src="<?= $imagePath ?>images/icons/phone.svg" alt="" class="w-5">
+                            <img src="<?= $imagePath ?>icons/phone.svg" alt="" class="w-5">
                         </div>
                         <a class="text-[#ff000d]" href="tel:+971501837112" class="">+971501837112</a>
                     </li>
