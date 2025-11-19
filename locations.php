@@ -41,7 +41,7 @@ include_once('banner.php');
             <div class="text-black font-bold text-[2.5rem] leading-[1] mb-8">A Journey through the Enchanting Locations of Haladrive.ae</div>
             <div class="grid grid-cols-5 items-center max-[1024px]:grid-cols-1 gap-6">
                 <?php foreach($locationsContentData["locations"] as $location): ?>
-                    <a href="location/<?php echo $location["slug"]; ?>" class="bg-[#f7f7f7] text-black relative text-center py-6 overflow-hidden">
+                    <a href="<?php echo $location["slug"]; ?>" class="bg-[#f7f7f7] text-black relative text-center py-6 overflow-hidden">
                         <span class="inline-block w-4 h-4 absolute bg-[#ff000d] top-0 right-0"></span>
                         <div class="px-4 leading-[1]"><?php echo $location["location_en"]; ?></div>
                     </a>
