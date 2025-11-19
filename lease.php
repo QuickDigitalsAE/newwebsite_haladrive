@@ -148,19 +148,19 @@ try {
                                 <ul
                                     class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
                                     <li class="flex items-center gap-2 ">
-                                        <img src="images/cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                         <div class="">Engine Size 1.5 L</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="images/cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                         <div class=""> Bluetooth Yes</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="images/cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                         <div class="">Cruise Control Yes</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="images/cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                         <div class="">Luggage Yes</div>
                                     </li>
                                 </ul>

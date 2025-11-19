@@ -1,7 +1,7 @@
     <!--------------------------------- footer ------------------------------->
 
     <footer class="pt-[6rem] max-[1024px]:pt-[2rem] pb-[1rem] relative ">
-        <img src="images/footer/footer-bg.webp" class="w-full h-full object-cover absolute inset-0 z-[-1] " alt="">
+        <img src="<?= $imagePath ?>footer/footer-bg.webp" class="w-full h-full object-cover absolute inset-0 z-[-1] " alt="">
         <div
             class="w-[80%] max-[1024px]:w-[90%] grid grid-cols-3 max-[1024px]:grid-cols-1 pb-[4rem] max-[1024px]:pb-[2rem] text-white m-auto gap-[3rem] max-[1024px]:gap-4 banner-1">
             <div class="">
@@ -15,17 +15,17 @@
                 <ul class="flex social gap-2">
                     <li>
                         <div class="bg-[#ff000d] p-3 rounded-full">
-                            <a href="#"><img src="images/icons/facebook.svg" class="w-6" alt=""></a>
+                            <a href="#"><img src="<?= $imagePath ?>icons/facebook.svg" class="w-6" alt=""></a>
                         </div>
                     </li>
                     <li>
                         <div class="bg-[#ff000d] p-3 rounded-full">
-                            <a href="#"><img src="images/icons/insta.svg" class="w-6" alt=""></a>
+                            <a href="#"><img src="<?= $imagePath ?>icons/insta.svg" class="w-6" alt=""></a>
                         </div>
                     </li>
                     <li>
                         <div class="bg-[#ff000d] p-3 rounded-full">
-                            <a href="#"><img src="images/icons/whatsapp.svg" class="w-6" alt=""></a>
+                            <a href="#"><img src="<?= $imagePath ?>icons/whatsapp.svg" class="w-6" alt=""></a>
                         </div>
                     </li>
                 </ul>
@@ -79,7 +79,7 @@
                     <div class="flex flex-col gap-2 mt-6 max-[1024px]:mt-2">
                         <li class="flex items-center gap-2">
                             <div class="bg-[#ff000d] p-1 rounded-full">
-                                <img src="images/icons/phone.svg" class="w-4" alt="">
+                                <img src="<?= $imagePath ?>icons/phone.svg" class="w-4" alt="">
                             </div>
                             <div class="flex gap-2 text-[#ff000d]">
                                 <a href="tel:+971501837112">+971501837112</a>
@@ -89,13 +89,13 @@
                         </li>
                         <li class="flex items-center gap-2">
                             <div class="bg-[#ff000d] p-1 rounded-full">
-                                <img src="images/icons/mail.svg" class="w-4" alt="">
+                                <img src="<?= $imagePath ?>icons/mail.svg" class="w-4" alt="">
                             </div>
                             <a href="mailto:sales@haladrive.ae" class="text-[#ff000d]">sales@haladrive.ae</a>
                         </li>
                         <li class="flex items-center gap-2">
                             <div class="bg-[#ff000d] p-1 rounded-full">
-                                <img src="images/icons/location.svg" class="w-4" alt="">
+                                <img src="<?= $imagePath ?>icons/location.svg" class="w-4" alt="">
                             </div>
                             <a href="https://goo.gl/maps/9mWsWUggjrUJhYy66" class="text-[#ff000d]">Azurite tower shop
                                 no.2 Al-Jaddaf</a>

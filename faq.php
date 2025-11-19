@@ -49,7 +49,7 @@ include_once('banner.php');
                     <p class="text-sm text-gray-500">Just drop a msg we will get back to you ASAP!</p>
                 </div>
                 <div class="bg-[#1bd741] p-2 -skew-x-4">
-                    <img src="images/icons/whatsapp.svg" alt="WhatsApp" class="w-8 h-8">
+                    <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="WhatsApp" class="w-8 h-8">
                 </div>
             </div>
         </div>

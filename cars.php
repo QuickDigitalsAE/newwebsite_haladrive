@@ -126,19 +126,19 @@ if ($slug) {
                         <div class="">Requirements for UAE Residents</div>
                         <ul class="mt-4">
                             <li class="flex items-center gap-2">
-                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
                                 <div class="text-[#939393]">Copy of Passport</div>
                             </li>
                             <li class="flex items-center gap-2">
-                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
                                 <div class="text-[#939393]">Copy of Residential Visa</div>
                             </li>
                             <li class="flex items-center gap-2">
-                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
                                 <div class="text-[#939393]">UAE Driving License</div>
                             </li>
                             <li class="flex items-center gap-2">
-                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
                                 <div class="text-[#939393]">Copy of Emirates ID</div>
                             </li>
                         </ul>
@@ -147,15 +147,15 @@ if ($slug) {
                         <div class="">Requirements for Tourists</div>
                         <ul class="mt-4">
                             <li class="flex items-center gap-2">
-                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
                                 <div class="text-[#939393]">Copy of Passport</div>
                             </li>
                             <li class="flex items-center gap-2">
-                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
                                 <div class="text-[#939393]">Copy of Visit Visa</div>
                             </li>
                             <li class="flex items-center gap-2">
-                                <img src="images/icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
                                 <div class="text-[#939393]">US, Canada, EU, GCC or international Driving License</div>
                             </li>
                         </ul>
@@ -298,19 +298,19 @@ include_once('banner.php');
                                 <ul
                                     class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
                                     <li class="flex items-center gap-2 ">
-                                        <img src="images/cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                         <div class="">Engine Size 1.5 L</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="images/cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                         <div class=""> Bluetooth Yes</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="images/cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                         <div class="">Cruise Control Yes</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="images/cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                         <div class="">Luggage Yes</div>
                                     </li>
                                 </ul>

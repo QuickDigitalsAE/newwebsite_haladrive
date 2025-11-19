@@ -23,17 +23,29 @@ if (preg_match('#^/ar/#', $cleanUri)) {
 // Body direction
 $dir = ($lang === 'ar') ? 'rtl' : 'ltr';
 
-// English URL: remove /ar/
+// URLs for language switch
 $englishUrl = preg_replace('#/ar/#', '/', $cleanUri);
 $englishUrl = $base . $englishUrl;
 
-// Arabic URL: add /ar/ if not already
 if ($lang === 'ar') {
     $arabicUrl = $uri; // already Arabic
 } else {
     $arabicUrl = $base . '/ar' . $cleanUri;
 }
+
+// Base href per language
+if ($lang === "ar") {
+    $baseHref = "https://new./haladrive.ae/ar/";
+} else {
+    $baseHref = "https://new./haladrive.ae/";
+}
+
+// Use absolute paths for CSS/JS/images
+$cssPath = "https://new./haladrive.ae/style.css";
+$outputCssPath = "https://new./haladrive.ae/output.css";
+$imagePath = "https://new./haladrive.ae/images/";
 ?>
+
 
 <!DOCTYPE html>
 <html lang="<?= $lang ?>" dir="<?= $dir ?>">
@@ -45,12 +57,12 @@ if ($lang === 'ar') {
     <meta property="og:description"
         content="Build, grow, and succeed your business with a trusted and leading e-commerce website design agency in Dubai. Boost the online presence of your business." />
     <meta name="robots" content="noindex, nofollow">
-    <base href="https://new.haladrive.ae/">
+    <base href="<?= $baseHref; ?>">
+    <link rel="stylesheet" href="<?= $cssPath; ?>">
+    <link rel="stylesheet" href="<?= $outputCssPath; ?>">
     <title>Hala Drive</title>
-    <!-- <link rel="stylesheet" href="<?php echo $base_url; ?>output.css">
-    <link rel="stylesheet" href="<?php echo $base_url; ?>style.css"> -->
-    <link rel="stylesheet" href="/output.css">
-    <link rel="stylesheet" href="/style.css">
+    <!-- <link rel="stylesheet" href="/output.css">
+    <link rel="stylesheet" href="/style.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- <link rel="preload" rel="shortcut icon" href="./images/logo.webp" type="image/x-icon">
     <link rel="preload" fetchpriority="high" as="image" href="images/banner/mobile-slider-1.webp" type="image/webp">
@@ -67,15 +79,15 @@ if ($lang === 'ar') {
 
    <header class="relative">
         <div class="bg-black py-3 px-6 flex items-center z-[9999] min-[1023px]:hidden relative justify-between">
-            <img src="images/logo/Hala-Drive-resize.webp" class="w-[80px] " alt="">
+            <img src="<?= $imagePath ?>logo/Hala-Drive-resize.webp" class="w-[80px] " alt="">
             <div class="flex items-center gap-4">
                 <div class="-skew-x-12 w-fit bg-[#ff000d] cursor-pointer text-white px-3 py-1 text-[12px]">Send Inquiry
                 </div>
-                <img src="images/icons/hamburger.svg" class="w-8" alt="" id="menuBtn" />
+                <img src="<?= $imagePath ?>icons/hamburger.svg" class="w-8" alt="" id="menuBtn" />
             </div>
         </div>
         <a href="" class="z-[9999]">
-            <img src="images/logo/Hala-Drive-resize.webp"
+            <img src="<?= $imagePath ?>logo/Hala-Drive-resize.webp"
             class="absolute top-[40%] ar_logo -translate-y-1/2 left-10 w-[110px] max-[1023px]:hidden" alt="">
         </a>
         <div class="flex ar_header justify-between items-center container mx-auto py-2 max-[1024px]:hidden">
@@ -93,16 +105,16 @@ if ($lang === 'ar') {
                 </ul>
                 <div class="flex items-center gap-3">
                     <a href="<?= $englishUrl; ?>" class="flex items-center gap-2 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-4 py-2 bg-white">
-                        <img src="images/flags/flag-en.webp" alt="" class="w-6">
+                        <img src="<?= $imagePath ?>flags/flag-en.webp" alt="" class="w-6">
                         <div>English</div>
                     </a>
                     <a href="<?= $arabicUrl; ?>" class="flex items-center gap-2 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-4 py-2 bg-white">
-                        <img src="images/flags/flag-ar.webp" alt="" class="w-6">
+                        <img src="<?= $imagePath ?>flags/flag-ar.webp" alt="" class="w-6">
                         <div>العربية</div>
                     </a>
                     <div class="-skew-x-12 bg-[#ff000d] cursor-pointer text-white px-4 py-2">Send Inquiry</div>
                     <div class="bg-[#29a71a] -skew-x-12 px-2 py-2 cursor-pointer">
-                        <img src="images/icons/whatsapp.svg" alt="" class="w-6">
+                        <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="" class="w-6">
                     </div>
                 </div>
             </div>
@@ -186,12 +198,12 @@ if ($lang === 'ar') {
             </ul>
             <div
                 class="flex items-center gap-2 min-[1024px]:hidden text-[12px] w-fit mx-8 mb-6 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
-                <img src="images/flags/flag-en.webp" alt="" class="w-6">
+                <img src="<?= $imagePath ?>flags/flag-en.webp" alt="" class="w-6">
                 <div class="">English</div>
             </div>
             <div
                 class="flex items-center gap-2 min-[1024px]:hidden text-[12px] w-fit mx-8 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
-                <img src="images/flags/flag-ar.webp" alt="" class="w-6">
+                <img src="<?= $imagePath ?>flags/flag-ar.webp" alt="" class="w-6">
                 <div class="">العربية</div>
             </div>
         </nav>

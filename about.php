@@ -76,7 +76,7 @@ include_once('banner.php');
                         <p class="text-[#939393]">experience in the industry</p>
                     </div>
                     <div class="">
-                        <img src="images/sections/arrow.webp" alt="">
+                        <img src="<?= $imagePath ?>sections/arrow.webp" alt="">
                     </div>
                 </div>
             </div>

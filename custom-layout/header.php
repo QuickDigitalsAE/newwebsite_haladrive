@@ -20,7 +20,7 @@
     <!--------------------------------- header ------------------------------->
 
     <header class="relative">
-        <img src="images/logo/Hala-Drive-resize.webp" class="absolute top-[40%] -translate-y-1/2 left-10 w-[110px]"
+        <img src="<?= $imagePath ?>logo/Hala-Drive-resize.webp" class="absolute top-[40%] -translate-y-1/2 left-10 w-[110px]"
             alt="">
         <div class="flex justify-between items-center container mx-auto py-2">
             <div class="w-[85%] ml-auto flex items-center justify-between">
@@ -38,17 +38,17 @@
                 <div class="flex items-center gap-3">
                     <div
                         class="flex items-center gap-2 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-4 py-2 bg-white">
-                        <img src="images/flags/flag-en.webp" alt="" class="w-6">
+                        <img src="<?= $imagePath ?>flags/flag-en.webp" alt="" class="w-6">
                         <div class="">English</div>
                     </div>
                     <div
                         class="flex items-center gap-2 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-4 py-2 bg-white">
-                        <img src="images/flags/flag-ar.webp" alt="" class="w-6">
+                        <img src="<?= $imagePath ?>flags/flag-ar.webp" alt="" class="w-6">
                         <div class="">العربية</div>
                     </div>
                     <div class="-skew-x-12 bg-[#ff000d] cursor-pointer text-white px-4 py-2">Send Inquiry</div>
                     <div class="bg-[#29a71a] -skew-x-12 px-2 py-2 cursor-pointer">
-                        <img src="images/icons/whatsapp.svg" alt="" class="w-6">
+                        <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="" class="w-6">
                     </div>
                 </div>
             </div>

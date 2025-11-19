@@ -130,19 +130,19 @@ try {
                             <ul
                                 class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
                                 <li class="flex items-center gap-2 ">
-                                    <img src="images/cars/star.svg" class="w-3" alt="">
+                                    <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                     <div class="">Engine <?php echo $car["engine"]; ?></div>
                                 </li>
                                 <li class="flex items-center gap-2 ">
-                                    <img src="images/cars/star.svg" class="w-3" alt="">
+                                    <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                     <div class=""> Bluetooth <?php echo $car["bluetooth"]; ?></div>
                                 </li>
                                 <li class="flex items-center gap-2 ">
-                                    <img src="images/cars/star.svg" class="w-3" alt="">
+                                    <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                     <div class="">Cruise Control <?php echo $car["cruise"]; ?></div>
                                 </li>
                                 <li class="flex items-center gap-2 ">
-                                    <img src="images/cars/star.svg" class="w-3" alt="">
+                                    <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                     <div class="">Luggage <?php echo $car["luggage"]; ?></div>
                                 </li>
                             </ul>
@@ -199,7 +199,7 @@ try {
 
     <section class="py-16 max-[1024px]:py-10 bg-[#f2fdff]">
         <div class="container mx-auto relative">
-            <img src="images/sections/arrow.webp"
+            <img src="<?= $imagePath ?>sections/arrow.webp"
                 class="absolute w-fit left-0 right-0 mx-auto top-[53%] max-[1024px]:top-[53%] -translate-y-1/2" alt="">
             <div
                 class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
@@ -222,11 +222,11 @@ try {
                         car rental services in Dubai deliver both excellence and convenience to every resident and
                         tourist.</p>
                 </div>
-                <img src="images/sections/about-a.webp" class="h-full w-full object-cover" alt="">
+                <img src="<?= $imagePath ?>sections/about-a.webp" class="h-full w-full object-cover" alt="">
             </div>
             <div
                 class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto pt-20">
-                <img src="images/sections/about-b.webp" class="h-full w-full object-cover" alt="">
+                <img src="<?= $imagePath ?>sections/about-b.webp" class="h-full w-full object-cover" alt="">
                 <div class="">
                     <div class="text-[1.7rem] leading-[1] font-bold">Find the Best Car Rental Deals in Dubai</div>
                     <p class="text-[#7c7c7c] mt-4">Our company Hala Drive understands that budget-minded travelers need
@@ -262,7 +262,7 @@ try {
                     <p class="text-sm text-gray-500">Just drop a msg we will get back to you ASAP!</p>
                 </div>
                 <div class="bg-[#1bd741] p-2 -skew-x-4">
-                    <img src="images/icons/whatsapp.svg" alt="WhatsApp" class="w-8 h-8">
+                    <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="WhatsApp" class="w-8 h-8">
                 </div>
             </div>
         </div>
@@ -290,11 +290,11 @@ try {
         <div class="w-[80%] mx-auto max-[1024px]:w-[90%]">
             <div
                 class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 max-[1024px]:gap-4 max-[1024px]:mb-6">
-                <img src="images/sections/no1.webp" alt="">
+                <img src="<?= $imagePath ?>sections/no1.webp" alt="">
                 <div class="grid grid-cols-2 items-center gap-y-8 max-[1024px]:gap-x-4">
                     <div class="flex items-center gap-4">
                         <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
-                            <img src="images/sections/key2.svg" class="w-6" alt="">
+                            <img src="<?= $imagePath ?>sections/key2.svg" class="w-6" alt="">
                         </div>
                         <div class="font-bold max-[1024px]:leading-[1]">
                             Timely delivery
@@ -302,7 +302,7 @@ try {
                     </div>
                     <div class="flex items-center gap-4">
                         <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
-                            <img src="images/sections/calculator.svg" class="w-6" alt="">
+                            <img src="<?= $imagePath ?>sections/calculator.svg" class="w-6" alt="">
                         </div>
                         <div class="font-bold max-[1024px]:leading-[1]">
                             Unbeatable Rates
@@ -310,7 +310,7 @@ try {
                     </div>
                     <div class="flex items-center gap-4">
                         <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
-                            <img src="images/sections/folder.svg" class="w-6" alt="">
+                            <img src="<?= $imagePath ?>sections/folder.svg" class="w-6" alt="">
                         </div>
                         <div class="font-bold max-[1024px]:leading-[1]">
                             Professional Staff
@@ -318,7 +318,7 @@ try {
                     </div>
                     <div class="flex items-center gap-4">
                         <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
-                            <img src="images/sections/calender.svg" class="w-6" alt="">
+                            <img src="<?= $imagePath ?>sections/calender.svg" class="w-6" alt="">
                         </div>
                         <div class="font-bold max-[1024px]:leading-[1]">
                             Flexible Return Policy
@@ -326,7 +326,7 @@ try {
                     </div>
                     <div class="flex items-center gap-4">
                         <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
-                            <img src="images/sections/tick.svg" class="w-6" alt="">
+                            <img src="<?= $imagePath ?>sections/tick.svg" class="w-6" alt="">
                         </div>
                         <div class="font-bold max-[1024px]:leading-[1]">
                             Online Reservation
@@ -334,7 +334,7 @@ try {
                     </div>
                     <div class="flex items-center gap-4">
                         <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
-                            <img src="images/sections/lock.svg" class="w-6" alt="">
+                            <img src="<?= $imagePath ?>sections/lock.svg" class="w-6" alt="">
                         </div>
                         <div class="font-bold max-[1024px]:leading-[1]">
                             Fully Insured
@@ -417,7 +417,7 @@ try {
                     </div>
                 </div>
                 <div class="">
-                    <img src="images/sections/hero-img.webp" alt="">
+                    <img src="<?= $imagePath ?>sections/hero-img.webp" alt="">
                 </div>
             </div>
             <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 max-[1024px]:gap-6 gap-10">
