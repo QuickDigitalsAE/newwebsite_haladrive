@@ -78,7 +78,7 @@ try {
                         <div class="grid grid-cols-1 gap-2 font-semibold text-[12px]">
                             <div class="bg-white border border-[#b8101f] py-2 px-4">In Stock</div>
                             <div class="bg-white border border-[#b8101f] py-2 px-4">Out Of Stock</div>
-                            <button class="bg-[#ff000d] text-white uppercase py-3 text-[1rem]">reset</button>
+                            <a href='cars' class="bg-[#ff000d] text-white uppercase py-3 text-[1rem]">reset</a>
                         </div>
                     </div>
                     <div class="text-black text-center bg-[#f1f4f8] p-4">
