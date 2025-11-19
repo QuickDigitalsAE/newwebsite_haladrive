@@ -14,7 +14,7 @@ RewriteRule ^cars/?$ cars.php [L,QSA]
 # Single car page: /cars/slug
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^cars/([^/]+)/?$ car.php?slug=$1 [L,QSA]
+RewriteRule ^cars/([^/]+)/?$ cars.php?slug=$1 [L,QSA]
 
 # Brands page: /brands/slug
 RewriteCond %{REQUEST_FILENAME} !-f
