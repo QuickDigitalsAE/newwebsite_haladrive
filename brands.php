@@ -75,8 +75,8 @@ try {
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
                         <div class="mb-4 text-[1.3rem]">Availability</div>
                         <div class="grid grid-cols-1 gap-2 font-semibold text-[12px]">
-                            <a href='&stock=in_stock' class="bg-white border border-[#b8101f] py-2 px-4">In Stock</a>
-                            <a href='&stock=out_of_stock' class="bg-white border border-[#b8101f] py-2 px-4">Out Of Stock</a>
+                            <div class="bg-white border border-[#b8101f] py-2 px-4">In Stock</div>
+                            <div class="bg-white border border-[#b8101f] py-2 px-4">Out Of Stock</div>
                             <a href='cars' class="bg-[#ff000d] text-white uppercase py-3 text-[1rem]">reset</a>
                         </div>
                     </div>
