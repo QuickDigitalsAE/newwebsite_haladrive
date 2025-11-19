@@ -68,7 +68,7 @@
                         <li><a href="car">Cars</a></li>
                         <li><a href="privacy-policy">Privacy Policy</a></li>
                         <li><a href="faq">FAQ</a></li>
-                        <li><a href="location">Our Locations</a></li>
+                        <li><a href="locations">Our Locations</a></li>
                     </div>
                 </ul>
             </div>
