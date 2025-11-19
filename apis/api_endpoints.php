@@ -25,5 +25,9 @@ return [
         'main' => '/en/location',
         'single' => '/en/location/{id}',
     ],
+    'blogs' => [
+        'main' => '/en/blog',
+        'single' => '/en/blog/{id}',
+    ],
 ];
 ?>

@@ -25,3 +25,13 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^([^/]+)/?$ $1.php [L,QSA]
+
+# Single blogs page: /blogs/slug
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^blogs/([^/]+)/?$ blogs.php?slug=$1 [L,QSA]
+
+# Main blogs page: /blogs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^blogs/?$ blogs.php [L,QSA]
