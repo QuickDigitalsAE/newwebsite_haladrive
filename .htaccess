@@ -20,6 +20,11 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^car/?$ car.php [L,QSA]
 
+# Location page: /location/slug
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^location/([^/]+)/?$ location.php?slug=$1 [L,QSA]
+
 # General rule for all other PHP files: /pagename
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
