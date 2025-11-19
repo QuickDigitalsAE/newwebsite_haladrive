@@ -1,48 +1,112 @@
 RewriteEngine On
 
-# Direct slug → location.php
+# # Direct slug → location.php
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME}.php !-f
+# RewriteRule ^([^/]+)/?$ location.php?slug=$1 [L,QSA]
+
+# # Main page: /car
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^cars/?$ cars.php [L,QSA]
+
+# # Single car page: /cars/slug
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^cars/([^/]+)/?$ cars.php?slug=$1 [L,QSA]
+
+# # Brands page: /brands/slug
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^brands/([^/]+)/?$ brands.php?slug=$1 [L,QSA]
+
+# # Brands page: /brands/slug
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^carsbrands/([^/]+)/?$ brands.php?slug=$1 [L,QSA]
+
+# # Lease page: /lease/slug
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^lease/([^/]+)/?$ lease.php?slug=$1 [L,QSA]
+
+# # Blogs inner page
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^blogs/([^/]+)/?$ blogs.php?slug=$1 [L,QSA]
+
+# # Blogs main page
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^blogs/?$ blogs.php [L,QSA]
+
+# # General pages: /page → page.php
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME}.php -f
+# RewriteRule ^([^/]+)/?$ $1.php [L,QSA]
+
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php !-f
+RewriteRule ^ar/?$ index.php?lang=ar [L,QSA]
+
+# ----------------- ENGLISH HOME -----------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^$ index.php?lang=en [L,QSA]
+
+# ----------------- ARABIC SITE -----------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ar/([^/]+)/?$ location.php?slug=$1&lang=ar [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ar/cars/([^/]+)/?$ car.php?slug=$1&lang=ar [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ar/cars/?$ cars.php?lang=ar [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ar/blogs/([^/]+)/?$ blogs.php?slug=$1&lang=ar [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ar/blogs/?$ blogs.php?lang=ar [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ar/brands/([^/]+)/?$ brands.php?slug=$1&lang=ar [L,QSA]
+
+# ----------------- ENGLISH SITE -----------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^/]+)/?$ location.php?slug=$1 [L,QSA]
 
-# Main page: /car
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^cars/([^/]+)/?$ car.php?slug=$1 [L,QSA]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^cars/?$ cars.php [L,QSA]
 
-# Single car page: /cars/slug
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^cars/([^/]+)/?$ cars.php?slug=$1 [L,QSA]
-
-# Brands page: /brands/slug
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^brands/([^/]+)/?$ brands.php?slug=$1 [L,QSA]
-
-# Brands page: /brands/slug
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^carsbrands/([^/]+)/?$ brands.php?slug=$1 [L,QSA]
-
-# Lease page: /lease/slug
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^lease/([^/]+)/?$ lease.php?slug=$1 [L,QSA]
-
-# Blogs inner page
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^blogs/([^/]+)/?$ blogs.php?slug=$1 [L,QSA]
 
-# Blogs main page
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^blogs/?$ blogs.php [L,QSA]
 
-# General pages: /page → page.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^([^/]+)/?$ $1.php [L,QSA]
+RewriteRule ^brands/([^/]+)/?$ brands.php?slug=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^carsbrands/([^/]+)/?$ brands.php?slug=$1 [L,QSA]
