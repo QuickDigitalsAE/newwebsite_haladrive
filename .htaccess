@@ -107,6 +107,11 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ar/brands/([^/]+)/?$ brands.php?slug=$1&lang=ar [L,QSA]
 
+# AR brand page
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ar/carsbrands/([^/]+)/?$ brands.php?slug=$1&lang=ar [L,QSA]
+
 # AR Location page
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -160,6 +165,11 @@ RewriteRule ^about/?$ about.php?lang=en [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^brands/([^/]+)/?$ brands.php?slug=$1&lang=en [L,QSA]
+
+# Brands
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^carsbrands/([^/]+)/?$ brands.php?slug=$1&lang=en [L,QSA]
 
 # Location page
 RewriteCond %{REQUEST_FILENAME} !-f
