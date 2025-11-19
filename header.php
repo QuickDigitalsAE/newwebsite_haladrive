@@ -118,7 +118,7 @@ error_reporting(E_ALL);
                 </li>
                 <li
                     class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
-                    <a href="car"
+                    <a href="cars"
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3">Cars</a>
                 </li>
                 <li

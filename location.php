@@ -53,7 +53,7 @@ try {
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
                         <div class="mb-4 text-[1.3rem]">Sort By Price</div>
                         <div class="flex flex-col gap-2 font-semibold text-[12px]">
-                            <div class="bg-white border border-[#b8101f] py-2">Default</div>
+                            <a href='cars' class="bg-white border border-[#b8101f] py-2">Default</a>
                             <div class="bg-white border border-[#b8101f] py-2">Low to High</div>
                             <div class="bg-white border border-[#b8101f] py-2">High to Low</div>
                         </div>
