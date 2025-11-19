@@ -238,34 +238,19 @@ include_once('banner.php');
                             </button>
 
                             <!-- Dropdown menu -->
-                            <div id="dropdownUsers"
-                                class="z-[99999] relative hidden bg-white rounded-lg shadow-sm w-60 dark:bg-gray-700">
+                            <div id="dropdownUsers" class="z-[99999] relative hidden bg-white rounded-lg shadow-sm dark:bg-gray-700">
                                 <ul class="h-48 py-2 overflow-y-auto text-gray-700 dark:text-gray-200"
                                     aria-labelledby="dropdownUsersButton">
-                                    <li>
-                                        <a href="#"
+                                    <?php foreach($carContentData["brands"] as $brands): ?>
+                                        <li>
+                                            <a href="carsbrands/<?php echo $brands["slug"]; ?>"
                                             class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             <img class="w-6 h-6 me-2 rounded-full"
-                                                src="images/sections/brands/audi.webp" alt="audi">
-                                            AUDI
+                                                src="<?php echo $brands["logo_url"]; ?>" alt="audi">
+                                            <?php echo $brands["name_en"]; ?>
                                         </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                            class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                            <img class="w-6 h-6 me-2 rounded-full"
-                                                src="images/sections/brands/bently.jpg" alt="Bently">
-                                            Bently
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                            class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                            <img class="w-6 h-6 me-2 rounded-full"
-                                                src="images/sections/brands/nissan.webp" alt="Nissan">
-                                            Nissan
-                                        </a>
-                                    </li>
+                                        </li>
+                                    <?php endforeach; ?>
                                 </ul>
                             </div>
                         </div>

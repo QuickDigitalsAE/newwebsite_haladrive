@@ -114,6 +114,61 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+        (function () {
+            const btn = document.getElementById('dropdownUsersButton');
+            const menu = document.getElementById('dropdownUsers');
+
+            if (!btn || !menu) return;
+
+            // initialize aria attribute
+            btn.setAttribute('aria-haspopup', 'true');
+            btn.setAttribute('aria-expanded', 'false');
+
+            // Toggle handler
+            btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const isOpen = !menu.classList.contains('hidden');
+            if (isOpen) {
+                menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+            } else {
+                menu.classList.remove('hidden');
+                btn.setAttribute('aria-expanded', 'true');
+
+                // optional: focus first link for keyboard users
+                const firstLink = menu.querySelector('a');
+                if (firstLink) firstLink.focus();
+            }
+            });
+
+            // Close when clicking outside
+            document.addEventListener('click', function (ev) {
+            if (!btn.contains(ev.target) && !menu.contains(ev.target)) {
+                menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+            });
+
+            // Close on Escape
+            document.addEventListener('keydown', function (ev) {
+            if (ev.key === 'Escape') {
+                menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+                btn.focus();
+            }
+            });
+
+            // Close when a menu link is clicked (useful for single-page and navigation)
+            menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function () {
+                menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+            });
+            });
+        })();
+    </script>
+
+    <script>
         const menuBtn = document.getElementById("menuBtn");
         const mobileMenu = document.getElementById("mobileMenu");
 
