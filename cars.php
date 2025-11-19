@@ -5,8 +5,8 @@ $api = new ApiHandler();
 
 $slug = $_GET['slug'] ?? null;
 
-include_once('header.php');
 
+include_once('header.php');
 
 if ($slug) {
 
@@ -179,8 +179,11 @@ if ($slug) {
 // PAGE WITHOUT SLUG → SHOW MAIN PAGE
 // -----------------------------------------
 
+
+$sort = $_GET['sort'] ?? null;
+
 try {
-    $carContent = $api->loadData('car', 'main', []);
+    $carContent = $api->loadData('car', 'main', ['sort' => $sort]);
     if ($carContent['success']) {
         $carContentData = $carContent['data']["data"];
     }
@@ -194,7 +197,7 @@ $banner_subtitle = "Top rated car rental in Dubai!";
 include_once('banner.php');
 ?>
 
-<section class="relative py-16 max-[1024px]:py-10">
+    <section class="relative py-16 max-[1024px]:py-10">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
             <div class="grid grid-cols-4 max-[1024px]:grid-cols-1 gap-10">
                 <div class="h-fit col-span-1">
@@ -202,8 +205,12 @@ include_once('banner.php');
                         <div class="mb-4 text-[1.3rem]">Sort By Price</div>
                         <div class="flex flex-col gap-2 font-semibold text-[12px]">
                             <a href='cars' class="bg-white border border-[#b8101f] py-2">Default</a>
-                            <div class="bg-white border border-[#b8101f] py-2">Low to High</div>
-                            <div class="bg-white border border-[#b8101f] py-2">High to Low</div>
+                            <a href="cars?sort=price_asc" class="bg-white border border-[#b8101f] py-2">
+                                Low to High
+                            </a>
+                            <a href="cars?sort=price_desc" class="bg-white border border-[#b8101f] py-2">
+                                High to Low
+                            </a>
                         </div>
                     </div>
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
