@@ -5,47 +5,33 @@ ini_set('log_errors', 1);
 ini_set('error_log', dirname(__FILE__) . '/php_errors.log');
 error_reporting(E_ALL);
 
-$lang = 'en'; // default
+// Default language
+$lang = 'en';
 $uri = $_SERVER['REQUEST_URI'];
 
-// Local base path
-$base = '';
-$cleanUri = $uri;
-if (strpos($uri, $base) === 0) {
-    $cleanUri = substr($uri, strlen($base));
-}
+// Base URL on live
+$liveBaseUrl = "https://new.haladrive.ae"; // change "new.haladrive.ae" to your live domain
 
 // Determine language
-if (preg_match('#^/ar/#', $cleanUri)) {
+if (preg_match('#^/ar/#', $uri)) {
     $lang = 'ar';
 }
 
 // Body direction
 $dir = ($lang === 'ar') ? 'rtl' : 'ltr';
 
-// URLs for language switch
-$englishUrl = preg_replace('#/ar/#', '/', $cleanUri);
-$englishUrl = $base . $englishUrl;
-
-if ($lang === 'ar') {
-    $arabicUrl = $uri; // already Arabic
-} else {
-    $arabicUrl = $base . '/ar' . $cleanUri;
-}
-
 // Base href per language
-if ($lang === "ar") {
-    $baseHref = "https://new./haladrive.ae/ar/";
-} else {
-    $baseHref = "https://new./haladrive.ae/";
-}
+$baseHref = ($lang === 'ar') ? $liveBaseUrl . '/ar/' : $liveBaseUrl . '/';
 
-// Use absolute paths for CSS/JS/images
-$cssPath = "https://new./haladrive.ae/style.css";
-$outputCssPath = "https://new./haladrive.ae/output.css";
-$imagePath = "https://new./haladrive.ae/images/";
+// URLs for language switch
+$englishUrl = ($lang === 'ar') ? preg_replace('#/ar/#', '/', $uri) : $uri;
+$arabicUrl  = ($lang === 'ar') ? $uri : '/ar' . $uri;
+
+// Absolute paths for CSS/JS/images
+$cssPath      = $liveBaseUrl . '/style.css';
+$outputCssPath = $liveBaseUrl . '/output.css';
+$imagePath    = $liveBaseUrl . '/images/';
 ?>
-
 
 <!DOCTYPE html>
 <html lang="<?= $lang ?>" dir="<?= $dir ?>">
@@ -58,6 +44,8 @@ $imagePath = "https://new./haladrive.ae/images/";
         content="Build, grow, and succeed your business with a trusted and leading e-commerce website design agency in Dubai. Boost the online presence of your business." />
     <meta name="robots" content="noindex, nofollow">
     <base href="<?= $baseHref; ?>">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="<?= $cssPath; ?>">
     <link rel="stylesheet" href="<?= $outputCssPath; ?>">
     <title>Hala Drive</title>
