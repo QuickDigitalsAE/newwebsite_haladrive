@@ -54,10 +54,10 @@ try {
                         <div class="mb-4 text-[1.3rem]">Sort By Price</div>
                         <div class="flex flex-col gap-2 font-semibold text-[12px]">
                             <a href='cars' class="bg-white border border-[#b8101f] py-2">Default</a>
-                            <a href="brands<?php echo $brandData["brands"]["slug"]; ?>?sort=price_asc" class="bg-white border border-[#b8101f] py-2">
+                            <a href="brands<?php echo $brandData["brand"]["slug"]; ?>?sort=price_asc" class="bg-white border border-[#b8101f] py-2">
                                 Low to High
                             </a>
-                            <a href="brands<?php echo $brandData["brands"]["slug"]; ?>?sort=price_desc" class="bg-white border border-[#b8101f] py-2">
+                            <a href="brands<?php echo $brandData["brand"]["slug"]; ?>?sort=price_desc" class="bg-white border border-[#b8101f] py-2">
                                 High to Low
                             </a>
                         </div>
