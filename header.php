@@ -9,7 +9,7 @@ $lang = 'en'; // default
 $uri = $_SERVER['REQUEST_URI'];
 
 // Local base path
-$base = '/haladrive/src';
+$base = '';
 $cleanUri = $uri;
 if (strpos($uri, $base) === 0) {
     $cleanUri = substr($uri, strlen($base));
