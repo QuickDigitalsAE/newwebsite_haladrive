@@ -62,6 +62,11 @@ RewriteEngine On
 # ARABIC VERSION
 ####################################
 
+# ----------------- ARABIC HOME -----------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ar/?$ index.php?lang=ar [L,QSA]
+
 # AR cars single
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -110,6 +115,11 @@ RewriteRule ^ar/([^/]+)/?$ location.php?slug=$1&lang=ar [L,QSA]
 ####################################
 # ENGLISH VERSION
 ####################################
+
+# ----------------- ENGLISH HOME -----------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^$ index.php?lang=en [L,QSA]
 
 # Cars single
 RewriteCond %{REQUEST_FILENAME} !-f
