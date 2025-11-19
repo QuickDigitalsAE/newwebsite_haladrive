@@ -20,8 +20,8 @@ if ($slug) {
     }
 
     $banner_image = "images/about/top-banner.webp";
-    $banner_title = 'Cars';
-    $banner_subtitle = "Top rated car rental in Dubai. Low prices & great deals!";
+    $banner_title = 'Blogs';
+    // $banner_subtitle = "Top rated car rental in Dubai. Low prices & great deals!";
     include_once('banner.php');
     ?>
 
