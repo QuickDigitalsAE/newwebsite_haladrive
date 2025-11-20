@@ -106,14 +106,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-        if (window.translations && window.translations.translationService) {
-            console.log(window.translations.translationService); 
-        } else {
-            console.warn('translationService not found');
-        }
-    </script>
-
-    <script>
         (function () {
             const btn = document.getElementById('dropdownUsersButton');
             const menu = document.getElementById('dropdownUsers');
