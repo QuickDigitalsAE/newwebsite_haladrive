@@ -36,61 +36,69 @@ return [
 
     'homeFirstHeading' => 'استأجر سيارة في دبي مع هلا درايف - خدمة تأجير سيارات, بأسعار معقولة وموثوقة وبدون عناء',
     //   Home One section
-    'homeSectionOneHeading_1' => 'Welcome to Hala Drive - Your Trusted Car Rental Partner in Dubai',
+    'homeSectionOneHeading_1' => 'مرحبًا بك في هلا درايف - شريكك الموثوق لتأجير السيارات في دبي',
     'homeSectionOnePera_1' => 'A reliable rent a car Dubai service provides Dubai visitors endless possibilities to maximize their experience. Hala Drive provides a complete collection of vehicles that serve both business requirements and leisure activities. Customers can choose between luxury car models of BMW, Mercedes, Audi and economical rental options to serve every travel requirement. We deliver smooth and hassle-free journeys in Dubai through our competitive car rental prices and exceptional service to customers.',
-    'homeSectionOnePera_2' => 'Car rental Dubai selection becomes difficult for many people to find the right option. Our team dedicates itself to helping customers find their optimal vehicle while obtaining maximum cost-effectiveness. Our company provides the ideal car rental solutions that span from short-term bookings to long-term car lease Dubai services. Hala Drive offers you exceptional car rental services throughout Dubai while enabling you to travel with convenience and ease.',
-    'homeSectionOnePera_3' => `Our service allows customers to easily book cars with both convenience and affordability. Through our platform users can access the most advantageous car rental deals Dubai while enjoying peace of mind during their drive. You can experience complete freedom and flexibility to explore both city landmarks and natural landscapes throughout the city through Hala Drive's services.`,
+    'homeSectionOnePera_2' => 'يصبح اختيار تاجير السيارات في دبي صعبًا بالنسبة للعديد من الأشخاص للعثور على الخيار المناسب. يكرس فريقنا نفسه لمساعدة العملاء في العثور على سيارتهم المثالية مع الحصول على أقصى قدر من الفعالية من حيث التكلفة. توفر شركتنا حلول تأجير السيارات المثالية التي تتراوح من الحجوزات قصيرة الأجل إلى خدمات استئجار سيارات طويلة الأجل في دبي. تقدم لك خدمات تأجير سيارات استثنائية في جميع أنحاء دبي مع تمكينك من السفر براحة وسهولة.',
+    'homeSectionOnePera_3' => `تتيح خدمتنا للعملاء حجز السيارات بسهولة مع الراحة وبأسعار معقولة. من خلال منصتنا، يمكن للمستخدمين الوصول إلى أفضل صفقات تاجير السيارات في دبي مع الاستمتاع براحة البال أثناء قيادتهم. يمكنك تجربة الحرية والمرونة الكاملة لاستكشاف معالم المدينة والمناظر الطبيعية في جميع أنحاء المدينة من خلال خدماتنا.`,
     //   Home Two section
-    'homeSectionTwoHeading_1' => 'Why Choose Hala Drive for Your Car Rental Needs?',
+    'homeSectionTwoHeading_1' => 'لماذا تختار شركة هلا درايف لتأجير السيارات؟',
     'homeSectionTwoPera_1' => 'Hala Drive car rental delivers a smooth and trustworthy experience to all passengers who select their services. Our company provides diverse car rental services in Dubai that match different financial constraints and customer preferences. Our vehicle fleet contains several options which range from compact cars to spacious SUVs along with luxury vehicles to suit every customer need. Our Dubai-based online booking system provides simple tools for customers to reserve their rental vehicles without difficulty. Through our car leasing Dubai option, you can select rental plans that match your specific needs.',
-    'homeSectionTwoPera_2' => 'Hala Drive provides affordable car rental Dubai prices that include no hidden costs for customers. Hala Drive provides exclusive deals alongside promotional offers that allow budget-conscious customers to acquire luxury vehicles and affordable rentals. Our dedicated team of support agents provides customer satisfaction guarantees along with hassle-free car hire Dubai services. Our fleet consists of vehicles that come with premium care and boast both safety features and comfort and reliable performance while you are traveling. Our car rental services in Dubai deliver both excellence and convenience to every resident and tourist.',
-    'homeSectionTwoHeading_2' => 'Find the Best Car Rental Deals in Dubai',
-    'homeSectionTwoPera_3' => 'Our company Hala Drive understands that budget-minded travelers need best car rental deals Dubai. Our company offers the most affordable rates for every vehicle we provide so you can maximize your budget while driving. Our car hire Dubai services include options for both short-term visitors and extended travelers.',
-    'homeSectionTwoPera_4' => 'Customers can find clear costs on our website together with multiple range of fleet that match varying budgets. Our vehicle selection includes both compact city cars and luxurious sedans that serve all types of clients. The best rent a car deals in Dubai combined with premium service are our commitment to offering customers affordable options.',
-    'homeSectionTwoPera_5' => 'For those looking for long-term convenience, our car leasing Dubai services provide flexible rental plans at competitive prices. Whether you need a vehicle for a weekend getaway or an extended stay, we make it easy to rent a car Dubai without hidden charges, ensuring a hassle-free experience.',
+    'homeSectionTwoPera_2' => 'توفر هلا درايف أسعار تأجير سيارات معقولة في دبي لا تشمل أي تكاليف خفية للعملاء. توفر هلا درايف صفقات حصرية إلى جانب العروض الترويجية التي تسمح للعملاء المهتمين بالميزانية بالحصول على مركبات فاخرة وإيجارات بأسعار معقولة. يوفر فريقنا المخصص من وكلاء الدعم ضمانات رضا العملاء إلى جانب خدمات تأجير السيارات الخالية من المتاعب في دبي. يتكون أسطولنا من المركبات التي تأتي برعاية متميزة وتفتخر بكل من ميزات السلامة والراحة والأداء الموثوق به أثناء السفر. توفر خدمات تأجير السيارات لدينا في دبي التميز والراحة لكل مقيم وسائح.',
+    'homeSectionTwoHeading_2' => 'ابحث عن أفضل عروض تأجير السيارات في دبي',
+    'homeSectionTwoPera_3' => 'تدرك شركتنا هلا درايف أن المسافرين الذين يهتمون بالميزانية يحتاجون إلى أفضل عروض تأجير السيارات في دبي. تقدم شركتنا أرخص الأسعار لكل مركبة نقدمها حتى تتمكن من تعظيم ميزانيتك أثناء القيادة. تشمل خدمات تأجير السيارات لدينا في دبي خيارات لكل من الزوار قصيري الأمد والمسافرين لفترة طويلة. ',
+    'homeSectionTwoPera_4' => 'يمكن للعملاء العثور على تكاليف واضحة على موقعنا الإلكتروني جنبًا إلى جنب مع مجموعة متعددة من الأساطيل التي تتناسب مع الميزانيات المختلفة. يتضمن اختيار المركبات لدينا كل من سيارات المدينة الصغيرة والسيارات السيدان الفاخرة التي تخدم جميع أنواع العملاء. أفضل عروض تاجير السيارات في دبي جنبًا إلى جنب مع الخدمة المتميزة هي التزامنا بتقديم خيارات بأسعار معقولة للعملاء.',
+    'homeSectionTwoPera_5' => 'لمن يبحثون عن راحة طويلة الأمد، توفر خدماتنا لتأجير السيارات في دبي باقات تأجير مرنة بأسعار تنافسية. سواءً كنتم بحاجة إلى سيارة لقضاء عطلة نهاية أسبوع أو إقامة طويلة، نسهل عليكم استئجار سيارة في دبي دون أي رسوم خفية، لنضمن لكم تجربة مريحة.',
 
     //     Home Faq
-    'homeFaqs_1' => 'Frequently Asked Questions',
-    'homeFaqs_pera_1' => 'These are the questions we hear more often.',
-    'homeFaqs_2' => `Don't see the answer you need?`,
-    'homeFaqs_pera_2' => 'Just drop a msg we will get back to you ASAP!',
+    'homeFaqs_1' => 'الأسئلة الأكثر شيوعا',
+    'homeFaqs_pera_1' => 'هذه هي الأسئلة التي نسمعها كثيرًا.',
+    'homeFaqs_2' => `لا ترى الجواب الذي تحتاجه؟ `,
+    'homeFaqs_pera_2' => 'فقط قم بإرسال رسالة وسوف نقوم بالرد عليك في أسرع وقت ممكن!',
 
     //     Home Three Section
-    'timely' => 'Timely delivery',
-    'professional' => 'Professional Staff',
-    'online' => 'Online Reservation',
-    'unbeatable' => 'Unbeatable Rates',
-    'flexible' => 'Flexible Return Policy',
-    'fully' => 'Fully Insured',
-    'homeSectionThreePera' => 'During your journey the covered insurance and damages provide you with both financial protection and assurance for your travels. Rental vehicle clients of our company benefit from adjustable rates that minimize costs whenever unexpected journey changes occur. Hala Drive provides an unmatched rental service by offering a complete range of economical cars such as such as KIA, Nissan and Chevrolet at remarkable prices along with exceptional customer care.',
+    'timely' => 'التسليم في الموعد المحدد',
+    'professional' => 'طاقم عمل محترف',
+    'online' => 'حجز عبر الموقع مباشرة',
+    'unbeatable' => 'معدلات غير قابلة للمنافسة',
+    'flexible' => 'سياسة إرجاع مرنة',
+    'fully' => 'مؤمنة بالكامل',
+    'homeSectionThreePera' => 'خلال رحلتك، يوفر لك التأمين المغطى والأضرار الحماية المالية والضمان لرحلاتك. يستفيد عملاء تأجير المركبات من شركتنا من أسعار قابلة للتعديل تقلل التكاليف كلما حدثت تغييرات غير متوقعة في الرحلة. يقدم مكتب هلا درايف خدمة تأجير لا مثيل لها من خلال تقديم مجموعة كاملة من المركبات الفاخرة بأسعار رائعة إلى جانب خدمة عملاء استثنائية.',
 
     //     Home Blogs
-    'ourblogs' => 'Our Blogs',
+    'ourblogs' => 'مدونتنا',
 
     //     Home Forth Section
-    'homeSectionForthHeading_1' => 'Rent a Car Dubai Online Today and Enjoy These Perks',
-    'homeSectionForthPera_1' => 'Contact Us now for Updates and Promotions',
-    'homeSectionForthPera_2' => 'at Hala Drive, our company offers excellent customer assistance at affordable rates. The team takes pride in offering modern cars that meet all safety standards as well as equipped based on state-of-the-art technologies like GPS navigation systems, rearview cameras and automatic transmissions that help make driving safer, smoother and more enjoyable than ever. You can be sure that no matter which model of the car you choose from us, it will be serviced regularly and maintained in peak condition before being sent off with our customers. You will end up getting the best car leasing Dubai experience.',
-    'homeSectionForthPera_3' => 'In addition, we also provide additional benefits like 24/7 roadside assistance services in case of any emergencies during using our cars. So no matter where your journey takes you to the city, you can feel secure knowing that Our Best car rental UAE service has your back when needed. And for those who want their car delivered directly to their doorstep on any day, we even offer pickup services.',
+    'homeSectionForthHeading_1' => 'استأجر سيارة في دبي عبر الموقع اليوم واستمتع بهذه الامتيازات',
+    'homeSectionForthPera_1' => 'تواصل معنا الآن للحصول على أحدث العروض',
+    'homeSectionForthPera_2' => 'في هلا درايف, نقدم مساعدة ممتازة لكل العملاء و بأسعار معقولة. يفخر الفريق بتقديم سيارات حديثة تلبي جميع معايير السلامة ومجهزة على أساس أحدث التقنيات مثل أنظمة الملاحة, وكاميرات الرؤية الخلفية وناقل الحركة الأوتوماتيكي التي تساعد على جعل القيادة أكثر سلاسة ومتعة من أي وقت مضى. يمكنك التأكد من أنه بغض النظر عن نوع السيارة التي سوف تختارها, سوف تتم صيانتها بشكل منتظم, وصيانتها قبل ارسالها الى العميل. سوف ينتهي بك الامر بالحصول على أفضل تجربة تأجير سيارات في دبي',
+    'homeSectionForthPera_3' => 'بالإضافة إلى ذلك, نقدم أيضا مزايا إضافية مثل خدمات المساعدة على الطريق على مدار الساعة طوال أيام الأسبوع في حالة حدوث أي حالات طارئة أثناء استخدام سياراتنا. لذلك بغض النظر عن المكان الذي تريد الذهاب اليه, نقدم لك المساعدة لتشعر بالأمان, أن تكون على علم ,ان شركة هلا درايف تقدم أفضل خدمة تأجير السيارات في الإمارات العربية المتحدة دائما تساندك. وبالنسبة لأولئك الذين يريدون أن يستلمو سياراتهم مباشرة في أي يوم وأمام منزلهم, فنحن نقدم أيضا خدمات التوصيل.',
 
     //     Home Fifth Section
-    'satisfied_1' => 'Join Over',
-    'satisfied_2' => '2000+ Satisfied Clients',
-    'satisfied_3' => 'Experience the Quality and Excellence of Our Services',
-    'homeSectionFifthHeading_1' => 'Junnalyn Sali',
-    'homeSectionFifthPera_1' => 'The service at Hala Drive rent a car satisfied me completely during my time there. You can reach their service through a phone call so I strongly suggest choosing them. Everything about the rental experience was positive because the vehicle remained clean while the personnel treated me well and the service avoided hidden fees.',
-    'homeSectionFifthHeading_2' => 'Sumodo Hasan',
-    'homeSectionFifthPera_2' => 'Dubai residents should choose this company as their preferred rental car provider. I have relied on their service more than once and I am consistently satisfied with their standard of service. The rental staff maintains high professionalism while offering cars which remain in perfect condition. Highly recommended!',
-    'homeSectionFifthHeading_3' => 'Roshan Smith',
-    'homeSectionFifthPera_3' => 'I found the vehicle outstanding because it combined superb fuel economy and pristine cleanliness. The team provided clear communication while the service locations were easy to reach. I sincerely appreciate the services provided by Hala Drive car rental services.',
+    'satisfied_1' => 'انضم إلى',
+    'satisfied_2' => '2000+ عميل سعيد',
+    'satisfied_3' => 'جرب جودة خدماتنا وتميزها',
+    'homeSectionFifthHeading_1' => 'جونالين سالي',
+    'homeSectionFifthPera_1' => 'لقد أشبعتني الخدمة المقدمة من شركة هالا درايف لتأجير السيارات تمامًا أثناء وجودي هناك. يمكنك الاتصال بخدمتهم من خلال مكالمة هاتفية، لذا أوصي بشدة باختيارهم. كان كل شيء في تجربة الإيجار إيجابيًا لأن السيارة ظلت نظيفة بينما عاملني الموظفون جيدًا وتجنبت الخدمة الرسوم الخفية.',
+    'homeSectionFifthHeading_2' => 'سومودو حسن',
+    'homeSectionFifthPera_2' => 'يجب على سكان دبي اختيار هذه الشركة كمزود مفضل لتأجير السيارات. لقد اعتمدت على خدمتهم أكثر من مرة وأنا راضٍ باستمرار عن مستوى الخدمة لديهم. يحافظ موظفو التأجير على الاحترافية العالية أثناء تقديم سيارات تظل في حالة ممتازة. أوصي بها بشدة!',
+    'homeSectionFifthHeading_3' => 'روشان سميث',
+    'homeSectionFifthPera_3' => 'وجدت السيارة رائعة لأنها تجمع بين الاقتصاد الرائع في استهلاك الوقود والنظافة الممتازة. قدم الفريق اتصالاً واضحًا بينما كانت مواقع الخدمة سهلة الوصول. أقدر بصدق الخدمات التي تقدمها خدمات تأجير السيارات من شركة هالا درايف.',
 
     //    Home Sixth Section
-    'homeSectionSixthHeading_1' => 'Experience Convenience, Comfort, and Cost-Effective Car Rentals',
-    'homeSectionSixthPera_1' => 'Customers can experience a smooth car rental UAE journey through Hala Drive. Our company offers the ideal vehicles at competitive prices for both urban commuters and business professionals. The experienced staff member at our company stand ready to assist clients in deciding which vehicle best fits as per your requirements.',
-    'homeSectionSixthPera_2' => 'Our car lease Dubai option lets customers access their desired vehicles without the ownership costs. Different financing options and special discounts enable you to drive your prestigious vehicle choice with freedom from traditional ownership terms.',
-    'homeSectionSixthPera_3' => 'The company maintains its dedication to safety and reliability which enables you to feel completely at ease while driving. The vehicles we offer receive routine maintenance checks alongside inspections to guarantee their top condition for their customer. The car rental services at Hala Drive guarantee you the highest standard of service throughout Dubai.',
-    'homeSectionSixthPera_4' => 'Hala Drive offers car hire UAE services that extend far beyond basic vehicle rentals. Hala Drive dedicates itself to delivering superior customer assistance together with premium maintenance services in addition to special rental packages which boost your travel comfort. Our Dubai-based service locations provide convenient accessibility to our customers throughout the city.',
-    'homeSectionSixthPera_5' => 'Whether you’re visiting Dubai for business, leisure, or an extended stay, Hala Drive has the perfect car rental Dubai cheap option for you. Book your vehicle today and enjoy a stress-free journey with the best Hala drive car rental services available!',
+    'homeSectionSixthHeading_1' => 'استمتع بتجربة تأجير سيارات مريحة وفعّالة من حيث التكلفة',
+    'homeSectionSixthPera_1' => 'يمكن للعملاء تجربة رحلة تأجير سيارات سلسة في الإمارات العربية المتحدة من خلالنا. تقدم وكالتنا المركبات المثالية بأسعار تنافسية لكل من المسافرين في المناطق الحضرية ورجال الأعمال. يقف موظفونا ذوو الخبرة في شركتنا على أهبة الاستعداد لمساعدة العملاء في تحديد السيارة الأفضل وفقًا لمتطلباتك.',
+    'homeSectionSixthPera_2' => 'يتيح خيار ايجار السيارات في دبي للعملاء الوصول إلى المركبات التي يرغبون فيها دون تكاليف الملكية. تتيح لك خيارات التمويل المختلفة والخصومات الخاصة قيادة اختيارك للسيارة المرموقة بحرية من شروط الملكية التقليدية.',
+    'homeSectionSixthPera_3' => 'تحافظ الشركة على تفانيها في السلامة والموثوقية مما يتيح لك الشعور بالراحة التامة أثناء القيادة. تخضع المركبات التي نقدمها لفحوصات الصيانة الروتينية جنبًا إلى جنب مع عمليات التفتيش لضمان أفضل حالة لعملائها. تضمن لك خدمات تاجير السيارات في وكالة هلا درايف أعلى مستوى من الخدمة في جميع أنحاء دبي.',
+    'homeSectionSixthPera_4' => 'نقدم خدمات استئجار السيارات في الإمارات العربية المتحدة والتي تمتد إلى ما هو أبعد من تأجير المركبات الأساسية. تكرس هلا درايف نفسها لتقديم مساعدة عملاء متفوقة جنبًا إلى جنب مع خدمات الصيانة المتميزة بالإضافة إلى باقات الإيجار الخاصة التي تعزز راحة سفرك. توفر مواقع خدماتنا في دبي سهولة الوصول لعملائنا في جميع أنحاء المدينة.',
+    'homeSectionSixthPera_5' => 'سواء كنت تزور دبي للعمل أو للترفيه أو للإقامة لفترة طويلة، فإننا نقدم لك خيار استئجار سيارات المثالي في دبي بأسعار رخيصة. احجز سيارتك اليوم واستمتع برحلة خالية من التوتر مع أفضل خدمات تأجير السيارات المتاحة من هلا درايف!',
+
+
+
+
+
+
+
+
 
     
     'first_section_brief' => '
