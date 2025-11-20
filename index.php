@@ -101,7 +101,7 @@ try {
                         Out Stock
                     </div>
                     <?php endif; ?>
-                    <img src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="">
+                    <img width="0" hight='0' src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="">
                     </div>
                     <div class="flex max-[1024px]:flex-col gap-4">
                         <a href='cars/<?php echo $car["slug"]; ?>' class="w-[50%] max-[1024px]:w-full">
