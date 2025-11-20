@@ -10,7 +10,9 @@ return [
         'faq' => '/en/faq',
         'privacy-policy' => '/en/privacy-policy',
     ],
-    
+    'header' => [
+        'header' => '/en/header',
+    ],
     'brand' => [
         'brand' => '/en/brand/{id}',
     ],

@@ -5,32 +5,33 @@ ini_set('log_errors', 1);
 ini_set('error_log', dirname(__FILE__) . '/php_errors.log');
 error_reporting(E_ALL);
 
-// Default language
+try {
+    $headerContent = $api->loadData('header', 'header', []);
+    if ($headerContent['success']) {
+        $headerContentData = $headerContent['data']["data"];
+    }
+} catch (Exception $e) {
+    echo "Error loading featured products: " . $e->getMessage();
+}
+
+
 $lang = 'en';
 $uri = $_SERVER['REQUEST_URI'];
+$liveBaseUrl = "https://new.haladrive.ae";
 
-// Base URL on live
-$liveBaseUrl = "https://new.haladrive.ae"; // change "new.haladrive.ae" to your live domain
 
-// Determine language
 if (preg_match('#^/ar/#', $uri)) {
     $lang = 'ar';
 }
 
-// Body direction
 $dir = ($lang === 'ar') ? 'rtl' : 'ltr';
-
-// Base href per language
 $baseHref = ($lang === 'ar') ? $liveBaseUrl . '/ar/' : $liveBaseUrl . '/';
-
-// URLs for language switch
 $englishUrl = ($lang === 'ar') ? preg_replace('#/ar/#', '/', $uri) : $uri;
 $arabicUrl  = ($lang === 'ar') ? $uri : '/ar' . $uri;
-
-// Absolute paths for CSS/JS/images
 $cssPath      = $liveBaseUrl . '/style.css';
 $outputCssPath = $liveBaseUrl . '/output.css';
 $imagePath    = $liveBaseUrl . '/images/';
+
 ?>
 
 <!DOCTYPE html>
@@ -116,19 +117,12 @@ $imagePath    = $liveBaseUrl . '/images/';
                         <a href="#" class="">Brands</a>
                         <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
                     </div>
-                    <ul
-                        class="absolute left-0 mt-3 z-[999] bg-[#e9ecef] rounded-md grid grid-cols-2 dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
-                        <li><a href="brands/rent-a-bmw"
-                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">BMW</a>
-                        </li>
-                        <li><a href="brands/rent-a-nissan"
-                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Nissan</a>
-                        </li>
-                        <li><a href="brands/rent-a-mercedes"
-                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Mercedes</a>
-                        </li>
-                        <li><a href="brands/rent-a-ford"
-                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Ford</a></li>
+                    <ul class="absolute left-0 mt-3 z-[999] bg-[#e9ecef] rounded-md grid grid-cols-2 dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
+                        <?php foreach($headerContentData["brands"] as $brands): ?>
+                            <li>
+                                <a href="brands/<?php echo $brands["slug"]; ?>" class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300"><?php echo $brands["name_{$lang}"]; ?></a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </li>
                 <li
@@ -157,14 +151,12 @@ $imagePath    = $liveBaseUrl . '/images/';
                         <a href="#" class="">lease</a>
                         <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
                     </div>
-                    <ul
-                        class="absolute z-[999] left-0 mt-3 bg-[#e9ecef] rounded-md dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
-                        <li><a href="lease/monthly-rent-a-car"
-                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Cheap Rent a car</a></li>
-                        <li><a href="lease/monthly-rent-a-car"
-                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Monthly Rent a car</a></li>
-                        <li><a href="lease/economy-car-rental"
-                                class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300">Economy Car Rental</a></li>
+                    <ul class="absolute left-0 mt-3 z-[999] bg-[#e9ecef] rounded-md dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
+                        <?php foreach($headerContentData["lease"] as $lease): ?>
+                            <li>
+                                <a href="lease/<?php echo $lease["slug"]; ?>" class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300"><?php echo $lease["title_{$lang}"]; ?></a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </li>
                 <li
