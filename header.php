@@ -117,7 +117,7 @@ $imagePath    = $liveBaseUrl . '/images/';
                         <a href="#" class="">Brands</a>
                         <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
                     </div>
-                    <ul class="absolute left-0 mt-3 z-[999] bg-[#e9ecef] rounded-md grid grid-cols-2 dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
+                    <ul class="absolute left-0 ar_header_drop mt-3 z-[999] bg-[#e9ecef] rounded-md grid grid-cols-2 dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                         <?php foreach($headerContentData["brands"] as $brands): ?>
                             <li>
                                 <a href="brands/<?php echo $brands["slug"]; ?>" class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300"><?php echo $brands["name_{$lang}"]; ?></a>
@@ -151,7 +151,7 @@ $imagePath    = $liveBaseUrl . '/images/';
                         <a href="#" class="">lease</a>
                         <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
                     </div>
-                    <ul class="absolute left-0 mt-3 z-[999] bg-[#e9ecef] rounded-md dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
+                    <ul class="absolute left-0 ar_header_drop mt-3 z-[999] bg-[#e9ecef] rounded-md dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                         <?php foreach($headerContentData["lease"] as $lease): ?>
                             <li>
                                 <a href="lease/<?php echo $lease["slug"]; ?>" class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300"><?php echo $lease["title_{$lang}"]; ?></a>

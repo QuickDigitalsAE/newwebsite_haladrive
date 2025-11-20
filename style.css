@@ -76,3 +76,7 @@ html[dir="rtl"] .before\:-left-3::before {
     left: unset;
     right: -0.75rem;
 }
+html[dir="rtl"] .ar_header_drop {
+    left: unset;
+    right: 0;
+}
