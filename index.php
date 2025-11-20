@@ -1,11 +1,8 @@
 <?php 
-// Start session for token storage
 session_start();
 
-// Include the API handler
 require_once 'apis/ApiHandler.php';
 
-// Initialize API handler
 $api = new ApiHandler();
 ?>
 
@@ -13,13 +10,10 @@ $api = new ApiHandler();
 
 <?php
 try {
-    // This will be processed before rendering the page
     $homeContent = $api->loadData('webcontent', 'home', []);
     
     if ($homeContent['success']) {
-        // Use the data in your page
         $homeContentData = $homeContent['data']["data"];
-        // print_r($homeContentData["cars"]);
     }
 } catch (Exception $e) {
     echo "Error loading featured products: " . $e->getMessage();
