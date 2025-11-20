@@ -480,15 +480,15 @@ try {
             <div class="swiper mySwiper1">
                 <div class="swiper-wrapper">
                     <?php foreach($homeContentData["brands"] as $id => $logo): ?>
-                    <?php if (!empty($logo)): // skip null images ?>
-                        <div class="swiper-slide">
-                            <img 
-                                src="<?= $logo["logo_url"] ?>" 
-                                class="mx-auto h-[60px] object-contain" 
-                                alt="Brand <?= $id ?>" 
-                            >
-                        </div>
-                    <?php endif; ?>
+                        <?php if (!empty($logo)): // skip null images ?>
+                            <div class="swiper-slide">
+                                <img 
+                                    src="<?= $logo["logo_url"] ?>" 
+                                    class="mx-auto h-[60px] object-contain" 
+                                    alt="Brand <?= $id ?>" 
+                                >
+                            </div>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
             </div>
