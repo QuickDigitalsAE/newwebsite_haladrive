@@ -446,7 +446,7 @@ try {
         </div>
     </section>
 
-    <!--------------------------------- footer ------------------------------->
+    <!--------------------------------- section 6 ------------------------------->
 
     <section class="bg-[#f1f4f8] py-16 max-[1024px]:py-10">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto text-center text-[#939393]">
@@ -497,11 +497,11 @@ try {
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto py-8 ">
             <div class="text-center text-black font-bold text-[1.7rem] leading-[1] mb-10">Features On</div>
             <div class="flex max-[1024px]:flex-wrap  justify-center gap-6">
-                <img class="object-contain w-[10rem] " src="images/sections/features/gulfnews.webp" alt="">
-                <img class="object-contain w-[10rem] " src="images/sections/features/gulfstory.webp" alt="">
-                <img class="object-contain w-[10rem] " src="images/sections/features/hiuae.webp" alt="">
-                <img class="object-contain w-[10rem] " src="images/sections/features/khaleejtime.webp" alt="">
-                <img class="object-contain w-[10rem] " src="images/sections/features/localuae.webp" alt="">
+                <img class="object-contain w-[10rem] " src="<?= $imagePath ?>sections/features/gulfnews.webp" alt="">
+                <img class="object-contain w-[10rem] " src="<?= $imagePath ?>sections/features/gulfstory.webp" alt="">
+                <img class="object-contain w-[10rem] " src="<?= $imagePath ?>sections/features/hiuae.webp" alt="">
+                <img class="object-contain w-[10rem] " src="<?= $imagePath ?>sections/features/khaleejtime.webp" alt="">
+                <img class="object-contain w-[10rem] " src="<?= $imagePath ?>sections/features/localuae.webp" alt="">
             </div>
         </div>
     </section>
