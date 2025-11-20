@@ -14,27 +14,28 @@ try {
     echo "Error loading featured products: " . $e->getMessage();
 }
 
-
 $lang = 'en';
 $uri = $_SERVER['REQUEST_URI'];
-$liveBaseUrl = "https://new.haladrive.ae";
-
 
 if (preg_match('#^/ar/#', $uri)) {
     $lang = 'ar';
 }
 
-$dir = ($lang === 'ar') ? 'rtl' : 'ltr';
+// Base URL for links, images, CSS
+$liveBaseUrl = "https://new.haladrive.ae";
 $baseHref = ($lang === 'ar') ? $liveBaseUrl . '/ar/' : $liveBaseUrl . '/';
-
-$englishUrl = ($lang === 'ar') ? preg_replace('#/ar/#', '/', $uri) : $uri;
-$arabicUrl  = ($lang === 'ar') ? $uri : '/ar' . $uri;
-
 $cssPath      = $liveBaseUrl . '/style.css';
 $outputCssPath = $liveBaseUrl . '/output.css';
 $imagePath    = $liveBaseUrl . '/images/';
 
+// Dynamic PHP file include (server path)
+$messagesFile = $_SERVER['DOCUMENT_ROOT'] . '/messages' . ($lang === 'ar' ? '_ar' : '') . '.php';
 
+if (file_exists($messagesFile)) {
+    require_once $messagesFile;
+} else {
+    die("Messages file not found: " . $messagesFile);
+}
 ?>
 
 <!DOCTYPE html>
