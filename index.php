@@ -198,7 +198,7 @@ try {
     <!--------------------------------- 2nd content ------------------------------->
 
     <section class="py-16 max-[1024px]:py-10 bg-[#f2fdff]">
-        <div class="container mx-auto relative">
+        <div class="relative">
             <img src="<?= $imagePath ?>sections/arrow.webp"
                 class="absolute w-fit left-0 right-0 mx-auto top-[53%] max-[1024px]:top-[53%] -translate-y-1/2" alt="">
             <div
