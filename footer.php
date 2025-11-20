@@ -6,7 +6,7 @@
             class="w-[80%] max-[1024px]:w-[90%] grid grid-cols-3 max-[1024px]:grid-cols-1 pb-[4rem] max-[1024px]:pb-[2rem] text-white m-auto gap-[3rem] max-[1024px]:gap-4 banner-1">
             <div class="">
                 <a href="/src">
-                    <img src="./images/logo/Hala-Drive-resize.webp" alt=""
+                    <img src="<?= $imagePath ?>/logo/Hala-Drive-resize.webp" alt=""
                         class="max-[1000px]:m-auto max-[1024px]:w-[100px]">
                 </a>
                 <p class=" py-4">Your trusted partner for affordable and luxury car rentals across Dubai and the UAE.
@@ -34,26 +34,18 @@
                     <ul class="flex gap-1 list social_icom" style="margin-top:20px;">
                         <li>
                             <a href="https://www.facebook.com/quickdigitaldubai" target="_blank">
-                                <img src="./images/facebook.svg" alt="">
-                                <span style="display:none;">facebook</span>
+                                <img src="<?= $imagePath ?>icons/facebook.svg" alt="">
                             </a>
                         </li>
                         <li>
                             <a href="https://www.linkedin.com/company/quick-digital-solutions/" target="_blank">
-                                <img src="./images/linkedin.svg" alt="">
-                                <span style="display:none;">linkedin</span>
+                                <img src="<?= $imagePath ?>icons/linkedin.svg" alt="">
                             </a>
                         </li>
                         <li>
                             <a href="https://www.instagram.com/quickdigitaldubai/" target="_blank">
-                                <img src="./images/insta.svg" alt="">
-                                <span style="display:none;">instagram</span>
+                                <img src="<?= $imagePath ?>icons/insta.svg" alt="">
                             </a>
-                        </li>
-                        <li>
-                            <!--<a href="https://twitter.com/quickdigitalae/" target="_blank">-->
-                            <!--    <i class="fa-brands fa-twitter"></i>-->
-                            <!--</a>-->
                         </li>
                     </ul>
                 </div>
