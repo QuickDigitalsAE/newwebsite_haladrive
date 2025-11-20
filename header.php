@@ -1,55 +1,59 @@
 <?php
-// Enable error logging
+// Enable error logging (optional)
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 ini_set('error_log', dirname(__FILE__) . '/php_errors.log');
 error_reporting(E_ALL);
 
-try {
-    $headerContent = $api->loadData('header', 'header', []);
-    if ($headerContent['success']) {
-        $headerContentData = $headerContent['data']["data"];
-    }
-} catch (Exception $e) {
-    echo "Error loading featured products: " . $e->getMessage();
-}
-
-
+// Detect language
 $lang = 'en';
 $uri = $_SERVER['REQUEST_URI'];
-$liveBaseUrl = "https://new.haladrive.ae";
-
-
 if (preg_match('#^/ar/#', $uri)) {
     $lang = 'ar';
 }
 
+// Base info for URLs
+$liveBaseUrl = "https://new.haladrive.ae";
 $dir = ($lang === 'ar') ? 'rtl' : 'ltr';
 $baseHref = ($lang === 'ar') ? $liveBaseUrl . '/ar/' : $liveBaseUrl . '/';
-
 $englishUrl = ($lang === 'ar') ? preg_replace('#/ar/#', '/', $uri) : $uri;
 $arabicUrl  = ($lang === 'ar') ? $uri : '/ar' . $uri;
-
 $cssPath      = $liveBaseUrl . '/style.css';
 $outputCssPath = $liveBaseUrl . '/output.css';
 $imagePath    = $liveBaseUrl . '/images/';
 
+// Include language messages using filesystem path
+$messagesFile = __DIR__ . '/messages' . ($lang === 'ar' ? '_ar' : '') . '.php';
+if (!file_exists($messagesFile)) {
+    die("Messages file not found: " . $messagesFile);
+}
+$messages = require $messagesFile;
+
+// Load API header content safely
+try {
+    require_once __DIR__ . '/apis/ApiHandler.php';
+    $api = new ApiHandler();
+    $headerContent = $api->loadData('header', 'header', []);
+    if ($headerContent['success']) {
+        $headerContentData = $headerContent['data']['data'];
+    } else {
+        $headerContentData = [];
+    }
+} catch (Exception $e) {
+    $headerContentData = [];
+    error_log("Error loading header content: " . $e->getMessage());
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="<?= $lang ?>" dir="<?= $dir ?>">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Dubai’s Top E-Commerce Website Design Agency | Best Way to Grow Businesses" />
-    <meta property="og:description"
-        content="Build, grow, and succeed your business with a trusted and leading e-commerce website design agency in Dubai. Boost the online presence of your business." />
-    <meta name="robots" content="noindex, nofollow">
     <base href="<?= $baseHref; ?>">
     <link defer rel="stylesheet" href="<?= $cssPath; ?>">
     <link defer rel="stylesheet" href="<?= $outputCssPath; ?>">
-    <title>Hala Drive</title>
+    <title><?= $messages['hala'] ?> Drive</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
