@@ -1,11 +1,15 @@
 <?php
-// ------------------- Error Logging -------------------
+// ----------------------------
+// Header Setup
+// ----------------------------
+
+// Error logging (optional)
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
-ini_set('error_log', __DIR__ . '/php_errors.log');
+ini_set('error_log', dirname(__FILE__) . '/php_errors.log');
 error_reporting(E_ALL);
 
-// ------------------- API Header Content -------------------
+// Example: header content from API
 try {
     $headerContent = $api->loadData('header', 'header', []);
     if ($headerContent['success']) {
@@ -15,55 +19,53 @@ try {
     echo "Error loading header content: " . $e->getMessage();
 }
 
-// ------------------- Language Detection -------------------
+// ----------------------------
+// Language Setup
+// ----------------------------
 $lang = 'en';
 $uri = $_SERVER['REQUEST_URI'];
-$liveBaseUrl = "https://new.haladrive.ae";
+$liveBaseUrl = "https://new.haladrive.ae"; // live base URL
 
-// Detect Arabic language
 if (preg_match('#^/ar/#', $uri)) {
     $lang = 'ar';
 }
 
-// Direction & Base URL
 $dir = ($lang === 'ar') ? 'rtl' : 'ltr';
 $baseHref = ($lang === 'ar') ? $liveBaseUrl . '/ar/' : $liveBaseUrl . '/';
-
-// Language Switch URLs
 $englishUrl = ($lang === 'ar') ? preg_replace('#/ar/#', '/', $uri) : $uri;
 $arabicUrl  = ($lang === 'ar') ? $uri : '/ar' . $uri;
 
 // CSS & Images
-$cssPath       = $liveBaseUrl . '/style.css';
+$cssPath      = $liveBaseUrl . '/style.css';
 $outputCssPath = $liveBaseUrl . '/output.css';
-$imagePath     = $liveBaseUrl . '/images/';
+$imagePath    = $liveBaseUrl . '/images/';
 
-// ------------------- Load Messages -------------------
+// ----------------------------
+// Load messages
+// ----------------------------
 $messagesFile = ($lang === 'ar') ? __DIR__ . '/messages_ar.php' : __DIR__ . '/messages.php';
 $messages = include $messagesFile;
 
-// Now $messages['home'], $messages['about'], etc. can be used anywhere
-// Example: echo $messages['home'];
+// ----------------------------
+// Pass messages to JS
+// ----------------------------
 ?>
-
 <!DOCTYPE html>
 <html lang="<?= $lang ?>" dir="<?= $dir ?>">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Dubai’s Top E-Commerce Website Design Agency | Best Way to Grow Businesses" />
-    <meta property="og:description"
-        content="Build, grow, and succeed your business with a trusted and leading e-commerce website design agency in Dubai. Boost the online presence of your business." />
-    <meta name="robots" content="noindex, nofollow">
-    <link href="<?= $imagePath; ?>icons/favicon.ico" rel="icon">
-    <base href="<?= $baseHref; ?>">
-    <link defer rel="stylesheet" href="<?= $cssPath; ?>">
-    <link defer rel="stylesheet" href="<?= $outputCssPath; ?>">
+    <base href="<?= $baseHref ?>">
+    <link rel="stylesheet" href="<?= $cssPath ?>">
+    <link rel="stylesheet" href="<?= $outputCssPath ?>">
     <title>Hala Drive</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-</head>
+    <link rel="icon" href="<?= $imagePath ?>icons/favicon.ico" type="image/x-icon">
 
+    <!-- Pass translations to JS -->
+    <script>
+        window.translations = <?= json_encode($messages); ?>;
+    </script>
+</head>
 <body>
 
     <!--------------------------------- header ------------------------------->

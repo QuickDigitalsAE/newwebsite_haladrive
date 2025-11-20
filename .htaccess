@@ -175,3 +175,7 @@ RewriteRule ^carsbrands/([^/]+)/?$ brands.php?slug=$1&lang=en [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^/]+)/?$ location.php?slug=$1&lang=en [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^favicon\.ico$ - [L]
