@@ -113,18 +113,16 @@ $messages = include $messagesFile;
         <nav id="mobileMenu"
             class="bg-black border-b-4 max-[1024px]:pb-12 border-[#ff000d] max-[1024px]:w-full max-[1024px]:fixed max-[1024px]:z-[999] transition-all duration-500 max-[1024px]:top-[-100%]">
             <ul
-                class="uppercase flex max-[1024px]:flex-col items-center gap-6 justify-center max-[1024px]:items-start max-[1024px]:gap-0 max-[1024px]:pb-4 max-[1024px]:pt-24 text-white relative max-[1024px]:mx-5">
-                <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                class="uppercase flex max-[1024px]:flex-col items-center gap-6 ar_gap justify-center max-[1024px]:items-start max-[1024px]:gap-0 max-[1024px]:pb-4 max-[1024px]:pt-24 text-white relative max-[1024px]:mx-5">
+                <li class="relative before:content-[''] ar_px before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
                     <a href=""
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3"><?= $messages['home'] ?></a>
                 </li>
-                <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                <li class="relative before:content-[''] ar_px before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
                     <a href="about"
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3"><?= $messages['about'] ?></a>
                 </li>
-                <li class="relative group before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                <li class="relative group before:content-[''] ar_px before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
                     <div class="flex items-center gap-1 transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 max-[1024px]:py-2 ">
                         <a href="#" class=""><?= $messages['brands'] ?></a>
                         <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
@@ -137,27 +135,23 @@ $messages = include $messagesFile;
                         <?php endforeach; ?>
                     </ul>
                 </li>
-                <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                <li class="relative before:content-[''] ar_px before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
                     <a href="cars"
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3"><?= $messages['cars'] ?></a>
                 </li>
-                <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                <li class="relative before:content-[''] ar_px before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
                     <a href="faq"
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3"><?= $messages['faq'] ?></a>
                 </li>
-                <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                <li class="relative before:content-[''] ar_px before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
                     <a href="blogs"
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3"><?= $messages['blogs'] ?></a>
                 </li>
-                <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                <li class="relative before:content-[''] ar_px before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
                     <a href="locations"
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3"><?= $messages['locations'] ?></a>
                 </li>
-                <li class="relative group before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                <li class="relative group before:content-[''] ar_px before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
                     <div class="flex items-center gap-1 transition-all duration-300 hover:bg-[#ff000d] py-6 px-3 max-[1024px]:py-2">
                         <a href="#" class=""><?= $messages['lease'] ?></a>
                         <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
@@ -170,8 +164,7 @@ $messages = include $messagesFile;
                         <?php endforeach; ?>
                     </ul>
                 </li>
-                <li
-                    class="relative before:content-[''] before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
+                <li class="relative before:content-[''] ar_px before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-[2px] before:h-[25px] before:bg-gray-500 max-[1024px]:before:bg-black first:before:hidden">
                     <a href="contact"
                         class="transition-all duration-300 hover:bg-[#ff000d] block py-6 max-[1024px]:py-2 px-3"><?= $messages['contact'] ?></a>
                 </li>
