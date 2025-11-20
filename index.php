@@ -131,11 +131,11 @@ try {
                                 class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
                                 <li class="flex items-center gap-2 ">
                                     <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                    <div class=""><?= $messages['engine '] ?> <?php echo $car["engine"]; ?></div>
+                                    <div class=""><?= $messages['engine'] ?> <?php echo $car["engine"]; ?></div>
                                 </li>
                                 <li class="flex items-center gap-2 ">
                                     <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                    <div class=""><?= $messages['bluetooth '] ?> <?php echo $car["bluetooth"]; ?></div>
+                                    <div class=""><?= $messages['bluetooth'] ?> <?php echo $car["bluetooth"]; ?></div>
                                 </li>
                                 <li class="flex items-center gap-2 ">
                                     <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
