@@ -84,6 +84,6 @@ html[dir="rtl"] .ar_gap {
     gap: 1rem;
 }
 html[dir="rtl"] .ar_px {
-    padding-left: 0.45rem;
-    padding-right: 0.45rem;
+    padding-left: -0.35rem;
+    padding-right: -0.35rem;
 }
