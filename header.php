@@ -26,22 +26,11 @@ if (preg_match('#^/ar/#', $uri)) {
 
 $dir = ($lang === 'ar') ? 'rtl' : 'ltr';
 $baseHref = ($lang === 'ar') ? $liveBaseUrl . '/ar/' : $liveBaseUrl . '/';
-
-// Language switch URLs
 $englishUrl = ($lang === 'ar') ? preg_replace('#/ar/#', '/', $uri) : $uri;
 $arabicUrl  = ($lang === 'ar') ? $uri : '/ar' . $uri;
-
-// Static paths
 $cssPath      = $liveBaseUrl . '/style.css';
 $outputCssPath = $liveBaseUrl . '/output.css';
 $imagePath    = $liveBaseUrl . '/images/';
-
-// Load correct static content file
-if ($lang === 'ar') {
-    require_once __DIR__ . '/messages_ar.php'; // Arabic text
-} else {
-    require_once __DIR__ . '/messages.php'; // English text
-}
 
 ?>
 
