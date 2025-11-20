@@ -2,7 +2,6 @@
 
 return [
     'home' => 'Home',
-    'features_on' => 'Features On',
     'about' => 'About Us',
     'brands' => 'Brands',
     'faq' => 'FAQ',
@@ -11,11 +10,9 @@ return [
     'locations' => 'Our locations',
     'cars' => 'Cars',
     'contact' => 'Contact',
-    'quote' => 'Book Ride',
-    'explore_brands' => 'Explore The Car Range',
-    'hala' => 'HALA',
-    'drive' => 'Drive',
-    'rents' => 'Rents',
+    'inquiry' => 'Send Inquiry',
+
+
     'first_section_brief' => 'at Hala Drive, our company offers excellent customer assistance at affordable rates. The team takes pride in offering modern cars that meet all safety standards as well as equipped based on state-of-the-art technologies like GPS navigation systems, rearview cameras and automatic transmissions that help make driving safer, smoother and more enjoyable than ever. You can be sure that no matter which model of the car you choose from us, it will be serviced regularly and maintained in peak condition before being sent off with our customers. You will end up getting the best car leasing Dubai experience. ',
     'second_section_brief' => 'In addition, we also provide additional benefits like 24/7 roadside assistance services in case of any emergencies during using our cars. So no matter where your journey takes you to the city, you can feel secure knowing that Our Best car rental UAE service has your back when needed. And for those who want their car delivered directly to their doorstep on any day, we even offer pickup services. ',
     'third_section_brief1' => "A reliable rent a car Dubai service provides Dubai visitors endless possibilities to maximize their experience. Hala Drive provides a complete collection of vehicles that serve both business requirements and leisure activities. Customers can choose between luxury car models of BMW, Mercedes, Audi and <a href=\"./lease/economy-car-rental\">economical rental options</a> to serve every travel requirement. We deliver smooth and hassle-free journeys in Dubai through our competitive car rental prices and exceptional service to customers.",
