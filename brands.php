@@ -127,17 +127,17 @@ try {
                                 <div class="flex gap-2 justify-center items-center mt-3">
                                     <div
                                         class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                        <div class="">Daily</div>
+                                        <div class=""><?= $messages['daily'] ?></div>
                                         <div class="font-bold"><?php echo $car["price_daily"]; ?></div>
                                     </div>
                                     <div
                                         class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                        <div class="">Weekly</div>
+                                        <div class=""><?= $messages['weekly'] ?></div>
                                         <div class="font-bold"><?php echo $car["price_weekly"]; ?></div>
                                     </div>
                                     <div
                                         class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                        <div class="">Monthly</div>
+                                        <div class=""><?= $messages['monthly'] ?></div>
                                         <div class="font-bold"><?php echo $car["price_monthly"]; ?></div>
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@ try {
                                     </li>
                                     <li class="flex items-center gap-2 ">
                                         <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class="">Cruise Control Yes</div>
+                                        <div class=""><?= $messages['control'] ?> Yes</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
                                         <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
@@ -166,7 +166,7 @@ try {
                                 <div class="mt-4">
                                     <div
                                         class="text-white bg-[#ff000d] px-[5rem] py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-center max-[1024px]:mx-auto w-fit">
-                                        Send Inquiry</div>
+                                        <?= $messages['inquiry'] ?></div>
                                 </div>
                             </div>
                         </div>

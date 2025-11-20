@@ -46,7 +46,7 @@
                         <img src="<?= $imagePath ?>flags/flag-ar.webp" alt="" class="w-6">
                         <div class="">العربية</div>
                     </div>
-                    <div class="-skew-x-12 bg-[#ff000d] cursor-pointer text-white px-4 py-2">Send Inquiry</div>
+                    <div class="-skew-x-12 bg-[#ff000d] cursor-pointer text-white px-4 py-2"><?= $messages['inquiry'] ?></div>
                     <div class="bg-[#29a71a] -skew-x-12 px-2 py-2 cursor-pointer">
                         <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="" class="w-6">
                     </div>

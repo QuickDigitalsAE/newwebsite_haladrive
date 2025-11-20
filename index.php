@@ -109,17 +109,17 @@ try {
                             <div class="flex gap-2 max-[1024px]:justify-center items-center mt-3">
                                 <div
                                     class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                    <div class="">Daily</div>
+                                    <div class=""><?= $messages['daily'] ?></div>
                                     <div class="font-bold"><?php echo $car["price_daily"]; ?></div>
                                 </div>
                                 <div
                                     class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                    <div class="">Weekly</div>
+                                    <div class=""><?= $messages['weekly'] ?></div>
                                     <div class="font-bold"><?php echo $car["price_weekly"]; ?></div>
                                 </div>
                                 <div
                                     class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                    <div class="">Monthly</div>
+                                    <div class=""><?= $messages['monthly'] ?></div>
                                     <div class="font-bold"><?php echo $car["price_monthly"]; ?></div>
                                 </div>
                             </div>
@@ -131,27 +131,27 @@ try {
                                 class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
                                 <li class="flex items-center gap-2 ">
                                     <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                    <div class="">Engine <?php echo $car["engine"]; ?></div>
+                                    <div class=""><?= $messages['engine '] ?> <?php echo $car["engine"]; ?></div>
                                 </li>
                                 <li class="flex items-center gap-2 ">
                                     <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                    <div class=""> Bluetooth <?php echo $car["bluetooth"]; ?></div>
+                                    <div class=""><?= $messages['bluetooth '] ?> <?php echo $car["bluetooth"]; ?></div>
                                 </li>
                                 <li class="flex items-center gap-2 ">
                                     <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                    <div class="">Cruise Control <?php echo $car["cruise"]; ?></div>
+                                    <div class=""><?= $messages['control'] ?> <?php echo $car["cruise"]; ?></div>
                                 </li>
                                 <li class="flex items-center gap-2 ">
                                     <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                    <div class="">Luggage <?php echo $car["luggage"]; ?></div>
+                                    <div class=""><?= $messages['luggage'] ?> <?php echo $car["luggage"]; ?></div>
                                 </li>
                             </ul>
                             <div class="flex items-center max-[1024px]:justify-center gap-4 mt-4">
                                 <div
                                     class="text-white bg-[#ff000d] px-2 py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-[12px]">
-                                    Send Inquiry</div>
+                                    <?= $messages['inquiry'] ?></div>
                                 <a target="_blank" href="https://wa.me/971501837112?text=Hi" class="bg-[#29a71a] px-4 py-1 -skew-x-12 cursor-pointer"><img
-                                        src="images/icons/whatsapp.svg" class="w-5" alt=""></a>
+                                        src="<?= $imagePath ?>icons/whatsapp.svg" class="w-5" alt=""></a>
                             </div>
                         </div>
                     </div>
