@@ -34,11 +34,8 @@ $cssPath      = $liveBaseUrl . '/style.css';
 $outputCssPath = $liveBaseUrl . '/output.css';
 $imagePath    = $liveBaseUrl . '/images/';
 
-if ($lang === 'ar') {
-    require_once __DIR__ . '/messages_ar.php';
-} else {
-    require_once __DIR__ . '/messages.php';
-}
+$messagesFile = ($lang === 'ar') ? __DIR__ . '/messages_ar.php' : __DIR__ . '/messages.php';
+require_once $messagesFile;
 
 ?>
 
