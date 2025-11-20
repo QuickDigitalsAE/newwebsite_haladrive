@@ -479,16 +479,12 @@ try {
         <div class="slider-wrap w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
             <div class="swiper mySwiper1">
                 <div class="swiper-wrapper">
-                    <?php foreach($homeContentData["brands"] as $id => $logo): ?>
-                        <?php if (!empty($logo)): // skip null images ?>
-                            <div class="swiper-slide">
-                                <img 
-                                    src="<?= $logo["logo_url"] ?>" 
-                                    class="mx-auto h-[60px] object-contain" 
-                                    alt="Brand <?= $id ?>" 
-                                >
-                            </div>
-                        <?php endif; ?>
+                    <?php foreach($homeContentData["brands"] as $brand): ?>
+                        <div class="swiper-slide">
+                            <a href="brands/<?php echo $brand["slug"]; ?>">
+                                <img class='slider_image' src="<?php echo $brand["logo_url"]; ?>" class="mx-auto" alt="Image 1">
+                            </a>
+                        </div>
                     <?php endforeach; ?>
                 </div>
             </div>
