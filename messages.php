@@ -30,6 +30,7 @@ return [
     'monthly' => 'Monthly',
     'crossover' => 'Crossover',
     'featured' => 'Featured',
+    'midsize' => 'Midsize',
     'suv' => 'SUV',
     'economy' => 'Economy',
     

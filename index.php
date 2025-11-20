@@ -165,7 +165,7 @@ try {
     <!--------------------------------- 1st content ------------------------------->
 
     <section>
-        <div class="container mx-auto pb-16 max-[1024px]:py-10">
+        <div class="pb-16 max-[1024px]:py-10">
             <div
                 class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
                 <div class="">

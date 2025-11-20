@@ -28,6 +28,7 @@ return [
     'monthly' => 'شهري',
     'crossover' => 'كروس أوفر',
     'featured' => 'مميز',
+    'midsize' => 'متوسطة الحجم',
     'suv' => 'دفع رباعي',
     'economy' => 'اقتصادي',
 
