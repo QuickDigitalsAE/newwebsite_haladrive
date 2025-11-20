@@ -46,6 +46,7 @@ $imagePath    = $liveBaseUrl . '/images/';
     <meta property="og:description"
         content="Build, grow, and succeed your business with a trusted and leading e-commerce website design agency in Dubai. Boost the online presence of your business." />
     <meta name="robots" content="noindex, nofollow">
+    <link href="<?= $imagePath; ?>icons/favicon.ico" rel="icon">
     <base href="<?= $baseHref; ?>">
     <link defer rel="stylesheet" href="<?= $cssPath; ?>">
     <link defer rel="stylesheet" href="<?= $outputCssPath; ?>">
