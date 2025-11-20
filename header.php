@@ -65,6 +65,13 @@ $messages = include $messagesFile;
     <script>
         window.translations = <?= json_encode($messages); ?>;
     </script>
+    <script>
+        if (window.translations && window.translations.translationService) {
+            console.log(window.translations.translationService); 
+        } else {
+            console.warn('translationService not found');
+        }
+    </script>
 </head>
 <body>
 
