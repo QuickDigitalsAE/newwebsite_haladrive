@@ -85,7 +85,7 @@ try {
     
 
     <section class="relative bg-white py-16 max-[1024px]:py-10">
-        <div class="container mx-auto">
+        <div class="">
             <div class="text-black font-semibold text-[2.5rem] max-[1024px]:text-[1.5rem] leading-[1] text-center w-[80%] max-[1024px]:w-[90%] mx-auto">
                 Rent a Car in Dubai with Hala Drive - Affordable, Reliable & Hassle-Free Car Rentals</div>
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 gap-8 mt-12 w-[80%] max-[1024px]:w-[90%] mx-auto">
