@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Poppins:wght@400;600&display=swap');
 
 * {
     padding: 0;
@@ -21,7 +21,7 @@ p {
 .string h1 strong{
     line-height: 1;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 .string h1 {
     line-height: 1;
@@ -31,13 +31,13 @@ p {
 .string h3 strong {
     line-height: 1;
     font-size: 1.8rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 .string h4 strong,
 .string h5 strong {
     line-height: 1;
     font-size: 1.4rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 .string p{
     padding-block: 1rem;
