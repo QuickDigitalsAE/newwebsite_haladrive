@@ -44,21 +44,10 @@ $imagePath    = $liveBaseUrl . '/images/';
         content="Build, grow, and succeed your business with a trusted and leading e-commerce website design agency in Dubai. Boost the online presence of your business." />
     <meta name="robots" content="noindex, nofollow">
     <base href="<?= $baseHref; ?>">
-    
-    <!-- CSS -->
     <link defer rel="stylesheet" href="<?= $cssPath; ?>">
     <link defer rel="stylesheet" href="<?= $outputCssPath; ?>">
     <title>Hala Drive</title>
-    <!-- <link rel="stylesheet" href="/output.css">
-    <link rel="stylesheet" href="/style.css"> -->
-    <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <!-- <link rel="preload" rel="shortcut icon" href="./images/logo.webp" type="image/x-icon">
-    <link rel="preload" fetchpriority="high" as="image" href="images/banner/mobile-slider-1.webp" type="image/webp">
-    <link rel="preload" fetchpriority="high" as="image" href="images/banner/mobile-slider-2.webp" type="image/webp">
-    <link rel="preload" fetchpriority="high" as="image" href="images/banner/mobile-slider-4.webp" type="image/webp">
-    <link rel="preload" fetchpriority="high" as="image" href="images/banner/slider.webp" type="image/webp">
-    <link rel="preload" fetchpriority="high" as="image" href="images/banner/slider2.webp" type="image/webp">
-    <link rel="preload" fetchpriority="high" as="image" href="images/banner/slider3.webp" type="image/webp"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
