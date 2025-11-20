@@ -32,6 +32,66 @@ return [
     'suv' => 'دفع رباعي',
     'economy' => 'اقتصادي',
 
+    //     Home
+
+    'homeFirstHeading' => 'استأجر سيارة في دبي مع هلا درايف - خدمة تأجير سيارات, بأسعار معقولة وموثوقة وبدون عناء',
+    //   Home One section
+    'homeSectionOneHeading_1' => 'Welcome to Hala Drive - Your Trusted Car Rental Partner in Dubai',
+    'homeSectionOnePera_1' => 'A reliable rent a car Dubai service provides Dubai visitors endless possibilities to maximize their experience. Hala Drive provides a complete collection of vehicles that serve both business requirements and leisure activities. Customers can choose between luxury car models of BMW, Mercedes, Audi and economical rental options to serve every travel requirement. We deliver smooth and hassle-free journeys in Dubai through our competitive car rental prices and exceptional service to customers.',
+    'homeSectionOnePera_2' => 'Car rental Dubai selection becomes difficult for many people to find the right option. Our team dedicates itself to helping customers find their optimal vehicle while obtaining maximum cost-effectiveness. Our company provides the ideal car rental solutions that span from short-term bookings to long-term car lease Dubai services. Hala Drive offers you exceptional car rental services throughout Dubai while enabling you to travel with convenience and ease.',
+    'homeSectionOnePera_3' => `Our service allows customers to easily book cars with both convenience and affordability. Through our platform users can access the most advantageous car rental deals Dubai while enjoying peace of mind during their drive. You can experience complete freedom and flexibility to explore both city landmarks and natural landscapes throughout the city through Hala Drive's services.`,
+    //   Home Two section
+    'homeSectionTwoHeading_1' => 'Why Choose Hala Drive for Your Car Rental Needs?',
+    'homeSectionTwoPera_1' => 'Hala Drive car rental delivers a smooth and trustworthy experience to all passengers who select their services. Our company provides diverse car rental services in Dubai that match different financial constraints and customer preferences. Our vehicle fleet contains several options which range from compact cars to spacious SUVs along with luxury vehicles to suit every customer need. Our Dubai-based online booking system provides simple tools for customers to reserve their rental vehicles without difficulty. Through our car leasing Dubai option, you can select rental plans that match your specific needs.',
+    'homeSectionTwoPera_2' => 'Hala Drive provides affordable car rental Dubai prices that include no hidden costs for customers. Hala Drive provides exclusive deals alongside promotional offers that allow budget-conscious customers to acquire luxury vehicles and affordable rentals. Our dedicated team of support agents provides customer satisfaction guarantees along with hassle-free car hire Dubai services. Our fleet consists of vehicles that come with premium care and boast both safety features and comfort and reliable performance while you are traveling. Our car rental services in Dubai deliver both excellence and convenience to every resident and tourist.',
+    'homeSectionTwoHeading_2' => 'Find the Best Car Rental Deals in Dubai',
+    'homeSectionTwoPera_3' => 'Our company Hala Drive understands that budget-minded travelers need best car rental deals Dubai. Our company offers the most affordable rates for every vehicle we provide so you can maximize your budget while driving. Our car hire Dubai services include options for both short-term visitors and extended travelers.',
+    'homeSectionTwoPera_4' => 'Customers can find clear costs on our website together with multiple range of fleet that match varying budgets. Our vehicle selection includes both compact city cars and luxurious sedans that serve all types of clients. The best rent a car deals in Dubai combined with premium service are our commitment to offering customers affordable options.',
+    'homeSectionTwoPera_5' => 'For those looking for long-term convenience, our car leasing Dubai services provide flexible rental plans at competitive prices. Whether you need a vehicle for a weekend getaway or an extended stay, we make it easy to rent a car Dubai without hidden charges, ensuring a hassle-free experience.',
+
+    //     Home Faq
+    'homeFaqs_1' => 'Frequently Asked Questions',
+    'homeFaqs_pera_1' => 'These are the questions we hear more often.',
+    'homeFaqs_2' => `Don't see the answer you need?`,
+    'homeFaqs_pera_2' => 'Just drop a msg we will get back to you ASAP!',
+
+    //     Home Three Section
+    'timely' => 'Timely delivery',
+    'professional' => 'Professional Staff',
+    'online' => 'Online Reservation',
+    'unbeatable' => 'Unbeatable Rates',
+    'flexible' => 'Flexible Return Policy',
+    'fully' => 'Fully Insured',
+    'homeSectionThreePera' => 'During your journey the covered insurance and damages provide you with both financial protection and assurance for your travels. Rental vehicle clients of our company benefit from adjustable rates that minimize costs whenever unexpected journey changes occur. Hala Drive provides an unmatched rental service by offering a complete range of economical cars such as such as KIA, Nissan and Chevrolet at remarkable prices along with exceptional customer care.',
+
+    //     Home Blogs
+    'ourblogs' => 'Our Blogs',
+
+    //     Home Forth Section
+    'homeSectionForthHeading_1' => 'Rent a Car Dubai Online Today and Enjoy These Perks',
+    'homeSectionForthPera_1' => 'Contact Us now for Updates and Promotions',
+    'homeSectionForthPera_2' => 'at Hala Drive, our company offers excellent customer assistance at affordable rates. The team takes pride in offering modern cars that meet all safety standards as well as equipped based on state-of-the-art technologies like GPS navigation systems, rearview cameras and automatic transmissions that help make driving safer, smoother and more enjoyable than ever. You can be sure that no matter which model of the car you choose from us, it will be serviced regularly and maintained in peak condition before being sent off with our customers. You will end up getting the best car leasing Dubai experience.',
+    'homeSectionForthPera_3' => 'In addition, we also provide additional benefits like 24/7 roadside assistance services in case of any emergencies during using our cars. So no matter where your journey takes you to the city, you can feel secure knowing that Our Best car rental UAE service has your back when needed. And for those who want their car delivered directly to their doorstep on any day, we even offer pickup services.',
+
+    //     Home Fifth Section
+    'satisfied_1' => 'Join Over',
+    'satisfied_2' => '2000+ Satisfied Clients',
+    'satisfied_3' => 'Experience the Quality and Excellence of Our Services',
+    'homeSectionFifthHeading_1' => 'Junnalyn Sali',
+    'homeSectionFifthPera_1' => 'The service at Hala Drive rent a car satisfied me completely during my time there. You can reach their service through a phone call so I strongly suggest choosing them. Everything about the rental experience was positive because the vehicle remained clean while the personnel treated me well and the service avoided hidden fees.',
+    'homeSectionFifthHeading_2' => 'Sumodo Hasan',
+    'homeSectionFifthPera_2' => 'Dubai residents should choose this company as their preferred rental car provider. I have relied on their service more than once and I am consistently satisfied with their standard of service. The rental staff maintains high professionalism while offering cars which remain in perfect condition. Highly recommended!',
+    'homeSectionFifthHeading_3' => 'Roshan Smith',
+    'homeSectionFifthPera_3' => 'I found the vehicle outstanding because it combined superb fuel economy and pristine cleanliness. The team provided clear communication while the service locations were easy to reach. I sincerely appreciate the services provided by Hala Drive car rental services.',
+
+    //    Home Sixth Section
+    'homeSectionSixthHeading_1' => 'Experience Convenience, Comfort, and Cost-Effective Car Rentals',
+    'homeSectionSixthPera_1' => 'Customers can experience a smooth car rental UAE journey through Hala Drive. Our company offers the ideal vehicles at competitive prices for both urban commuters and business professionals. The experienced staff member at our company stand ready to assist clients in deciding which vehicle best fits as per your requirements.',
+    'homeSectionSixthPera_2' => 'Our car lease Dubai option lets customers access their desired vehicles without the ownership costs. Different financing options and special discounts enable you to drive your prestigious vehicle choice with freedom from traditional ownership terms.',
+    'homeSectionSixthPera_3' => 'The company maintains its dedication to safety and reliability which enables you to feel completely at ease while driving. The vehicles we offer receive routine maintenance checks alongside inspections to guarantee their top condition for their customer. The car rental services at Hala Drive guarantee you the highest standard of service throughout Dubai.',
+    'homeSectionSixthPera_4' => 'Hala Drive offers car hire UAE services that extend far beyond basic vehicle rentals. Hala Drive dedicates itself to delivering superior customer assistance together with premium maintenance services in addition to special rental packages which boost your travel comfort. Our Dubai-based service locations provide convenient accessibility to our customers throughout the city.',
+    'homeSectionSixthPera_5' => 'Whether you’re visiting Dubai for business, leisure, or an extended stay, Hala Drive has the perfect car rental Dubai cheap option for you. Book your vehicle today and enjoy a stress-free journey with the best Hala drive car rental services available!',
+
     
     'first_section_brief' => '
     في هلا درايف, نقدم مساعدة ممتازة لكل العملاء و بأسعار معقولة. يفخر الفريق بتقديم سيارات حديثة تلبي جميع معايير السلامة ومجهزة على أساس أحدث التقنيات مثل أنظمة الملاحة, وكاميرات الرؤية الخلفية وناقل الحركة الأوتوماتيكي التي تساعد على جعل القيادة أكثر سلاسة ومتعة من أي وقت مضى. يمكنك التأكد من أنه بغض النظر عن نوع السيارة التي سوف تختارها, سوف تتم صيانتها بشكل منتظم, وصيانتها قبل ارسالها الى العميل. سوف ينتهي بك الامر بالحصول على أفضل تجربة تأجير سيارات في دبي',

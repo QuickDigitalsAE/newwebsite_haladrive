@@ -81,7 +81,7 @@ try {
     <section class="relative bg-white py-16 max-[1024px]:py-10">
         <div class="">
             <div class="text-black font-semibold text-[2.5rem] max-[1024px]:text-[1.5rem] leading-[1] text-center w-[80%] max-[1024px]:w-[90%] mx-auto">
-                Rent a Car in Dubai with Hala Drive - Affordable, Reliable & Hassle-Free Car Rentals</div>
+                <?= $messages['homeFirstHeading'] ?></div>
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 gap-8 mt-12 w-[80%] max-[1024px]:w-[90%] mx-auto">
                 <?php foreach($homeContentData["cars"] as $car): ?>
                 <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
@@ -163,27 +163,12 @@ try {
             <div
                 class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
                 <div class="">
-                    <div class="text-[1.7rem] leading-[1] font-bold">Welcome to Hala Drive - Your Trusted Car Rental
-                        Partner in Dubai</div>
-                    <p class="text-[#7c7c7c] mt-4">A reliable rent a car Dubai service provides Dubai visitors endless
-                        possibilities to maximize their experience. Hala Drive provides a complete collection of
-                        vehicles that serve both business requirements and leisure activities. Customers can choose
-                        between luxury car models of BMW, Mercedes, Audi and economical rental options to serve every
-                        travel requirement. We deliver smooth and hassle-free journeys in Dubai through our competitive
-                        car rental prices and exceptional service to customers.</p>
+                    <div class="text-[1.7rem] leading-[1] font-bold"><?= $messages['homeSectionOneHeading_1'] ?></div>
+                    <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionOnePera_1'] ?></p>
                 </div>
                 <div class="">
-                    <p class="text-[#7c7c7c]">Car rental Dubai selection becomes difficult for many people to find the
-                        right option. Our team dedicates itself to helping customers find their optimal vehicle while
-                        obtaining maximum cost-effectiveness. Our company provides the ideal car rental solutions that
-                        span from short-term bookings to long-term car lease Dubai services. Hala Drive offers you
-                        exceptional car rental services throughout Dubai while enabling you to travel with convenience
-                        and ease.</p>
-                    <p class="text-[#7c7c7c] mt-4 font-bold">Our service allows customers to easily book cars with both
-                        convenience and affordability. Through our platform users can access the most advantageous car
-                        rental deals Dubai while enjoying peace of mind during their drive. You can experience complete
-                        freedom and flexibility to explore both city landmarks and natural landscapes throughout the
-                        city through Hala Drive's services.</p>
+                    <p class="text-[#7c7c7c]"><?= $messages['homeSectionOnePera_2'] ?></p>
+                    <p class="text-[#7c7c7c] mt-4 font-bold"><?= $messages['homeSectionOnePera_3'] ?></p>
                 </div>
             </div>
         </div>
@@ -198,23 +183,10 @@ try {
             <div
                 class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
                 <div class="">
-                    <div class="text-[1.7rem] leading-[1] font-bold">Why Choose Hala Drive for Your Car Rental Needs?
+                    <div class="text-[1.7rem] leading-[1] font-bold"><?= $messages['homeSectionTwoHeading_1'] ?>
                     </div>
-                    <p class="text-[#7c7c7c] mt-4">Hala Drive car rental delivers a smooth and trustworthy experience to
-                        all passengers who select their services. Our company provides diverse car rental services in
-                        Dubai that match different financial constraints and customer preferences. Our vehicle fleet
-                        contains several options which range from compact cars to spacious SUVs along with luxury
-                        vehicles to suit every customer need. Our Dubai-based online booking system provides simple
-                        tools for customers to reserve their rental vehicles without difficulty. Through our car leasing
-                        Dubai option, you can select rental plans that match your specific needs.</p>
-                    <p class="text-[#7c7c7c] mt-4">Hala Drive provides affordable car rental Dubai prices that include
-                        no hidden costs for customers. Hala Drive provides exclusive deals alongside promotional offers
-                        that allow budget-conscious customers to acquire luxury vehicles and affordable rentals. Our
-                        dedicated team of support agents provides customer satisfaction guarantees along with
-                        hassle-free car hire Dubai services. Our fleet consists of vehicles that come with premium care
-                        and boast both safety features and comfort and reliable performance while you are traveling. Our
-                        car rental services in Dubai deliver both excellence and convenience to every resident and
-                        tourist.</p>
+                    <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionTwoPera_1'] ?></p>
+                    <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionTwoPera_2'] ?></p>
                 </div>
                 <img src="<?= $imagePath ?>sections/about-a.webp" class="h-full w-full object-cover" alt="">
             </div>
@@ -222,19 +194,10 @@ try {
                 class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto pt-20">
                 <img src="<?= $imagePath ?>sections/about-b.webp" class="h-full w-full object-cover" alt="">
                 <div class="">
-                    <div class="text-[1.7rem] leading-[1] font-bold">Find the Best Car Rental Deals in Dubai</div>
-                    <p class="text-[#7c7c7c] mt-4">Our company Hala Drive understands that budget-minded travelers need
-                        best car rental deals Dubai. Our company offers the most affordable rates for every vehicle we
-                        provide so you can maximize your budget while driving. Our car hire Dubai services include
-                        options for both short-term visitors and extended travelers. </p>
-                    <p class="text-[#7c7c7c] mt-4">Customers can find clear costs on our website together with multiple
-                        range of fleet that match varying budgets. Our vehicle selection includes both compact city cars
-                        and luxurious sedans that serve all types of clients. The best rent a car deals in Dubai
-                        combined with premium service are our commitment to offering customers affordable options. </p>
-                    <p class="text-[#7c7c7c] mt-4">For those looking for long-term convenience, our car leasing Dubai
-                        services provide flexible rental plans at competitive prices. Whether you need a vehicle for a
-                        weekend getaway or an extended stay, we make it easy to rent a car Dubai without hidden charges,
-                        ensuring a hassle-free experience.</p>
+                    <div class="text-[1.7rem] leading-[1] font-bold"><?= $messages['homeSectionTwoHeading_2'] ?></div>
+                    <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionTwoPera_3'] ?></p>
+                    <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionTwoPera_4'] ?></p>
+                    <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionTwoPera_5'] ?></p>
                 </div>
             </div>
         </div>
@@ -246,14 +209,14 @@ try {
         <!-- Header -->
         <div class="flex flex-col md:flex-row md:items-center justify-between mb-10">
             <div>
-                <h2 class="text-2xl md:text-3xl font-bold mb-2">Frequently Asked Questions</h2>
-                <p class="text-gray-600">These are the questions we hear more often.</p>
+                <h2 class="text-2xl md:text-3xl font-bold mb-2"><?= $messages['homeFaqs_1'] ?></h2>
+                <p class="text-gray-600"><?= $messages['homeFaqs_pera_1'] ?></p>
             </div>
             <div
                 class="relative border-2 border-[#92aacb] px-5 py-3 mt-4 md:mt-0 flex items-center gap-3 shadow-[1px_1px_2px_#999] -skew-x-12">
                 <div>
-                    <p class="font-semibold text-gray-800">Don't see the answer you need?</p>
-                    <p class="text-sm text-gray-500">Just drop a msg we will get back to you ASAP!</p>
+                    <p class="font-semibold text-gray-800"><?= $messages['homeFaqs_2'] ?></p>
+                    <p class="text-sm text-gray-500"><?= $messages['homeFaqs_pera_2'] ?></p>
                 </div>
                 <div class="bg-[#1bd741] p-2 -skew-x-4">
                     <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="WhatsApp" class="w-8 h-8">
@@ -291,7 +254,7 @@ try {
                             <img src="<?= $imagePath ?>sections/key2.svg" class="w-6" alt="">
                         </div>
                         <div class="font-bold max-[1024px]:leading-[1]">
-                            Timely delivery
+                            <?= $messages['timely'] ?>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
@@ -299,7 +262,7 @@ try {
                             <img src="<?= $imagePath ?>sections/calculator.svg" class="w-6" alt="">
                         </div>
                         <div class="font-bold max-[1024px]:leading-[1]">
-                            Unbeatable Rates
+                            <?= $messages['unbeatable'] ?>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
@@ -307,7 +270,7 @@ try {
                             <img src="<?= $imagePath ?>sections/folder.svg" class="w-6" alt="">
                         </div>
                         <div class="font-bold max-[1024px]:leading-[1]">
-                            Professional Staff
+                            <?= $messages['professional'] ?>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
@@ -315,7 +278,7 @@ try {
                             <img src="<?= $imagePath ?>sections/calender.svg" class="w-6" alt="">
                         </div>
                         <div class="font-bold max-[1024px]:leading-[1]">
-                            Flexible Return Policy
+                            <?= $messages['flexible'] ?>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
@@ -323,7 +286,7 @@ try {
                             <img src="<?= $imagePath ?>sections/tick.svg" class="w-6" alt="">
                         </div>
                         <div class="font-bold max-[1024px]:leading-[1]">
-                            Online Reservation
+                            <?= $messages['online'] ?>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
@@ -331,16 +294,12 @@ try {
                             <img src="<?= $imagePath ?>sections/lock.svg" class="w-6" alt="">
                         </div>
                         <div class="font-bold max-[1024px]:leading-[1]">
-                            Fully Insured
+                            <?= $messages['fully'] ?>
                         </div>
                     </div>
                 </div>
             </div>
-            <p class="text-[#939393] text-center">During your journey the covered insurance and damages provide you with
-                both financial protection and assurance for your travels. Rental vehicle clients of our company benefit
-                from adjustable rates that minimize costs whenever unexpected journey changes occur. Hala Drive provides
-                an unmatched rental service by offering a complete range of economical cars such as such as KIA, Nissan
-                and Chevrolet at remarkable prices along with exceptional customer care.</p>
+            <p class="text-[#939393] text-center"><?= $messages['homeSectionThreePera'] ?></p>
         </div>
     </section>
 
@@ -348,7 +307,7 @@ try {
 
     <section class="py-16 max-[1024px]:py-10 relative">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
-            <div class="text-black text-[1.5rem] font-bold">Our Blogs</div>
+            <div class="text-black text-[1.5rem] font-bold"><?= $messages['ourblogs'] ?></div>
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 gap-4">
                 <?php foreach($homeContentData["blogs"] as $blog): ?>
                 <a href="blogs/<?php echo $blog["slug"]; ?>" class="relative">
@@ -369,9 +328,8 @@ try {
     <section class="bg-[#0b0b0b] relative">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
             <div class="text-white flex max-[1024px]:flex-col max-[1024px]:gap-6 gap-20 max-[1024px]:mb-10">
-                <div class="text-[1.7rem] max-[1024px]:text-[1.3rem] max-[1024px]:leading-[1] font-bold">Rent a Car
-                    Dubai Online Today and Enjoy These Perks</div>
-                <div class="">Contact Us now for Updates and Promotions</div>
+                <div class="text-[1.7rem] max-[1024px]:text-[1.3rem] max-[1024px]:leading-[1] font-bold"><?= $messages['homeSectionForthHeading_1'] ?></div>
+                <div class=""><?= $messages['homeSectionForthPera_1'] ?></div>
             </div>
             <div class="">
                 <form action="" class="flex gap-4 max-[1024px]:flex-col">
@@ -382,18 +340,8 @@ try {
                 </form>
             </div>
             <div class="text-white mt-12">
-                <p>at Hala Drive, our company offers excellent customer assistance at affordable rates. The team takes
-                    pride in offering modern cars that meet all safety standards as well as equipped based on
-                    state-of-the-art technologies like GPS navigation systems, rearview cameras and automatic
-                    transmissions that help make driving safer, smoother and more enjoyable than ever. You can be sure
-                    that no matter which model of the car you choose from us, it will be serviced regularly and
-                    maintained in peak condition before being sent off with our customers. You will end up getting the
-                    best car leasing Dubai experience.</p>
-                <p class="mt-4">In addition, we also provide additional benefits like 24/7 roadside assistance services
-                    in case of any emergencies during using our cars. So no matter where your journey takes you to the
-                    city, you can feel secure knowing that Our Best car rental UAE service has your back when needed.
-                    And for those who want their car delivered directly to their doorstep on any day, we even offer
-                    pickup services.</p>
+                <p><?= $messages['homeSectionForthPera_2'] ?></p>
+                <p class="mt-4"><?= $messages['homeSectionForthPera_3'] ?></p>
             </div>
         </div>
     </section>
@@ -404,11 +352,10 @@ try {
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 max-[1024px]:gap-6 gap-10 items-center">
                 <div class="text-black font-bold">
-                    <div class="text-[3rem] max-[1024px]:text-[2rem]">Join Over</div>
+                    <div class="text-[3rem] max-[1024px]:text-[2rem]"><?= $messages['satisfied_1'] ?></div>
                     <div class="text-[3rem] max-[1024px]:text-[2rem] text-center max-[1024px]:text-left leading-[1]">
-                        2000+ Satisfied Clients</div>
-                    <div class="text-[1.5rem] leading-[1] mt-4">Experience the Quality and Excellence of Our Services
-                    </div>
+                        <?= $messages['satisfied_2'] ?></div>
+                    <div class="text-[1.5rem] leading-[1] mt-4"><?= $messages['satisfied_3'] ?></div>
                 </div>
                 <div class="">
                     <img src="<?= $imagePath ?>sections/hero-img.webp" alt="">
@@ -416,25 +363,16 @@ try {
             </div>
             <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 max-[1024px]:gap-6 gap-10">
                 <div class="">
-                    <div class="text-black font-bold text-[1.7rem] mb-2">Junnalyn Sali</div>
-                    <p class="text-[#939393]">The service at Hala Drive rent a car satisfied me completely during my
-                        time there. You can reach their service through a phone call so I strongly suggest choosing
-                        them. Everything about the rental experience was positive because the vehicle remained clean
-                        while the personnel treated me well and the service avoided hidden fees.</p>
+                    <div class="text-black font-bold text-[1.7rem] mb-2"><?= $messages['homeSectionFifthHeading_1'] ?></div>
+                    <p class="text-[#939393]"><?= $messages['homeSectionFifthPera_1'] ?></p>
                 </div>
                 <div class="">
-                    <div class="text-black font-bold text-[1.7rem] mb-2">Sumodo Hasan</div>
-                    <p class="text-[#939393]">Dubai residents should choose this company as their preferred rental car
-                        provider. I have relied on their service more than once and I am consistently satisfied with
-                        their standard of service. The rental staff maintains high professionalism while offering cars
-                        which remain in perfect condition. Highly recommended!</p>
+                    <div class="text-black font-bold text-[1.7rem] mb-2"><?= $messages['homeSectionFifthHeading_2'] ?></div>
+                    <p class="text-[#939393]"><?= $messages['homeSectionFifthPera_2'] ?></p>
                 </div>
                 <div class="">
-                    <div class="text-black font-bold text-[1.7rem] mb-2">Roshan Smith</div>
-                    <p class="text-[#939393]">I found the vehicle outstanding because it combined superb fuel economy
-                        and pristine cleanliness. The team provided clear communication while the service locations were
-                        easy to reach. I sincerely appreciate the services provided by Hala Drive car rental services.
-                    </p>
+                    <div class="text-black font-bold text-[1.7rem] mb-2"><?= $messages['homeSectionFifthHeading_3'] ?></div>
+                    <p class="text-[#939393]"><?= $messages['homeSectionFifthPera_3'] ?></p>
                 </div>
             </div>
         </div>
@@ -444,26 +382,12 @@ try {
 
     <section class="bg-[#f1f4f8] py-16 max-[1024px]:py-10">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto text-center text-[#939393]">
-            <div class="text-black font-bold text-[1.7rem] leading-[1] mb-10">Experience Convenience, Comfort, and
-                Cost-Effective Car Rentals</div>
-            <p>Customers can experience a smooth car rental UAE journey through Hala Drive. Our company offers the ideal
-                vehicles at competitive prices for both urban commuters and business professionals. The experienced
-                staff member at our company stand ready to assist clients in deciding which vehicle best fits as per
-                your requirements.</p>
-            <p class="mt-6">Our car lease Dubai option lets customers access their desired vehicles without the
-                ownership costs. Different financing options and special discounts enable you to drive your prestigious
-                vehicle choice with freedom from traditional ownership terms.</p>
-            <p class="mt-6">The company maintains its dedication to safety and reliability which enables you to feel
-                completely at ease while driving. The vehicles we offer receive routine maintenance checks alongside
-                inspections to guarantee their top condition for their customer. The car rental services at Hala Drive
-                guarantee you the highest standard of service throughout Dubai.</p>
-            <p class="mt-6">Hala Drive offers car hire UAE services that extend far beyond basic vehicle rentals. Hala
-                Drive dedicates itself to delivering superior customer assistance together with premium maintenance
-                services in addition to special rental packages which boost your travel comfort. Our Dubai-based service
-                locations provide convenient accessibility to our customers throughout the city.</p>
-            <p class="mt-6">Whether you’re visiting Dubai for business, leisure, or an extended stay, Hala Drive has the
-                perfect car rental Dubai cheap option for you. Book your vehicle today and enjoy a stress-free journey
-                with the best Hala drive car rental services available!</p>
+            <div class="text-black font-bold text-[1.7rem] leading-[1] mb-10"><?= $messages['homeSectionSixthHeading_1'] ?></div>
+            <p><?= $messages['homeSectionSixthPera_1'] ?></p>
+            <p class="mt-6"><?= $messages['homeSectionSixthPera_2'] ?></p>
+            <p class="mt-6"><?= $messages['homeSectionSixthPera_3'] ?></p>
+            <p class="mt-6"><?= $messages['homeSectionSixthPera_4'] ?></p>
+            <p class="mt-6"><?= $messages['homeSectionSixthPera_5'] ?></p>
         </div>
     </section>
 
