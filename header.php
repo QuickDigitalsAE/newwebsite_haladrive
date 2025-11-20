@@ -5,40 +5,45 @@ ini_set("log_errors", 1);
 ini_set("error_log", dirname(__FILE__) . "/php_errors.log");
 error_reporting(E_ALL);
 
-$lang = "en";
-$uri = $_SERVER["REQUEST_URI"];
+// 1. Detect Language
+$lang = 'en';
+$uri  = $_SERVER['REQUEST_URI'];
+
 $liveBaseUrl = "https://new.haladrive.ae";
 
-if (preg_match("#^/ar/#", $uri)) {
-    $lang = "ar";
+// Detect Arabic by URL
+if (preg_match('#^/ar/#', $uri)) {
+    $lang = 'ar';
 }
 
-$dir = $lang === "ar" ? "rtl" : "ltr";
-$baseHref = $lang === "ar" ? $liveBaseUrl . "/ar/" : $liveBaseUrl . "/";
+// 2. Basic Settings
+$dir = ($lang === 'ar') ? 'rtl' : 'ltr';
+$baseHref = ($lang === 'ar') ? $liveBaseUrl . '/ar/' : $liveBaseUrl . '/';
 
-// Language switch URLs
-$englishUrl = $lang === "ar" ? preg_replace("#/ar/#", "/", $uri) : $uri;
-$arabicUrl = $lang === "ar" ? $uri : "/ar" . $uri;
+// Switch URLs
+$englishUrl = ($lang === 'ar') ? preg_replace('#/ar/#', '/', $uri) : $uri;
+$arabicUrl  = ($lang === 'ar') ? $uri : '/ar' . $uri;
 
-// Static paths
-$cssPath = $liveBaseUrl . "/style.css";
-$outputCssPath = $liveBaseUrl . "/output.css";
-$imagePath = $liveBaseUrl . "/images/";
+// 3. Static file paths
+$cssPath        = $liveBaseUrl . '/style.css';
+$outputCssPath  = $liveBaseUrl . '/output.css';
+$imagePath      = $liveBaseUrl . '/images/';
 
-// Load correct static content file
-if ($lang === "ar") {
-    require_once __DIR__ . "/messages_ar.php";
+// 4. Load Static Content File
+if ($lang === 'ar') {
+    require_once __DIR__ . '/messages_ar.php';
 } else {
-    require_once __DIR__ . "/messages.php";
+    require_once __DIR__ . '/messages.php';
 }
 
+// 5. Load API Header Based on Language
 try {
-    $headerContent = $api->loadData("header", "header", []);
-    if ($headerContent["success"]) {
-        $headerContentData = $headerContent["data"]["data"];
+    $headerContent = $api->loadData('header', "header-$lang", []);
+    if ($headerContent['success']) {
+        $headerContentData = $headerContent['data']["data"];
     }
 } catch (Exception $e) {
-    echo "Error loading featured products: " . $e->getMessage();
+    error_log("Header API Error: " . $e->getMessage());
 }
 
 ?>
