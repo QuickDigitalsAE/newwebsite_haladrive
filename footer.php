@@ -52,22 +52,20 @@
             </div>
             <div class="flex gap-[2rem] banner-1 first-1">
                 <ul class="flex flex-col gap-5 mt-6 max-[1024px]:mt-0">
-                    <span class="font-bold text-[1.5rem] border-l-2 pl-2 border-[#ff000d] text-white ">Quick
-                        Links</span>
+                    <span class="font-bold text-[1.5rem] border-l-2 pl-2 border-[#ff000d] text-white "><?= $messages['quick'] ?></span>
                     <div class="grid grid-cols-2 gap-4 mt-6">
-                        <li><a href="">Home</a></li>
-                        <li><a href="about">About Us</a></li>
-                        <li><a href="car">Cars</a></li>
-                        <li><a href="privacy-policy">Privacy Policy</a></li>
-                        <li><a href="faq">FAQ</a></li>
-                        <li><a href="locations">Our Locations</a></li>
+                        <li><a href=""><?= $messages['home'] ?></a></li>
+                        <li><a href="about"><?= $messages['about'] ?></a></li>
+                        <li><a href="car"><?= $messages['cars'] ?></a></li>
+                        <li><a href="privacy-policy"><?= $messages['privacy'] ?></a></li>
+                        <li><a href="faq"><?= $messages['faq'] ?></a></li>
+                        <li><a href="locations"><?= $messages['locations'] ?></a></li>
                     </div>
                 </ul>
             </div>
             <div class="flex gap-[2rem] banner-1 first-1">
                 <ul class="flex flex-col gap-5 mt-6 max-[1024px]:mt-4">
-                    <span class="font-bold text-[1.5rem] border-l-2 pl-2 border-[#ff000d] text-white ">Contact
-                        Details</span>
+                    <span class="font-bold text-[1.5rem] border-l-2 pl-2 border-[#ff000d] text-white "><?= $messages['details'] ?></span>
                     <div class="flex flex-col gap-2 mt-6 max-[1024px]:mt-2">
                         <li class="flex items-center gap-2">
                             <div class="bg-[#ff000d] p-1 rounded-full">

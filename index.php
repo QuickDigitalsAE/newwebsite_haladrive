@@ -55,19 +55,19 @@ try {
             <ul class="flex gap-4 items-center">
                 <li
                     class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    Economy</li>
+                    <?= $messages['economy'] ?></li>
                 <li
                     class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    SUV</li>
+                    <?= $messages['suv'] ?></li>
                 <li
                     class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    Midsize</li>
+                    <?= $messages['midsize'] ?></li>
                 <li
                     class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    Featured</li>
+                    <?= $messages['featured'] ?></li>
                 <li
                     class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    Crossover</li>
+                    <?= $messages['crossover'] ?></li>
             </ul>
             <form action="">
                 <div class="flex gap-6 items-center">

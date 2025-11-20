@@ -13,6 +13,12 @@ return [
     'cars' => 'Cars',
     'contact' => 'Contact',
     'inquiry' => 'Send Inquiry',
+    'privacy' => 'Privacy Policy',
+
+    //    footer
+    'quick' => 'Quick Links',
+    'details' => 'Contact Details',
+
     
     //    cars card
     'engine' => 'Engine',
@@ -22,6 +28,10 @@ return [
     'daily' => 'Daily',
     'weekly' => 'Weekly',
     'monthly' => 'Monthly',
+    'crossover' => 'Crossover',
+    'featured' => 'Featured',
+    'suv' => 'SUV',
+    'economy' => 'Economy',
     
 
     'first_section_brief' => 'at Hala Drive, our company offers excellent customer assistance at affordable rates. The team takes pride in offering modern cars that meet all safety standards as well as equipped based on state-of-the-art technologies like GPS navigation systems, rearview cameras and automatic transmissions that help make driving safer, smoother and more enjoyable than ever. You can be sure that no matter which model of the car you choose from us, it will be serviced regularly and maintained in peak condition before being sent off with our customers. You will end up getting the best car leasing Dubai experience. ',
