@@ -46,12 +46,12 @@ $imagePath    = $liveBaseUrl . '/images/';
     <base href="<?= $baseHref; ?>">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="<?= $cssPath; ?>">
-    <link rel="stylesheet" href="<?= $outputCssPath; ?>">
+    <link defer rel="stylesheet" href="<?= $cssPath; ?>">
+    <link defer rel="stylesheet" href="<?= $outputCssPath; ?>">
     <title>Hala Drive</title>
     <!-- <link rel="stylesheet" href="/output.css">
     <link rel="stylesheet" href="/style.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- <link rel="preload" rel="shortcut icon" href="./images/logo.webp" type="image/x-icon">
     <link rel="preload" fetchpriority="high" as="image" href="images/banner/mobile-slider-1.webp" type="image/webp">
     <link rel="preload" fetchpriority="high" as="image" href="images/banner/mobile-slider-2.webp" type="image/webp">

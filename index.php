@@ -34,10 +34,10 @@ try {
                 <?php foreach($homeContentData["highlight"] as $banner): ?>
                 <div class="swiper-slide">
                     <picture>
-                        <source srcset="images/banner/mobile-slider-1.webp" type="image/webp"
+                        <source fetchpriority="high" srcset="images/banner/mobile-slider-1.webp" type="image/webp"
                             media="(max-width: 768px)">
-                        <source srcset="<?php echo $banner["image_{$lang}_url"]; ?>" type="image/webp" media="(min-width: 769px)">
-                        <img src="<?php echo $banner["image_{$lang}_url"]; ?>" alt="Banner" class="w-full h-auto object-cover">
+                        <source fetchpriority="high" srcset="<?php echo $banner["image_{$lang}_url"]; ?>" type="image/webp" media="(min-width: 769px)">
+                        <img fetchpriority="high" src="<?php echo $banner["image_{$lang}_url"]; ?>" alt="Banner" class="w-full h-auto object-cover">
                     </picture>
                 </div>
                 <?php endforeach; ?>
