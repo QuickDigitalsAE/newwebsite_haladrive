@@ -30,7 +30,7 @@
                     </li>
                 </ul>
 
-                <div class="social_icon">
+                <!-- <div class="social_icon">
                     <ul class="flex gap-1 list social_icom" style="margin-top:20px;">
                         <li>
                             <a href="https://www.facebook.com/quickdigitaldubai" target="_blank">
@@ -48,7 +48,7 @@
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             <div class="flex gap-[2rem] banner-1 first-1">
                 <ul class="flex flex-col gap-5 mt-6 max-[1024px]:mt-0">
