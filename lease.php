@@ -34,7 +34,7 @@ try {
         $titleKey = "seo_title_" . $lang;
         $descKey  = "seo_brief_" . $lang;
 
-        $meta_title = $brandContent["lease"]["meta_data"][$titleKey] ?? '';
+        echo $meta_title = $brandContent["lease"]["meta_data"][$titleKey] ?? '';
         $meta_desc  = $brandContent["lease"]["meta_data"][$descKey] ?? '';
 
         // print_r($brandData);
@@ -51,7 +51,7 @@ try {
 
     require_once 'header.php';
 
-    
+
     $banner_image = "$imagePath/about/top-banner.webp";
     $banner_title = $brandData["lease"]["title_{$lang}"];
     $banner_subtitle = $messages['locationsBannerPera'];
