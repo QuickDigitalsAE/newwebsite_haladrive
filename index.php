@@ -79,7 +79,9 @@ try {
                         name="" id="">
                     <input class="-skew-x-12 bg-white px-4 py-2 shadow-[1px_1px_2px_#999] text-[#939393]" type="time"
                         name="" id="">
-                    <button class="cursor-pointer bg-[#ff000d] text-white -skew-x-12 px-16 py-2">Search</button>
+                        <a href="cars">
+                            <button class="cursor-pointer bg-[#ff000d] text-white -skew-x-12 px-16 py-2">Search</button>
+                        </a>
                 </div>
             </form>
         </div>
