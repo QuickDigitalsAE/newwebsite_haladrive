@@ -100,6 +100,27 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+        const modal = document.getElementById("myModal");
+        const btn = document.querySelector(".openModalBtn");
+        const closeBtn = document.querySelector(".close");
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>   
+
+
+    <script>
         (function () {
             const btn = document.getElementById('dropdownUsersButton');
             const menu = document.getElementById('dropdownUsers');
