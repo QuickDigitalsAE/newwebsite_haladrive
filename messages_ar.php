@@ -27,6 +27,9 @@ return [
     'number' => 'الرقم',
     'name' => 'الاسم',
     'features' => 'مميز في',
+
+    //    buttons
+    'journy' => 'ابدأ رحلتك',
     
 
 
@@ -109,6 +112,10 @@ return [
     //    about
     'aboutBannerHeading' => 'من نحن',
     'aboutBannerPera' => 'أعلى تصنيف لتأجير السيارات في دبي. أسعار منخفضة ، صفقات رائعة ، توصيل مريح ، خدمة من الدرجة الأولى!',
+    'aboutSectionOneHeading_1' => 'أسطول واسع',
+    'aboutSectionOneHeading_2' => 'عملاء سعداء',
+    'aboutSectionOneHeading_3' => 'خبرة في الصناعة',
+    'aboutSectionOneHeading_years' => 'سنوات',
 
     
 

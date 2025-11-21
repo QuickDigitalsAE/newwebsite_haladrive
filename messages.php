@@ -30,6 +30,9 @@ return [
     'name' => 'Your Name',
     'features' => 'Features On',
 
+    //    buttons
+    'journy' => 'Start Your Journy',
+
     
     //    cars card
     'engine' => 'Engine',
@@ -111,6 +114,15 @@ return [
     //    about
     'aboutBannerHeading' => 'About Us',
     'aboutBannerPera' => 'Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!',
+    'aboutSectionOnePera_1' => 'Our car rental company emphasizes your comfort, convenience, and safety during your rental experience with us. You will notice that the prices Hala Drive offers may be counted as cheap car rent in Dubai.',
+    'aboutSectionOnePera_2' => 'YOU WILL GET WHAT YOU DESIRE WITH OUR RENT A CAR IN DUBAI',
+    'aboutSectionOnePera_3' => `You may choose from a variety of cars, and we'll do our best to always provide you with the one you reserved. So you know what you're getting before you get there.`,
+    'aboutSectionOnePera_4' => 'We will deliver all those gleaming new vehicles right to your door, where you can relax and let our car rental professionals handle the details.',
+    'aboutSectionOneHeading_1' => 'Extensive Fleet',
+    'aboutSectionOneHeading_2' => 'experience in the industry',
+    'aboutSectionOneHeading_3' => 'Satisfied Customers',
+    'aboutSectionOneHeading_years' => 'Years',
+    '' => '',
     
 
     

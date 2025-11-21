@@ -42,7 +42,7 @@ include_once('banner.php');
                 <div class="text-black">
                     <div class="mb-4 string"><?php echo $aboutContentData["about"]["our_mission_brief_{$lang}"]; ?></div>
                     <!-- <p class="text-[#939393] mb-4">The prosperity of Hala Drive continues to this day. Our car rental guiding ideals and modest beginnings revolve around personal honesty and integrity. We believe it's essential to collaborate in order to enhance our communities. Treating our customers like they're a part of the family—and rewarding hard work.</p> -->
-                    <button class="p-2 rounded-[6px] border border-[#ff000d] uppercase">Start Your Journy</button>
+                    <button class="p-2 rounded-[6px] border border-[#ff000d] uppercase"><?= $messages['journy'] ?></button>
                 </div>
                 <div class="">
                     <img src="<?php echo $aboutContentData["about"]["image_url"]; ?>" alt="">
@@ -57,23 +57,23 @@ include_once('banner.php');
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 gap-10 items-center">
                 <div class="flex flex-col gap-4 text-[#939393]">
-                    <p>Our car rental company emphasizes your comfort, convenience, and safety during your rental experience with us. You will notice that the prices Hala Drive offers may be counted as cheap car rent in Dubai.</p>
-                    <p>YOU WILL GET WHAT YOU DESIRE WITH OUR RENT A CAR IN DUBAI</p>
-                    <p>You may choose from a variety of cars, and we'll do our best to always provide you with the one you reserved. So you know what you're getting before you get there.</p>
-                    <p>We will deliver all those gleaming new vehicles right to your door, where you can relax and let our car rental professionals handle the details.</p>
+                    <p><?= $messages['aboutSectionOnePera_1'] ?></p>
+                    <p><?= $messages['aboutSectionOnePera_2'] ?></p>
+                    <p><?= $messages['aboutSectionOnePera_3'] ?></p>
+                    <p><?= $messages['aboutSectionOnePera_4'] ?></p>
                 </div>
                 <div class="grid grid-cols-2 items-center gap-4">
                     <div class="">
                         <div class="text-black text-[3.5rem] max-[1024px]:text-[2.5rem]">10K+</div>
-                        <p class="text-[#939393]">Extensive Fleet</p>
+                        <p class="text-[#939393]"><?= $messages['aboutSectionOneHeading_1'] ?></p>
                     </div>
                     <div class="">
                         <div class="text-black text-[3.5rem] max-[1024px]:text-[2.5rem]">100K+</div>
-                        <p class="text-[#939393]">Satisfied Customers</p>
+                        <p class="text-[#939393]"><?= $messages['aboutSectionOneHeading_3'] ?></p>
                     </div>
                     <div class="">
-                        <div class="text-black text-[3.5rem] max-[1024px]:text-[2.5rem]">5 Years</div>
-                        <p class="text-[#939393]">experience in the industry</p>
+                        <div class="text-black text-[3.5rem] max-[1024px]:text-[2.5rem]">5 <?= $messages['aboutSectionOneHeading_years'] ?></div>
+                        <p class="text-[#939393]"><?= $messages['aboutSectionOneHeading_2'] ?></p>
                     </div>
                     <div class="">
                         <img src="<?= $imagePath ?>sections/arrow.webp" alt="">
