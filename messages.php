@@ -56,7 +56,7 @@ return [
     'homeSectionOneHeading_1' => 'Welcome to Hala Drive - Your Trusted Car Rental Partner in Dubai',
     'homeSectionOnePera_1' => 'A reliable rent a car Dubai service provides Dubai visitors endless possibilities to maximize their experience. Hala Drive provides a complete collection of vehicles that serve both business requirements and leisure activities. Customers can choose between luxury car models of BMW, Mercedes, Audi and economical rental options to serve every travel requirement. We deliver smooth and hassle-free journeys in Dubai through our competitive car rental prices and exceptional service to customers.',
     'homeSectionOnePera_2' => 'Car rental Dubai selection becomes difficult for many people to find the right option. Our team dedicates itself to helping customers find their optimal vehicle while obtaining maximum cost-effectiveness. Our company provides the ideal car rental solutions that span from short-term bookings to long-term car lease Dubai services. Hala Drive offers you exceptional car rental services throughout Dubai while enabling you to travel with convenience and ease.',
-    'homeSectionOnePera_3' => `Our service allows customers to easily book cars with both convenience and affordability. Through our platform users can access the most advantageous car rental deals Dubai while enjoying peace of mind during their drive. You can experience complete freedom and flexibility to explore both city landmarks and natural landscapes throughout the city through Hala Drive's services.`,
+    'homeSectionOnePera_3' => "Our service allows customers to easily book cars with both convenience and affordability. Through our platform users can access the most advantageous car rental deals Dubai while enjoying peace of mind during their drive. You can experience complete freedom and flexibility to explore both city landmarks and natural landscapes throughout the city through Hala Drive's services.",
 
     //   Home Two section
     'homeSectionTwoHeading_1' => 'Why Choose Hala Drive for Your Car Rental Needs?',
@@ -70,7 +70,7 @@ return [
     //     Home Faq
     'homeFaqs_1' => 'Frequently Asked Questions',
     'homeFaqs_pera_1' => 'These are the questions we hear more often.',
-    'homeFaqs_2' => `Don't see the answer you need?`,
+    'homeFaqs_2' => "Don't see the answer you need?",
     'homeFaqs_pera_2' => 'Just drop a msg we will get back to you ASAP!',
 
     //     Home Three Section
