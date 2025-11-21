@@ -4,15 +4,15 @@ on:
   push:
     branches:
       - main
-      - azhar
 
 jobs:
   deploy-to-cpanel:
     name: Deploy to cPanel
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
 
     steps:
-      # 1️⃣ Checkout Repository
+      # 1️⃣ Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v3
 
@@ -23,12 +23,13 @@ jobs:
           server: ${{ secrets.FTP_HOST }}       # cPanel FTP server
           username: ${{ secrets.FTP_USERNAME }} # FTP username
           password: ${{ secrets.FTP_PASSWORD }} # FTP password
-          server-dir: ./                        # Remote folder in cPanel
+          server-dir: ./ # Remote folder in cPanel
           local-dir: ./                         # Local project folder
           port: 21
           protocol: ftp
           dry-run: false
+          git-ftp-args: --insecure             # optional for insecure SSL
 
       # 3️⃣ Done
       - name: Deployment Complete
-        run: echo "✅ Project deployed to cPanel from branch ${{ github.ref_name }}!"
+        run: echo "Core PHP project deployed to cPanel!"
