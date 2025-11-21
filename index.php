@@ -451,7 +451,7 @@ require_once 'header.php';
 
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <img src="<?= $imagePath ?>default-banner.webp" alt="pop up">
+            <img src="<?= $imagePath ?>about/default-banner.webp" alt="pop up">
             <span class="close">&times;</span>
 
             <h2>Contact Form</h2>
