@@ -449,25 +449,114 @@ require_once 'header.php';
 
     <!--------------------------------- POP UP ------------------------------->
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <img src="<?= $imagePath ?>about/default-banner.webp" alt="pop up">
-            <span class="close">&times;</span>
+    <!-- Modal -->
+<div id="myModal" 
+     class="modal" 
+     style="
+        display:none;
+        position:fixed;
+        z-index:99999;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        overflow:auto;
+        background:rgba(0,0,0,0.6);
+        backdrop-filter:blur(3px);
+     ">
 
-            <h2>Contact Form</h2>
+    <div class="modal-content"
+         style="
+            background:#fff;
+            margin:8% auto;
+            padding:0;
+            border-radius:12px;
+            width:90%;
+            max-width:420px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.2);
+            position:relative;
+            animation:scaleIn 0.3s ease;
+         ">
 
-            <form action="submit.php" method="POST">
-            <label>Name:</label>
-            <input type="text" name="name" required>
+        <!-- Close Button -->
+        <span class="close"
+              style="
+                position:absolute;
+                top:10px;
+                right:12px;
+                font-size:28px;
+                font-weight:bold;
+                cursor:pointer;
+                color:#333;
+              ">&times;</span>
 
-            <label>Email:</label>
-            <input type="email" name="email" required>
+        <!-- Image -->
+        <img src="<?= $imagePath ?>about/default-banner.webp"
+             alt="pop up"
+             style="
+                width:100%;
+                height:150px;
+                object-fit:cover;
+                border-radius:12px 12px 0 0;
+             ">
 
-            <button type="submit">Submit</button>
+        <!-- Form Area -->
+        <div style="padding:20px;">
+            <h2 style="
+                margin:0 0 10px;
+                font-size:22px;
+                font-weight:600;
+                color:#222;
+                text-align:center;
+            ">Inquiry Form</h2>
+
+            <form action="submit.php" method="POST"
+                  style="
+                    display:flex;
+                    flex-direction:column;
+                    gap:12px;
+                  ">
+
+                <label style="font-size:14px; color:#555;">Name:</label>
+                <input type="text" name="name" required
+                    style="
+                        padding:10px;
+                        border:1px solid #ddd;
+                        border-radius:6px;
+                        font-size:14px;
+                        outline:none;
+                    ">
+
+                <label style="font-size:14px; color:#555;">Email:</label>
+                <input type="email" name="email" required
+                    style="
+                        padding:10px;
+                        border:1px solid #ddd;
+                        border-radius:6px;
+                        font-size:14px;
+                        outline:none;
+                    ">
+
+                <button type="submit"
+                    style="
+                        background:#ff000d;
+                        color:white;
+                        border:none;
+                        padding:12px;
+                        border-radius:6px;
+                        font-size:16px;
+                        cursor:pointer;
+                        margin-top:10px;
+                        transition:0.3s;
+                    "
+                    onmouseover="this.style.opacity='0.85'"
+                    onmouseout="this.style.opacity='1'"
+                >Submit</button>
             </form>
-
         </div>
     </div>
+</div>
+
 
 
 <?php include_once('footer.php');?>
