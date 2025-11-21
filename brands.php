@@ -39,6 +39,8 @@ try {
         exit;
     }
 
+    $meta_title = 'kia azhar';
+    $meta_desc = 'kia azhar';
     include_once('header.php');
 
     $banner_image = "$imagePath/about/top-banner.webp";
