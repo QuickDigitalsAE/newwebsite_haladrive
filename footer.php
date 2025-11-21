@@ -3,7 +3,9 @@
     <footer class="pt-[6rem] max-[1024px]:pt-[2rem] pb-[1rem] relative ">
         <img src="<?= $imagePath ?>footer/footer-bg.webp" class="w-full h-full object-cover absolute inset-0 z-[-1] " alt="">
          <div class="whatsapp_btn">
-            <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="">
+            <a target="_blank" href="https://wa.me/971501837112?text=Hi">
+                <img  src="<?= $imagePath ?>icons/whatsapp.svg" alt="">
+            </a>
         </div>
         <div
             class="w-[80%] max-[1024px]:w-[90%] grid grid-cols-3 max-[1024px]:grid-cols-1 pb-[4rem] max-[1024px]:pb-[2rem] text-white m-auto gap-[3rem] max-[1024px]:gap-4 banner-1">

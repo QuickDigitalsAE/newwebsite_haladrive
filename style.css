@@ -115,3 +115,13 @@ html[dir="rtl"] .ar_px {
   font-size: 22px;
   cursor: pointer;
 }
+
+.whatsapp_btn{
+    background: green;
+    width: 4rem;
+    padding: 1rem;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 1.8rem;
+    left: 1.1rem;
+}
