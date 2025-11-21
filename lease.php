@@ -78,7 +78,7 @@ try {
                         <div class="grid grid-cols-1 gap-2 font-semibold text-[12px]">
                             <div class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['instock'] ?></div>
                             <div class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['outofstock'] ?></div>
-                            <a href='cars' class="bg-[#ff000d] text-white uppercase py-3 text-[1rem]">reset</a>
+                            <a href='cars' class="bg-[#ff000d] text-white uppercase py-3 text-[1rem]"><?= $messages['reset'] ?></a>
                         </div>
                     </div>
                     <div class="text-black text-center bg-[#f1f4f8] p-4">
@@ -149,11 +149,11 @@ try {
                                     class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
                                     <li class="flex items-center gap-2 ">
                                         <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class="">Engine Size 1.5 L</div>
+                                        <div class=""><?= $messages['engine'] ?> Size 1.5 L</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
                                         <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class=""> Bluetooth Yes</div>
+                                        <div class=""><?= $messages['bluetooth'] ?> Yes</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
                                         <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
@@ -161,7 +161,7 @@ try {
                                     </li>
                                     <li class="flex items-center gap-2 ">
                                         <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class="">Luggage Yes</div>
+                                        <div class=""><?= $messages['luggage'] ?> Yes</div>
                                     </li>
                                 </ul>
                                 <div class="mt-4">

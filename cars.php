@@ -42,7 +42,7 @@ if ($slug) {
                             <div class="text-black text-[1.5rem]">Car Features</div>
                             <div class="grid grid-cols-4 max-[1024px]:grid-cols-2 gap-2">
                                 <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
-                                    <div class="">Engine Size</div>
+                                    <div class=""><?= $messages['engine'] ?> Size</div>
                                     <div class=""><?php echo $carSingleContentData["car"]["engine"]; ?></div>
                                 </div>
                                 <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
@@ -54,7 +54,7 @@ if ($slug) {
                                     <div class=""><?php echo $carSingleContentData["car"]["cruise"]; ?></div>
                                 </div>
                                 <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
-                                    <div class="">Luggage</div>
+                                    <div class=""><?= $messages['luggage'] ?></div>
                                     <div class=""><?php echo $carSingleContentData["car"]["luggage"]; ?></div>
                                 </div>
                             </div>
@@ -228,7 +228,7 @@ include_once('banner.php');
                         <div class="grid grid-cols-1 gap-2 font-semibold text-[12px]">
                             <div class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['instock'] ?></div>
                             <div class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['outofstock'] ?></div>
-                            <a href='cars' class="bg-[#ff000d] text-white uppercase py-3 text-[1rem]">reset</a>
+                            <a href='cars' class="bg-[#ff000d] text-white uppercase py-3 text-[1rem]"><?= $messages['reset'] ?></a>
                         </div>
                     </div>
                     <div class="text-black text-center bg-[#f1f4f8] p-4">
@@ -295,25 +295,24 @@ include_once('banner.php');
                             </a>
                             <div class="w-[50%] max-[1024px]:w-full">
                                 <div class="text-[2rem] font-bold leading-[1] max-[1024px]:text-center"><?php echo $car["name_{$lang}"]; ?></div>
-                                <ul
-                                    class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
-                                    <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class="">Engine Size 1.5 L</div>
-                                    </li>
-                                    <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class=""> Bluetooth Yes</div>
-                                    </li>
-                                    <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class=""><?= $messages['control'] ?> Yes</div>
-                                    </li>
-                                    <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class="">Luggage Yes</div>
-                                    </li>
-                                </ul>
+                                <div class="grid grid-cols-4 max-[1024px]:grid-cols-2 gap-2">
+                                <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
+                                    <div class=""><?= $messages['engine'] ?> Size</div>
+                                    <div class=""><?php echo $carContentData["car"]["engine"]; ?></div>
+                                </div>
+                                <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
+                                    <div class="">Bluetooth</div>
+                                    <div class=""><?php echo $carContentData["car"]["bluetooth"]; ?></div>
+                                </div>
+                                <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
+                                    <div class=""><?= $messages['control'] ?></div>
+                                    <div class=""><?php echo $carContentData["car"]["cruise"]; ?></div>
+                                </div>
+                                <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
+                                    <div class=""><?= $messages['luggage'] ?></div>
+                                    <div class=""><?php echo $carContentData["car"]["luggage"]; ?></div>
+                                </div>
+                            </div>
                                 <div class="mt-4">
                                     <div
                                         class="text-white bg-[#ff000d] px-[5rem] py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-center max-[1024px]:mx-auto w-fit">
