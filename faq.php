@@ -29,7 +29,7 @@ try {
 
 <?php
 $banner_image = "$imagePath/about/top-banner.webp";
-$banner_title = "Frequently Asked Questions";
+$banner_title = $messages['homeFaqs_1'];
 include_once('banner.php');
 ?>
 
