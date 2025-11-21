@@ -74,7 +74,7 @@
                         <li class="flex items-center gap-2">
                             <div class="bg-[#ff000d] p-1 rounded-full">
                                 <img src="<?= $imagePath ?>icons/phone.svg" class="w-4" alt="">
-                            </div>
+                            </div> 
                             <div class="flex gap-2 text-[#ff000d]">
                                 <a href="tel:+971501837112">+971501837112</a>
                                 /
