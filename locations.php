@@ -1,17 +1,11 @@
-<?php 
-// Start session for token storage
-session_start();
-
-// Include the API handler
-require_once 'apis/ApiHandler.php';
-
-// Initialize API handler
-$api = new ApiHandler();
-?>
-
-<?php include_once('header.php');?>
-
 <?php
+// Include global
+require_once 'global.php';
+
+// Default SEO fallback values
+$meta_title = '';
+$meta_desc  = '';
+
 try {
     // This will be processed before rendering the page
     $locationsContent = $api->loadData('location', 'main', []);
@@ -19,15 +13,20 @@ try {
     if ($locationsContent['success']) {
         // Use the data in your page
         $locationsContentData = $locationsContent['data']["data"];
+
+        $titleKey = "title_" . $lang;
+            $descKey  = "description_" . $lang;
+
+            $meta_title = $locationsContentData["meta_data"][$titleKey] ?? '';
+            $meta_desc  = $locationsContentData["meta_data"][$descKey] ?? '';
         // print_r($locationsContentData);
     }
 } catch (Exception $e) {
     echo "Error loading featured products: " . $e->getMessage();
 }
-?>
 
+include_once('header.php');
 
-<?php
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $messages["locationsBannerHeading"];
 $banner_subtitle = $messages['locationsBannerPera'];
