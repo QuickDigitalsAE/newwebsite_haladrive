@@ -107,6 +107,11 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ar/about/?$ about.php?lang=ar [L,QSA]
 
+# AR contact main
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ar/contact/?$ contact.php?lang=ar [L,QSA]
+
 # AR brand page
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
