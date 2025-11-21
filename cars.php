@@ -1,12 +1,11 @@
 <?php
-session_start();
-require_once 'apis/ApiHandler.php';
-$api = new ApiHandler();
+// Include global
+require_once 'global.php';
 
-$slug = $_GET['slug'] ?? null;
+// Default SEO fallback values
+$meta_title = '';
+$meta_desc  = '';
 
-
-include_once('header.php');
 
 if ($slug) {
 
@@ -19,6 +18,8 @@ if ($slug) {
     } catch (Exception $e) {
         echo "Error loading car details: " . $e->getMessage();
     }
+
+    include_once('header.php');
 
     $banner_image = "$imagePath/about/top-banner.webp";
     $banner_title = 'Cars';
@@ -190,6 +191,8 @@ try {
 } catch (Exception $e) {
     echo "Error loading car list: " . $e->getMessage();
 }
+
+include_once('header.php');
 
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $messages['carsBannerHeading'];
