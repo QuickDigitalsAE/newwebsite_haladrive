@@ -7,26 +7,31 @@ $meta_title = '';
 $meta_desc  = '';
 
 try {
-    // This will be processed before rendering the page
     $aboutContent = $api->loadData('webcontent', 'about', []);
-    
-    if ($aboutContent['success']) {
-        // Use the data in your page
-        $aboutContentData = $aboutContent['data']["data"];
-        // print_r($aboutContentData);
 
-        $meta_title = $aboutContentData["meta_data"]["title_{$lang}"]  ?? '';
-        $meta_desc  = $aboutContentData["meta_data"]["description_{$lang}"] ?? '';
+    if ($aboutContent['success']) {
+        $aboutContentData = $aboutContent['data']["data"];
+
+        // Debug field names (run once)
+        // echo "<pre>"; print_r($aboutContentData["meta_data"]); echo "</pre>"; exit;
+
+        $titleKey = "title_" . $lang;
+        $descKey  = "description_" . $lang;
+
+        $meta_title = $aboutContentData["meta_data"][$titleKey] ?? '';
+        $meta_desc  = $aboutContentData["meta_data"][$descKey] ?? '';
     }
+
 } catch (Exception $e) {
     echo "Error loading featured products: " . $e->getMessage();
 }
 
 require_once 'header.php';
 
-$banner_image = "$imagePath/about/top-banner.webp";
-$banner_title = $messages['aboutBannerHeading'];
+$banner_image   = "$imagePath/about/top-banner.webp";
+$banner_title   = $messages['aboutBannerHeading'];
 $banner_subtitle = $messages['aboutBannerPera'];
+
 include_once('banner.php');
 ?>
 
