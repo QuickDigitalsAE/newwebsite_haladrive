@@ -15,6 +15,12 @@ if ($slug) {
 
         if ($singleBlogContent['success']) {
             $singleBlogContentData = $singleBlogContent['data']["data"];
+
+            $titleKey = "title_" . $lang;
+            $descKey  = "description_" . $lang;
+
+            $meta_title = $singleBlogContentData["meta_data"][$titleKey] ?? '';
+            $meta_desc  = $singleBlogContentData["meta_data"][$descKey] ?? '';
         }
     } catch (Exception $e) {
         echo "Error loading car details: " . $e->getMessage();
