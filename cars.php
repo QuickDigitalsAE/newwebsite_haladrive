@@ -192,8 +192,8 @@ try {
 }
 
 $banner_image = "$imagePath/about/top-banner.webp";
-$banner_title = "Explore Our Signature Collection";
-$banner_subtitle = "Top rated car rental in Dubai!";
+$banner_title = $messages['carsBannerHeading'];
+$banner_subtitle = $messages['carsBannerPera'];
 include_once('banner.php');
 ?>
 

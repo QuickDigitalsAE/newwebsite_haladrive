@@ -134,7 +134,10 @@ return [
     'aboutSectionOneHeading_years' => 'Years',
 
 
-    //     
+    //     cars
+    'carsBannerHeading' => "Explore Our Signature Collection",
+    'carsBannerPera' => "Top rated car rental in Dubai!",
+
     
 
     
