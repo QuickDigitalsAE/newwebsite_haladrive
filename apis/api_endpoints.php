@@ -31,5 +31,8 @@ return [
         'main' => '/en/blog',
         'single' => '/en/blog/{id}',
     ],
+    'contact' => [
+        'store' => '/en/contact/inquire/store', // The relative path
+    ],
 ];
 ?>

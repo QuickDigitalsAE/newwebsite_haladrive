@@ -8,6 +8,47 @@ $banner_image = $imagePath."/about/top-banner.webp";
 $banner_title = "Contact Us";
 $banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!";
 include_once('banner.php');
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+    // 3. Collect the form data
+    $contactData = [
+        'name' => $_POST['name'] ?? '',
+        'number' => $_POST['number'] ?? '',
+        'email' => $_POST['email'] ?? '',
+        'message' => $_POST['message'] ?? '',
+    ];
+
+    try {
+        // 4. Instantiate the handler
+        $api = new ApiHandler();
+
+        // 5. Make the POST request
+        // category: 'contact', endpoint: 'store', data: $contactData, contentType: 'json'
+        $response = $api->post('contact', 'store', $contactData, 'json');
+        
+        $httpCode = $api->getLastHttpCode();
+
+        // 6. Handle the response
+        if ($httpCode >= 200 && $httpCode < 300) {
+            // Success response (e.g., redirect to a 'thank you' page)
+             echo  "okk";
+        } else {
+            // API returned an error status code
+            $errorMessage = $response['message'] ?? 'Unknown API Error';
+            echo "Error submitting form: " . htmlspecialchars($errorMessage);
+        }
+
+    } catch (Exception $e) {
+        // Handle cURL or Endpoint not found errors
+        echo "A server error occurred: " . htmlspecialchars($e->getMessage());
+    }
+
+} else {
+    echo  "innn";
+}
+
 ?>
 
     <!--------------------------------- location ------------------------------->
@@ -48,21 +89,22 @@ include_once('banner.php');
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 mt-10">
                 <div class="">
                     <div class="text-black text-[2rem] font-bold mb-6">Contact Us</div>
-                    <form action="">
+                    <form action="contact.php" method="POST">
                         <div class="grid grid-cols-1 gap-4">
                             <input class="border border-[#ced4da] px-4 py-2 focus:outline-none placeholder:text-[#939393]"
-                                type="text" placeholder="Your Name">
+                                type="text" placeholder="Your Name" name="name" required>
                             <input class="border border-[#ced4da] px-4 py-2 focus:outline-none placeholder:text-[#939393]"
-                                type="tel" placeholder="Your Number">
+                                type="tel" placeholder="Your Number" name="number" required>
                             <input class="border border-[#ced4da] px-4 py-2 focus:outline-none placeholder:text-[#939393]"
-                                type="email" placeholder="Your Email">
+                                type="email" placeholder="Your Email" name="email" required>
                             <textarea
                                 class="border border-[#ced4da] px-4 py-2 focus:outline-none placeholder:text-[#939393]"
-                                name="" id="" placeholder="Message"></textarea>
+                                name="message" id="message" placeholder="Message"></textarea>
                         </div>
-                        <button
-                            class="text-white bg-[#ff000d] transition-all duration-300 px-6 py-2 mx-auto mt-4 uppercase hover:bg-[#b8101f]">send
-                            message</button>
+                        <button type="submit"
+                            class="text-white bg-[#ff000d] transition-all duration-300 px-6 py-2 mx-auto mt-4 uppercase hover:bg-[#b8101f]">
+                            send message
+                        </button>
                     </form>
                 </div>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.460411329929!2d55.32507!3d25.2214132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d9c7bcfa2e1%3A0xd537887f6324ed6!2sHala%20Drive%20Car%20rental!5e0!3m2!1sen!2sae!4v1692009056978!5m2!1sen!2sae" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
