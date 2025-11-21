@@ -34,5 +34,8 @@ return [
     'contact' => [
         'store' => '/en/contact/inquire/store', // The relative path
     ],
+    'inquire' => [
+        'store' => '/en/contact/send/inquire', // The relative path
+    ]
 ];
 ?>

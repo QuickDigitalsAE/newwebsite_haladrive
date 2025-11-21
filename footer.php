@@ -1,3 +1,4 @@
+
     <!--------------------------------- footer ------------------------------->
 
     <footer class="pt-[6rem] max-[1024px]:pt-[2rem] pb-[1rem] relative ">
@@ -101,6 +102,62 @@
     </footer>
 
 
+<!--------------------------------- POP UP ------------------------------->
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header background_image">
+                <img src="https://haladrive.ae/img/Hala-Drive.webp" style="display: block; width: 10rem; margin: 0 auto;" width="100" class="block">
+                <button type="button" class="btn-close custom_butnclose" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div></div>
+            <div class="modal-body w-full p-6">
+                <h5 class="text-xl text-center font-semibold mb-4">Book Now</h5>
+
+                <form method="POST" id="inquire-form" class="w-full">
+                    <input type="hidden" name="_token" value="FV5HbL6ZEq4mAded9gT90jqo2DrRpPtDjioznKXj">                    <!-- Name -->
+                    <div class="relative w-full mb-3">
+                        <span class="absolute left-4 top-3 text-gray-500"><i class="bi bi-person"></i></span>
+                        <input type="text" name="name" id="name" placeholder="Full Name*" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    </div>
+
+                    <!-- Date from -->
+                    <div class="relative w-full mb-3">
+                        <span class="absolute left-4 top-3 text-gray-500"><i class="bi bi-calendar"></i></span>
+                        <input type="date" name="date_from" onfocus="this.showPicker()" oninput="document.getElementById('date_to_modal').min = this.value;" id="date_from_modal" placeholder="Date From" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" min="2025-11-21">
+                    </div>
+
+                    <!-- Date To -->
+                    <div class="relative w-full mb-3">
+                        <span class="absolute left-4 top-3 text-gray-500"><i class="bi bi-calendar-check"></i></span>
+                        <input type="date" name="date_to" onfocus="this.showPicker()" id="date_to_modal" placeholder="Date to" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" min="2025-11-21">
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="relative w-full mb-3">
+                        <span class="absolute left-4 top-3 text-gray-500"><i class="bi bi-telephone"></i></span>
+                        <input type="text" name="number" id="contact_number" placeholder="Phone*" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    </div>
+
+                    <!-- Email -->
+                    <div class="relative w-full mb-3">
+                        <span class="absolute left-4 top-3 text-gray-500"><i class="bi bi-envelope"></i></span>
+                        <input type="email" name="email" id="email" placeholder="Email Address (optional)" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    </div>
+                    <input type="hidden" name="car_name" id="car_name" value="">
+                    <!-- Message -->
+                    <div class="relative w-full mb-3">
+                        <textarea name="message" id="carName" placeholder="Your Message*" rows="4" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full mx-auto custom_button_modal">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -117,9 +174,9 @@
         });
 
         // Close modal
-        closeBtn.onclick = function () {
-            modal.style.display = "none";
-        }
+        // closeBtn.onclick = function () {
+        //     modal.style.display = "none";
+        // }
 
         // Close modal on outside click
         window.onclick = function (event) {
@@ -127,6 +184,42 @@
                 modal.style.display = "none";
             }
         }
+
+
+        // AJAX form submission with JS alert
+        document.getElementById('inquire-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // prevent default form submission
+
+            const form = e.target;
+            const formData = new FormData(form);
+            const base_url = 'https://admin.haladrive.ae/api/v1';
+
+            fetch(base_url+'/en/contact/send/inquire', { // relative API endpoint
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Show message in JS alert
+                if (data.success) {
+                    alert(data.message || 'Inquiry sent successfully!');
+                } else {
+                    alert(data.message || 'Error submitting inquiry.');
+                }
+
+                // Close the modal
+                const modal = document.getElementById('myModal');
+                const bsModal = bootstrap.Modal.getInstance(modal);
+                if (bsModal) bsModal.hide();
+
+                // Reset the form
+                form.reset();
+
+            })
+            .catch(err => {
+                alert('A server error occurred.');
+            });
+        });
     </script>
 
 
