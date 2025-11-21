@@ -1,24 +1,27 @@
 <?php
-session_start();
-require_once 'apis/ApiHandler.php';
-$api = new ApiHandler();
-?>
+// Include global
+require_once 'global.php';
 
-<?php
+// Default SEO fallback values
+$meta_title = '';
+$meta_desc  = '';
+ 
+
 try {
     $privacyPolicyContent = $api->loadData('webcontent', 'privacy-policy', []);
     if ($privacyPolicyContent['success']) {
         $privacyPolicyContentData = $privacyPolicyContent['data']["data"];
+
+        $titleKey = "title_" . $lang;
+            $descKey  = "description_" . $lang;
+
+            $meta_title = $privacyPolicyContentData["meta_data"][$titleKey] ?? '';
+            $meta_desc  = $privacyPolicyContentData["meta_data"][$descKey] ?? '';
     }
 } catch (Exception $e) {
     echo "Error loading featured products: " . $e->getMessage();
 }
-?>
 
-
-<?php
-$meta_title = 'kia azhar';
-$meta_desc = 'kia azhar';
 include_once('header.php');
 
 $banner_image = "$imagePath/about/top-banner.webp";
