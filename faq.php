@@ -29,7 +29,7 @@ try {
 
 <?php
 $banner_image = "$imagePath/about/top-banner.webp";
-$banner_title = "Frequently Asked Questions";
+$banner_title = $messages['homeFaqs_1'];
 include_once('banner.php');
 ?>
 
@@ -39,14 +39,14 @@ include_once('banner.php');
         <!-- Header -->
         <div class="flex flex-col md:flex-row md:items-center justify-between mb-10">
             <div>
-                <h2 class="text-2xl md:text-3xl font-bold mb-2">Frequently Asked Questions</h2>
-                <p class="text-gray-600">These are the questions we hear more often.</p>
+                <h2 class="text-2xl md:text-3xl font-bold mb-2"><?= $messages['homeFaqs_1'] ?></h2>
+                <p class="text-gray-600"><?= $messages['homeFaqs_pera_1'] ?></p>
             </div>
             <div
                 class="relative border-2 border-[#92aacb] px-5 py-3 mt-4 md:mt-0 flex items-center gap-3 shadow-[1px_1px_2px_#999] -skew-x-12">
                 <div>
-                    <p class="font-semibold text-gray-800">Don't see the answer you need?</p>
-                    <p class="text-sm text-gray-500">Just drop a msg we will get back to you ASAP!</p>
+                    <p class="font-semibold text-gray-800"><?= $messages['homeFaqs_2'] ?></p>
+                    <p class="text-sm text-gray-500"><?= $messages['homeFaqs_pera_2'] ?></p>
                 </div>
                 <div class="bg-[#1bd741] p-2 -skew-x-4">
                     <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="WhatsApp" class="w-8 h-8">
