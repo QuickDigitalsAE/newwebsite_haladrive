@@ -159,6 +159,12 @@ RewriteRule ^contact/?$ contact.php?lang=en [L,QSA]
 # Faqs main
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^contact/?$ contact.php?lang=en [L,QSA]
+
+
+# Faqs main
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^faq/?$ faq.php?lang=en [L,QSA]
 
 # Faqs main

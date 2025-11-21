@@ -103,9 +103,9 @@ $messages = include $messagesFile;
                         <div>العربية</div>
                     </a>
                     <div class="-skew-x-12 bg-[#ff000d] cursor-pointer text-white px-4 py-2"><?= $messages['inquiry'] ?></div>
-                    <a href="https://wa.me/971501837112?text=Hi" class="bg-[#29a71a] -skew-x-12 px-2 py-2 cursor-pointer">
+                    <div class="bg-[#29a71a] -skew-x-12 px-2 py-2 cursor-pointer">
                         <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="" class="w-6">
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>

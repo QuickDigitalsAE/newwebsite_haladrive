@@ -1,7 +1,16 @@
-<?php include_once('header.php');?>
+<?php 
+// Start session for token storage
+session_start();
 
-<?php
-$banner_image = "$imagePath/about/top-banner.webp";
+// Include the API handler
+require_once 'apis/ApiHandler.php';
+
+// Initialize API handler
+$api = new ApiHandler();
+
+include_once('header.php');
+
+$banner_image = $imagePath."/about/top-banner.webp";
 $banner_title = "Contact Us";
 $banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!";
 include_once('banner.php');
