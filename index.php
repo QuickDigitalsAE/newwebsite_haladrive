@@ -456,7 +456,7 @@ require_once 'header.php';
                 <button type="button" class="btn-close custom_butnclose" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div></div>
-            <div class="modal-body w-full p-6">
+            <div class="modal-body w-full px-6">
                 <h5 class="text-xl text-center font-semibold mb-4">Book Now</h5>
 
                 <form action="https://haladrive.ae/car/inquire" method="POST" id="inquire-form" class="w-full">

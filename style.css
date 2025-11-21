@@ -93,7 +93,8 @@ html[dir="rtl"] .ar_px {
   position: fixed;
   z-index: 9999;
   left: 0;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.6);
@@ -130,13 +131,14 @@ html[dir="rtl"] .ar_px {
 /* Modal Content */
 .modal-content {
     background-color: #fff;
-    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    max-width: 500px;
-    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 550px;
+    width: 100%;
     margin: auto;
     font-family: 'Arial', sans-serif;
+    height: 90vh;
+    overflow: auto;
 }
 
 /* Modal Header */
