@@ -29,8 +29,8 @@ try {
 
 <?php
 $banner_image = "$imagePath/about/top-banner.webp";
-$banner_title = "About Us";
-$banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!";
+$banner_title = $messages['aboutBannerHeading'];
+$banner_subtitle = $messages['aboutBannerPera'];
 include_once('banner.php');
 ?>
 

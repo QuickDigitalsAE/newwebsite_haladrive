@@ -327,16 +327,16 @@ try {
 
     <section class="bg-[#0b0b0b] relative">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
-            <div class="text-white flex max-[1024px]:flex-col max-[1024px]:gap-6 gap-20 max-[1024px]:mb-10">
+            <div class="text-white flex max-[1024px]:flex-col max-[1024px]:gap-6 gap-20 mb-4 max-[1024px]:mb-10">
                 <div class="text-[1.7rem] max-[1024px]:text-[1.3rem] max-[1024px]:leading-[1] font-bold"><?= $messages['homeSectionForthHeading_1'] ?></div>
                 <div class=""><?= $messages['homeSectionForthPera_1'] ?></div>
             </div>
             <div class="">
                 <form action="" class="flex gap-4 max-[1024px]:flex-col">
-                    <input class="focus:outline-none px-4 py-2" placeholder="Your Name" type="text">
-                    <input class="focus:outline-none px-4 py-2" placeholder="Your Number" type="tel">
-                    <input class="focus:outline-none px-4 py-2" placeholder="Your Email" type="email">
-                    <button class="uppercase text-white bg-[#ff000d] px-4 py-2">Send Message</button>
+                    <input class="focus:outline-none px-4 py-2" placeholder="<?= $messages['name'] ?>" type="text">
+                    <input class="focus:outline-none px-4 py-2" placeholder="<?= $messages['number'] ?>" type="tel">
+                    <input class="focus:outline-none px-4 py-2" placeholder="<?= $messages['email'] ?>" type="email">
+                    <button class="uppercase text-white bg-[#ff000d] px-4 py-2"><?= $messages['send'] ?></button>
                 </form>
             </div>
             <div class="text-white mt-12">
@@ -413,7 +413,7 @@ try {
 
     <section>
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto py-8 ">
-            <div class="text-center text-black font-bold text-[1.7rem] leading-[1] mb-10">Features On</div>
+            <div class="text-center text-black font-bold text-[1.7rem] leading-[1] mb-10"><?= $messages['features'] ?></div>
             <div class="flex max-[1024px]:flex-wrap  justify-center gap-6">
                 <img class="object-contain w-[10rem] " src="<?= $imagePath ?>sections/features/gulfnews.webp" alt="">
                 <img class="object-contain w-[10rem] " src="<?= $imagePath ?>sections/features/gulfstory.webp" alt="">

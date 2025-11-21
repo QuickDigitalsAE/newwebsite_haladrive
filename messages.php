@@ -18,6 +18,17 @@ return [
     //    footer
     'quick' => 'Quick Links',
     'details' => 'Contact Details',
+    'hala' => 'Hala Drive',
+    'quickdigitals' => 'Quick Digitals',
+    'rights' => ', All Right Reserved. Powered By',
+    'content' => 'Your trusted partner for affordable and luxury car rentals across Dubai and the UAE. Drive with confidence and convenience every time with well-maintained vehicles, flexible booking options, and 24/7 customer support designed to keep your journey smooth.',
+
+    //    form Data
+    'send' => 'Send Message',
+    'email' => 'Your Email',
+    'number' => 'Your Number',
+    'name' => 'Your Name',
+    'features' => 'Features On',
 
     
     //    cars card
@@ -95,6 +106,11 @@ return [
     'homeSectionSixthPera_3' => 'The company maintains its dedication to safety and reliability which enables you to feel completely at ease while driving. The vehicles we offer receive routine maintenance checks alongside inspections to guarantee their top condition for their customer. The car rental services at Hala Drive guarantee you the highest standard of service throughout Dubai.',
     'homeSectionSixthPera_4' => 'Hala Drive offers car hire UAE services that extend far beyond basic vehicle rentals. Hala Drive dedicates itself to delivering superior customer assistance together with premium maintenance services in addition to special rental packages which boost your travel comfort. Our Dubai-based service locations provide convenient accessibility to our customers throughout the city.',
     'homeSectionSixthPera_5' => 'Whether you’re visiting Dubai for business, leisure, or an extended stay, Hala Drive has the perfect car rental Dubai cheap option for you. Book your vehicle today and enjoy a stress-free journey with the best Hala drive car rental services available!',
+
+
+    //    about
+    'aboutBannerHeading' => 'About Us',
+    'aboutBannerPera' => 'Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!',
     
 
     

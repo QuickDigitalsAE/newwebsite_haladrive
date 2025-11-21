@@ -9,9 +9,7 @@
                     <img src="<?= $imagePath ?>/logo/Hala-Drive-resize.webp" alt=""
                         class="max-[1000px]:m-auto max-[1024px]:w-[100px]">
                 </a>
-                <p class=" py-4">Your trusted partner for affordable and luxury car rentals across Dubai and the UAE.
-                    Drive with confidence and convenience every time with well-maintained vehicles, flexible booking
-                    options, and 24/7 customer support designed to keep your journey smooth.</p>
+                <p class=" py-4"><?= $messages['content'] ?></p>
                 <ul class="flex social gap-2">
                     <li>
                         <div class="bg-[#ff000d] p-3 rounded-full">
@@ -94,9 +92,8 @@
                 </ul>
             </div>
         </div>
-        <div class="text-center mb-3 text-white">© <a class="border-b border-white" href="https://haladrive.ae">HALA
-                Drive</a>, All Right Reserved. Powered By <a target="_blank" class="border-b border-white"
-                href="https://quickdigitals.ae">Quick Digitals</a></div>
+        <div class="text-center mb-3 text-white">© <a class="border-b border-white" href="https://haladrive.ae"><?= $messages['hala'] ?></a><?= $messages['rights'] ?> <a target="_blank" class="border-b border-white"
+                href="https://quickdigitals.ae"><?= $messages['quickdigitals'] ?></a></div>
     </footer>
 
 
