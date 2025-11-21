@@ -63,7 +63,7 @@ try {
                         </div>
                     </div>
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
-                        <div class="mb-4 text-[1.3rem]"><?= $messages['typesofcars'] ?></div>
+                        <div class="mb-4 text-[1.3rem]"<?= $messages['typesofcars'] ?></div>
                         <div class="grid grid-cols-2 gap-2 font-semibold text-[12px]">
                             <a href='brands/<?php echo $brandData["brand"]["slug"]; ?>?sort=Economy&id=1' class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['economy'] ?></a>
                             <a href='brands/<?php echo $brandData["brand"]["slug"]; ?>?sort=SUV&id=2' class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['suv'] ?></a>
@@ -115,7 +115,7 @@ try {
                     <?php foreach($brandData["cars"]["data"] as $car): ?>
                     <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
                         <div class="flex items-center justify-between mb-2">
-                            <div class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">in Stock</div>
+                            <div class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1"><?= $messages['instock'] ?></div>
                             <img width="0" hight='0' src="<?php echo $brandData["brand"]["logo_url"]; ?>" class="w-16" alt="">
                         </div>
                         <div class="flex items-center max-[1024px]:flex-col gap-4">

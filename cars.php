@@ -91,8 +91,8 @@ if ($slug) {
                         </div>
                     </div>
                     <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]">Availability</div>
-                        <div class="">In Stock</div>
+                        <div class="text-[1rem] text-[#939393]"><?= $messages['availability'] ?></div>
+                        <div class=""><?= $messages['instock'] ?></div>
                     </div>
                     <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
                         <div class="text-[1rem] text-[#939393]">Security Amount</div>
@@ -202,19 +202,19 @@ include_once('banner.php');
             <div class="grid grid-cols-4 max-[1024px]:grid-cols-1 gap-10">
                 <div class="h-fit col-span-1">
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
-                        <div class="mb-4 text-[1.3rem]">Sort By Price</div>
+                        <div class="mb-4 text-[1.3rem]"><?= $messages['price'] ?></div>
                         <div class="flex flex-col gap-2 font-semibold text-[12px]">
-                            <a href='cars' class="bg-white border border-[#b8101f] py-2">Default</a>
+                            <a href='cars' class="bg-white border border-[#b8101f] py-2"><?= $messages['default'] ?></a>
                             <a href="cars?sort=price_asc" class="bg-white border border-[#b8101f] py-2">
-                                Low to High
+                                <?= $messages['lowtohigh'] ?>
                             </a>
                             <a href="cars?sort=price_desc" class="bg-white border border-[#b8101f] py-2">
-                                High to Low
+                                <?= $messages['hightolow'] ?>
                             </a>
                         </div>
                     </div>
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
-                        <div class="mb-4 text-[1.3rem]">Types of cars</div>
+                        <div class="mb-4 text-[1.3rem]"><?= $messages['typesofcars'] ?></div>
                         <div class="grid grid-cols-2 gap-2 font-semibold text-[12px]">
                             <a href='cars?sort=Economy&id=1' class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['economy'] ?></a>
                             <a href='cars?sort=SUV&id=2' class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['suv'] ?></a>
@@ -224,20 +224,20 @@ include_once('banner.php');
                         </div>
                     </div>
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
-                        <div class="mb-4 text-[1.3rem]">Availability</div>
+                        <div class="mb-4 text-[1.3rem]"><?= $messages['availability'] ?></div>
                         <div class="grid grid-cols-1 gap-2 font-semibold text-[12px]">
-                            <div class="bg-white border border-[#b8101f] py-2 px-4">In Stock</div>
-                            <div class="bg-white border border-[#b8101f] py-2 px-4">Out Of Stock</div>
+                            <div class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['instock'] ?></div>
+                            <div class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['outofstock'] ?></div>
                             <a href='cars' class="bg-[#ff000d] text-white uppercase py-3 text-[1rem]">reset</a>
                         </div>
                     </div>
                     <div class="text-black text-center bg-[#f1f4f8] p-4">
-                        <div class="mb-4 text-[1.3rem]">Sort By Brand</div>
+                        <div class="mb-4 text-[1.3rem]"><?= $messages['sortbybrand'] ?></div>
                         <div class="grid grid-cols-1 gap-2 text-[12px]">
                             <button id="dropdownUsersButton" data-dropdown-toggle="dropdownUsers"
                                 data-dropdown-placement="bottom"
                                 class="text-[#939393] bg-white focus:outline-none font-medium rounded-lg text-[1rem] px-5 py-2.5 text-center inline-flex items-center justify-center"
-                                type="button">Sort By Brand <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
+                                type="button"><?= $messages['sortbybrand'] ?> <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="2" d="m1 1 4 4 4-4" />
@@ -269,7 +269,7 @@ include_once('banner.php');
                         <div class="flex items-center justify-between mb-2">
                             <div
                                 class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
-                                in Stock</div>
+                                <?= $messages['instock'] ?></div>
                             <img width="0" hight='0' src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="">
                         </div>
                         <div class="flex items-center max-[1024px]:flex-col gap-4">

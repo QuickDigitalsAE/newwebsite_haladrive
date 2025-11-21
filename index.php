@@ -88,7 +88,7 @@ try {
                     <div class="flex items-center justify-between mb-2">
                         <?php if ($car['stock'] === "Yes"): ?>
                             <div class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
-                            In Stock
+                            <?= $messages['instock'] ?>
                         </div>
                     <?php else: ?>
                         <div class="bg-[#ffdddd] text-[#d11a1a] border border-[#d11a1a] rounded-full text-[.8rem] px-2 py-1">
