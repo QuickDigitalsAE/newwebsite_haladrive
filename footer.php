@@ -5,7 +5,7 @@
         <div
             class="w-[80%] max-[1024px]:w-[90%] grid grid-cols-3 max-[1024px]:grid-cols-1 pb-[4rem] max-[1024px]:pb-[2rem] text-white m-auto gap-[3rem] max-[1024px]:gap-4 banner-1">
             <div class="">
-                <a href="/src">
+                <a href="">
                     <img src="<?= $imagePath ?>/logo/Hala-Drive-resize.webp" alt=""
                         class="max-[1000px]:m-auto max-[1024px]:w-[100px]">
                 </a>
