@@ -32,6 +32,7 @@ return [
 
     //    buttons
     'journy' => 'Start Your Journy',
+    'reset' => 'Reset',
 
     
     //    cars card
@@ -47,6 +48,15 @@ return [
     'midsize' => 'Midsize',
     'suv' => 'SUV',
     'economy' => 'Economy',
+    'price' => 'Sort By Price',
+    'typesofcars' => 'Types of cars',
+    'availability' => 'Availability',
+    'sortbybrand' => 'Sort By Brand',
+    'default' => 'Default',
+    'lowtohigh' => 'Low to High',
+    'hightolow' => 'High to Low',
+    'instock' => 'In Stock',
+    'outofstock' => 'Out Of Stock',
     
     //       Home 
     
@@ -122,7 +132,9 @@ return [
     'aboutSectionOneHeading_2' => 'experience in the industry',
     'aboutSectionOneHeading_3' => 'Satisfied Customers',
     'aboutSectionOneHeading_years' => 'Years',
-    '' => '',
+
+
+    //     
     
 
     

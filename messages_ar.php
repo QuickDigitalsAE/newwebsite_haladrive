@@ -30,6 +30,7 @@ return [
 
     //    buttons
     'journy' => 'ابدأ رحلتك',
+    'reset' => 'إعادة تعيين',
     
 
 
@@ -46,6 +47,15 @@ return [
     'midsize' => 'متوسطة الحجم',
     'suv' => 'دفع رباعي',
     'economy' => 'اقتصادي',
+    'price' => 'تصنيف حسب السعر',
+    'typesofcars' => 'أنواع السيارات',
+    'availability' => 'التوفر',
+    'sortbybrand' => 'اختر ماركة',
+    'default' => 'بلا تصنيف',
+    'lowtohigh' => 'من الاقل للاكثر',
+    'hightolow' => 'من الاكثر للاقل',
+    'instock' => 'متوفرة',
+    'outofstock' => 'غير متوفرة',
 
     //     Home
 
