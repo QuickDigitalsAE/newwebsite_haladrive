@@ -3,7 +3,7 @@ session_start();
 require_once 'apis/ApiHandler.php';
 $api = new ApiHandler();
 
-$lang = isset($lang) ? $lang : 'en'; // fallback
+$lang = isset($lang) ? $lang : 'en';
 ?>
 
 <?php
@@ -12,8 +12,6 @@ try {
     
     if ($homeContent['success']) {
         $homeContentData = $homeContent['data']["data"];
-
-        // Get meta values
         $meta_title = $homeContentData["sectioncontent"][0]["seo_title_${lang}"];
         $meta_desc  = $homeContentData["sectioncontent"][0]["seo_brief_${lang}"];
     }
@@ -21,7 +19,6 @@ try {
     echo "Error loading content: " . $e->getMessage();
 }
 
-// Load header AFTER variables are set
 include_once('header.php');
 ?>
 

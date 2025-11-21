@@ -1,25 +1,14 @@
-<?php 
-// Start session for token storage
+<?php
 session_start();
-
-// Include the API handler
 require_once 'apis/ApiHandler.php';
-
-// Initialize API handler
 $api = new ApiHandler();
 ?>
 
-<?php include_once('header.php');?>
-
 <?php
 try {
-    // This will be processed before rendering the page
     $privacyPolicyContent = $api->loadData('webcontent', 'privacy-policy', []);
-    
     if ($privacyPolicyContent['success']) {
-        // Use the data in your page
         $privacyPolicyContentData = $privacyPolicyContent['data']["data"];
-        // print_r($privacyPolicyContentData);
     }
 } catch (Exception $e) {
     echo "Error loading featured products: " . $e->getMessage();
@@ -28,6 +17,10 @@ try {
 
 
 <?php
+$meta_title = 'kia azhar';
+$meta_desc = 'kia azhar';
+include_once('header.php');
+
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = "Privacy Policy";
 include_once('banner.php');
