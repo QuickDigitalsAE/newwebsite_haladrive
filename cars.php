@@ -187,6 +187,13 @@ try {
     $carContent = $api->loadData('car', 'main', ['sort' => $sort]);
     if ($carContent['success']) {
         $carContentData = $carContent['data']["data"];
+
+        $titleKey = "title_" . $lang;
+        $descKey  = "description_" . $lang;
+
+        $meta_title = $carContentData["meta_data"][$titleKey] ?? '';
+        $meta_desc  = $carContentData["meta_data"][$descKey] ?? '';
+
     }
 } catch (Exception $e) {
     echo "Error loading car list: " . $e->getMessage();
