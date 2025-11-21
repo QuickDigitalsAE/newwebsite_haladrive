@@ -1,33 +1,32 @@
-<?php 
-// Start session for token storage
-session_start();
-
-// Include the API handler
-require_once 'apis/ApiHandler.php';
-
-// Initialize API handler
-$api = new ApiHandler();
-?>
-
-<?php include_once('header.php');?>
-
 <?php
+// Include global
+require_once 'global.php';
+
+// Default SEO fallback values
+$meta_title = '';
+$meta_desc  = '';
+
 try {
-    // This will be processed before rendering the page
     $faqContent = $api->loadData('webcontent', 'faq', []);
     
     if ($faqContent['success']) {
-        // Use the data in your page
         $faqContentData = $faqContent['data']["data"];
-        // print_r($faqContentData);
+
+        // Debug field names (run once)
+        // echo "<pre>"; print_r($faqContentData["meta_data"]); echo "</pre>"; exit;
+
+        $titleKey = "title_" . $lang;
+        $descKey  = "description_" . $lang;
+
+        $meta_title = $faqContentData["meta_data"][$titleKey] ?? '';
+        $meta_desc  = $faqContentData["meta_data"][$descKey] ?? '';
     }
 } catch (Exception $e) {
     echo "Error loading featured products: " . $e->getMessage();
 }
-?>
 
+require_once 'header.php';
 
-<?php
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $messages['homeFaqs_1'];
 include_once('banner.php');
