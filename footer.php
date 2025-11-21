@@ -93,7 +93,7 @@
             </div>
         </div>
         <div class="text-center mb-3 text-white">© <a class="border-b border-white" href="https://haladrive.ae"><?= $messages['hala'] ?></a><?= $messages['rights'] ?> <a target="_blank" class="border-b border-white"
-                href="https://quickdigitals.ae"><?= $messages['quickdigitals'] ?></a></div>
+                href="https://quickdigitals.ae"> <?= $messages['quickdigitals'] ?></a></div>
     </footer>
 
 
