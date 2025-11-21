@@ -1,11 +1,10 @@
 <?php 
 session_start();
-
 require_once 'apis/ApiHandler.php';
-
 $api = new ApiHandler();
-?>
 
+$lang = isset($lang) ? $lang : 'en'; // fallback
+?>
 
 <?php
 try {
@@ -13,14 +12,16 @@ try {
     
     if ($homeContent['success']) {
         $homeContentData = $homeContent['data']["data"];
-        print_r($homeContentData["sectioncontent"][0]["seo_title_${lang}"]);
+
+        // Get meta values
+        $meta_title = $homeContentData["sectioncontent"][0]["seo_title_${lang}"];
+        $meta_desc  = $homeContentData["sectioncontent"][0]["seo_brief_${lang}"];
     }
 } catch (Exception $e) {
-    echo "Error loading featured products: " . $e->getMessage();
+    echo "Error loading content: " . $e->getMessage();
 }
 
-$meta_title = $$homeContentData["sectioncontent"][0]["seo_title_${lang}"];
-$meta_desc = $homeContentData["sectioncontent"][0]["seo_brief_${lang}"];
+// Load header AFTER variables are set
 include_once('header.php');
 ?>
 
