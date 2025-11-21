@@ -1,7 +1,10 @@
 <?php
-session_start();
-require_once 'apis/ApiHandler.php';
-$api = new ApiHandler();
+// Include global
+require_once 'global.php';
+
+// Default SEO fallback values
+$meta_title = '';
+$meta_desc  = '';
 
 
 // $slug = $_GET['slug'] ?? null;
@@ -14,7 +17,6 @@ $fullUrl = $protocol . $host . $uri;
 $slug = basename(parse_url($uri, PHP_URL_PATH));
 
 
-include_once('header.php');
 
 if (!$slug) {
     echo "Brand not found.";
@@ -28,6 +30,13 @@ try {
     $brandContent = $api->loadData('lease', 'lease', ['sort' => $sort], $slug);
     if ($brandContent['success']) {
         $brandData = $brandContent['data']["data"];
+
+        $titleKey = "seo_title_" . $lang;
+        $descKey  = "seo_brief_" . $lang;
+
+        $meta_title = $brandContent["lease"]["meta_data"][$titleKey] ?? '';
+        $meta_desc  = $brandContent["lease"]["meta_data"][$descKey] ?? '';
+
         // print_r($brandData);
     } else {
         echo "Brand data not found.";
@@ -39,6 +48,10 @@ try {
         include_once('footer.php');
         exit;
     }
+
+    require_once 'header.php';
+
+    
     $banner_image = "$imagePath/about/top-banner.webp";
     $banner_title = $brandData["lease"]["title_{$lang}"];
     $banner_subtitle = $messages['locationsBannerPera'];
