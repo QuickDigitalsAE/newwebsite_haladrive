@@ -449,114 +449,60 @@ require_once 'header.php';
 
     <!--------------------------------- POP UP ------------------------------->
 
-    <!-- Modal -->
-<div id="myModal" 
-     class="modal" 
-     style="
-        display:none;
-        position:fixed;
-        z-index:99999;
-        left:0;
-        top:0;
-        width:100%;
-        height:100%;
-        overflow:auto;
-        background:rgba(0,0,0,0.6);
-        backdrop-filter:blur(3px);
-     ">
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header background_image">
+                <img src="https://haladrive.ae/img/Hala-Drive.webp" style="display: block;" width="100" class="block">
+                <button type="button" class="btn-close custom_butnclose" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div></div>
+            <div class="modal-body w-full p-6">
+                <h5 class="text-xl text-center font-semibold mb-4">Book Now</h5>
 
-    <div class="modal-content"
-         style="
-            background:#fff;
-            margin:8% auto;
-            padding:0;
-            border-radius:12px;
-            width:90%;
-            max-width:420px;
-            box-shadow:0 10px 30px rgba(0,0,0,0.2);
-            position:relative;
-            animation:scaleIn 0.3s ease;
-         ">
+                <form action="https://haladrive.ae/car/inquire" method="POST" id="inquire-form" class="w-full">
+                    <input type="hidden" name="_token" value="FV5HbL6ZEq4mAded9gT90jqo2DrRpPtDjioznKXj">                    <!-- Name -->
+                    <div class="relative w-full mb-3">
+                        <span class="absolute left-4 top-3 text-gray-500"><i class="bi bi-person"></i></span>
+                        <input type="text" name="name" id="name" placeholder="Full Name*" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    </div>
 
-        <!-- Close Button -->
-        <span class="close"
-              style="
-                position:absolute;
-                top:10px;
-                right:12px;
-                font-size:28px;
-                font-weight:bold;
-                cursor:pointer;
-                color:#333;
-              ">&times;</span>
+                    <!-- Date from -->
+                    <div class="relative w-full mb-3">
+                        <span class="absolute left-4 top-3 text-gray-500"><i class="bi bi-calendar"></i></span>
+                        <input type="date" name="date_from" onfocus="this.showPicker()" oninput="document.getElementById('date_to_modal').min = this.value;" id="date_from_modal" placeholder="Date From" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" min="2025-11-21">
+                    </div>
 
-        <!-- Image -->
-        <img src="<?= $imagePath ?>about/default-banner.webp"
-             alt="pop up"
-             style="
-                width:100%;
-                height:150px;
-                object-fit:cover;
-                border-radius:12px 12px 0 0;
-             ">
+                    <!-- Date To -->
+                    <div class="relative w-full mb-3">
+                        <span class="absolute left-4 top-3 text-gray-500"><i class="bi bi-calendar-check"></i></span>
+                        <input type="date" name="date_to" onfocus="this.showPicker()" id="date_to_modal" placeholder="Date to" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" min="2025-11-21">
+                    </div>
 
-        <!-- Form Area -->
-        <div style="padding:20px;">
-            <h2 style="
-                margin:0 0 10px;
-                font-size:22px;
-                font-weight:600;
-                color:#222;
-                text-align:center;
-            ">Inquiry Form</h2>
+                    <!-- Phone -->
+                    <div class="relative w-full mb-3">
+                        <span class="absolute left-4 top-3 text-gray-500"><i class="bi bi-telephone"></i></span>
+                        <input type="text" name="number" id="contact_number" placeholder="Phone*" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    </div>
 
-            <form action="submit.php" method="POST"
-                  style="
-                    display:flex;
-                    flex-direction:column;
-                    gap:12px;
-                  ">
+                    <!-- Email -->
+                    <div class="relative w-full mb-3">
+                        <span class="absolute left-4 top-3 text-gray-500"><i class="bi bi-envelope"></i></span>
+                        <input type="email" name="email" id="email" placeholder="Email Address (optional)" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    </div>
+                    <input type="hidden" name="car_name" id="car_name" value="Nissan Patrol 2025">
+                    <!-- Message -->
+                    <div class="relative w-full mb-3">
+                        <textarea name="message" id="carName" placeholder="Your Message*" rows="4" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">I am interested in Nissan Patrol 2025. Please call me back</textarea>
+                    </div>
 
-                <label style="font-size:14px; color:#555;">Name:</label>
-                <input type="text" name="name" required
-                    style="
-                        padding:10px;
-                        border:1px solid #ddd;
-                        border-radius:6px;
-                        font-size:14px;
-                        outline:none;
-                    ">
-
-                <label style="font-size:14px; color:#555;">Email:</label>
-                <input type="email" name="email" required
-                    style="
-                        padding:10px;
-                        border:1px solid #ddd;
-                        border-radius:6px;
-                        font-size:14px;
-                        outline:none;
-                    ">
-
-                <button type="submit"
-                    style="
-                        background:#ff000d;
-                        color:white;
-                        border:none;
-                        padding:12px;
-                        border-radius:6px;
-                        font-size:16px;
-                        cursor:pointer;
-                        margin-top:10px;
-                        transition:0.3s;
-                    "
-                    onmouseover="this.style.opacity='0.85'"
-                    onmouseout="this.style.opacity='1'"
-                >Submit</button>
-            </form>
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full mx-auto custom_button_modal">
+                        Submit
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-
 
 
 <?php include_once('footer.php');?>

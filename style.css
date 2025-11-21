@@ -125,3 +125,124 @@ html[dir="rtl"] .ar_px {
     bottom: 1.8rem;
     left: 1.1rem;
 }
+
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Modal Header */
+.modal-header {
+    position: relative;
+    padding: 0;
+}
+
+.background_image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.btn-close.custom_butnclose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #fff;
+    z-index: 10;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 2rem 1.5rem;
+}
+
+.modal-body h5 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Input Fields */
+.custom_input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.custom_input:focus {
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 2px rgba(13,110,253,0.2);
+}
+
+/* Input Icon */
+.relative {
+    position: relative;
+}
+
+.relative span {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 1.1rem;
+}
+
+/* Textarea */
+textarea.custom_input {
+    resize: none;
+}
+
+/* Submit Button */
+.custom_button_modal {
+    display: inline-block;
+    width: 100%;
+    background-color: #0d6efd;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.custom_button_modal:hover {
+    background-color: #0b5ed7;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .modal-body {
+        padding: 1.5rem 1rem;
+    }
+
+    .custom_input {
+        font-size: 0.95rem;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .custom_button_modal {
+        font-size: 1rem;
+    }
+}
