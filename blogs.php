@@ -1,11 +1,12 @@
 <?php
-session_start();
-require_once 'apis/ApiHandler.php';
-$api = new ApiHandler();
+// Include global
+require_once 'global.php';
 
-$slug = $_GET['slug'] ?? null;
+// Default SEO fallback values
+$meta_title = '';
+$meta_desc  = '';
 
-include_once('header.php');
+$slug = $_GET['slug'] ?? null; 
 
 if ($slug) {
 
@@ -14,10 +15,18 @@ if ($slug) {
 
         if ($singleBlogContent['success']) {
             $singleBlogContentData = $singleBlogContent['data']["data"];
+
+            $titleKey = "title_" . $lang;
+            $descKey  = "description_" . $lang;
+
+            $meta_title = $singleBlogContentData["meta_data"][$titleKey] ?? '';
+            $meta_desc  = $singleBlogContentData["meta_data"][$descKey] ?? '';
         }
     } catch (Exception $e) {
         echo "Error loading car details: " . $e->getMessage();
     }
+
+    include_once('header.php');
 
     $banner_image = "$imagePath/about/top-banner.webp";
     $banner_title = $messages['blogsBannerHeading'];
@@ -57,10 +66,18 @@ try {
     $blogsContent = $api->loadData('blogs', 'main', []);
     if ($blogsContent['success']) {
         $blogsContentData = $blogsContent['data']["data"];
+
+        $titleKey = "title_" . $lang;
+        $descKey  = "description_" . $lang;
+
+        $meta_title = $blogsContentData["meta_data"][$titleKey] ?? '';
+        $meta_desc  = $blogsContentData["meta_data"][$descKey] ?? '';
     }
 } catch (Exception $e) {
     echo "Error loading car list: " . $e->getMessage();
 }
+
+include_once('header.php');
 
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $messages['blogsBannerHeading'];

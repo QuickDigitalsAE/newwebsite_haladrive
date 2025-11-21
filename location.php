@@ -1,7 +1,10 @@
 <?php
-session_start();
-require_once 'apis/ApiHandler.php';
-$api = new ApiHandler();
+// Include global
+require_once 'global.php';
+
+// Default SEO fallback values
+$meta_title = '';
+$meta_desc  = '';
 
 // Detect full URL
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
@@ -30,6 +33,13 @@ try {
     $locationContent = $api->loadData('location', 'single', [], $slug);
 
     if ($locationContent['success']) {
+        $singleLocationContentData = $locationContent['data']["data"];
+
+        $titleKey = "title_" . $lang;
+            $descKey  = "description_" . $lang;
+
+            $meta_title = $singleLocationContentData["meta_data"][$titleKey] ?? '';
+            $meta_desc  = $singleLocationContentData["meta_data"][$descKey] ?? '';
 
         // If API returned empty data
         if (empty($locationContent['data']["data"])) {
@@ -64,6 +74,7 @@ try {
         $banner_image = "$imagePath/about/top-banner.webp";
         $banner_title = "No Data Found";
         $banner_subtitle = ""; // optional
+        
 
         include_once('banner.php');  // Now banner will show updated text
         ?>
@@ -111,6 +122,8 @@ try {
     include_once('footer.php');
     exit;
 }
+
+include_once('header.php');
 // If data found → continue
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = "Explore Our Signature Collection of Car Marvels";

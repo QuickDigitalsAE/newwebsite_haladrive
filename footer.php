@@ -5,7 +5,7 @@
         <div
             class="w-[80%] max-[1024px]:w-[90%] grid grid-cols-3 max-[1024px]:grid-cols-1 pb-[4rem] max-[1024px]:pb-[2rem] text-white m-auto gap-[3rem] max-[1024px]:gap-4 banner-1">
             <div class="">
-                <a href="/src">
+                <a href="">
                     <img src="<?= $imagePath ?>/logo/Hala-Drive-resize.webp" alt=""
                         class="max-[1000px]:m-auto max-[1024px]:w-[100px]">
                 </a>
@@ -98,6 +98,27 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        const modal = document.getElementById("myModal");
+        const btn = document.querySelector(".openModalBtn");
+        const closeBtn = document.querySelector(".close");
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>   
+
 
     <script>
         (function () {

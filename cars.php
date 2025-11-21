@@ -1,12 +1,12 @@
 <?php
-session_start();
-require_once 'apis/ApiHandler.php';
-$api = new ApiHandler();
+// Include global
+require_once 'global.php';
+
+// Default SEO fallback values
+$meta_title = '';
+$meta_desc  = '';
 
 $slug = $_GET['slug'] ?? null;
-
-
-include_once('header.php');
 
 if ($slug) {
 
@@ -15,10 +15,18 @@ if ($slug) {
 
         if ($carSingleContent['success']) {
             $carSingleContentData = $carSingleContent['data']["data"];
+
+            $titleKey = "title_" . $lang;
+            $descKey  = "description_" . $lang;
+
+            $meta_title = $carSingleContentData["meta_data"][$titleKey] ?? '';
+            $meta_desc  = $carSingleContentData["meta_data"][$descKey] ?? '';
         }
     } catch (Exception $e) {
         echo "Error loading car details: " . $e->getMessage();
     }
+
+    include_once('header.php');
 
     $banner_image = "$imagePath/about/top-banner.webp";
     $banner_title = 'Cars';
@@ -186,10 +194,19 @@ try {
     $carContent = $api->loadData('car', 'main', ['sort' => $sort]);
     if ($carContent['success']) {
         $carContentData = $carContent['data']["data"];
+
+        $titleKey = "title_" . $lang;
+        $descKey  = "description_" . $lang;
+
+        $meta_title = $carContentData["meta_data"][$titleKey] ?? '';
+        $meta_desc  = $carContentData["meta_data"][$descKey] ?? '';
+
     }
 } catch (Exception $e) {
     echo "Error loading car list: " . $e->getMessage();
 }
+
+include_once('header.php');
 
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $messages['carsBannerHeading'];
