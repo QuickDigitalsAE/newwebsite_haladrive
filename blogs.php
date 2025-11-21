@@ -6,7 +6,7 @@ require_once 'global.php';
 $meta_title = '';
 $meta_desc  = '';
 
-
+echo $slug;
 if ($slug) {
 
     try {
