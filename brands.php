@@ -93,7 +93,6 @@ try {
                                 </svg>
                             </button>
 
-                            <!-- Dropdown menu -->
                             <div id="dropdownUsers" class="z-[99999] relative hidden bg-white rounded-lg shadow-sm dark:bg-gray-700">
                                 <ul class="h-48 py-2 overflow-y-auto text-gray-700 dark:text-gray-200"
                                     aria-labelledby="dropdownUsersButton">
@@ -116,9 +115,7 @@ try {
                     <?php foreach($brandData["cars"]["data"] as $car): ?>
                     <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
                         <div class="flex items-center justify-between mb-2">
-                            <div
-                                class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
-                                in Stock</div>
+                            <div class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">in Stock</div>
                             <img width="0" hight='0' src="<?php echo $brandData["brand"]["logo_url"]; ?>" class="w-16" alt="">
                         </div>
                         <div class="flex items-center max-[1024px]:flex-col gap-4">
@@ -148,11 +145,11 @@ try {
                                     class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
                                     <li class="flex items-center gap-2 ">
                                         <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class="">Engine Size 1.5 L</div>
+                                        <div class=""><?= $messages['engine'] ?> Size 1.5 L</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
                                         <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class=""> Bluetooth Yes</div>
+                                        <div class=""><?= $messages['bluetooth'] ?> Yes</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
                                         <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
@@ -160,7 +157,7 @@ try {
                                     </li>
                                     <li class="flex items-center gap-2 ">
                                         <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class="">Luggage Yes</div>
+                                        <div class=""><?= $messages['luggage'] ?> Yes</div>
                                     </li>
                                 </ul>
                                 <div class="mt-4">
