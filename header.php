@@ -53,8 +53,7 @@ $messages = include $messagesFile;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="title" content="<?php echo $meta_title ?? 'Default Title'; ?>" />
-    <meta property="description"
-        content="<?php echo $meta_desc ?? 'Default desc'; ?>" />
+    <meta property="description" content="<?php echo $meta_desc ?? 'Default desc'; ?>" />
     <meta name="robots" content="noindex">
     <link href="<?= $imagePath; ?>icons/favicon.ico" rel="icon">
     <base href="<?= $baseHref; ?>">

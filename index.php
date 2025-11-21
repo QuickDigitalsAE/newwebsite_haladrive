@@ -27,25 +27,6 @@ include_once('header.php');
 
     <!--------------------------------- banner ------------------------------->
 
-    <section class="relative w-full ">
-        <div class="swiper mySwiper w-full h-full">
-            <div class="swiper-wrapper">
-                <?php foreach($homeContentData["highlight"] as $banner): ?>
-                <div class="swiper-slide">
-                    <picture>
-                        <source fetchpriority="high" srcset="images/banner/mobile-slider-1.webp" type="image/webp"
-                            media="(max-width: 768px)">
-                        <source fetchpriority="high" srcset="<?php echo $banner["image_{$lang}_url"]; ?>" type="image/webp" media="(min-width: 769px)">
-                        <img fetchpriority="high" src="<?php echo $banner["image_{$lang}_url"]; ?>" alt="Banner" class="w-full h-auto object-cover">
-                    </picture>
-                </div>
-                <?php endforeach; ?>
-            </div>
-
-            <div class="swiper-button-next !text-white !right-6 after:!text-3xl max-[1024px]:hidden"></div>
-            <div class="swiper-button-prev !text-white !left-6 after:!text-3xl max-[1024px]:hidden"></div>
-        </div>
-    </section>
 
     <!--------------------------------- filter ------------------------------->
 
