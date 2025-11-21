@@ -40,8 +40,8 @@ try {
         exit;
     }
     $banner_image = "$imagePath/about/top-banner.webp";
-    $banner_title = "Explore Our Signature Collection of Car Marvels";
-    $banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!";
+    $banner_title = $brandData["lease"]["title_{$lang}"];
+    $banner_subtitle = $messages['locationsBannerPera'];
     include_once('banner.php');
     ?>
 
