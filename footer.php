@@ -13,17 +13,17 @@
                 <ul class="flex social gap-2">
                     <li>
                         <div class="bg-[#ff000d] p-3 rounded-full">
-                            <a href="#"><img src="<?= $imagePath ?>icons/facebook.svg" class="w-6" alt=""></a>
+                            <a href="https://www.facebook.com/HalaDrive"><img src="<?= $imagePath ?>icons/facebook.svg" class="w-6" alt=""></a>
                         </div>
                     </li>
                     <li>
                         <div class="bg-[#ff000d] p-3 rounded-full">
-                            <a href="#"><img src="<?= $imagePath ?>icons/insta.svg" class="w-6" alt=""></a>
+                            <a href="https://www.instagram.com/hala_drive_car_rental/"><img src="<?= $imagePath ?>icons/insta.svg" class="w-6" alt=""></a>
                         </div>
                     </li>
                     <li>
                         <div class="bg-[#ff000d] p-3 rounded-full">
-                            <a href="#"><img src="<?= $imagePath ?>icons/whatsapp.svg" class="w-6" alt=""></a>
+                            <a href="https://wa.me/971501837112?text=Hi"><img src="<?= $imagePath ?>icons/whatsapp.svg" class="w-6" alt=""></a>
                         </div>
                     </li>
                 </ul>
@@ -54,7 +54,7 @@
                     <div class="grid grid-cols-2 gap-4 mt-6">
                         <li><a href=""><?= $messages['home'] ?></a></li>
                         <li><a href="about"><?= $messages['about'] ?></a></li>
-                        <li><a href="car"><?= $messages['cars'] ?></a></li>
+                        <li><a href="cars"><?= $messages['cars'] ?></a></li>
                         <li><a href="privacy-policy"><?= $messages['privacy'] ?></a></li>
                         <li><a href="faq"><?= $messages['faq'] ?></a></li>
                         <li><a href="locations"><?= $messages['locations'] ?></a></li>

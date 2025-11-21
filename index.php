@@ -235,9 +235,9 @@ include_once('header.php');
                     <p class="font-semibold text-gray-800"><?= $messages['homeFaqs_2'] ?></p>
                     <p class="text-sm text-gray-500"><?= $messages['homeFaqs_pera_2'] ?></p>
                 </div>
-                <div class="bg-[#1bd741] p-2 -skew-x-4">
+                <a target="_blank" href="https://wa.me/971501837112?text=Hi" class="bg-[#1bd741] p-2 -skew-x-4">
                     <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="WhatsApp" class="w-8 h-8">
-                </div>
+                </a>
             </div>
         </div>
 
