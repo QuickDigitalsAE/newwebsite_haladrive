@@ -19,8 +19,8 @@ try {
     echo "Error loading featured products: " . $e->getMessage();
 }
 
-$meta_title = $homeContentData["sectioncontent"]["seo_title_${lang}"];
-$meta_desc = $homeContentData["sectioncontent"]["seo_brief_${lang}"];
+$meta_title = $$homeContentData["sectioncontent"][0]["seo_title_${lang}"];
+$meta_desc = $homeContentData["sectioncontent"][0]["seo_brief_${lang}"];
 include_once('header.php');
 ?>
 
