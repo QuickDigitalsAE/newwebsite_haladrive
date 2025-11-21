@@ -72,9 +72,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="text-black font-bold text-[2.5rem] leading-[1] mb-8">Contact</div>
             <!-- Display the alert -->
             <?php if ($message): ?>
-            <div class="<?= $alertClass ?>">
+            <div id="formAlert" class="<?= $alertClass ?>">
                 <?= $message ?>
             </div>
+
+            <script>
+            // Hide alert after 3 seconds (3000ms)
+            setTimeout(function() {
+                const alertDiv = document.getElementById('formAlert');
+                if (alertDiv) {
+                    alertDiv.style.transition = "opacity 0.5s ease";
+                    alertDiv.style.opacity = 0;
+                    setTimeout(() => alertDiv.remove(), 500); // remove after fade out
+                }
+            }, 3000);
+            </script>
             <?php endif; ?>
             <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 gap-6">
                 <div
