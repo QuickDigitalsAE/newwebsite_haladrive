@@ -125,6 +125,7 @@ html[dir="rtl"] .ar_px {
     position: fixed;
     bottom: 1.8rem;
     left: 1.1rem;
+    z-index: 99999;
 }
 
 
