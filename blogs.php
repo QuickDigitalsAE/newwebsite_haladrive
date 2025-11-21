@@ -59,6 +59,12 @@ try {
     $blogsContent = $api->loadData('blogs', 'main', []);
     if ($blogsContent['success']) {
         $blogsContentData = $blogsContent['data']["data"];
+
+        $titleKey = "title_" . $lang;
+        $descKey  = "description_" . $lang;
+
+        $meta_title = $blogsContentData["meta_data"][$titleKey] ?? '';
+        $meta_desc  = $blogsContentData["meta_data"][$descKey] ?? '';
     }
 } catch (Exception $e) {
     echo "Error loading car list: " . $e->getMessage();
