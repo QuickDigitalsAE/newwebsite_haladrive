@@ -34,8 +34,8 @@ try {
         $titleKey = "seo_title_" . $lang;
         $descKey  = "seo_brief_" . $lang;
 
-        $meta_title = $brandContent["lease"][$titleKey] ?? '';
-        $meta_desc  = $brandContent["lease"][$descKey] ?? '';
+        $meta_title = $brandData["lease"][$titleKey] ?? '';
+        $meta_desc  = $brandData["lease"][$descKey] ?? '';
 
         // print_r($brandData);
     } else {
