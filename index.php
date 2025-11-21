@@ -17,8 +17,7 @@ try {
 } catch (Exception $e) {
     echo "Error loading featured products: " . $e->getMessage();
 }
-?>
-<?php 
+
 $meta_title = $homeContentData["sectioncontent"]["seo_title_${lang}"];
 $meta_desc = $homeContentData["sectioncontent"]["seo_brief_${lang}"];
 include_once('header.php');
