@@ -10,9 +10,12 @@ $banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, conv
 include_once('banner.php');
 
 
+$message = ''; // Initialize message variable
+$alertClass = ''; // For styling the alert
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-    // 3. Collect the form data
+
+    // 1. Collect the form data
     $contactData = [
         'name' => $_POST['name'] ?? '',
         'number' => $_POST['number'] ?? '',
@@ -21,38 +24,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 
     try {
-
-        // category: 'contact', endpoint: 'store', data: $contactData, contentType: 'json'
+        // 2. Send the data to API
         $response = $api->post('contact', 'store', $contactData, 'json');
-        
         $httpCode = $api->getLastHttpCode();
 
-        // 6. Handle the response
+        // 3. Handle response
         if ($httpCode >= 200 && $httpCode < 300) {
-            // Success response (e.g., redirect to a 'thank you' page)
-             echo  "okk";
+            $message = "Your message has been sent successfully!";
+            $alertClass = "alert-success";
         } else {
-            // API returned an error status code
             $errorMessage = $response['message'] ?? 'Unknown API Error';
-            echo "Error submitting form: " . htmlspecialchars($errorMessage);
+            $message = "Error submitting form: " . htmlspecialchars($errorMessage);
+            $alertClass = "alert-error";
         }
 
     } catch (Exception $e) {
-        // Handle cURL or Endpoint not found errors
-        echo "A server error occurred: " . htmlspecialchars($e->getMessage());
+        $message = "A server error occurred: " . htmlspecialchars($e->getMessage());
+        $alertClass = "alert-error";
     }
 
-} else {
-    echo  "innn";
-}
+} 
 
 ?>
+<style>
+    .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+</style>
 
     <!--------------------------------- location ------------------------------->
 
     <section class="relative">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto pb-16 pt-6 max-[1024px]:py-10">
             <div class="text-black font-bold text-[2.5rem] leading-[1] mb-8">Contact</div>
+            <!-- Display the alert -->
+            <?php if ($message): ?>
+            <div class="<?= $alertClass ?>">
+                <?= $message ?>
+            </div>
+            <?php endif; ?>
             <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 gap-6">
                 <div
                     class="rounded-[10px] px-6 py-10 shadow-[0_5px_90px_0_rgba(110,123,131,0.1)] border-b-[6px] border-transparent hover:border-[#ff000d] hover:scale-[1.03] transition-all duration-300 ease-in-out">
