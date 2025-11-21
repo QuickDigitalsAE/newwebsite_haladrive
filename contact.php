@@ -1,12 +1,6 @@
 <?php 
-// Start session for token storage
-session_start();
-
-// Include the API handler
-require_once 'apis/ApiHandler.php';
-
-// Initialize API handler
-$api = new ApiHandler();
+// Include global
+require_once 'global.php';
 
 include_once('header.php');
 

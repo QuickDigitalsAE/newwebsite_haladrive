@@ -1,26 +1,35 @@
-<?php 
-session_start();
-require_once 'apis/ApiHandler.php';
-$api = new ApiHandler();
-
-$lang = isset($lang) ? $lang : 'en';
-?>
-
 <?php
+// Include global
+require_once 'global.php';
+
+// Default SEO fallback values
+$meta_title = '';
+$meta_desc  = '';
+
 try {
-    $homeContent = $api->loadData('webcontent', 'home', []);
-    
-    if ($homeContent['success']) {
-        $homeContentData = $homeContent['data']["data"];
-        $meta_title = $homeContentData["sectioncontent"][0]["seo_title_${lang}"];
-        $meta_desc  = $homeContentData["sectioncontent"][0]["seo_brief_${lang}"];
+    // Load homepage content
+    $homeResponse = $api->loadData('webcontent', 'home', []);
+
+    if (!empty($homeResponse['success']) && !empty($homeResponse['data']['data'])) {
+
+        $homeContentData = $homeResponse['data']['data'];
+
+        // Safely fetch SEO fields
+        $sectionContent = $homeContentData['sectioncontent'][0] ?? [];
+
+        $meta_title = $sectionContent["seo_title_{$lang}"]  ?? '';
+        $meta_desc  = $sectionContent["seo_brief_{$lang}"] ?? '';
+
     }
 } catch (Exception $e) {
-    echo "Error loading content: " . $e->getMessage();
+    // Log the error instead of printing (prevents broken layout)
+    error_log('Home content load error: ' . $e->getMessage());
 }
 
-include_once('header.php');
+// Include header (SEO variables will be used there)
+require_once 'header.php';
 ?>
+
 
 
     <!--------------------------------- banner ------------------------------->
