@@ -36,9 +36,7 @@ include_once('banner.php');
     <!--------------------------------- location ------------------------------->
 
     <section class="relative">
-        <div class="whatsapp_btn">
-            <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="">
-        </div>
+       
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto pb-16 pt-6 max-[1024px]:py-10">
             <div class="text-black font-bold text-[2.5rem] leading-[1] mb-8"><?= $messages["loactionsMainHeading"]; ?></div>
             <div class="grid grid-cols-5 items-center max-[1024px]:grid-cols-1 gap-6">
