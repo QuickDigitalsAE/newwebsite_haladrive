@@ -32,4 +32,4 @@ jobs:
 
       # 3️⃣ Done
       - name: Deployment Complete
-        run: echo "Core PHP project deployed to cPanel!"
+        run: echo "project deployed to cPanel!"
