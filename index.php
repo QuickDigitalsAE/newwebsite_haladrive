@@ -165,8 +165,7 @@ require_once 'header.php';
                                 </li>
                             </ul>
                             <div class="flex items-center max-[1024px]:justify-center gap-4 mt-4">
-                                <div
-                                    class="text-white bg-[#ff000d] px-2 py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-[12px]">
+                                <div class="text-white openModalBtn bg-[#ff000d] px-2 py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-[12px]">
                                     <?= $messages['inquiry'] ?></div>
                                 <a target="_blank" href="https://wa.me/971501837112?text=Hi" class="bg-[#29a71a] px-4 py-1 -skew-x-12 cursor-pointer"><img
                                         src="<?= $imagePath ?>icons/whatsapp.svg" class="w-5" alt=""></a>
@@ -447,5 +446,27 @@ require_once 'header.php';
             </div>
         </div>
     </section>
+
+    <!--------------------------------- POP UP ------------------------------->
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <h2>Contact Form</h2>
+
+            <form action="submit.php" method="POST">
+            <label>Name:</label>
+            <input type="text" name="name" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" required>
+
+            <button type="submit">Submit</button>
+            </form>
+
+        </div>
+    </div>
+
 
 <?php include_once('footer.php');?>
