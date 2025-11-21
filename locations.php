@@ -29,8 +29,8 @@ try {
 
 <?php
 $banner_image = "$imagePath/about/top-banner.webp";
-$banner_title = "Our Locations";
-$banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!";
+$banner_title = $messages["locationsBannerHeading"];
+$banner_subtitle = $messages['locationsBannerPera'];
 include_once('banner.php');
 ?>
 
@@ -38,7 +38,7 @@ include_once('banner.php');
 
     <section class="relative">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto pb-16 pt-6 max-[1024px]:py-10">
-            <div class="text-black font-bold text-[2.5rem] leading-[1] mb-8">A Journey through the Enchanting Locations of Haladrive.ae</div>
+            <div class="text-black font-bold text-[2.5rem] leading-[1] mb-8"><? $messages["loactionsMainHeading"]; ?></div>
             <div class="grid grid-cols-5 items-center max-[1024px]:grid-cols-1 gap-6">
                 <?php foreach($locationsContentData["locations"] as $location): ?>
                     <a href="<?php echo $location["slug"]; ?>" class="bg-[#f7f7f7] text-black relative text-center py-6 overflow-hidden">

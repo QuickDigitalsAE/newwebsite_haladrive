@@ -138,6 +138,20 @@ return [
     'carsBannerHeading' => "Explore Our Signature Collection",
     'carsBannerPera' => "Top rated car rental in Dubai!",
 
+
+
+    //    blogs
+    'blogsBannerHeading' => 'Blogs',
+    'blogsBannerPera' => "Top rated car rental in Dubai. Low prices & great deals!",
+
+
+    //    locations 
+    'locationsBannerHeading' => 'Our Locations',
+    'locationsBannerPera' => 'Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!',
+    'loactionsMainHeading' => 'A Journey through the Enchanting Locations of Haladrive.ae',
+
+
+
     
 
     

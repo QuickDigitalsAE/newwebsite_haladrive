@@ -20,8 +20,8 @@ if ($slug) {
     }
 
     $banner_image = "$imagePath/about/top-banner.webp";
-    $banner_title = 'Blogs';
-    // $banner_subtitle = "Top rated car rental in Dubai. Low prices & great deals!";
+    $banner_title = $messages['blogsBannerHeading'];
+    $banner_subtitle = $messages['blogsBannerPera'];
     include_once('banner.php');
     ?>
 
@@ -63,8 +63,8 @@ try {
 }
 
 $banner_image = "$imagePath/about/top-banner.webp";
-$banner_title = "Explore Our Signature Collection";
-$banner_subtitle = "Top rated car rental in Dubai!";
+$banner_title = $messages['blogsBannerHeading'];
+$banner_subtitle = $messages['blogsBannerPera'];
 include_once('banner.php');
 ?>
 
