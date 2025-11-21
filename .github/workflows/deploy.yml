@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - azhar   # include your new branch
+      - azhar
 
 jobs:
   deploy-to-cpanel:
@@ -28,8 +28,7 @@ jobs:
           port: 21
           protocol: ftp
           dry-run: false
-          git-ftp-args: --insecure
 
       # 3️⃣ Done
       - name: Deployment Complete
-        run: echo "✅ Project deployed to cPanel!"
+        run: echo "✅ Project deployed to cPanel from branch ${{ github.ref_name }}!"
