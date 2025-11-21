@@ -14,7 +14,7 @@ $fullUrl = $protocol . $host . $uri;
 $slug = basename(parse_url($uri, PHP_URL_PATH));
 
 
-include_once('header.php');
+
 
 if (!$slug) {
     echo "Brand not found.";
@@ -38,6 +38,9 @@ try {
         include_once('footer.php');
         exit;
     }
+
+    include_once('header.php');
+
     $banner_image = "$imagePath/about/top-banner.webp";
     $banner_title =  $brandData["brand"]["name_{$lang}"];
     include_once('banner.php');

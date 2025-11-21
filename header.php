@@ -55,7 +55,7 @@ $messages = include $messagesFile;
     <meta property="og:title" content="Dubai’s Top E-Commerce Website Design Agency | Best Way to Grow Businesses" />
     <meta property="og:description"
         content="Build, grow, and succeed your business with a trusted and leading e-commerce website design agency in Dubai. Boost the online presence of your business." />
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex">
     <link href="<?= $imagePath; ?>icons/favicon.ico" rel="icon">
     <base href="<?= $baseHref; ?>">
     <link defer rel="stylesheet" href="<?= $cssPath; ?>">

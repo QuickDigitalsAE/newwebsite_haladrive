@@ -6,7 +6,6 @@ require_once 'apis/ApiHandler.php';
 $api = new ApiHandler();
 ?>
 
-<?php include_once('header.php');?>
 
 <?php
 try {
@@ -19,6 +18,7 @@ try {
     echo "Error loading featured products: " . $e->getMessage();
 }
 ?>
+<?php include_once('header.php');?>
 
     <!--------------------------------- banner ------------------------------->
 
