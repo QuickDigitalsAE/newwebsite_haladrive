@@ -47,21 +47,31 @@ try {
     <section class="relative bg-[#f1f4f8] py-8 max-[1024px]:hidden">
         <div class="container mx-auto flex justify-between items-center">
             <ul class="flex gap-4 items-center">
-                <li
-                    class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <?= $messages['economy'] ?></li>
-                <li
-                    class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <?= $messages['suv'] ?></li>
-                <li
-                    class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <?= $messages['midsize'] ?></li>
-                <li
-                    class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <?= $messages['featured'] ?></li>
-                <li
-                    class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <?= $messages['crossover'] ?></li>
+                <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
+                    <a href="cars?sort=Economy&id=1">
+                        <?= $messages['economy'] ?>
+                    </a>
+                </li>
+                <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
+                    <a href="cars?sort=SUV&id=2">
+                        <?= $messages['suv'] ?>
+                    </a>
+                </li>
+                <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
+                    <a href="cars?sort=Midsize&id=3">
+                        <?= $messages['midsize'] ?>
+                    </a>
+                </li>
+                <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
+                    <a href="cars?sort=Featured&id=4">
+                        <?= $messages['featured'] ?>
+                    </a>
+                </li>
+                <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
+                    <a href="cars?sort=Crossover&id=5">
+                        <?= $messages['crossover'] ?>
+                    </a>
+                </li>
             </ul>
             <form action="">
                 <div class="flex gap-6 items-center">
