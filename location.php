@@ -3,47 +3,120 @@ session_start();
 require_once 'apis/ApiHandler.php';
 $api = new ApiHandler();
 
-
-// $slug = $_GET['slug'] ?? null;
+// Detect full URL
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 $host = $_SERVER['HTTP_HOST'];
 $uri = $_SERVER['REQUEST_URI'];
-
 $fullUrl = $protocol . $host . $uri;
 
+// Extract slug
 $slug = basename(parse_url($uri, PHP_URL_PATH));
-
 
 include_once('header.php');
 
+// If slug missing
 if (!$slug) {
-    echo "Brand not found.";
+    ?>
+    <div class="no-data">
+        <h2>No Data Found</h2>
+        <a href="" class="btn-back">Back to Home</a>
+    </div>
+    <?php
     include_once('footer.php');
     exit;
 }
 
-$sort = $_GET['sort'] ?? null;
-
 try {
-    $locationContent = $api->loadData('location', 'single', ['sort' => $sort], $slug);
+    $locationContent = $api->loadData('location', 'single', [], $slug);
+
     if ($locationContent['success']) {
+
+        // If API returned empty data
+        if (empty($locationContent['data']["data"])) {
+            $banner_image = "$imagePath/about/top-banner.webp";
+            $banner_title = "No Data Found";
+            $banner_subtitle = ""; // optional
+
+            include_once('banner.php');  // Now banner will show updated text
+            ?>
+
+            <div style="text-align:center; padding:30px;">
+                <a href="" class="btn-back" style="
+                    display:inline-block;
+                    padding:12px 25px;
+                    background:#000;
+                    color:#fff;
+                    border-radius:6px;
+                    text-decoration:none;
+                    font-weight:bold;">
+                    Back to Home
+                </a>
+            </div>
+
+            <?php
+            include_once('footer.php');
+            exit;
+    }
+
         $locationData = $locationContent['data']["data"];
-        // print_r($locationData);
+
     } else {
-        echo "Brand data not found.";
+        $banner_image = "$imagePath/about/top-banner.webp";
+        $banner_title = "No Data Found";
+        $banner_subtitle = ""; // optional
+
+        include_once('banner.php');  // Now banner will show updated text
+        ?>
+
+        <div style="text-align:center; padding:30px;">
+            <a href="" class="btn-back" style="
+                display:inline-block;
+                padding:12px 25px;
+                background:#000;
+                color:#fff;
+                border-radius:6px;
+                text-decoration:none;
+                font-weight:bold;">
+                Back to Home
+            </a>
+        </div>
+
+        <?php
         include_once('footer.php');
         exit;
     }
-    } catch (Exception $e) {
-        echo "Error loading brand data: " . $e->getMessage();
-        include_once('footer.php');
-        exit;
-    }
+
+} catch (Exception $e) {
     $banner_image = "$imagePath/about/top-banner.webp";
-    $banner_title = "Explore Our Signature Collection of Car Marvels";
-    $banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!";
-    include_once('banner.php');
+    $banner_title = "No Data Found";
+    $banner_subtitle = ""; // optional
+
+    include_once('banner.php');  // Now banner will show updated text
     ?>
+
+    <div style="text-align:center; padding:30px;">
+        <a href="" class="btn-back" style="
+            display:inline-block;
+            padding:12px 25px;
+            background:#000;
+            color:#fff;
+            border-radius:6px;
+            text-decoration:none;
+            font-weight:bold;">
+            Back to Home
+        </a>
+    </div>
+
+    <?php
+    include_once('footer.php');
+    exit;
+}
+// If data found → continue
+$banner_image = "$imagePath/about/top-banner.webp";
+$banner_title = "Explore Our Signature Collection of Car Marvels";
+$banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!";
+include_once('banner.php');
+?>
 
     <!--------------------------------- cars ------------------------------->
 
