@@ -13,7 +13,7 @@ try {
     
     if ($homeContent['success']) {
         $homeContentData = $homeContent['data']["data"];
-        print_r($homeContentData["sectioncontent"]["seo_title_${lang}"]);
+        print_r($homeContentData["sectioncontent"][0]["seo_title_${lang}"]);
     }
 } catch (Exception $e) {
     echo "Error loading featured products: " . $e->getMessage();
