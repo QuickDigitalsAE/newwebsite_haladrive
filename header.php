@@ -52,8 +52,8 @@ $messages = include $messagesFile;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="<?php echo $meta_title ?? 'Default Title'; ?>" />
-    <meta property="og:description"
+    <meta property="title" content="<?php echo $meta_title ?? 'Default Title'; ?>" />
+    <meta property="description"
         content="<?php echo $meta_desc ?? 'Default desc'; ?>" />
     <meta name="robots" content="noindex">
     <link href="<?= $imagePath; ?>icons/favicon.ico" rel="icon">

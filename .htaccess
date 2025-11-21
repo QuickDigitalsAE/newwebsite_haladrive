@@ -87,6 +87,11 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ar/blogs/([^/]+)/?$ blogs.php?slug=$1&lang=ar [L,QSA]
 
+# AR lease single
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ar/lease/([^/]+)/?$ lease.php?slug=$1&lang=ar [L,QSA]
+
 # AR blogs main
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -145,6 +150,11 @@ RewriteRule ^faq/?$ faq.php?lang=en [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^blogs/([^/]+)/?$ blogs.php?slug=$1&lang=en [L,QSA]
+
+# lease single
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^lease/([^/]+)/?$ lease.php?slug=$1&lang=en [L,QSA]
 
 # Blogs main
 RewriteCond %{REQUEST_FILENAME} !-f
