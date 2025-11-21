@@ -20,7 +20,7 @@ try {
 ?>
 <?php 
 $meta_title = $homeContentData["sectioncontent"]["seo_title_${lang}"];
-$desc = $homeContentData["sectioncontent"]["seo_brief_${lang}"];
+$meta_desc = $homeContentData["sectioncontent"]["seo_brief_${lang}"];
 include_once('header.php');
 ?>
 
