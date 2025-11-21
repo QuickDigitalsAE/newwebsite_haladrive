@@ -108,71 +108,71 @@ require_once 'header.php';
                 <?= $messages['homeFirstHeading'] ?></div>
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 gap-8 mt-12 w-[80%] max-[1024px]:w-[90%] mx-auto">
                 <?php foreach($homeContentData["cars"] as $car): ?>
-                <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
-                    <div class="flex items-center justify-between mb-2">
-                        <?php if ($car['stock'] === "Yes"): ?>
-                            <div class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
-                            <?= $messages['instock'] ?>
+                    <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
+                        <div class="flex items-center justify-between mb-2">
+                            <?php if ($car['stock'] === "Yes"): ?>
+                                <div class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
+                                <?= $messages['instock'] ?>
+                            </div>
+                        <?php else: ?>
+                            <div class="bg-[#ffdddd] text-[#d11a1a] border border-[#d11a1a] rounded-full text-[.8rem] px-2 py-1">
+                            Out Stock
                         </div>
-                    <?php else: ?>
-                        <div class="bg-[#ffdddd] text-[#d11a1a] border border-[#d11a1a] rounded-full text-[.8rem] px-2 py-1">
-                        Out Stock
-                    </div>
-                    <?php endif; ?>
-                    <img width="0" hight='0' src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="">
-                    </div>
-                    <div class="flex max-[1024px]:flex-col gap-4">
-                        <a href='cars/<?php echo $car["slug"]; ?>' class="w-[50%] max-[1024px]:w-full">
-                            <img src="<?php echo $car["image_url"]; ?>" alt="<?php echo $car["name_{$lang}"]; ?>">
-                            <div class="flex gap-2 max-[1024px]:justify-center items-center mt-3">
-                                <div
-                                    class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                    <div class=""><?= $messages['daily'] ?></div>
-                                    <div class="font-bold"><?php echo $car["price_daily"]; ?></div>
+                        <?php endif; ?>
+                        <img width="0" hight='0' src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="">
+                        </div>
+                        <div class="flex max-[1024px]:flex-col gap-4">
+                            <a href='cars/<?php echo $car["slug"]; ?>' class="w-[50%] max-[1024px]:w-full">
+                                <img src="<?php echo $car["image_url"]; ?>" alt="<?php echo $car["name_{$lang}"]; ?>">
+                                <div class="flex gap-2 max-[1024px]:justify-center items-center mt-3">
+                                    <div
+                                        class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                        <div class=""><?= $messages['daily'] ?></div>
+                                        <div class="font-bold"><?php echo $car["price_daily"]; ?></div>
+                                    </div>
+                                    <div
+                                        class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                        <div class=""><?= $messages['weekly'] ?></div>
+                                        <div class="font-bold"><?php echo $car["price_weekly"]; ?></div>
+                                    </div>
+                                    <div
+                                        class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                        <div class=""><?= $messages['monthly'] ?></div>
+                                        <div class="font-bold"><?php echo $car["price_monthly"]; ?></div>
+                                    </div>
                                 </div>
-                                <div
-                                    class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                    <div class=""><?= $messages['weekly'] ?></div>
-                                    <div class="font-bold"><?php echo $car["price_weekly"]; ?></div>
+                            </a>
+                            <div class="w-[50%] max-[1024px]:w-full">
+                                <div class="text-[1.5rem] font-bold leading-[1] max-[1024px]:text-center"><?php echo $car["name_{$lang}"]; ?>
                                 </div>
-                                <div
-                                    class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                    <div class=""><?= $messages['monthly'] ?></div>
-                                    <div class="font-bold"><?php echo $car["price_monthly"]; ?></div>
+                                <ul
+                                    class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
+                                    <li class="flex items-center gap-2 ">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
+                                        <div class=""><?= $messages['engine'] ?> <?php echo $car["engine"]; ?></div>
+                                    </li>
+                                    <li class="flex items-center gap-2 ">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
+                                        <div class=""><?= $messages['bluetooth'] ?> <?php echo $car["bluetooth"]; ?></div>
+                                    </li>
+                                    <li class="flex items-center gap-2 ">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
+                                        <div class=""><?= $messages['control'] ?> <?php echo $car["cruise"]; ?></div>
+                                    </li>
+                                    <li class="flex items-center gap-2 ">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
+                                        <div class=""><?= $messages['luggage'] ?> <?php echo $car["luggage"]; ?></div>
+                                    </li>
+                                </ul>
+                                <div class="flex items-center max-[1024px]:justify-center gap-4 mt-4">
+                                    <div class="text-white openModalBtn bg-[#ff000d] px-2 py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-[12px]">
+                                        <?= $messages['inquiry'] ?></div>
+                                    <a target="_blank" href="https://wa.me/971501837112?text=Hi" class="bg-[#29a71a] px-4 py-1 -skew-x-12 cursor-pointer"><img
+                                            src="<?= $imagePath ?>icons/whatsapp.svg" class="w-5" alt=""></a>
                                 </div>
-                            </div>
-                        </a>
-                        <div class="w-[50%] max-[1024px]:w-full">
-                            <div class="text-[1.5rem] font-bold leading-[1] max-[1024px]:text-center"><?php echo $car["name_{$lang}"]; ?>
-                            </div>
-                            <ul
-                                class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
-                                <li class="flex items-center gap-2 ">
-                                    <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                    <div class=""><?= $messages['engine'] ?> <?php echo $car["engine"]; ?></div>
-                                </li>
-                                <li class="flex items-center gap-2 ">
-                                    <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                    <div class=""><?= $messages['bluetooth'] ?> <?php echo $car["bluetooth"]; ?></div>
-                                </li>
-                                <li class="flex items-center gap-2 ">
-                                    <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                    <div class=""><?= $messages['control'] ?> <?php echo $car["cruise"]; ?></div>
-                                </li>
-                                <li class="flex items-center gap-2 ">
-                                    <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                    <div class=""><?= $messages['luggage'] ?> <?php echo $car["luggage"]; ?></div>
-                                </li>
-                            </ul>
-                            <div class="flex items-center max-[1024px]:justify-center gap-4 mt-4">
-                                <div class="text-white openModalBtn bg-[#ff000d] px-2 py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-[12px]">
-                                    <?= $messages['inquiry'] ?></div>
-                                <a target="_blank" href="https://wa.me/971501837112?text=Hi" class="bg-[#29a71a] px-4 py-1 -skew-x-12 cursor-pointer"><img
-                                        src="<?= $imagePath ?>icons/whatsapp.svg" class="w-5" alt=""></a>
                             </div>
                         </div>
                     </div>
-                </div>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -449,25 +449,114 @@ require_once 'header.php';
 
     <!--------------------------------- POP UP ------------------------------->
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <img src="<?= $imagePath ?>about/default-banner.webp" alt="pop up">
-            <span class="close">&times;</span>
+    <!-- Modal -->
+<div id="myModal" 
+     class="modal" 
+     style="
+        display:none;
+        position:fixed;
+        z-index:99999;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        overflow:auto;
+        background:rgba(0,0,0,0.6);
+        backdrop-filter:blur(3px);
+     ">
 
-            <h2>Contact Form</h2>
+    <div class="modal-content"
+         style="
+            background:#fff;
+            margin:8% auto;
+            padding:0;
+            border-radius:12px;
+            width:90%;
+            max-width:420px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.2);
+            position:relative;
+            animation:scaleIn 0.3s ease;
+         ">
 
-            <form action="submit.php" method="POST">
-            <label>Name:</label>
-            <input type="text" name="name" required>
+        <!-- Close Button -->
+        <span class="close"
+              style="
+                position:absolute;
+                top:10px;
+                right:12px;
+                font-size:28px;
+                font-weight:bold;
+                cursor:pointer;
+                color:#333;
+              ">&times;</span>
 
-            <label>Email:</label>
-            <input type="email" name="email" required>
+        <!-- Image -->
+        <img src="<?= $imagePath ?>about/default-banner.webp"
+             alt="pop up"
+             style="
+                width:100%;
+                height:150px;
+                object-fit:cover;
+                border-radius:12px 12px 0 0;
+             ">
 
-            <button type="submit">Submit</button>
+        <!-- Form Area -->
+        <div style="padding:20px;">
+            <h2 style="
+                margin:0 0 10px;
+                font-size:22px;
+                font-weight:600;
+                color:#222;
+                text-align:center;
+            ">Inquiry Form</h2>
+
+            <form action="submit.php" method="POST"
+                  style="
+                    display:flex;
+                    flex-direction:column;
+                    gap:12px;
+                  ">
+
+                <label style="font-size:14px; color:#555;">Name:</label>
+                <input type="text" name="name" required
+                    style="
+                        padding:10px;
+                        border:1px solid #ddd;
+                        border-radius:6px;
+                        font-size:14px;
+                        outline:none;
+                    ">
+
+                <label style="font-size:14px; color:#555;">Email:</label>
+                <input type="email" name="email" required
+                    style="
+                        padding:10px;
+                        border:1px solid #ddd;
+                        border-radius:6px;
+                        font-size:14px;
+                        outline:none;
+                    ">
+
+                <button type="submit"
+                    style="
+                        background:#ff000d;
+                        color:white;
+                        border:none;
+                        padding:12px;
+                        border-radius:6px;
+                        font-size:16px;
+                        cursor:pointer;
+                        margin-top:10px;
+                        transition:0.3s;
+                    "
+                    onmouseover="this.style.opacity='0.85'"
+                    onmouseout="this.style.opacity='1'"
+                >Submit</button>
             </form>
-
         </div>
     </div>
+</div>
+
 
 
 <?php include_once('footer.php');?>
