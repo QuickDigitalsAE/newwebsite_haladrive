@@ -1,17 +1,11 @@
-<?php 
-// Start session for token storage
-session_start();
-
-// Include the API handler
-require_once 'apis/ApiHandler.php';
-
-// Initialize API handler
-$api = new ApiHandler();
-?>
-
-<?php include_once('header.php');?>
-
 <?php
+// Include global
+require_once 'global.php';
+
+// Default SEO fallback values
+$meta_title = '';
+$meta_desc  = '';
+
 try {
     // This will be processed before rendering the page
     $aboutContent = $api->loadData('webcontent', 'about', []);
@@ -20,14 +14,16 @@ try {
         // Use the data in your page
         $aboutContentData = $aboutContent['data']["data"];
         // print_r($aboutContentData);
+
+        $meta_title = $aboutContentData["meta_data"]["title_{$lang}"]  ?? '';
+        $meta_desc  = $aboutContentData["meta_data"]["description_{$lang}"] ?? '';
     }
 } catch (Exception $e) {
     echo "Error loading featured products: " . $e->getMessage();
 }
-?>
 
+require_once 'header.php';
 
-<?php
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $messages['aboutBannerHeading'];
 $banner_subtitle = $messages['aboutBannerPera'];
