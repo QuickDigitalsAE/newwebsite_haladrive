@@ -36,10 +36,10 @@ try {
         $singleLocationContentData = $locationContent['data']["data"];
 
         $titleKey = "title_" . $lang;
-            $descKey  = "description_" . $lang;
+        $descKey  = "description_" . $lang;
 
-            $meta_title = $singleLocationContentData["meta_data"][$titleKey] ?? '';
-            $meta_desc  = $singleLocationContentData["meta_data"][$descKey] ?? '';
+        $meta_title = $singleLocationContentData["meta_data"][$titleKey] ?? '';
+        $meta_desc  = $singleLocationContentData["meta_data"][$descKey] ?? '';
 
         // If API returned empty data
         if (empty($locationContent['data']["data"])) {
@@ -126,8 +126,8 @@ try {
 include_once('header.php');
 // If data found → continue
 $banner_image = "$imagePath/about/top-banner.webp";
-$banner_title = "Explore Our Signature Collection of Car Marvels";
-$banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!";
+$banner_title = $singleLocationContentData["location"]["location_{$lang}"];
+$banner_subtitle = $message['aboutBannerPera'];
 include_once('banner.php');
 ?>
 
