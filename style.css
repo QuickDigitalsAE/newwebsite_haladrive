@@ -228,9 +228,6 @@ textarea.custom_input {
     margin-top: 0.5rem;
 }
 
-.custom_button_modal:hover {
-    background-color: #0b5ed7;
-}
 
 /* Responsive */
 @media (max-width: 600px) {
