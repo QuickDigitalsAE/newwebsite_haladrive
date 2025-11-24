@@ -136,10 +136,15 @@ html[dir="rtl"] .ar_px {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     max-width: 550px;
     width: 100%;
-    margin: auto;
+    margin: 0 auto;
     font-family: 'Arial', sans-serif;
     height: 90vh;
     overflow: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* Modal Header */
