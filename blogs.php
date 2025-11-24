@@ -6,7 +6,7 @@ require_once 'global.php';
 $meta_title = '';
 $meta_desc  = '';
 
-$slug = $_GET['slug'] ?? null; 
+$slug = isset($_GET['slug']) ? urldecode($_GET['slug']) : null;
 echo $slug;
 if ($slug) {
 
@@ -89,7 +89,7 @@ include_once('banner.php');
         <div class="w-[90%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
             <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 gap-10">
                 <?php foreach($blogsContentData["blogs"]["data"] as $blogs): ?>
-                    <a href="blogs/<?php echo $blogs["slug"]; ?>" class="rounded-[10px] border border-[#dfdfdf]">
+                    <a href="blogs/<?php echo urlencode($blogs["slug"]); ?>" class="rounded-[10px] border border-[#dfdfdf]">
                         <img src="<?php echo $blogs["image_url"]; ?>" class="rounded-[10px]" alt="<?php echo $blogs["img_alt_{$lang}"]; ?>">
                         <div class="p-4">
                             <div class="font-bold text-[#939393] text-[1rem]">10 Nov 2025</div>
