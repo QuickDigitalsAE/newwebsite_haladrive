@@ -140,7 +140,7 @@ include_once('banner.php');
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
                         <div class="mb-4 text-[1.3rem]"><?= $messages['price'] ?></div>
                         <div class="flex flex-col gap-2 font-semibold text-[12px]">
-                            <a href='cars' rel="nofollow" class="bg-white border border-[#b8101f] py-2"><?= $messages['default'] ?></a>
+                            <a href='cars' class="bg-white border border-[#b8101f] py-2"><?= $messages['default'] ?></a>
                             <a href="<?php echo $locationData["location"]["slug"]; ?>?sort=price_asc" rel="nofollow" class="bg-white border border-[#b8101f] py-2">
                                 <?= $messages['lowtohigh'] ?>
                             </a>
