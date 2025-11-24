@@ -15,7 +15,6 @@ $fullUrl = $protocol . $host . $uri;
 // Extract slug
 $slug = basename(parse_url($uri, PHP_URL_PATH));
 
-include_once('header.php');
 
 // If slug missing
 if (!$slug) {
@@ -127,7 +126,7 @@ include_once('header.php');
 // If data found → continue
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $singleLocationContentData["location"]["location_{$lang}"];
-$banner_subtitle = $message['aboutBannerPera'];
+$banner_subtitle = $messages['aboutBannerPera'];
 include_once('banner.php');
 ?>
 
