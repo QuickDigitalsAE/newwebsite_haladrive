@@ -7,7 +7,7 @@ $meta_title = '';
 $meta_desc  = '';
 
 $slug = $_GET['slug'] ?? null; 
-
+echo $slug;
 if ($slug) {
 
     try {
