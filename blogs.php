@@ -7,7 +7,6 @@ $meta_title = '';
 $meta_desc  = '';
 
 $slug = isset($_GET['slug']) ? urldecode($_GET['slug']) : null;
-echo $slug;
 if ($slug) {
 
     try {
