@@ -140,11 +140,11 @@ include_once('banner.php');
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
                         <div class="mb-4 text-[1.3rem]"><?= $messages['price'] ?></div>
                         <div class="flex flex-col gap-2 font-semibold text-[12px]">
-                            <a href='cars' class="bg-white border border-[#b8101f] py-2"><?= $messages['default'] ?></a>
-                            <a href="<?php echo $locationData["location"]["slug"]; ?>?sort=price_asc" class="bg-white border border-[#b8101f] py-2">
+                            <a href='cars' rel="nofollow" class="bg-white border border-[#b8101f] py-2"><?= $messages['default'] ?></a>
+                            <a href="<?php echo $locationData["location"]["slug"]; ?>?sort=price_asc" rel="nofollow" class="bg-white border border-[#b8101f] py-2">
                                 <?= $messages['lowtohigh'] ?>
                             </a>
-                            <a href="<?php echo $locationData["location"]["slug"]; ?>?sort=price_desc" class="bg-white border border-[#b8101f] py-2">
+                            <a href="<?php echo $locationData["location"]["slug"]; ?>?sort=price_desc" rel="nofollow" class="bg-white border border-[#b8101f] py-2">
                                 <?= $messages['hightolow'] ?>
                             </a>
                         </div>
@@ -152,18 +152,18 @@ include_once('banner.php');
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
                         <div class="mb-4 text-[1.3rem]"><?= $messages['typesofcars'] ?></div>
                         <div class="grid grid-cols-2 gap-2 font-semibold text-[12px]">
-                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=Economy&id=1' class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['economy'] ?></a>
-                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=SUV&id=2' class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['suv'] ?></a>
-                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=Midsize&id=3' class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['midsize'] ?></a>
-                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=Featured&id=4' class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['featured'] ?></a>
-                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=Crossover&id=5' class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['crossover'] ?></a>
+                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=Economy&id=1' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['economy'] ?></a>
+                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=SUV&id=2' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['suv'] ?></a>
+                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=Midsize&id=3' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['midsize'] ?></a>
+                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=Featured&id=4' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['featured'] ?></a>
+                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=Crossover&id=5' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['crossover'] ?></a>
                         </div>
                     </div>
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
                         <div class="mb-4 text-[1.3rem]"><?= $messages['availability'] ?></div>
                         <div class="grid grid-cols-1 gap-2 font-semibold text-[12px]">
-                            <div class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['instock'] ?></div>
-                            <div class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['outofstock'] ?></div>
+                            <!-- <div rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['instock'] ?></div>
+                            <div rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['outofstock'] ?></div> -->
                             <a href='cars' class="bg-[#ff000d] text-white uppercase py-3 text-[1rem]"><?= $messages['reset'] ?></a>
                         </div>
                     </div>
