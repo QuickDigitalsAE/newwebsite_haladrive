@@ -162,7 +162,7 @@ return [
     'cancellation' => 'Free Cancellation',
     'insurance' => 'Insurance',
     'residents' => 'Requirements for UAE Residents',
-    'Passport' => 'Copy of Passport',
+    'passport' => 'Copy of Passport',
     'residentialvisa' => 'Copy of Residential Visa',
     'license1' => 'UAE Driving License',
     'emiratesid' => 'Copy of Emirates ID',
