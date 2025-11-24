@@ -18,6 +18,7 @@ $slug = basename(parse_url($uri, PHP_URL_PATH));
 
 // If slug missing
 if (!$slug) {
+    include_once('header.php');
     ?>
     <div class="no-data">
         <h2>No Data Found</h2>
