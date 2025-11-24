@@ -29,8 +29,8 @@ if ($slug) {
     include_once('header.php');
 
     $banner_image = "$imagePath/about/top-banner.webp";
-    $banner_title = 'Cars';
-    $banner_subtitle = "Top rated car rental in Dubai. Low prices & great deals!";
+    $banner_title = $messages['cars'];
+    $banner_subtitle = $messages['aboutBannerPera'];
     include_once('banner.php');
     ?>
 
