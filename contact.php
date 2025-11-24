@@ -11,10 +11,10 @@ try {
         $contactContentData = $contactContent['data']["data"];
 
         $titleKey = "title_" . $lang;
-            $descKey  = "description_" . $lang;
+        $descKey  = "description_" . $lang;
 
-            $meta_title = $contactContentData["meta_data"][$titleKey] ?? '';
-            $meta_desc  = $contactContentData["meta_data"][$descKey] ?? '';
+        $meta_title = $contactContentData["meta_data"][$titleKey] ?? '';
+        $meta_desc  = $contactContentData["meta_data"][$descKey] ?? '';
     }
 } catch (Exception $e) {
     echo "Error loading featured products: " . $e->getMessage();

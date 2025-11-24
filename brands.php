@@ -31,11 +31,11 @@ try {
     if ($brandContent['success']) {
         $brandData = $brandContent['data']["data"];
 
-        $titleKey = "seo_title_" . $lang;
-        $descKey  = "seo_brief_" . $lang;
+        $titleKey = "title_" . $lang;
+        $descKey  = "description_" . $lang;
 
-        $meta_title = $brandData["lease"][$titleKey] ?? '';
-        $meta_desc  = $brandData["lease"][$descKey] ?? '';
+        $meta_title = $brandData["meta_data"][$titleKey] ?? '';
+        $meta_desc  = $brandData["meta_data"][$descKey] ?? '';
 
         // print_r($brandData);
     } else {
