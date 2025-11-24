@@ -36,7 +36,7 @@ try {
         <div class="bg-black py-3 px-6 flex items-center z-[9999] min-[1023px]:hidden relative justify-between">
             <img src="<?= $imagePath ?>logo/Hala-Drive-resize.webp" class="w-[80px] " alt="">
             <div class="flex items-center gap-4">
-                <div class="-skew-x-12 w-fit bg-[#ff000d] cursor-pointer text-white px-3 py-1 text-[12px]"><?= $messages['inquiry'] ?>
+                <div class="-skew-x-12 w-fit bg-[#ff000d] cursor-pointer text-white px-3 py-1 text-[12px] openModalBtn"><?= $messages['inquiry'] ?>
                 </div>
                 <img src="<?= $imagePath ?>icons/hamburger.svg" class="w-8" alt="" id="menuBtn" />
             </div>
