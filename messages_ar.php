@@ -149,6 +149,26 @@ return [
     'loactionsMainHeading' => 'مواقعنا لتأجير السيارات',
 
 
+    //     cars inner
+    'carfeatures' => 'مميزات السيارة',
+    'rentcost' => 'التكاليف',
+    'securityamount' => 'مبلغ التأمين',
+    'securitytype' => 'نوع التأمين',
+    'paymenttype' => 'نوع الدفع',
+    'customersupport' => 'خدمة عملاء على مدار الساعة',
+    'delivery' => 'نوصيل مجاني',
+    'cancellation' => 'إلغاء مجاني',
+    'insurance' => 'تأمين',
+    'residents' => 'الوثائق المطلوبة للمقيمين في الامارات',
+    'Passport' => 'نسخة من جواز السفر',
+    'residentialvisa' => 'نسخة من الإقامة',
+    'license1' => 'رخصة قيادة اماراتية',
+    'emiratesid' => 'نسخة من الهوية الإماراتية',
+    'tourists' => 'الوثائق المطلوبة للسياح',
+    'visitvisa' => 'نسخة من الفيزا السياحية',
+    'license2' => 'أمريكا, كندا, الاتحاد الأوروبي, الخليج العربي أو رخصة قيادة عالمية',
+
+
 
 
 

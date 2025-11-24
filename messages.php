@@ -151,6 +151,26 @@ return [
     'loactionsMainHeading' => 'A Journey through the Enchanting Locations of Haladrive.ae',
 
 
+    //     cars inner
+    'carfeatures' => 'Car Features',
+    'rentcost' => 'Rent Cost',
+    'securityamount' => 'Security Amount',
+    'securitytype' => 'Security Type',
+    'paymenttype' => 'Payment Type',
+    'customersupport' => '24x7 Customer Support',
+    'delivery' => 'Free Delivery',
+    'cancellation' => 'Free Cancellation',
+    'insurance' => 'Insurance',
+    'residents' => 'Requirements for UAE Residents',
+    'Passport' => 'Copy of Passport',
+    'residentialvisa' => 'Copy of Residential Visa',
+    'license1' => 'UAE Driving License',
+    'emiratesid' => 'Copy of Emirates ID',
+    'tourists' => 'Requirements for Tourists',
+    'visitvisa' => 'Copy of Visit Visa',
+    'license2' => 'US, Canada, EU, GCC or international Driving License',
+
+
 
     
 

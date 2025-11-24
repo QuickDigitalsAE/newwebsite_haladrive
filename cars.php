@@ -47,14 +47,14 @@ if ($slug) {
                             </div>
                         </div>
                         <div class="">
-                            <div class="text-black text-[1.5rem]">Car Features</div>
+                            <div class="text-black text-[1.5rem]"><?= $messages['carfeatures'] ?></div>
                             <div class="grid grid-cols-4 max-[1024px]:grid-cols-2 gap-2">
                                 <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
-                                    <div class=""><?= $messages['engine'] ?> Size</div>
+                                    <div class=""><?= $messages['engine'] ?></div>
                                     <div class=""><?php echo $carSingleContentData["car"]["engine"]; ?></div>
                                 </div>
                                 <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
-                                    <div class="">Bluetooth</div>
+                                    <div class=""><?= $messages['bluetooth'] ?></div>
                                     <div class=""><?php echo $carSingleContentData["car"]["bluetooth"]; ?></div>
                                 </div>
                                 <div class="bg-[#e9ecef] px-4 py-1 text-[14px] text-[#939393] font-bold border border-[#ced4da]">
@@ -74,7 +74,7 @@ if ($slug) {
                 </div>
                 <div class="col-span-1">
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
-                        <div class="mb-4 text-[1.3rem]">Rent Cost</div>
+                        <div class="mb-4 text-[1.3rem]"><?= $messages['rentcost'] ?></div>
                         <div class="flex gap-2 justify-center items-center mt-3">
                             <div
                                 class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
@@ -103,68 +103,68 @@ if ($slug) {
                         <div class=""><?= $messages['instock'] ?></div>
                     </div>
                     <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]">Security Amount</div>
+                        <div class="text-[1rem] text-[#939393]"><?= $messages['securityamount'] ?></div>
                         <div class="">1000 AED</div>
                     </div>
                     <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]">Security Type</div>
+                        <div class="text-[1rem] text-[#939393]"><?= $messages['securitytype'] ?></div>
                         <div class="">Card only</div>
                     </div>
                     <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]">Payment Type</div>
+                        <div class="text-[1rem] text-[#939393]"><?= $messages['paymenttype'] ?></div>
                         <div class="">Credit Card, Cash</div>
                     </div>
                     <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]">24x7 Customer Support</div>
+                        <div class="text-[1rem] text-[#939393]"><?= $messages['support'] ?></div>
                         <div class="">Yes</div>
                     </div>
                     <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]">Free Delivery</div>
+                        <div class="text-[1rem] text-[#939393]"><?= $messages['delivery'] ?></div>
                         <div class="">Yes</div>
                     </div>
                     <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]">Free Cancellation</div>
+                        <div class="text-[1rem] text-[#939393]"><?= $messages['cancellation'] ?></div>
                         <div class="">Yes</div>
                     </div>
                     <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]">Insurance</div>
+                        <div class="text-[1rem] text-[#939393]"><?= $messages['insurance'] ?></div>
                         <div class="">Yes</div>
                     </div>
                     <div class="text-black bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="">Requirements for UAE Residents</div>
+                        <div class=""><?= $messages['residents'] ?></div>
                         <ul class="mt-4">
                             <li class="flex items-center gap-2">
                                 <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
-                                <div class="text-[#939393]">Copy of Passport</div>
+                                <div class="text-[#939393]"><?= $messages['passport'] ?></div>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
-                                <div class="text-[#939393]">Copy of Residential Visa</div>
+                                <div class="text-[#939393]"><?= $messages['residentialvisa'] ?></div>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
-                                <div class="text-[#939393]">UAE Driving License</div>
+                                <div class="text-[#939393]"><?= $messages['license1'] ?></div>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
-                                <div class="text-[#939393]">Copy of Emirates ID</div>
+                                <div class="text-[#939393]"><?= $messages['emiratesid'] ?></div>
                             </li>
                         </ul>
                     </div>
                     <div class="text-black bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="">Requirements for Tourists</div>
+                        <div class=""><?= $messages['tourists'] ?></div>
                         <ul class="mt-4">
                             <li class="flex items-center gap-2">
                                 <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
-                                <div class="text-[#939393]">Copy of Passport</div>
+                                <div class="text-[#939393]"><?= $messages['passport'] ?></div>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
-                                <div class="text-[#939393]">Copy of Visit Visa</div>
+                                <div class="text-[#939393]"><?= $messages['visitvisa'] ?></div>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
-                                <div class="text-[#939393]">US, Canada, EU, GCC or international Driving License</div>
+                                <div class="text-[#939393]"><?= $messages['license2'] ?></div>
                             </li>
                         </ul>
                     </div>
