@@ -41,9 +41,9 @@ try {
                 <img src="<?= $imagePath ?>icons/hamburger.svg" class="w-8" alt="" id="menuBtn" />
             </div>
         </div>
-        <a href="" class="z-[9999]">
+        <a href="" class="">
             <img src="<?= $imagePath ?>logo/Hala-Drive-resize.webp"
-            class="absolute top-[40%] ar_logo -translate-y-1/2 left-10 w-[110px] max-[1023px]:hidden" alt="">
+            class="absolute top-[40%] ar_logo z-[9999] -translate-y-1/2 left-10 w-[110px] max-[1023px]:hidden" alt="">
         </a>
         <div class="flex ar_header justify-between items-center container mx-auto py-2 max-[1024px]:hidden">
             <div class="w-[85%] ar_ml ml-auto flex items-center justify-between">
