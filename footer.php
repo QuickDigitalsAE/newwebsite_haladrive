@@ -176,9 +176,9 @@
         });
 
         // Close modal
-        // closeBtn.onclick = function () {
-        //     modal.style.display = "none";
-        // }
+        closeBtn.onclick = function () {
+            modal.style.display = "none";
+        }
 
         // Close modal on outside click
         window.onclick = function (event) {
