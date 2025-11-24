@@ -9,6 +9,7 @@ return [
         'about' => '/en/about',
         'faq' => '/en/faq',
         'privacy-policy' => '/en/privacy-policy',
+        'contact' => '/en/contact',
     ],
     'header' => [
         'header' => '/en/header',

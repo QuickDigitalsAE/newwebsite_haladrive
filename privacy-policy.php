@@ -1,8 +1,6 @@
 <?php
-// Include global
 require_once 'global.php';
 
-// Default SEO fallback values
 $meta_title = '';
 $meta_desc  = '';
  

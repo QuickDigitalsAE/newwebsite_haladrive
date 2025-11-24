@@ -1,6 +1,24 @@
 <?php 
-// Include global
 require_once 'global.php';
+
+$meta_title = '';
+$meta_desc  = '';
+ 
+
+try {
+    $contactContent = $api->loadData('webcontent', 'contact', []);
+    if ($contactContent['success']) {
+        $contactContentData = $contactContent['data']["data"];
+
+        $titleKey = "title_" . $lang;
+            $descKey  = "description_" . $lang;
+
+            $meta_title = $contactContentData["meta_data"][$titleKey] ?? '';
+            $meta_desc  = $contactContentData["meta_data"][$descKey] ?? '';
+    }
+} catch (Exception $e) {
+    echo "Error loading featured products: " . $e->getMessage();
+}
 
 include_once('header.php');
 
