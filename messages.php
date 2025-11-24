@@ -173,6 +173,9 @@ return [
     'license2' => 'US, Canada, EU, GCC or international Driving License',
 
 
+    'privacypolicy' => 'Privacy Policy',
+
+
 
     
 

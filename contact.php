@@ -5,8 +5,8 @@ require_once 'global.php';
 include_once('header.php');
 
 $banner_image = $imagePath."/about/top-banner.webp";
-$banner_title = "Contact Us";
-$banner_subtitle = "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!";
+$banner_title = $messages['contact'];
+$banner_subtitle = $messages['aboutBannerPera'];
 include_once('banner.php');
 
 $message = ''; // Initialize message variable
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <section class="relative">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto pb-16 pt-6 max-[1024px]:py-10">
-            <div class="text-black font-bold text-[2.5rem] leading-[1] mb-8">Contact</div>
+            <div class="text-black font-bold text-[2.5rem] leading-[1] mb-8"><?= $messages['contact'] ?></div>
             <!-- Display the alert -->
             <?php if ($message): ?>
             <div id="formAlert" class="<?= $alertClass ?>">
@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <button type="submit"
                             class="text-white bg-[#ff000d] transition-all duration-300 px-6 py-2 mx-auto mt-4 uppercase hover:bg-[#b8101f]">
-                            send message
+                            <?= $messages['send'] ?>
                         </button>
                     </form>
                 </div>
