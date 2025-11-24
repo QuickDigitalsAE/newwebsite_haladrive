@@ -11,7 +11,7 @@ echo $slug;
 if ($slug) {
 
     try {
-        $singleBlogContent = $api->loadData('blogs', 'single', [], $slug);
+        $singleBlogContent = $api->loadData('blogs', 'single', [], "$slug&-events-in-dubai-deals-2025");
 
         if ($singleBlogContent['success']) {
             $singleBlogContentData = $singleBlogContent['data']["data"];
