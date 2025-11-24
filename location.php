@@ -18,7 +18,6 @@ $slug = basename(parse_url($uri, PHP_URL_PATH));
 
 // If slug missing
 if (!$slug) {
-    include_once('header.php');
     ?>
     <div class="no-data">
         <h2>No Data Found</h2>
@@ -40,6 +39,7 @@ try {
 
         $meta_title = $singleLocationContentData["meta_data"][$titleKey] ?? '';
         $meta_desc  = $singleLocationContentData["meta_data"][$descKey] ?? '';
+        include_once('header.php');
 
         // If API returned empty data
         if (empty($locationContent['data']["data"])) {
@@ -68,7 +68,7 @@ try {
             exit;
     }
 
-        $locationData = $locationContent['data']["data"];
+    $locationData = $locationContent['data']["data"];
 
     } else {
         $banner_image = "$imagePath/about/top-banner.webp";
@@ -123,7 +123,7 @@ try {
     exit;
 }
 
-include_once('header.php');
+
 // If data found → continue
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $singleLocationContentData["location"]["location_{$lang}"];
