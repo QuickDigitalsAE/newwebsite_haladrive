@@ -114,7 +114,7 @@
             </div>
             <div></div>
             <div class="modal-body w-full p-6">
-                <h5 class="text-xl text-center font-semibold mb-4">Book Now</h5>
+                <h5 class="text-xl text-center font-semibold mb-4"><?= $messages['book'] ?></h5>
 
                 <form method="POST" id="inquire-form" class="w-full">
                     <input type="hidden" name="_token" value="FV5HbL6ZEq4mAded9gT90jqo2DrRpPtDjioznKXj">                    <!-- Name -->
