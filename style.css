@@ -64,6 +64,9 @@ p {
 html[dir="rtl"] .ar_header{
     flex-direction: row-reverse;
 }
+html[dir="rtl"] .banner_image{
+    transform: scalex(-1);
+}
 html[dir="rtl"] .ar_ml{
     margin-right: auto;
     margin-left: unset;

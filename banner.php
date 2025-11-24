@@ -1,8 +1,8 @@
     <!--------------------------------- Banner ------------------------------->
 
-    <section class="relative">
+<section class="relative">
     <img src="<?php echo $banner_image ?? 'images/default-banner.webp'; ?>" 
-         class="absolute w-full h-full object-cover inset-0" 
+         class="absolute w-full h-full object-cover banner_image inset-0" 
          alt="">
     <div class="w-[80%] max-[1024px]:w-[90%] mx-auto py-16 relative">
         <div class="text-white">
