@@ -90,23 +90,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 gap-6">
                 <div
                     class="rounded-[10px] px-6 py-10 shadow-[0_5px_90px_0_rgba(110,123,131,0.1)] border-b-[6px] border-transparent hover:border-[#ff000d] hover:scale-[1.03] transition-all duration-300 ease-in-out">
-                    <div class="font-bold pl-2 text-[1.5rem] border-l-4 border-[#ff000d]">Address</div>
+                    <div class="font-bold pl-2 text-[1.5rem] border-l-4 border-[#ff000d]"><?= $messages['contactaddress1'] ?></div>
                     <div class="mt-6 flex gap-2">
                         <img src="<?= $imagePath ?>icons/location-red.svg" class="w-8" alt="">
-                        <div class="font-bold text-black leading-[1]">Azurite tower shop no.2 Al-Jaddaf</div>
+                        <div class="font-bold text-black leading-[1]"><?= $messages['contactaddress2'] ?></div>
                     </div>
                 </div>
                 <div
                     class="rounded-[10px] px-6 py-10 shadow-[0_5px_90px_0_rgba(110,123,131,0.1)] border-b-[6px] border-transparent hover:border-[#ff000d] hover:scale-[1.03] transition-all duration-300 ease-in-out">
-                    <div class="font-bold pl-2 text-[1.5rem] border-l-4 border-[#ff000d]">Open Hours</div>
+                    <div class="font-bold pl-2 text-[1.5rem] border-l-4 border-[#ff000d]"><?= $messages['contacthours'] ?></div>
                     <div class="mt-6 flex gap-2 items-center">
                         <img src="<?= $imagePath ?>icons/clock.svg" class="w-8" alt="">
-                        <div class="font-bold text-black leading-[1]">9:00 AM to 7.00 PM</div>
+                        <div class="font-bold text-black leading-[1]"><?= $messages['contacttime'] ?></div>
                     </div>
                 </div>
                 <div
                     class="rounded-[10px] px-6 py-10 shadow-[0_5px_90px_0_rgba(110,123,131,0.1)] border-b-[6px] border-transparent hover:border-[#ff000d] hover:scale-[1.03] transition-all duration-300 ease-in-out">
-                    <div class="font-bold pl-2 text-[1.5rem] border-l-4 border-[#ff000d]">Customer Support</div>
+                    <div class="font-bold pl-2 text-[1.5rem] border-l-4 border-[#ff000d]"><?= $messages['contactsupport'] ?></div>
                     <div class="mt-6 flex gap-2 items-center">
                         <img src="<?= $imagePath ?>icons/phone-red.svg" class="w-8" alt="">
                         <a href="tel:+971501837112" class="font-bold text-black leading-[1]">+971501837112</a>
@@ -119,18 +119,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 mt-10">
                 <div class="">
-                    <div class="text-black text-[2rem] font-bold mb-6">Contact Us</div>
+                    <div class="text-black text-[2rem] font-bold mb-6"><?= $messages['contact'] ?></div>
                     <form action="./contact" method="POST">
                         <div class="grid grid-cols-1 gap-4">
                             <input class="border border-[#ced4da] px-4 py-2 focus:outline-none placeholder:text-[#939393]"
-                                type="text" placeholder="Your Name" name="name" required>
+                                type="text" placeholder="<?= $messages['name'] ?>" name="name" required>
                             <input class="border border-[#ced4da] px-4 py-2 focus:outline-none placeholder:text-[#939393]"
-                                type="tel" placeholder="Your Number" name="number" required>
+                                type="tel" placeholder="<?= $messages['number'] ?>" name="number" required>
                             <input class="border border-[#ced4da] px-4 py-2 focus:outline-none placeholder:text-[#939393]"
-                                type="email" placeholder="Your Email" name="email" required>
+                                type="email" placeholder="<?= $messages['email'] ?>" name="email" required>
                             <textarea
                                 class="border border-[#ced4da] px-4 py-2 focus:outline-none placeholder:text-[#939393]"
-                                name="message" id="message" placeholder="Message"></textarea>
+                                name="message" id="message" placeholder="<?= $messages['message'] ?>"></textarea>
                         </div>
                         <button type="submit"
                             class="text-white bg-[#ff000d] transition-all duration-300 px-6 py-2 mx-auto mt-4 uppercase hover:bg-[#b8101f]">

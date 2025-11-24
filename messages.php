@@ -173,6 +173,14 @@ return [
     'license2' => 'US, Canada, EU, GCC or international Driving License',
 
 
+    //    contact
+    'contactaddress1' => 'Address',
+    'contacthours' => 'Open Hours',
+    'contactsupport' => 'Customer Support',
+    'contactaddress2' => 'Azurite tower shop no.2 Al-Jaddaf',
+    'contacttime' => '9:00 AM to 7.00 PM',
+
+
     'privacypolicy' => 'Privacy Policy',
 
 
