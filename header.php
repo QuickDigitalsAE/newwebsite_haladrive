@@ -24,7 +24,7 @@ try {
     <base href="<?= $baseHref; ?>">
     <link defer rel="stylesheet" href="<?= $cssPath; ?>">
     <link defer rel="stylesheet" href="<?= $outputCssPath; ?>">
-    <title>Hala Drive</title>
+    <title><?php echo $meta_title ?? 'Default Title'; ?></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
