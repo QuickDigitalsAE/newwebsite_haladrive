@@ -108,7 +108,9 @@
         <div class="modal-content">
             <div class="modal-header background_image">
                 <img src="https://haladrive.ae/img/Hala-Drive.webp" style="display: block; width: 10rem; margin: 0 auto;" width="100" class="block">
-                <button type="button" class="btn-close custom_butnclose" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close custom_butnclose" data-bs-dismiss="modal" aria-label="Close">
+                    <img src="<?= $imagePath ?>icons/close.svg" alt="">
+                </button>
             </div>
             <div></div>
             <div class="modal-body w-full p-6">
