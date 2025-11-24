@@ -24,6 +24,7 @@ return [
     //    form Data
     'send' => 'أرسل رسالة',
     'email' => 'البريد الالكتروني',
+    'message' => 'رسالتك',
     'number' => 'الرقم',
     'name' => 'الاسم',
     'features' => 'مميز في',

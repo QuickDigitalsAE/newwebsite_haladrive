@@ -25,6 +25,7 @@ return [
 
     //    form Data
     'send' => 'Send Message',
+    'message' => 'Your Message',
     'email' => 'Your Email',
     'number' => 'Your Number',
     'name' => 'Your Name',
