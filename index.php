@@ -37,9 +37,9 @@ require_once 'header.php';
     <section class="relative w-full pb-[4rem]">
         <img class='w-full object-cover h-full' src="<?= $imagePath ?>banner/bg.webp" alt="">
         <img class='absolute right-0 bottom-[-2rem]' src="<?= $imagePath ?>banner/car.webp" alt="">
-        <div class="text-[#333333] w-[30%] absolute top-[35%] -translate-y-1/2 left-[10%]">
-            <h1 class='text-[2rem] syne leading-[1] mb-3'>Rent a Car in Dubai with Hala Drive</h1>
-            <p class='leading-[1]'>Your trusted partner for affordable and luxury car rentals across Dubai and the UAE. Drive with confidence and convenience every time with well-maintained vehicles</p>
+        <div class="text-[#333333] w-[40%] absolute top-[35%] -translate-y-1/2 left-[10%]">
+            <h1 class='text-[3rem] syne leading-[1] mb-3'>Rent a Car in Dubai with Hala Drive</h1>
+            <p class='leading-[1] w-[80%]'>Your trusted partner for affordable and luxury car rentals across Dubai and the UAE. Drive with confidence and convenience every time with well-maintained vehicles</p>
             <div class="bg-[#E02D3C] p-2 w-fit rounded-[5px] text-white mt-3">Explore More</div>
         </div>
 
@@ -120,68 +120,31 @@ require_once 'header.php';
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 gap-8 mt-12 w-[80%] max-[1024px]:w-[90%] mx-auto">
                 <?php foreach($homeContentData["cars"] as $car): ?>
                     <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
-                        <div class="flex items-center justify-between mb-2">
-                            <?php if ($car['stock'] === "Yes"): ?>
-                                <div class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
-                                <?= $messages['instock'] ?>
+                        <div class="flex items-center justify-between ">
+                            <div class="text-[1.5rem] font-bold leading-[1] max-[1024px]:text-center"><?php echo $car["name_{$lang}"]; ?></div>
+                            <a target="_blank" href="https://wa.me/971501837112?text=Hi" class="bg-[#29a71a] flex items-center justify-center w-9 h-9 rounded-full cursor-pointer"><img src="<?= $imagePath ?>icons/whatsapp.svg" class="w-5" alt=""></a>
+                        </div>
+                        <div class="flex items-center max-[1024px]:flex-col gap-4">
+                            <div class="flex flex-col w-[40%] gap-2 max-[1024px]:justify-center items-center mt-3">
+                                <div class="text-black w-full bg-[#F7F7F7] text-center cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                    <!-- <div class=""></div> -->
+                                    <div class="text-[1rem]"><?php echo $car["price_daily"]; ?>/<?= $messages['daily'] ?></div>
+                                </div>
+                                <div class="text-black w-full bg-[#F7F7F7] text-center cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                    <!-- <div class=""></div> -->
+                                    <div class="text-[1rem]"><?php echo $car["price_weekly"]; ?>/<?= $messages['weekly'] ?></div>
+                                </div>
+                                <div class="text-black w-full bg-[#F7F7F7] text-center cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                    <!-- <div class=""></div> -->
+                                    <div class="text-[1rem]"><?php echo $car["price_monthly"]; ?>/<?= $messages['monthly'] ?></div>
+                                </div>
                             </div>
-                        <?php else: ?>
-                            <div class="bg-[#ffdddd] text-[#d11a1a] border border-[#d11a1a] rounded-full text-[.8rem] px-2 py-1">
-                            Out Stock
-                        </div>
-                        <?php endif; ?>
-                        <img width="0" hight='0' src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="">
-                        </div>
-                        <div class="flex max-[1024px]:flex-col gap-4">
-                            <a href='cars/<?php echo $car["slug"]; ?>' class="w-[50%] max-[1024px]:w-full">
+                            <a href='cars/<?php echo $car["slug"]; ?>' class="w-[60%] max-[1024px]:w-full">
                                 <img src="<?php echo $car["image_url"]; ?>" alt="<?php echo $car["name_{$lang}"]; ?>">
-                                <div class="flex gap-2 max-[1024px]:justify-center items-center mt-3">
-                                    <div
-                                        class="text-black bg-[#f2fdff] text-[10px]  border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                        <div class=""><?= $messages['daily'] ?></div>
-                                        <div class="font-bold"><?php echo $car["price_daily"]; ?></div>
-                                    </div>
-                                    <div
-                                        class="text-black bg-[#f2fdff] text-[10px]  border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                        <div class=""><?= $messages['weekly'] ?></div>
-                                        <div class="font-bold"><?php echo $car["price_weekly"]; ?></div>
-                                    </div>
-                                    <div
-                                        class="text-black bg-[#f2fdff] text-[10px]  border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                        <div class=""><?= $messages['monthly'] ?></div>
-                                        <div class="font-bold"><?php echo $car["price_monthly"]; ?></div>
-                                    </div>
-                                </div>
                             </a>
-                            <div class="w-[50%] max-[1024px]:w-full">
-                                <div class="text-[1.5rem] font-bold leading-[1] max-[1024px]:text-center"><?php echo $car["name_{$lang}"]; ?>
-                                </div>
-                                <ul
-                                    class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
-                                    <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class=""><?= $messages['engine'] ?> <?php echo $car["engine"]; ?></div>
-                                    </li>
-                                    <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class=""><?= $messages['bluetooth'] ?> <?php echo $car["bluetooth"]; ?></div>
-                                    </li>
-                                    <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class=""><?= $messages['control'] ?> <?php echo $car["cruise"]; ?></div>
-                                    </li>
-                                    <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
-                                        <div class=""><?= $messages['luggage'] ?> <?php echo $car["luggage"]; ?></div>
-                                    </li>
-                                </ul>
-                                <div class="flex items-center max-[1024px]:justify-center gap-4 mt-4">
-                                    <div class="text-white openModalBtn bg-[#ff000d] px-2 py-1 cursor-pointer  shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-[12px]">
-                                        <?= $messages['inquiry'] ?></div>
-                                    <a target="_blank" href="https://wa.me/971501837112?text=Hi" class="bg-[#29a71a] px-4 py-1  cursor-pointer"><img
-                                            src="<?= $imagePath ?>icons/whatsapp.svg" class="w-5" alt=""></a>
-                                </div>
-                            </div>
+                        </div>      
+                        <div class="mt-4">  
+                            <div class="text-white openModalBtn bg-[#FF000D] px-4 py-2 cursor-pointer text-[16px] w-full text-center rounded-[5px]"><?= $messages['inquiry'] ?></div>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -192,43 +155,135 @@ require_once 'header.php';
 
     <!--------------------------------- 1st content ------------------------------->
 
-    <section>
-        <div class="pb-16 max-[1024px]:py-10">
-            <div
-                class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
-                <div class="">
-                    <div class="text-[1.7rem] leading-[1] font-bold"><?= $messages['homeSectionOneHeading_1'] ?></div>
+    <section class='relative py-16'>
+        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>home1.webp" alt="">
+        <div class="max-[1024px]:py-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
+            <div class="text-[2.5rem] mb-6 capitalize syne text-center w-[80%] mx-auto leading-[1] font-bold"><?= $messages['homeSectionOneHeading_1'] ?></div>
+            <div class="flex items-center gap-10">
+                <div class="w-[55%]">
                     <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionOnePera_1'] ?></p>
                 </div>
-                <div class="">
+                <div class="w-[45%]">
+                    <img class='w-full h-full object-cover' src="<?= $imagePath ?>home2.webp" alt="">
+                </div>
+            </div>
+            <div class="flex bg-white mt-6 p-6 rounded-[10px] items-center gap-10">
+                <div class="w-[40%]">
+                    <img class='w-full h-full object-cover' src="<?= $imagePath ?>home3.webp" alt="">
+                </div>
+                <div class="w-[60%]">
                     <p class="text-[#7c7c7c]"><?= $messages['homeSectionOnePera_2'] ?></p>
-                    <p class="text-[#7c7c7c] mt-4 font-bold"><?= $messages['homeSectionOnePera_3'] ?></p>
+                    <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionOnePera_3'] ?></p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!--------------------------------- brands logo ------------------------------->
+
+    <section>
+        <div class="slider-wrap w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
+            <div class="swiper mySwiper1">
+                <div class="swiper-wrapper">
+                    <?php foreach($homeContentData["brands"] as $brand): ?>
+                        <div class="swiper-slide">
+                            <a href="brands/<?php echo $brand["slug"]; ?>">
+                                <img class='slider_image' src="<?php echo $brand["logo_url"]; ?>" class="mx-auto" alt="Image 1">
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--------------------------------- 3rd content ------------------------------->
+
+    <section class="relative py-16 max-[1024px]:py-10 ">
+        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>footerbg.webp" alt="">
+        <div class="w-[80%] mx-auto max-[1024px]:w-[90%]">
+            <div class="text-white text-[2.5rem] text-center syne mb-6"><?= $messages['homeNewHeading'] ?></div>
+            <div class="w-[75%] mx-auto">
+                <div class="grid text-white grid-cols-3 items-center gap-2 mb-4">
+                    <div class="flex items-center gap-2 border border-white rounded-[5px] justify-center">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="">
+                        </div>
+                        <div class="max-[1024px]:leading-[1]">
+                            <?= $messages['timely'] ?>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 border border-white rounded-[5px] justify-center">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="">
+                        </div>
+                        <div class="max-[1024px]:leading-[1]">
+                            <?= $messages['unbeatable'] ?>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 border border-white rounded-[5px] justify-center">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="">
+                        </div>
+                        <div class="max-[1024px]:leading-[1]">
+                            <?= $messages['professional'] ?>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 border border-white rounded-[5px] justify-center">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="">
+                        </div>
+                        <div class="max-[1024px]:leading-[1]">
+                            <?= $messages['flexible'] ?>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 border border-white rounded-[5px] justify-center">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="">
+                        </div>
+                        <div class="max-[1024px]:leading-[1]">
+                            <?= $messages['online'] ?>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 border border-white rounded-[5px] justify-center">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="">
+                        </div>
+                        <div class="max-[1024px]:leading-[1]">
+                            <?= $messages['fully'] ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-white text-center"><?= $messages['homeSectionThreePera'] ?></p>
+        </div>
+    </section>
+
     <!--------------------------------- 2nd content ------------------------------->
 
-    <section class="py-16 max-[1024px]:py-10 bg-[#f2fdff]">
-        <div class="relative">
-            <img src="<?= $imagePath ?>sections/arrow.webp"
-                class="absolute w-fit left-0 right-0 mx-auto top-[53%] max-[1024px]:top-[53%] -translate-y-1/2" alt="">
-            <div
-                class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
-                <div class="">
-                    <div class="text-[1.7rem] leading-[1] font-bold"><?= $messages['homeSectionTwoHeading_1'] ?>
-                    </div>
+    <section class="py-16 relative max-[1024px]:py-10 ">
+        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>homebg.webp" alt="">
+        <div class="">
+            <div class="flex max-[1024px]:flex-col items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
+                <div class="w-[60%]">
+                    <div class="text-[2rem] capitalize syne leading-[1] font-bold"><?= $messages['homeSectionTwoHeading_1'] ?></div>
                     <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionTwoPera_1'] ?></p>
+                </div>
+                <div class="w-[40%]">
+                    <img src="<?= $imagePath ?>home4.webp" class="h-full w-full object-cover" alt="">
+                </div>
+            </div>
+            <div class="flex max-[1024px]:flex-col items-end gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
+                <div class="w-[40%]">
+                    <img src="<?= $imagePath ?>home5.webp" class="h-full rounded-[10px] w-full object-cover" alt="">
+                </div>
+                <div class="w-[60%]">
                     <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionTwoPera_2'] ?></p>
                 </div>
-                <img src="<?= $imagePath ?>sections/about-a.webp" class="h-full w-full object-cover" alt="">
             </div>
-            <div
-                class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto pt-20">
-                <img src="<?= $imagePath ?>sections/about-b.webp" class="h-full w-full object-cover" alt="">
-                <div class="">
-                    <div class="text-[1.7rem] leading-[1] font-bold"><?= $messages['homeSectionTwoHeading_2'] ?></div>
+            <div class="w-[80%] mt-6 max-[1024px]:w-[90%] mx-auto bg-white p-4 rounded-[10px]">
+                <div class="text-center">
+                    <div class="text-[2rem] capitalize syne leading-[1] font-bold"><?= $messages['homeSectionTwoHeading_2'] ?></div>
                     <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionTwoPera_3'] ?></p>
                     <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionTwoPera_4'] ?></p>
                     <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionTwoPera_5'] ?></p>
@@ -236,104 +291,84 @@ require_once 'header.php';
             </div>
         </div>
     </section>
+    
+    <!--------------------------------- section 4 ------------------------------->
+
+    <section class="relative">
+        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>footerbg.webp" alt="">
+        <div class="w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
+            <div class="text-white text-center w-[60%] mx-auto flex flex-col mb-4 max-[1024px]:mb-10">
+                <div class="text-[2rem] leading-[1] mb-3 syne max-[1024px]:text-[1.3rem] max-[1024px]:leading-[1]"><?= $messages['homeSectionForthHeading_1'] ?></div>
+                <div class=""><?= $messages['homeSectionForthPera_1'] ?></div>
+            </div>
+            <div class="">
+                <form action="" class="grid grid-cols-4 gap-4 max-[1024px]:grid-cols-1">
+                    <input class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2" placeholder="<?= $messages['name'] ?>" type="text">
+                    <input class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2" placeholder="<?= $messages['number'] ?>" type="tel">
+                    <input class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2" placeholder="<?= $messages['email'] ?>" type="email">
+                    <button class="text-white bg-[#E02D3C] rounded-[5px] px-4 py-2"><?= $messages['send'] ?></button>
+                </form>
+            </div>
+            <div class="text-white text-center mt-12">
+                <p class='text-center'><?= $messages['homeSectionForthPera_2'] ?></p>
+                <p class="mt-4 text-center"><?= $messages['homeSectionForthPera_3'] ?></p>
+            </div>
+        </div>
+    </section>
+
+    <!--------------------------------- section 5 ------------------------------->
+
+    <section class="py-16 relative max-[1024px]:py-10">
+        <img src="<?= $imagePath ?>testimonials.webp" class='w-full absolute inset-0 h-full object-cover z-[-1]' alt="">
+        <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
+            <div class="items-center">
+                <div class="text-[#333333] mb-4">
+                    <div class="text-[3rem] leading-[1] text-center max-[1024px]:text-[2rem]">
+                        <?= $messages['satisfied_1'] ?> <span class="text-[3rem] leading-[1] max-[1024px]:text-[2rem] syne "><?= $messages['satisfied_2'] ?></span>
+                    </div>
+                    <div class="text-[1.5rem] text-center syne leading-[1] mt-4"><?= $messages['satisfied_3'] ?></div>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 max-[1024px]:gap-6 gap-10">
+                <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
+                    <div class="text-[3rem] leading-[1]">"</div>
+                    <p class=""><?= $messages['homeSectionFifthPera_1'] ?></p>
+                    <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_1'] ?></div>
+                </div>
+                <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
+                    <div class="text-[3rem] leading-[1] text-[#FF000D]">"</div>
+                    <p class=""><?= $messages['homeSectionFifthPera_2'] ?></p>
+                    <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_2'] ?></div>
+                </div>
+                <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
+                    <div class="text-[3rem] leading-[1] text-[#FF000D]">"</div>
+                    <p class=""><?= $messages['homeSectionFifthPera_3'] ?></p>
+                    <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_3'] ?></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!--------------------------------- faq ------------------------------->
 
-    <section class="w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
-        <!-- Header -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between mb-10">
-            <div>
-                <h2 class="text-2xl md:text-3xl font-bold mb-2"><?= $messages['homeFaqs_1'] ?></h2>
-                <p class="text-gray-600"><?= $messages['homeFaqs_pera_1'] ?></p>
-            </div>
-            <div
-                class="relative border-2 border-[#92aacb] px-5 py-3 mt-4 md:mt-0 flex items-center gap-3 shadow-[1px_1px_2px_#999] ">
-                <div>
-                    <p class="font-semibold text-gray-800"><?= $messages['homeFaqs_2'] ?></p>
-                    <p class="text-sm text-gray-500"><?= $messages['homeFaqs_pera_2'] ?></p>
-                </div>
-                <a target="_blank" href="https://wa.me/971501837112?text=Hi" class="bg-[#1bd741] p-2 -skew-x-4">
-                    <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="WhatsApp" class="w-8 h-8">
-                </a>
-            </div>
+    <section class="w-[80%] gap-6 flex max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
+        <div class='w-[40%]'>
+            <h2 class="text-[2rem] syne text-[#333333] mb-4 md:text-3xl font-bold leading-[1]"><?= $messages['homeFaqs_1'] ?></h2>
+            <img src="<?= $imagePath ?>FAQs.webp" alt="">
         </div>
-
-        <!-- Accordion -->
-        <div class="space-y-3">
+        <div class="space-y-3 w-[60%]">
             <?php foreach($homeContentData["faqs"] as $faqs): ?>
             <div class="border border-gray-200 bg-[#f7fdff] rounded-md overflow-hidden">
                 <button
                     class="faq-toggle w-full text-left flex justify-between items-center px-5 py-4 font-medium text-gray-700">
                     <span><?php echo $faqs["question_{$lang}"]; ?></span>
-                    <span class="text-2xl font-bold text-gray-400">+</span>
+                    <span class="text-2xl font-bold text-[#333333]">+</span>
                 </button>
-                <div class="faq-content hidden px-5 pb-4 text-gray-600">
+                <div class="faq-content hidden px-5 pb-4 text-[#333333]">
                    <?php echo $faqs["answer_{$lang}"]; ?>
                 </div>
             </div>
             <?php endforeach; ?>
-        </div>
-    </section>
-
-    <!--------------------------------- 3rd content ------------------------------->
-
-    <section class="relative py-16 max-[1024px]:py-10 bg-[#f2fdff]">
-        <div class="w-[80%] mx-auto max-[1024px]:w-[90%]">
-            <div
-                class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 max-[1024px]:gap-4 max-[1024px]:mb-6">
-                <img src="<?= $imagePath ?>sections/no1.webp" alt="">
-                <div class="grid grid-cols-2 items-center gap-y-8 max-[1024px]:gap-x-4">
-                    <div class="flex items-center gap-4">
-                        <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
-                            <img src="<?= $imagePath ?>sections/key2.svg" class="w-6" alt="">
-                        </div>
-                        <div class="font-bold max-[1024px]:leading-[1]">
-                            <?= $messages['timely'] ?>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
-                            <img src="<?= $imagePath ?>sections/calculator.svg" class="w-6" alt="">
-                        </div>
-                        <div class="font-bold max-[1024px]:leading-[1]">
-                            <?= $messages['unbeatable'] ?>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
-                            <img src="<?= $imagePath ?>sections/folder.svg" class="w-6" alt="">
-                        </div>
-                        <div class="font-bold max-[1024px]:leading-[1]">
-                            <?= $messages['professional'] ?>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
-                            <img src="<?= $imagePath ?>sections/calender.svg" class="w-6" alt="">
-                        </div>
-                        <div class="font-bold max-[1024px]:leading-[1]">
-                            <?= $messages['flexible'] ?>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
-                            <img src="<?= $imagePath ?>sections/tick.svg" class="w-6" alt="">
-                        </div>
-                        <div class="font-bold max-[1024px]:leading-[1]">
-                            <?= $messages['online'] ?>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="bg-[#ff000d] w-8 h-8 flex items-center justify-center">
-                            <img src="<?= $imagePath ?>sections/lock.svg" class="w-6" alt="">
-                        </div>
-                        <div class="font-bold max-[1024px]:leading-[1]">
-                            <?= $messages['fully'] ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <p class="text-[#939393] text-center"><?= $messages['homeSectionThreePera'] ?></p>
         </div>
     </section>
 
@@ -357,61 +392,6 @@ require_once 'header.php';
         </div>
     </section>
 
-    <!--------------------------------- section 4 ------------------------------->
-
-    <section class="bg-[#0b0b0b] relative">
-        <div class="w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
-            <div class="text-white flex max-[1024px]:flex-col max-[1024px]:gap-6 gap-20 mb-4 max-[1024px]:mb-10">
-                <div class="text-[1.7rem] max-[1024px]:text-[1.3rem] max-[1024px]:leading-[1] font-bold"><?= $messages['homeSectionForthHeading_1'] ?></div>
-                <div class=""><?= $messages['homeSectionForthPera_1'] ?></div>
-            </div>
-            <div class="">
-                <form action="" class="flex gap-4 max-[1024px]:flex-col">
-                    <input class="focus:outline-none px-4 py-2" placeholder="<?= $messages['name'] ?>" type="text">
-                    <input class="focus:outline-none px-4 py-2" placeholder="<?= $messages['number'] ?>" type="tel">
-                    <input class="focus:outline-none px-4 py-2" placeholder="<?= $messages['email'] ?>" type="email">
-                    <button class="uppercase text-white bg-[#ff000d] px-4 py-2"><?= $messages['send'] ?></button>
-                </form>
-            </div>
-            <div class="text-white mt-12">
-                <p><?= $messages['homeSectionForthPera_2'] ?></p>
-                <p class="mt-4"><?= $messages['homeSectionForthPera_3'] ?></p>
-            </div>
-        </div>
-    </section>
-
-    <!--------------------------------- section 5 ------------------------------->
-
-    <section class="py-16 max-[1024px]:py-10">
-        <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
-            <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 max-[1024px]:gap-6 gap-10 items-center">
-                <div class="text-black font-bold">
-                    <div class="text-[3rem] max-[1024px]:text-[2rem]"><?= $messages['satisfied_1'] ?></div>
-                    <div class="text-[3rem] max-[1024px]:text-[2rem] text-center max-[1024px]:text-left leading-[1]">
-                        <?= $messages['satisfied_2'] ?></div>
-                    <div class="text-[1.5rem] leading-[1] mt-4"><?= $messages['satisfied_3'] ?></div>
-                </div>
-                <div class="">
-                    <img src="<?= $imagePath ?>sections/hero-img.webp" alt="">
-                </div>
-            </div>
-            <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 max-[1024px]:gap-6 gap-10">
-                <div class="">
-                    <div class="text-black font-bold text-[1.7rem] mb-2"><?= $messages['homeSectionFifthHeading_1'] ?></div>
-                    <p class="text-[#939393]"><?= $messages['homeSectionFifthPera_1'] ?></p>
-                </div>
-                <div class="">
-                    <div class="text-black font-bold text-[1.7rem] mb-2"><?= $messages['homeSectionFifthHeading_2'] ?></div>
-                    <p class="text-[#939393]"><?= $messages['homeSectionFifthPera_2'] ?></p>
-                </div>
-                <div class="">
-                    <div class="text-black font-bold text-[1.7rem] mb-2"><?= $messages['homeSectionFifthHeading_3'] ?></div>
-                    <p class="text-[#939393]"><?= $messages['homeSectionFifthPera_3'] ?></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!--------------------------------- section 6 ------------------------------->
 
     <section class="bg-[#f1f4f8] py-16 max-[1024px]:py-10">
@@ -422,24 +402,6 @@ require_once 'header.php';
             <p class="mt-6"><?= $messages['homeSectionSixthPera_3'] ?></p>
             <p class="mt-6"><?= $messages['homeSectionSixthPera_4'] ?></p>
             <p class="mt-6"><?= $messages['homeSectionSixthPera_5'] ?></p>
-        </div>
-    </section>
-
-    <!--------------------------------- brands logo ------------------------------->
-
-    <section>
-        <div class="slider-wrap w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
-            <div class="swiper mySwiper1">
-                <div class="swiper-wrapper">
-                    <?php foreach($homeContentData["brands"] as $brand): ?>
-                        <div class="swiper-slide">
-                            <a href="brands/<?php echo $brand["slug"]; ?>">
-                                <img class='slider_image' src="<?php echo $brand["logo_url"]; ?>" class="mx-auto" alt="Image 1">
-                            </a>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
         </div>
     </section>
 
