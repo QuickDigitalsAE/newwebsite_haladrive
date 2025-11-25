@@ -129,22 +129,22 @@
 
                     <!-- Date To -->
                     <div class="relative w-full mb-3">
-                        <input type="date" name="date_to" onfocus="this.showPicker()" id="date_to_modal" placeholder="Date to" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" min="2025-11-21">
+                        <input type="date" name="date_to" onfocus="this.showPicker()" id="date_to_modal" placeholder="Date to" required="" class="custom_input pl-10 pr-4 py-2 rounded-lg placeholder-black focus:outline-none" min="2025-11-21">
                     </div>
 
                     <!-- Phone -->
                     <div class="relative w-full mb-3">
-                        <input type="text" name="number" id="contact_number" placeholder="<?= $messages['number'] ?>" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                        <input type="text" name="number" id="contact_number" placeholder="<?= $messages['number'] ?>" required="" class="custom_input pl-10 pr-4 py-2 rounded-lg placeholder-black focus:outline-none">
                     </div>
 
                     <!-- Email -->
                     <div class="relative w-full mb-3">
-                        <input type="email" name="email" id="email" placeholder="<?= $messages['email'] ?>" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                        <input type="email" name="email" id="email" placeholder="<?= $messages['email'] ?>" class="custom_input pl-10 pr-4 py-2 rounded-lg placeholder-black focus:outline-none">
                     </div>
                     <input type="hidden" name="car_name" id="car_name" value="">
                     <!-- Message -->
                     <div class="relative w-full mb-3">
-                        <textarea name="message" id="carName" placeholder="<?= $messages['message'] ?>" rows="4" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"></textarea>
+                        <textarea name="message" id="carName" placeholder="<?= $messages['message'] ?>" rows="4" required="" class="custom_input pl-10 pr-4 py-2 rounded-lg placeholder-black focus:outline-none"></textarea>
                     </div>
 
                     <!-- Submit Button -->
