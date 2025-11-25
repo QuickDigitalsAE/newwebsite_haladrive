@@ -65,10 +65,10 @@ try {
         <nav id="mobileMenu" class="bg-black max-[1024px]:pb-12 max-[1024px]:w-full max-[1024px]:fixed max-[1024px]:z-[999] transition-all duration-500 max-[1024px]:top-[-100%]">
             <div class="container mx-auto flex items-center justify-end">
                 <ul class="uppercase flex max-[1024px]:flex-col items-center ar_gap justify-center max-[1024px]:items-start max-[1024px]:gap-0 max-[1024px]:pb-4 max-[1024px]:pt-24 text-white relative max-[1024px]:mx-5">
-                    <li class="relative ">
+                    <!-- <li class="relative ">
                         <a href=""
                             class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['home'] ?></a>
-                    </li>
+                    </li> -->
                     <li class="relative ">
                         <a href="about"
                             class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['about'] ?></a>
