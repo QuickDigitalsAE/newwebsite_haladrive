@@ -114,9 +114,9 @@
             </div>
             <div></div>
             <div class="modal-body w-full p-6">
-                <h5 class="text-xl text-center font-semibold mb-4"><?= $messages['book'] ?></h5>
+                <h5 class="text-xl text-center font-semibold mb-4" style="font-family: "Poppins", sans-serif;"><?= $messages['book'] ?></h5>
 
-                <form method="POST" id="inquire-form" class="w-full">
+                <form method="POST" id="inquire-form" class="w-full" style="font-family: "Poppins", sans-serif;">
                     <input type="hidden" name="_token" value="FV5HbL6ZEq4mAded9gT90jqo2DrRpPtDjioznKXj">                    <!-- Name -->
                     <div class="relative w-full mb-3">
                         <input type="text" name="name" id="name" placeholder="<?= $messages['name'] ?>" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
