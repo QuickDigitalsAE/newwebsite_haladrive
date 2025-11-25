@@ -60,27 +60,27 @@ require_once 'header.php';
         <div class="container mx-auto flex justify-between items-center">
             <ul class="flex gap-4 items-center">
                 <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a href="cars?sort=Economy&id=1">
+                    <a rel="nofollow" href="cars?sort=Economy&id=1">
                         <?= $messages['economy'] ?>
                     </a>
                 </li>
                 <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a href="cars?sort=SUV&id=2">
+                    <a rel="nofollow" href="cars?sort=SUV&id=2">
                         <?= $messages['suv'] ?>
                     </a>
                 </li>
                 <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a href="cars?sort=Midsize&id=3">
+                    <a rel="nofollow" href="cars?sort=Midsize&id=3">
                         <?= $messages['midsize'] ?>
                     </a>
                 </li>
                 <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a href="cars?sort=Featured&id=4">
+                    <a rel="nofollow" href="cars?sort=Featured&id=4">
                         <?= $messages['featured'] ?>
                     </a>
                 </li>
                 <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a href="cars?sort=Crossover&id=5">
+                    <a rel="nofollow" href="cars?sort=Crossover&id=5">
                         <?= $messages['crossover'] ?>
                     </a>
                 </li>
