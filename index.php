@@ -34,8 +34,16 @@ require_once 'header.php';
 
     <!--------------------------------- banner ------------------------------->
 
-    <section class="relative w-full ">
-        <div class="swiper mySwiper w-full h-full">
+    <section class="relative w-full pb-[4rem]">
+        <img class='w-full object-cover h-full' src="<?= $imagePath ?>banner/bg.webp" alt="">
+        <img class='absolute right-0 bottom-[-2rem]' src="<?= $imagePath ?>banner/car.webp" alt="">
+        <div class="text-[#333333] w-[30%] absolute top-[35%] -translate-y-1/2 left-[10%]">
+            <h1 class='text-[2rem] syne leading-[1] mb-3'>Rent a Car in Dubai with Hala Drive</h1>
+            <p class='leading-[1]'>Your trusted partner for affordable and luxury car rentals across Dubai and the UAE. Drive with confidence and convenience every time with well-maintained vehicles</p>
+            <div class="bg-[#E02D3C] p-2 w-fit rounded-[5px] text-white mt-3">Explore More</div>
+        </div>
+
+        <!-- <div class="swiper mySwiper w-full h-full">
             <div class="swiper-wrapper">
                 <?php foreach($homeContentData["highlight"] as $banner): ?>
                 <div class="swiper-slide">
@@ -51,49 +59,26 @@ require_once 'header.php';
 
             <div class="swiper-button-next !text-white !right-6 after:!text-3xl max-[1024px]:hidden"></div>
             <div class="swiper-button-prev !text-white !left-6 after:!text-3xl max-[1024px]:hidden"></div>
-        </div>
+        </div> -->
     </section>
 
     <!--------------------------------- filter ------------------------------->
 
-    <section class="relative bg-[#f1f4f8] py-8 max-[1024px]:hidden">
-        <div class="container mx-auto flex justify-between items-center">
-            <ul class="flex gap-4 items-center">
-                <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a rel="nofollow" href="cars?sort=Economy&id=1">
-                        <?= $messages['economy'] ?>
+    <section class="relative py-8 max-[1024px]:hidden">
+        <div class="w-[60%] mx-auto justify-between items-center shadow-[0px_0px_50px_#1D293914] p-4 rounded-[10px]">
+            <form action="" class='w-full'>
+                <div class="gap-6 items-center grid grid-cols-3">
+                    <div class="w-full">
+                        <label class='text-[#333333] block' for="">Date</label>
+                        <input class="px-4 py-2 bg-[#F4F4F4] w-full text-[#535353] rounded-[2px]" type="date" name="" id="">
+                    </div>
+                    <div class="w-full">
+                        <label class='text-[#333333] block' for="">time</label>
+                        <input class="px-4 py-2 bg-[#F4F4F4] w-full text-[#535353] rounded-[2px]" type="time" name="" id="">
+                    </div>
+                    <a href="cars" class=''>
+                        <div class="cursor-pointer text-center bg-[#E02D3C] text-white rounded-[5px] px-4 py-2">Find A Car</div>
                     </a>
-                </li>
-                <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a rel="nofollow" href="cars?sort=SUV&id=2">
-                        <?= $messages['suv'] ?>
-                    </a>
-                </li>
-                <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a rel="nofollow" href="cars?sort=Midsize&id=3">
-                        <?= $messages['midsize'] ?>
-                    </a>
-                </li>
-                <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a rel="nofollow" href="cars?sort=Featured&id=4">
-                        <?= $messages['featured'] ?>
-                    </a>
-                </li>
-                <li class="px-4 py-2 -skew-x-12 bg-white text-black cursor-pointer border border-[#bbb] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a rel="nofollow" href="cars?sort=Crossover&id=5">
-                        <?= $messages['crossover'] ?>
-                    </a>
-                </li>
-            </ul>
-            <form action="">
-                <div class="flex gap-6 items-center">
-                    <input class="-skew-x-12 bg-white px-4 py-2 shadow-[1px_1px_2px_#999] text-[#939393]" type="date"
-                        name="" id="">
-                    <input class="-skew-x-12 bg-white px-4 py-2 shadow-[1px_1px_2px_#999] text-[#939393]" type="time"
-                        name="" id="">
-                        <a href="cars">
-                            <div class="cursor-pointer bg-[#ff000d] text-white -skew-x-12 px-16 py-2">Search</div>
-                        </a>
                 </div>
             </form>
         </div>
@@ -104,8 +89,34 @@ require_once 'header.php';
 
     <section class="relative bg-white py-16 max-[1024px]:py-10">
         <div class="">
-            <h1 class="text-[#333333] capitalize syne font-semibold text-[2.5rem] max-[1024px]:text-[1.5rem] leading-[1] text-center w-[80%] max-[1024px]:w-[90%] mx-auto">
-                <?= $messages['homeFirstHeading'] ?></h1>
+            <h1 class="text-[#333333] capitalize syne font-semibold text-[2.5rem] max-[1024px]:text-[1.5rem] leading-[1] text-center w-[80%] max-[1024px]:w-[90%] mx-auto"><?= $messages['homeFirstHeading'] ?></h1>
+            <ul class="grid grid-cols-5 max-[1024px]:grid-cols-2 w-[80%] max-[1024px]:w-[90%] mx-auto mt-4 gap-4 items-center justify-center">
+                <li class="px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 ">
+                    <a rel="nofollow" href="cars?sort=Economy&id=1">
+                        <?= $messages['economy'] ?>
+                    </a>
+                </li>
+                <li class="px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 ">
+                    <a rel="nofollow" href="cars?sort=SUV&id=2">
+                        <?= $messages['suv'] ?>
+                    </a>
+                </li>
+                <li class="px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 ">
+                    <a rel="nofollow" href="cars?sort=Midsize&id=3">
+                        <?= $messages['midsize'] ?>
+                    </a>
+                </li>
+                <li class="px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 ">
+                    <a rel="nofollow" href="cars?sort=Featured&id=4">
+                        <?= $messages['featured'] ?>
+                    </a>
+                </li>
+                <li class="px-4 py-2 bg-[#F4F4F4] text-center max-[1024px]:col-span-2 text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 ">
+                    <a rel="nofollow" href="cars?sort=Crossover&id=5">
+                        <?= $messages['crossover'] ?>
+                    </a>
+                </li>
+            </ul>
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 gap-8 mt-12 w-[80%] max-[1024px]:w-[90%] mx-auto">
                 <?php foreach($homeContentData["cars"] as $car): ?>
                     <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
@@ -126,17 +137,17 @@ require_once 'header.php';
                                 <img src="<?php echo $car["image_url"]; ?>" alt="<?php echo $car["name_{$lang}"]; ?>">
                                 <div class="flex gap-2 max-[1024px]:justify-center items-center mt-3">
                                     <div
-                                        class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                        class="text-black bg-[#f2fdff] text-[10px]  border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                         <div class=""><?= $messages['daily'] ?></div>
                                         <div class="font-bold"><?php echo $car["price_daily"]; ?></div>
                                     </div>
                                     <div
-                                        class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                        class="text-black bg-[#f2fdff] text-[10px]  border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                         <div class=""><?= $messages['weekly'] ?></div>
                                         <div class="font-bold"><?php echo $car["price_weekly"]; ?></div>
                                     </div>
                                     <div
-                                        class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                        class="text-black bg-[#f2fdff] text-[10px]  border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                         <div class=""><?= $messages['monthly'] ?></div>
                                         <div class="font-bold"><?php echo $car["price_monthly"]; ?></div>
                                     </div>
@@ -165,9 +176,9 @@ require_once 'header.php';
                                     </li>
                                 </ul>
                                 <div class="flex items-center max-[1024px]:justify-center gap-4 mt-4">
-                                    <div class="text-white openModalBtn bg-[#ff000d] px-2 py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-[12px]">
+                                    <div class="text-white openModalBtn bg-[#ff000d] px-2 py-1 cursor-pointer  shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-[12px]">
                                         <?= $messages['inquiry'] ?></div>
-                                    <a target="_blank" href="https://wa.me/971501837112?text=Hi" class="bg-[#29a71a] px-4 py-1 -skew-x-12 cursor-pointer"><img
+                                    <a target="_blank" href="https://wa.me/971501837112?text=Hi" class="bg-[#29a71a] px-4 py-1  cursor-pointer"><img
                                             src="<?= $imagePath ?>icons/whatsapp.svg" class="w-5" alt=""></a>
                                 </div>
                             </div>
@@ -236,7 +247,7 @@ require_once 'header.php';
                 <p class="text-gray-600"><?= $messages['homeFaqs_pera_1'] ?></p>
             </div>
             <div
-                class="relative border-2 border-[#92aacb] px-5 py-3 mt-4 md:mt-0 flex items-center gap-3 shadow-[1px_1px_2px_#999] -skew-x-12">
+                class="relative border-2 border-[#92aacb] px-5 py-3 mt-4 md:mt-0 flex items-center gap-3 shadow-[1px_1px_2px_#999] ">
                 <div>
                     <p class="font-semibold text-gray-800"><?= $messages['homeFaqs_2'] ?></p>
                     <p class="text-sm text-gray-500"><?= $messages['homeFaqs_pera_2'] ?></p>
