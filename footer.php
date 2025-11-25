@@ -119,7 +119,7 @@
                 <form method="POST" id="inquire-form" class="w-full Poppins">
                     <input type="hidden" name="_token" value="FV5HbL6ZEq4mAded9gT90jqo2DrRpPtDjioznKXj">                    <!-- Name -->
                     <div class="relative w-full mb-3">
-                        <input type="text" name="name" id="name" placeholder="<?= $messages['name'] ?>" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                        <input type="text" name="name" id="name" placeholder="<?= $messages['name'] ?>" required="" class="custom_input pl-10 pr-4 py-2 rounded-lg placeholder focus:outline-none">
                     </div>
 
                     <!-- Date from -->
