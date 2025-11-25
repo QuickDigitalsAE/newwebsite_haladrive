@@ -656,6 +656,14 @@ video {
   top: 53%;
 }
 
+.top-\[20\%\] {
+  top: 20%;
+}
+
+.top-\[50\%\] {
+  top: 50%;
+}
+
 .z-\[-1\] {
   z-index: -1;
 }
@@ -935,6 +943,10 @@ video {
   align-items: center;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -1209,6 +1221,11 @@ video {
   background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1));
 }
 
+.bg-\[\#E02D3C\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 45 60 / var(--tw-bg-opacity, 1));
+}
+
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
@@ -1462,6 +1479,10 @@ video {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 .leading-\[1\] {
