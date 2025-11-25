@@ -103,15 +103,6 @@ html[dir="rtl"] .ar_px {
   background: rgba(0,0,0,0.6);
 }
 
-.modal-content {
-  background: #fff;
-  width: 400px;
-  padding: 20px;
-  margin: 10% auto;
-  border-radius: 10px;
-  position: relative;
-}
-
 .close {
   position: absolute;
   top: 8px;
@@ -246,5 +237,9 @@ textarea.custom_input {
 
     .custom_button_modal {
         font-size: 1rem;
+    }
+    .modal-content{
+        width: 95%;
+        height: fit-content;
     }
 }
