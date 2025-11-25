@@ -104,8 +104,8 @@ require_once 'header.php';
 
     <section class="relative bg-white py-16 max-[1024px]:py-10">
         <div class="">
-            <hi class="text-[#333333] syne font-semibold text-[2.5rem] max-[1024px]:text-[1.5rem] leading-[1] text-center w-[80%] max-[1024px]:w-[90%] mx-auto">
-                <?= $messages['homeFirstHeading'] ?></hi>
+            <h1 class="text-[#333333] syne font-semibold text-[2.5rem] max-[1024px]:text-[1.5rem] leading-[1] text-center w-[80%] max-[1024px]:w-[90%] mx-auto">
+                <?= $messages['homeFirstHeading'] ?></h1>
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 gap-8 mt-12 w-[80%] max-[1024px]:w-[90%] mx-auto">
                 <?php foreach($homeContentData["cars"] as $car): ?>
                     <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
