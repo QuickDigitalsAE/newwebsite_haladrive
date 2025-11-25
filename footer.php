@@ -2,18 +2,29 @@
     <!--------------------------------- footer ------------------------------->
 
     <footer class="pt-[6rem] max-[1024px]:pt-[2rem] pb-[1rem] relative ">
-        <img src="<?= $imagePath ?>footer/footer-bg.webp" class="w-full h-full object-cover absolute inset-0 z-[-1] " alt="">
+        <img src="<?= $imagePath ?>footerbg.webp" class="w-full h-full object-cover absolute inset-0 z-[-1] " alt="">
          <div class="whatsapp_btn">
             <a target="_blank" href="https://wa.me/971501837112?text=Hi">
                 <img  src="<?= $imagePath ?>icons/whatsapp.svg" alt="">
             </a>
         </div>
-        <div
-            class="w-[80%] max-[1024px]:w-[90%] grid grid-cols-3 max-[1024px]:grid-cols-1 pb-[4rem] max-[1024px]:pb-[2rem] text-white m-auto gap-[3rem] max-[1024px]:gap-4 banner-1">
+        <div class="w-[80%] max-[1024px]:w-[90%] grid grid-cols-3 max-[1024px]:grid-cols-1 pb-[4rem] max-[1024px]:pb-[2rem] text-white m-auto gap-[3rem] max-[1024px]:gap-4 banner-1">
+            <div class="flex items-center justify-between col-span-3">
+                <div class="text-white flex items-center gap-4">
+                    <div class="text-[3rem] font-bold">Connect with us</div>
+                    <img src="<?= $imagePath ?>icons/arrow.webp" alt="">
+                </div>
+                <div class="">
+                    <ul class='flex gap-4 '>
+                        <li><a href="">Facebook</a></li>
+                        <li><a href="">Instagram</a></li>
+                        <li><a href="">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
             <div class="">
                 <a href="">
-                    <img src="<?= $imagePath ?>/logo/Hala-Drive-resize.webp" alt=""
-                        class="max-[1000px]:m-auto max-[1024px]:w-[100px]">
+                    <img src="<?= $imagePath ?>/logo/Hala-Drive-resize.webp" alt="" class="max-[1000px]:m-auto max-[1024px]:w-[100px]">
                 </a>
                 <p class=" py-4"><?= $messages['content'] ?></p>
                 <ul class="flex social gap-2">
@@ -56,46 +67,32 @@
             </div>
             <div class="flex gap-[2rem] banner-1 first-1">
                 <ul class="flex flex-col gap-5 mt-6 max-[1024px]:mt-0">
-                    <span class="font-bold text-[1.5rem] border-l-2 pl-2 border-[#ff000d] text-white "><?= $messages['quick'] ?></span>
-                    <div class="grid grid-cols-2 gap-4 mt-6">
-                        <li><a href=""><?= $messages['home'] ?></a></li>
-                        <li><a href="about"><?= $messages['about'] ?></a></li>
-                        <li><a href="cars"><?= $messages['cars'] ?></a></li>
-                        <li><a href="privacy-policy"><?= $messages['privacy'] ?></a></li>
-                        <li><a href="faq"><?= $messages['faq'] ?></a></li>
-                        <li><a href="locations"><?= $messages['locations'] ?></a></li>
+                    <span class="font-bold text-[1.5rem] text-[#FF000D] "><?= $messages['contact'] ?></span>
+                    <div class="mt-6 w-full">
+                        <div class='placeholder:text-[#808080] border-b border-[#fff] py-3 bg-transparent w-full'><a target='_blank' href="tel:+971501837112">+971501837112</a></div>
+                        <div class='placeholder:text-[#808080] border-b border-[#fff] py-3 bg-transparent w-full'><a target='_blank' href="mailto:sales@haladrive.ae">sales@haladrive.ae</a></div>
+                        <div class='placeholder:text-[#808080] border-b border-[#fff] py-3 bg-transparent w-full'><a target='_blank' href="https://goo.gl/maps/9mWsWUggjrUJhYy66"><?= $messages['contactaddress2'] ?></a></div>
                     </div>
                 </ul>
             </div>
-            <div class="flex gap-[2rem] banner-1 first-1">
-                <ul class="flex flex-col gap-5 mt-6 max-[1024px]:mt-4">
-                    <span class="font-bold text-[1.5rem] border-l-2 pl-2 border-[#ff000d] text-white "><?= $messages['details'] ?></span>
-                    <div class="flex flex-col gap-2 mt-6 max-[1024px]:mt-2">
-                        <li class="flex items-center gap-2">
-                            <div class="bg-[#ff000d] p-1 rounded-full">
-                                <img src="<?= $imagePath ?>icons/phone.svg" class="w-4" alt="">
-                            </div> 
-                            <div class="flex gap-2 text-[#ff000d]">
-                                <a href="tel:+971501837112">+971501837112</a>
-                                /
-                                <a href="tel:+97142711125">+97142711125</a>
-                            </div>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="bg-[#ff000d] p-1 rounded-full">
-                                <img src="<?= $imagePath ?>icons/mail.svg" class="w-4" alt="">
-                            </div>
-                            <a href="mailto:sales@haladrive.ae" class="text-[#ff000d]">sales@haladrive.ae</a>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="bg-[#ff000d] p-1 rounded-full">
-                                <img src="<?= $imagePath ?>icons/location.svg" class="w-4" alt="">
-                            </div>
-                            <a href="https://goo.gl/maps/9mWsWUggjrUJhYy66" class="text-[#ff000d]">Azurite tower shop
-                                no.2 Al-Jaddaf</a>
-                        </li>
+            <div class="banner-1 first-1">
+                <div class="flex flex-col mt-6 max-[1024px]:mt-4">
+                    <!-- <span class="font-bold text-[1.5rem] border-l-2 pl-2 border-[#ff000d] text-white "><?= $messages['details'] ?></span> -->
+                    <span class="font-bold text-[1.5rem] text-[#FF000D] "><?= $messages['quick'] ?></span>
+                    <div class="flex gap-4 mt-2 ">
+                        <input class='placeholder:text-[#808080] border-b border-[#808080] py-3 bg-transparent w-full' type="email" placeholder='<?= $messages['email'] ?>'>
                     </div>
-                </ul>
+                </div>
+                <div class="flex flex-col mt-6 max-[1024px]:mt-4">
+                    <!-- <span class="font-bold text-[1.5rem] border-l-2 pl-2 border-[#ff000d] text-white "><?= $messages['details'] ?></span> -->
+                    <span class="font-bold text-[1.5rem] text-[#FF000D] "><?= $messages['quick'] ?></span>
+                    <ul class="flex gap-4 mt-2 ">
+                        <li><a href="about"><?= $messages['about'] ?></a></li>
+                        <li><a href="cars"><?= $messages['cars'] ?></a></li>
+                        <li><a href="faq"><?= $messages['faq'] ?></a></li>
+                        <li><a href="locations"><?= $messages['locations'] ?></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="text-center mb-3 text-white">© <a class="border-b border-white" href="https://haladrive.ae"><?= $messages['hala'] ?> </a><?= $messages['rights'] ?> <a target="_blank" class="border-b border-white" href="https://quickdigitals.ae"> <?= $messages['quickdigitals'] ?></a></div>

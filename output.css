@@ -972,6 +972,10 @@ video {
   width: 75%;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .-translate-y-1\/2 {
   --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1235,6 +1239,16 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
+.border-\[\#808080\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(128 128 128 / var(--tw-border-opacity, 1));
+}
+
+.border-\[\#fff\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+
 .bg-\[\#0b0b0b\] {
   --tw-bg-opacity: 1;
   background-color: rgb(11 11 11 / var(--tw-bg-opacity, 1));
@@ -1337,6 +1351,10 @@ video {
 .bg-\[\#FF000D\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 13 / var(--tw-bg-opacity, 1));
+}
+
+.bg-transparent {
+  background-color: transparent;
 }
 
 .object-contain {
@@ -1602,6 +1620,10 @@ video {
   font-size: 10rem;
 }
 
+.text-\[1\.1rem\] {
+  font-size: 1.1rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -1711,6 +1733,11 @@ video {
   color: rgb(255 0 13 / var(--tw-text-opacity, 1));
 }
 
+.text-\[\#7C7C7C\] {
+  --tw-text-opacity: 1;
+  color: rgb(124 124 124 / var(--tw-text-opacity, 1));
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -1781,6 +1808,12 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-\[0px_0px_50px_\#0000000D\] {
+  --tw-shadow: 0px 0px 50px #0000000D;
+  --tw-shadow-colored: 0px 0px 50px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -1829,6 +1862,16 @@ video {
 .placeholder\:text-\[\#BABABA\]::placeholder {
   --tw-text-opacity: 1;
   color: rgb(186 186 186 / var(--tw-text-opacity, 1));
+}
+
+.placeholder\:text-\[\#808080\]::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(128 128 128 / var(--tw-text-opacity, 1));
+}
+
+.placeholder\:text-\[\#808080\]::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(128 128 128 / var(--tw-text-opacity, 1));
 }
 
 .before\:absolute::before {

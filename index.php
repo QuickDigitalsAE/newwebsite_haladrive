@@ -336,12 +336,12 @@ require_once 'header.php';
                     <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_1'] ?></div>
                 </div>
                 <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
-                    <div class="text-[3rem] leading-[1] text-[#FF000D]">"</div>
+                    <div class="text-[3rem] leading-[1]">"</div>
                     <p class=""><?= $messages['homeSectionFifthPera_2'] ?></p>
                     <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_2'] ?></div>
                 </div>
                 <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
-                    <div class="text-[3rem] leading-[1] text-[#FF000D]">"</div>
+                    <div class="text-[3rem] leading-[1]">"</div>
                     <p class=""><?= $messages['homeSectionFifthPera_3'] ?></p>
                     <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_3'] ?></div>
                 </div>
@@ -354,13 +354,12 @@ require_once 'header.php';
     <section class="w-[80%] gap-6 flex max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
         <div class='w-[40%]'>
             <h2 class="text-[2rem] syne text-[#333333] mb-4 md:text-3xl font-bold leading-[1]"><?= $messages['homeFaqs_1'] ?></h2>
-            <img src="<?= $imagePath ?>FAQs.webp" alt="">
+            <img src="<?= $imagePath ?>FAQs.webp" alt="" class='rounded-[10px]'>
         </div>
         <div class="space-y-3 w-[60%]">
             <?php foreach($homeContentData["faqs"] as $faqs): ?>
-            <div class="border border-gray-200 bg-[#f7fdff] rounded-md overflow-hidden">
-                <button
-                    class="faq-toggle w-full text-left flex justify-between items-center px-5 py-4 font-medium text-gray-700">
+            <div class="shadow-[0px_0px_50px_#0000000D] rounded-md overflow-hidden">
+                <button class="faq-toggle w-full text-left flex justify-between items-center px-5 py-4 font-medium text-[#333333]">
                     <span><?php echo $faqs["question_{$lang}"]; ?></span>
                     <span class="text-2xl font-bold text-[#333333]">+</span>
                 </button>
@@ -375,18 +374,27 @@ require_once 'header.php';
     <!--------------------------------- blogs ------------------------------->
 
     <section class="py-16 max-[1024px]:py-10 relative">
+        <img class='w-full h-full object-cover absolute inset-0 z-[-1]' src="<?= $imagePath ?>blogbg.webp" alt="">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
-            <div class="text-black text-[1.5rem] font-bold"><?= $messages['ourblogs'] ?></div>
+            <div class="flex items-center justify-between max-[1024px]:flex-col mb-6">
+                <div class="text-[#333333] text-[2rem] syne font-bold"><?= $messages['ourblogs'] ?></div>
+                <div class="">
+                    <a class='px-4 py-2 bg-[#E02D3C] rounded-[5px] text-white ' href="blogs"><?= $messages['viewall'] ?></a>
+                </div>
+            </div>
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 gap-4">
                 <?php foreach($homeContentData["blogs"] as $blog): ?>
-                <a href="blogs/<?php echo $blog["slug"]; ?>" class="relative">
-                    <div class="bg-black/40 absolute inset-0 rounded-[10px]"></div>
-                    <div class="bg-white text-black rounded-full py-1 px-3 absolute top-4 left-4 text-[10px]"><?php echo $blog["blog_schedule"]; ?>
+                    <div class="flex items-center shadow-[0px_0px_50px_#0000000D] bg-white rounded-[10px]">
+                        <div class="w-1/2">
+                            <img src="<?php echo $blog["image_url"]; ?>" class="rounded-[10px]" alt="<?php echo $blog["img_alt_{$lang}"]; ?>">
+                        </div>
+                        <div class="w-1/2 p-4">
+                            <a href="blogs/<?php echo $blog["slug"]; ?>" class="">
+                                <div class="text-[#333333] syne text-[1.1rem] leading-[1]"><?php echo $blog["title_{$lang}"]; ?></div>
+                                <div class="text-[#333333] syne font-bold mt-2"><?= $messages['read_more'] ?></div>
+                            </a>
+                        </div>
                     </div>
-                    <img src="<?php echo $blog["image_url"]; ?>" class="rounded-[10px]" alt="<?php echo $blog["img_alt_{$lang}"]; ?>">
-                    <div class="text-white text-[1rem] absolute bottom-4 px-4"><?php echo $blog["title_{$lang}"]; ?>
-                    </div>
-                </a>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -394,20 +402,44 @@ require_once 'header.php';
 
     <!--------------------------------- section 6 ------------------------------->
 
-    <section class="bg-[#f1f4f8] py-16 max-[1024px]:py-10">
-        <div class="w-[80%] max-[1024px]:w-[90%] mx-auto text-center text-[#939393]">
+    <section class="py-16 max-[1024px]:py-10">
+        <div class="max-[1024px]:py-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
+            <div class="text-center mb-6">
+                <div class="text-[2.5rem] mb-4 capitalize syne text-center w-[80%] mx-auto leading-[1] font-bold"><?= $messages['homeSectionSixthHeading_1'] ?></div>
+                <p class='text-[#7C7C7C] text-center'><?= $messages['homeSectionSixthPera_1'] ?></p>
+            </div>
+            <div class="flex items-center gap-10">
+                <div class="w-[55%]">
+                    <p class="text-[#7c7c7c]"><?= $messages['homeSectionSixthPera_2'] ?></p>
+                    <p class="text-[#7c7c7c]"><?= $messages['homeSectionSixthPera_3'] ?></p>
+                </div>
+                <div class="w-[45%]">
+                    <img class='w-full h-full object-cover rounded-[10px]' src="<?= $imagePath ?>home6.webp" alt="">
+                </div>
+            </div>
+            <div class="flex mt-6 py-6 rounded-[10px] items-center gap-10">
+                <div class="w-[40%]">
+                    <img class='w-full h-full object-cover rounded-[10px]' src="<?= $imagePath ?>home7.webp" alt="">
+                </div>
+                <div class="w-[60%]">
+                    <p class="text-[#7c7c7c]"><?= $messages['homeSectionSixthPera_4'] ?></p>
+                    <p class="text-[#7c7c7c] mt-4"><?= $messages['homeSectionSixthPera_5'] ?></p>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="w-[80%] max-[1024px]:w-[90%] mx-auto text-center text-[#939393]">
             <div class="text-black font-bold text-[1.7rem] leading-[1] mb-10"><?= $messages['homeSectionSixthHeading_1'] ?></div>
             <p><?= $messages['homeSectionSixthPera_1'] ?></p>
             <p class="mt-6"><?= $messages['homeSectionSixthPera_2'] ?></p>
             <p class="mt-6"><?= $messages['homeSectionSixthPera_3'] ?></p>
             <p class="mt-6"><?= $messages['homeSectionSixthPera_4'] ?></p>
             <p class="mt-6"><?= $messages['homeSectionSixthPera_5'] ?></p>
-        </div>
+        </div> -->
     </section>
 
     <!--------------------------------- Features On ------------------------------->
 
-    <section>
+    <!-- <section>
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto py-8 ">
             <div class="text-center text-black font-bold text-[1.7rem] leading-[1] mb-10"><?= $messages['features'] ?></div>
             <div class="flex max-[1024px]:flex-wrap  justify-center gap-6">
@@ -418,6 +450,6 @@ require_once 'header.php';
                 <img class="object-contain w-[10rem] " src="<?= $imagePath ?>sections/features/localuae.webp" alt="">
             </div>
         </div>
-    </section>
+    </section> -->
 
 <?php include_once('footer.php');?>
