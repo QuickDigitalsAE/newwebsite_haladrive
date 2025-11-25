@@ -18,6 +18,10 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
+.placeholder::placeholder{
+    color: black;
+}
+
 p {
     text-align: justify;
 }
