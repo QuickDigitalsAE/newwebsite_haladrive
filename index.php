@@ -38,7 +38,7 @@ require_once 'header.php';
         <img class='w-full object-cover ar_img h-full' src="<?= $imagePath ?>banner/bg.webp" alt="">
         <img class='absolute right-0 max-[1024px]:left-0 max-[1024px]:w-[95%] max-[1024px]:mx-auto ar_banner_img bottom-[-2rem] max-[1024px]:bottom-[-1rem]' src="<?= $imagePath ?>banner/car.webp" alt="">
         <div class="text-[#333333] w-[40%] max-[1024px]:w-[95%] absolute top-[35%] max-[1024px]:top-[30%] -translate-y-1/2 left-[10%] max-[1024px]:left-0 max-[1024px]:right-0 max-[1024px]:mx-auto ar_banner_text">
-            <h1 class='text-[3rem] max-[1024px]:text-[2rem] syne leading-[1] mb-3'><?= $messages['bannernewh'] ?></h1>
+            <div class='text-[3rem] max-[1024px]:text-[2rem] syne leading-[1] mb-3'><?= $messages['bannernewh'] ?></div>
             <p class='leading-[1] w-[80%] max-[1024px]:w-full'><?= $messages['bannernewp'] ?></p>
             <div class="bg-[#E02D3C] p-2 w-fit rounded-[5px] text-white mt-3"><?= $messages['exploremore'] ?></div>
         </div>
@@ -158,7 +158,7 @@ require_once 'header.php';
     <section class='relative py-16 max-[1024px]:py-10'>
         <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>home1.webp" alt="">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
-            <div class="text-[2.5rem] max-[1024px]:text-[1.7rem] mb-6 capitalize syne text-center w-[80%] max-[1024px]:w-full mx-auto leading-[1] font-bold"><?= $messages['homeSectionOneHeading_1'] ?></div>
+            <h2 class="text-[2.5rem] max-[1024px]:text-[1.7rem] mb-6 capitalize syne text-center w-[80%] max-[1024px]:w-full mx-auto leading-[1] font-bold"><?= $messages['homeSectionOneHeading_1'] ?></h2>
             <div class="flex max-[1024px]:flex-col-reverse items-center gap-10 max-[1024px]:gap-2">
                 <div class="w-[55%] max-[1024px]:w-full">
                     <p class="text-[#333333] mt-4"><?= $messages['homeSectionOnePera_1'] ?></p>
@@ -266,7 +266,7 @@ require_once 'header.php';
         <div class="">
             <div class="flex max-[1024px]:flex-col-reverse items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
                 <div class="w-[60%] max-[1024px]:w-full">
-                    <div class="text-[2rem] capitalize syne leading-[1] font-bold"><?= $messages['homeSectionTwoHeading_1'] ?></div>
+                    <h2 class="text-[2rem] capitalize syne leading-[1] font-bold"><?= $messages['homeSectionTwoHeading_1'] ?></h2>
                     <p class="text-[#333333] mt-4"><?= $messages['homeSectionTwoPera_1'] ?></p>
                 </div>
                 <div class="w-[40%] max-[1024px]:w-full">
@@ -283,7 +283,7 @@ require_once 'header.php';
             </div>
             <div class="w-[80%] mt-6 max-[1024px]:w-[90%] mx-auto bg-white p-4 rounded-[10px]">
                 <div class="text-center">
-                    <div class="text-[2rem] max-[1024px]:text-[1.7rem] capitalize syne leading-[1] font-bold"><?= $messages['homeSectionTwoHeading_2'] ?></div>
+                    <h3 class="text-[2rem] max-[1024px]:text-[1.7rem] capitalize syne leading-[1] font-bold"><?= $messages['homeSectionTwoHeading_2'] ?></h3>
                     <p class="text-[#333333] mt-4"><?= $messages['homeSectionTwoPera_3'] ?></p>
                     <p class="text-[#333333] mt-4"><?= $messages['homeSectionTwoPera_4'] ?></p>
                     <p class="text-[#333333] mt-4"><?= $messages['homeSectionTwoPera_5'] ?></p>
@@ -353,7 +353,7 @@ require_once 'header.php';
 
     <section class="w-[80%] gap-6 flex max-[1024px]:flex-col max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
         <div class='w-[40%] max-[1024px]:w-full'>
-            <h2 class="text-[2rem] max-[1024px]:text-[1.5rem] syne text-[#333333] mb-4 md:text-3xl font-bold leading-[1]"><?= $messages['homeFaqs_1'] ?></h2>
+            <h3 class="text-[2rem] max-[1024px]:text-[1.5rem] syne text-[#333333] mb-4 md:text-3xl font-bold leading-[1]"><?= $messages['homeFaqs_1'] ?></h3>
             <img src="<?= $imagePath ?>FAQs.webp" alt="" class='rounded-[10px] max-[1024px]:hidden'>
         </div>
         <div class="space-y-3 w-[60%] max-[1024px]:w-full">
@@ -377,7 +377,7 @@ require_once 'header.php';
         <img class='w-full h-full object-cover absolute inset-0 z-[-1]' src="<?= $imagePath ?>blogbg.webp" alt="">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
             <div class="flex items-center justify-between max-[1024px]:flex-col max-[1024px]:gap-4 mb-6">
-                <div class="text-[#333333] text-[2rem] syne font-bold"><?= $messages['ourblogs'] ?></div>
+                <h3 class="text-[#333333] text-[2rem] syne font-bold"><?= $messages['ourblogs'] ?></h3>
                 <div class="">
                     <a class='px-4 py-2 bg-[#E02D3C] rounded-[5px] text-white ' href="blogs"><?= $messages['viewall'] ?></a>
                 </div>
@@ -405,7 +405,7 @@ require_once 'header.php';
     <section class="py-16 max-[1024px]:py-10">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
             <div class="text-center mb-6">
-                <div class="text-[2.5rem] max-[1024px]:text-[1.7rem] mb-4 capitalize syne text-center w-[80%] max-[1024px]:w-full mx-auto leading-[1] font-bold"><?= $messages['homeSectionSixthHeading_1'] ?></div>
+                <h4 class="text-[2.5rem] max-[1024px]:text-[1.7rem] mb-4 capitalize syne text-center w-[80%] max-[1024px]:w-full mx-auto leading-[1] font-bold"><?= $messages['homeSectionSixthHeading_1'] ?></h4>
                 <p class='text-[#333333] text-center'><?= $messages['homeSectionSixthPera_1'] ?></p>
             </div>
             <div class="flex max-[1024px]:flex-col-reverse items-center gap-10 max-[1024px]:gap-6">
@@ -427,14 +427,6 @@ require_once 'header.php';
                 </div>
             </div>
         </div>
-        <!-- <div class="w-[80%] max-[1024px]:w-[90%] mx-auto text-center text-[#939393]">
-            <div class="text-black font-bold text-[1.7rem] leading-[1] mb-10"><?= $messages['homeSectionSixthHeading_1'] ?></div>
-            <p><?= $messages['homeSectionSixthPera_1'] ?></p>
-            <p class="mt-6"><?= $messages['homeSectionSixthPera_2'] ?></p>
-            <p class="mt-6"><?= $messages['homeSectionSixthPera_3'] ?></p>
-            <p class="mt-6"><?= $messages['homeSectionSixthPera_4'] ?></p>
-            <p class="mt-6"><?= $messages['homeSectionSixthPera_5'] ?></p>
-        </div> -->
     </section>
 
     <!--------------------------------- Features On ------------------------------->
