@@ -261,7 +261,7 @@ include_once('banner.php');
                     </div>
                     <?php endforeach; ?>
                 </div>
-                <div class="text-black mt-6 string">
+                <div class="text-black mt-6 string col-span-3 max-[1024px]:col-span-1">
                     <?php echo $locationData["location"]["description_{$lang}"]; ?>
                 </div>
             </div>
