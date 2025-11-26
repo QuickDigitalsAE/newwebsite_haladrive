@@ -140,7 +140,7 @@ require_once 'header.php';
                                 </div>
                             </div>
                             <a href='cars/<?php echo $car["slug"]; ?>' class="w-[60%] h-[11.5rem] max-[1024px]:w-full">
-                                <img class='w-full h-full object-contain' src="<?php echo $car["image_url"]; ?>" alt="<?php echo $car["name_{$lang}"]; ?>">
+                                <img class='w-full h-full object-contain' loading="lazy" src="<?php echo $car["image_url"]; ?>" alt="<?php echo $car["name_{$lang}"]; ?>">
                             </a>
                         </div>      
                         <div class="mt-4">  
