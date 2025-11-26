@@ -182,7 +182,7 @@ try {
                     </div>
                     <?php endforeach; ?>
                 </div>
-                <div class="text-black mt-6 string">
+                <div class="text-black mt-6 string col-span-4 max-[1024px]:col-span-1">
                     <?php echo $brandData["brand"]["description_{$lang}"]; ?>
                 </div>
             </div>
