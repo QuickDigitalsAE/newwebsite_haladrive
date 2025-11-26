@@ -17,9 +17,9 @@
                     </div>
                     <div class="">
                         <ul class='flex gap-4 '>
-                            <li><a href="https://www.facebook.com/quickdigitaldubai" target="_blank">Facebook</a></li>
-                            <li><a href="https://www.instagram.com/quickdigitaldubai/" target="_blank">Instagram</a></li>
-                            <li><a href="https://www.linkedin.com/company/quick-digital-solutions/" target="_blank">Linked In</a></li>
+                            <li><a href="https://www.facebook.com/HalaDrive" target="_blank">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/hala_drive_car_rental/" target="_blank">Instagram</a></li>
+                            <li><a href="https://wa.me/971501837112?text=Hi" target="_blank">Whatsapp</a></li>
                         </ul>
                     </div>
                 </div>
