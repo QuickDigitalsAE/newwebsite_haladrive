@@ -35,7 +35,7 @@ try {
     <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400..700&display=swap">
     </noscript>
-    <link defer rel="stylesheet" href="<?= $cssPath; ?>">
+    <!-- <link defer rel="stylesheet" href="<?= $cssPath; ?>"> -->
     <link rel="preload" href="<?= $cssPath; ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <!-- <link defer rel="stylesheet" href="<?= $outputCssPath; ?>"> -->
     <link rel="preload" href="<?= $outputCssPath; ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
