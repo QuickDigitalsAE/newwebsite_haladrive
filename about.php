@@ -65,15 +65,15 @@ include_once('banner.php');
                 </div>
                 <div class="grid grid-cols-2 items-center gap-4">
                     <div class="">
-                        <div class="text-black text-[3.5rem] max-[1024px]:text-[2.5rem]">10K+</div>
+                        <h3 class="text-black text-[3.5rem] max-[1024px]:text-[2.5rem]">10K+</h3>
                         <p class="text-[#939393]"><?= $messages['aboutSectionOneHeading_1'] ?></p>
                     </div>
                     <div class="">
-                        <div class="text-black text-[3.5rem] max-[1024px]:text-[2.5rem]">100K+</div>
+                        <h3 class="text-black text-[3.5rem] max-[1024px]:text-[2.5rem]">100K+</h3>
                         <p class="text-[#939393]"><?= $messages['aboutSectionOneHeading_3'] ?></p>
                     </div>
                     <div class="">
-                        <div class="text-black text-[3.5rem] max-[1024px]:text-[2.5rem]">5 <?= $messages['aboutSectionOneHeading_years'] ?></div>
+                        <h3 class="text-black text-[3.5rem] max-[1024px]:text-[2.5rem]">5 <?= $messages['aboutSectionOneHeading_years'] ?></h3>
                         <p class="text-[#939393]"><?= $messages['aboutSectionOneHeading_2'] ?></p>
                     </div>
                     <div class="">
