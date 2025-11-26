@@ -190,8 +190,10 @@ if ($slug) {
 
 $sort = $_GET['sort'] ?? null;
 
+$currentPage = $_GET['page'] ?? 1;
+
 try {
-    $carContent = $api->loadData('car', 'main', ['sort' => $sort]);
+    $carContent = $api->loadData('car', 'main', ['sort' => $sort, 'page' => $currentPage]);
     if ($carContent['success']) {
         $carContentData = $carContent['data']["data"];
 
@@ -340,6 +342,44 @@ include_once('banner.php');
                         </div>
                     </div>
                     <?php endforeach; ?>
+
+                    <?php 
+                    if (!empty($carContentData["cars"]["links"])): ?>
+                        <div class="flex justify-center mt-10">
+                            <div class="flex gap-2 items-center">
+
+                                <?php foreach ($carContentData["cars"]["links"] as $link): ?>
+
+                                    <?php if ($link["url"]): ?>
+                                        
+                                        <?php if ($link["active"]): ?>
+                                            <a 
+                                                href="/newwebsite_haladrive/cars?page=<?= $link['page'] ?>" 
+                                                class="px-4 py-2 bg-[#ff000d] text-white rounded"
+                                            >
+                                                <?= $link["label"] ?>
+                                            </a>
+
+                                        <!-- Inactive Page -->
+                                        <?php else: ?>
+                                            <a 
+                                                href="/newwebsite_haladrive/cars?page=<?= $link['page'] ?>" 
+                                                class="px-4 py-2 bg-white text-[#333] border rounded hover:bg-[#ff000d] hover:text-white"
+                                            >
+                                                <?= $link["label"] ?>
+                                            </a>
+                                        <?php endif; ?>
+
+                                    <?php else: ?>
+                                        <span class="px-4 py-2 text-gray-500"><?= $link["label"] ?></span>
+                                    <?php endif; ?>
+
+                                <?php endforeach; ?>
+
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
                 </div>
             </div>
         </div>
