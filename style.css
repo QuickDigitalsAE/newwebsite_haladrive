@@ -98,7 +98,7 @@ html[dir="rtl"] .ar_header_drop {
     right: 0;
 }
 html[dir="rtl"] .ar_gap {
-    gap: 1rem;
+    gap: .5rem;
 }
 html[dir="rtl"] .ar_px {
     padding-left: -0.35rem;

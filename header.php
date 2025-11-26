@@ -116,7 +116,7 @@ try {
                     </li>
                     <li class="flex gap-2 bg-[#E02D3C] ar_ml3 ml-3 max-[1024px]:flex-col rounded-[5px] group relative">
                         <div class="flex items-center gap-1 transition-all duration-300 cursor-pointer text-white px-3 py-1 max-[1024px]:py-2">
-                            <div class=""><?= $lang ?></div>
+                            <?= ($lang === 'ar') ? 'العربية' : $lang ?>
                             <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
                         </div>
                         <ul class="absolute top-[3rem] left-0 w-[8.3rem] p-[.5rem] ar_header_drop z-[999] bg-[#e9ecef] rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
