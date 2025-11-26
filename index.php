@@ -273,7 +273,7 @@ require_once 'header.php';
                     <img src="<?= $imagePath ?>home4.webp" class="h-full w-full object-cover" alt="">
                 </div>
             </div>
-            <div class="flex max-[1024px]:flex-col items-end gap-10 max-[1024px]:gap-2 w-[80%] max-[1024px]:w-[90%] mx-auto max-[1024px]:mt-6">
+            <div class="flex max-[1024px]:flex-col items-center gap-10 max-[1024px]:gap-2 w-[80%] max-[1024px]:w-[90%] mx-auto max-[1024px]:mt-6">
                 <div class="w-[40%] max-[1024px]:w-full">
                     <img src="<?= $imagePath ?>home5.webp" class="h-full rounded-[10px] w-full object-cover" alt="">
                 </div>
@@ -281,7 +281,7 @@ require_once 'header.php';
                     <p class="text-[#333333] mt-4"><?= $messages['homeSectionTwoPera_2'] ?></p>
                 </div>
             </div>
-            <div class="w-[80%] mt-6 max-[1024px]:w-[90%] mx-auto bg-white p-4 rounded-[10px]">
+            <div class="w-[80%] mt-10 max-[1024px]:w-[90%] mx-auto bg-white p-4 rounded-[10px]">
                 <div class="text-center">
                     <h3 class="text-[2rem] max-[1024px]:text-[1.7rem] capitalize syne leading-[1] font-bold"><?= $messages['homeSectionTwoHeading_2'] ?></h3>
                     <p class="text-[#333333] mt-4"><?= $messages['homeSectionTwoPera_3'] ?></p>
@@ -331,17 +331,17 @@ require_once 'header.php';
             </div>
             <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 max-[1024px]:gap-6 gap-10">
                 <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
-                    <div class="text-[3rem] leading-[1]">"</div>
+                    <div class="text-[3rem] leading-[1] mb-[-.9rem]">"</div>
                     <p class="text-left"><?= $messages['homeSectionFifthPera_1'] ?></p>
                     <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_1'] ?></div>
                 </div>
                 <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
-                    <div class="text-[3rem] leading-[1]">"</div>
+                    <div class="text-[3rem] leading-[1] mb-[-.9rem]">"</div>
                     <p class="text-left"><?= $messages['homeSectionFifthPera_2'] ?></p>
                     <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_2'] ?></div>
                 </div>
                 <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
-                    <div class="text-[3rem] leading-[1]">"</div>
+                    <div class="text-[3rem] leading-[1] mb-[-.9rem]">"</div>
                     <p class="text-left"><?= $messages['homeSectionFifthPera_3'] ?></p>
                     <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_3'] ?></div>
                 </div>

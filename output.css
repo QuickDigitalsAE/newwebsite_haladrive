@@ -765,6 +765,10 @@ video {
   margin-left: 0.75rem;
 }
 
+.mb-\[-\.9rem\] {
+  margin-bottom: -.9rem;
+}
+
 .block {
   display: block;
 }
@@ -1760,6 +1764,11 @@ video {
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-\[\#E02D3C\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 45 60 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:text-white:hover {

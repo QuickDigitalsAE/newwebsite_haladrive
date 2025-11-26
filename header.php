@@ -67,52 +67,52 @@ try {
                 <ul class="uppercase flex max-[1024px]:flex-col items-center ar_gap justify-center max-[1024px]:items-start max-[1024px]:gap-0 max-[1024px]:pb-4 max-[1024px]:pt-24 text-white relative max-[1024px]:mx-5">
                     <!-- <li class="relative ">
                         <a href=""
-                            class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['home'] ?></a>
+                            class="transition-all duration-300 hover:bg-[#E02D3C] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['home'] ?></a>
                     </li> -->
                     <li class="relative ">
                         <a href="about"
-                            class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['about'] ?></a>
+                            class="transition-all duration-300 hover:bg-[#E02D3C] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['about'] ?></a>
                     </li>
                     <li class="relative group ">
-                        <div class="flex items-center gap-1 transition-all duration-300 hover:bg-[#ff000d] ar_px py-4 px-3 max-[1024px]:py-2 ">
+                        <div class="flex items-center gap-1 transition-all duration-300 hover:bg-[#E02D3C] ar_px py-4 px-3 max-[1024px]:py-2 ">
                             <a href="#" class=""><?= $messages['brands'] ?></a>
                             <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
                         </div>
                         <ul class="absolute left-0 ar_header_drop mt-3 z-[999] bg-[#e9ecef] rounded-md grid grid-cols-2 dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                             <?php foreach($headerContentData["brands"] as $brands): ?>
                                 <li>
-                                    <a href="brands/<?php echo $brands["slug"]; ?>" class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300"><?php echo $brands["name_{$lang}"]; ?></a>
+                                    <a href="brands/<?php echo $brands["slug"]; ?>" class="block px-4 py-2 text-[#212529] hover:bg-[#E02D3C] hover:text-white duration-300"><?php echo $brands["name_{$lang}"]; ?></a>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
                     </li>
                     <li class="relative ">
-                        <a href="cars" class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['cars'] ?></a>
+                        <a href="cars" class="transition-all duration-300 hover:bg-[#E02D3C] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['cars'] ?></a>
                     </li>
                     <li class="relative ">
-                        <a href="faq" class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['faq'] ?></a>
+                        <a href="faq" class="transition-all duration-300 hover:bg-[#E02D3C] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['faq'] ?></a>
                     </li>
                     <li class="relative ">
-                        <a href="blogs" class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['blogs'] ?></a>
+                        <a href="blogs" class="transition-all duration-300 hover:bg-[#E02D3C] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['blogs'] ?></a>
                     </li>
                     <li class="relative ">
-                        <a href="locations" class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['locations'] ?></a>
+                        <a href="locations" class="transition-all duration-300 hover:bg-[#E02D3C] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['locations'] ?></a>
                     </li>
                     <li class="relative group ">
-                        <div class="flex items-center gap-1 transition-all duration-300 hover:bg-[#ff000d] ar_px py-4 px-3 max-[1024px]:py-2">
+                        <div class="flex items-center gap-1 transition-all duration-300 hover:bg-[#E02D3C] ar_px py-4 px-3 max-[1024px]:py-2">
                             <a href="#" class=""><?= $messages['lease'] ?></a>
                             <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
                         </div>
                         <ul class="absolute left-0 ar_header_drop mt-3 z-[999] bg-[#e9ecef] rounded-md dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                             <?php foreach($headerContentData["lease"] as $lease): ?>
                                 <li>
-                                    <a href="lease/<?php echo $lease["slug"]; ?>" class="block px-4 py-2 text-[#212529] hover:bg-[#ff000d] hover:text-white duration-300"><?php echo $lease["title_{$lang}"]; ?></a>
+                                    <a href="lease/<?php echo $lease["slug"]; ?>" class="block px-4 py-2 text-[#212529] hover:bg-[#E02D3C] hover:text-white duration-300"><?php echo $lease["title_{$lang}"]; ?></a>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
                     </li>
                     <li class="relative ">
-                        <a href="contact" class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['contact'] ?></a>
+                        <a href="contact" class="transition-all duration-300 hover:bg-[#E02D3C] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['contact'] ?></a>
                     </li>
                     <li class="flex gap-2 bg-[#E02D3C] ar_ml3 ml-3 max-[1024px]:flex-col rounded-[5px] group relative">
                         <div class="flex items-center gap-1 transition-all duration-300 cursor-pointer text-white px-3 py-1 max-[1024px]:py-2">
