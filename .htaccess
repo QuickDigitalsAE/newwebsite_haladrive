@@ -54,7 +54,7 @@ RewriteRule ^ar/locations/?$ locations.php?lang=ar [L,QSA]
 # AR about main
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ar/about-us/?$ about.php?lang=ar [L,QSA]
+RewriteRule ^ar/about-us/?$ about-us.php?lang=ar [L,QSA]
 
 # AR contact main
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -144,7 +144,7 @@ RewriteRule ^locations/?$ locations.php?lang=en [L,QSA]
 # about main
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^about-us/?$ about.php?lang=en [L,QSA]
+RewriteRule ^about-us/?$ about-us.php?lang=en [L,QSA]
 
 # Brands
 RewriteCond %{REQUEST_FILENAME} !-f
