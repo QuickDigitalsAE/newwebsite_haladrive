@@ -17,15 +17,28 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $meta_title ?? 'Default Title'; ?></title>
     <meta property="title" content="<?php echo $meta_title ?? 'Default Title'; ?>" />
     <meta property="description" content="<?php echo $meta_desc ?? 'Default desc'; ?>" />
     <meta name="robots" content="noindex">
     <link href="<?= $imagePath; ?>icons/favicon.ico" rel="icon">
     <base href="<?= $baseHref; ?>">
     <link defer rel="stylesheet" href="<?= $cssPath; ?>">
-    <link defer rel="stylesheet" href="<?= $outputCssPath; ?>">
-    <title><?php echo $meta_title ?? 'Default Title'; ?></title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="preload" href="<?= $cssPath; ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- <link defer rel="stylesheet" href="<?= $outputCssPath; ?>"> -->
+    <link rel="preload" href="<?= $outputCssPath; ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="<?= $outputCssPath; ?>"></noscript>
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
+     <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    let swiperCSS = document.createElement('link');
+    swiperCSS.rel = 'stylesheet';
+    swiperCSS.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
+    document.head.appendChild(swiperCSS);
+    });
+    </script>
 </head>
 
 <body>
