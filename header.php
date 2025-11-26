@@ -122,11 +122,11 @@ try {
                         <ul class="absolute top-[3rem] left-0 right-0 mx-auto w-fit ar_header_drop z-[999] bg-[#e9ecef] rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                             <a href="<?= $englishUrl; ?>" class="flex rounded-[5px] items-center gap-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
                                 <img src="<?= $imagePath ?>flags/flag-en.webp" alt="" class="w-6 h-6 rounded-full">
-                                <div class='text-black'><?= $lang ?></div>
+                                <div class='text-black'>English</div>
                             </a>
                             <a href="<?= $arabicUrl; ?>" class="flex rounded-[5px] items-center gap-2 mt-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
                                 <img src="<?= $imagePath ?>flags/flag-ar.webp" alt="" class="w-6 h-6 rounded-full">
-                                <div class='text-black'>AR</div>
+                                <div class='text-black'>العربية</div>
                             </a>
                         </ul>
                     </li>
