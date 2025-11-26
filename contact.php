@@ -137,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 items-center gap-10 mt-10">
                 <div class="">
-                    <div class="text-black text-[2rem] font-bold mb-6"><?= $messages['contact'] ?></div>
+                    <div class="text-black text-[2rem] syne font-bold mb-6"><?= $messages['contact'] ?></div>
                     <form action="./contact" method="POST">
                         <div class="grid grid-cols-1 gap-4">
                             <input class="border border-[#ced4da] px-4 py-2 focus:outline-none placeholder:text-[#939393]"

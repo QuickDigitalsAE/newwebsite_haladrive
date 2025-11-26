@@ -1525,6 +1525,14 @@ video {
   line-height: 1;
 }
 
+.leading-\[1\.2\] {
+  line-height: 1.2;
+}
+
+.leading-\[1\.4\] {
+  line-height: 1.4;
+}
+
 .\!text-white {
   --tw-text-opacity: 1 !important;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1)) !important;

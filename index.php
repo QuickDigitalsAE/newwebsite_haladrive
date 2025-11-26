@@ -39,7 +39,7 @@ require_once 'header.php';
         <img class='absolute right-0 max-[1024px]:left-0 max-[1024px]:w-[95%] max-[1024px]:mx-auto ar_banner_img bottom-[-2rem] max-[1024px]:bottom-[-1rem]' src="<?= $imagePath ?>banner/car.webp" alt="">
         <div class="text-[#333333] w-[40%] max-[1024px]:w-[95%] absolute top-[35%] max-[1024px]:top-[30%] -translate-y-1/2 left-[10%] max-[1024px]:left-0 max-[1024px]:right-0 max-[1024px]:mx-auto ar_banner_text">
             <div class='text-[3rem] max-[1024px]:text-[2rem] syne leading-[1] mb-3'><?= $messages['bannernewh'] ?></div>
-            <p class='leading-[1] w-[80%] max-[1024px]:w-full'><?= $messages['bannernewp'] ?></p>
+            <p class='leading-[1.4] w-[80%] max-[1024px]:w-full '><?= $messages['bannernewp'] ?></p>
             <div class="bg-[#E02D3C] p-2 w-fit rounded-[5px] text-white mt-3"><?= $messages['exploremore'] ?></div>
         </div>
 

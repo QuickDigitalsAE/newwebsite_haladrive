@@ -231,7 +231,7 @@ include_once('banner.php');
                                 </div>
                             </a>
                             <div class="w-[50%] max-[1024px]:w-full">
-                                <div class="text-[2rem] font-bold leading-[1] max-[1024px]:text-center"><?php echo $car["name_{$lang}"]; ?></div>
+                                <div class="text-[2rem] font-bold leading-[1] max-[1024px]:text-center syne"><?php echo $car["name_{$lang}"]; ?></div>
                                 <ul
                                     class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
                                     <li class="flex items-center gap-2 ">
