@@ -36,7 +36,7 @@ try {
         <div class="bg-[black] py-3 px-6 flex items-center z-[9999] min-[1023px]:hidden relative justify-between">
             <img src="<?= $imagePath ?>logo/Hala-Drive-resize.webp" class="w-[80px] " alt="">
             <div class="flex items-center gap-4">
-                <div class="-skew-x-12 w-fit bg-[#ff000d] cursor-pointer text-white px-3 py-1 text-[12px] openModalBtn"><?= $messages['inquiry'] ?>
+                <div class="bg-[#E02D3C] openModalBtn rounded-[5px] cursor-pointer text-white px-3 py-1"><?= $messages['inquiry'] ?>
                 </div>
                 <img src="<?= $imagePath ?>icons/hamburger.svg" class="w-8" alt="" id="menuBtn" />
             </div>
@@ -63,7 +63,7 @@ try {
             </div>
         </div>
         <nav id="mobileMenu" class="bg-black max-[1024px]:pb-12 max-[1024px]:w-full max-[1024px]:fixed max-[1024px]:z-[999] transition-all duration-500 max-[1024px]:top-[-100%]">
-            <div class="container mx-auto flex items-center justify-end">
+            <div class="container mx-auto flex items-center justify-end max-[1024px]:justify-start">
                 <ul class="uppercase flex max-[1024px]:flex-col items-center ar_gap justify-center max-[1024px]:items-start max-[1024px]:gap-0 max-[1024px]:pb-4 max-[1024px]:pt-24 text-white relative max-[1024px]:mx-5">
                     <!-- <li class="relative ">
                         <a href=""
@@ -119,18 +119,18 @@ try {
                         <a href="contact"
                             class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['contact'] ?></a>
                     </li>
+                    <div class="flex gap-2 ml-3 max-[1024px]:flex-col">
+                        <a href="<?= $englishUrl; ?>" class="flex rounded-[5px] items-center gap-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
+                            <img src="<?= $imagePath ?>flags/flag-en.webp" alt="" class="w-6 h-6 rounded-full">
+                            <div class='text-black'>English</div>
+                        </a>
+                        <a href="<?= $arabicUrl; ?>" class="flex rounded-[5px] items-center gap-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
+                            <img src="<?= $imagePath ?>flags/flag-ar.webp" alt="" class="w-6 h-6 rounded-full">
+                            <div class='text-black'>العربية</div>
+                        </a>
+                        <div class="bg-[#E02D3C] max-[1024px]:hidden openModalBtn rounded-[5px] cursor-pointer text-white px-3 py-1"><?= $messages['inquiry'] ?></div>
+                    </div>
                 </ul>
-                <div class="flex gap-2">
-                    <a href="<?= $englishUrl; ?>" class="flex rounded-[5px] items-center gap-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
-                        <img src="<?= $imagePath ?>flags/flag-en.webp" alt="" class="w-6 h-6 rounded-full">
-                        <div>English</div>
-                    </a>
-                    <a href="<?= $arabicUrl; ?>" class="flex rounded-[5px] items-center gap-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
-                        <img src="<?= $imagePath ?>flags/flag-ar.webp" alt="" class="w-6 h-6 rounded-full">
-                        <div>العربية</div>
-                    </a>
-                    <div class="bg-[#E02D3C] openModalBtn rounded-[5px] cursor-pointer text-white px-3 py-1"><?= $messages['inquiry'] ?></div>
-                </div>
             </div>
         </nav>
     </header>
