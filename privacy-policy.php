@@ -24,6 +24,7 @@ include_once('header.php');
 
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $messages['privacypolicy'];
+$heading = 'h1';
 include_once('banner.php');
 ?>
 
