@@ -82,6 +82,7 @@ include_once('header.php');
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $messages['blogsBannerHeading'];
 $banner_subtitle = $messages['blogsBannerPera'];
+$heading = 'h1';
 include_once('banner.php');
 ?>
 
@@ -93,7 +94,7 @@ include_once('banner.php');
                         <img src="<?php echo $blogs["image_url"]; ?>" class="rounded-[10px]" alt="<?php echo $blogs["img_alt_{$lang}"]; ?>">
                         <div class="p-4">
                             <div class="font-bold text-[#939393] text-[1rem]">10 Nov 2025</div>
-                            <div class="text-black font-bold leading-[1] text-[1.3rem] mt-4"><?php echo $blogs["title_{$lang}"]; ?></div>
+                            <h5 class="text-black font-bold leading-[1] text-[1.3rem] mt-4"><?php echo $blogs["title_{$lang}"]; ?></h5>
                             <button class="uppercase bg-[#ff000d] text-white w-fit px-4 py-2 mt-2 rounded-[5px]">read more</button>
                         </div>
                     </a>
