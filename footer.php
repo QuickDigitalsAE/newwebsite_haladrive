@@ -12,7 +12,7 @@
             <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 pb-[4rem] max-[1024px]:pb-[2rem] text-white m-auto gap-[3rem] max-[1024px]:gap-4 banner-1">
                 <div class="flex max-[1024px]:flex-col items-center justify-between col-span-3 max-[1024px]:col-span-1">
                     <div class="text-white flex items-center gap-4">
-                        <div class="text-[3rem] max-[1024px]:text-[2rem] font-bold">Connect with us</div>
+                        <div class="text-[3rem] max-[1024px]:text-[2rem] font-bold"><?= $messages['withus'] ?></div>
                         <img src="<?= $imagePath ?>icons/arrow.webp" alt="">
                     </div>
                     <div class="">
@@ -98,7 +98,7 @@
                 </div>
                 <div class="flex col-span-3 max-[1024px]:col-span-1 text-white max-[1024px]:flex-col justify-between items-center max-[1024px]:gap-2">
                     <div class="text-center mb-3 text-white">© <a class="border-b border-white" href="https://haladrive.ae"><?= $messages['hala'] ?> </a><?= $messages['rights'] ?> <a target="_blank" class="border-b border-white" href="https://quickdigitals.ae"> <?= $messages['quickdigitals'] ?></a></div>
-                    <a href="privacy-policy">Privacy Policy</a>
+                    <a href="privacy-policy"><?= $messages['privacypolicy'] ?></a>
                 </div>
             </div>
         </div>

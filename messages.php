@@ -190,6 +190,7 @@ return [
 
 
     'privacypolicy' => 'Privacy Policy',
+    'withus' => 'Connect With Us',
 
 
 

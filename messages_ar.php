@@ -191,6 +191,7 @@ return [
 
 
     'privacypolicy' => 'سياسة الخصوصية',
+    'withus' => 'تواصل معنا',
 
 
 
