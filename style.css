@@ -113,6 +113,10 @@ html[dir="rtl"] .ar_banner_img {
     right: unset;
     transform: scaleX(-1);
 }
+html[dir="rtl"] .ar_img {
+    transform: scaleX(-1);
+}
+
 
 .modal {
   display: none;
