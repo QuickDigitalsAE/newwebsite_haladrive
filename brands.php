@@ -66,8 +66,8 @@ try {
         if ($pageType === 'cars_brand') {
             $brandName = $brandData["brand"]["name_{$lang}"];
 
-            $meta_title = "Rent $brandName Cars in Dubai | Best Prices & Deals";
-            $meta_desc  = "Explore $brandName cars available for rent in Dubai. Daily, weekly, and monthly rental options with affordable prices.";
+            $meta_title = "$brandName";
+            $meta_desc  = "$brandName";
         }
 
     } else {
