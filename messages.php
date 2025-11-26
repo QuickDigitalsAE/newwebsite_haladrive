@@ -65,6 +65,12 @@ return [
     'homeFirstHeading' => 'Rent a Car in Dubai with Hala Drive - Affordable, Reliable & Hassle-Free Car Rentals',
     'homeNewHeading' => 'For Some Genuine Reasons',
     'viewall' => 'View All',
+    'exploremore' => 'Explore More',
+    'date' => 'Date',
+    'time' => 'Time',
+    'find' => 'Find A Car',
+    'bannernewh' => 'Rent a Car in Dubai with Hala Drive',
+    'bannernewp' => 'Your trusted partner for affordable and luxury car rentals across Dubai and the UAE. Drive with confidence and convenience every time with well-maintained vehicles',
     
     //   Home One section
     'homeSectionOneHeading_1' => 'Welcome to Hala Drive - Your Trusted Car Rental Partner in Dubai',

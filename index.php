@@ -38,9 +38,9 @@ require_once 'header.php';
         <img class='w-full object-cover ar_img h-full' src="<?= $imagePath ?>banner/bg.webp" alt="">
         <img class='absolute right-0 max-[1024px]:left-0 max-[1024px]:w-[95%] max-[1024px]:mx-auto ar_banner_img bottom-[-2rem] max-[1024px]:bottom-[-1rem]' src="<?= $imagePath ?>banner/car.webp" alt="">
         <div class="text-[#333333] w-[40%] max-[1024px]:w-[95%] absolute top-[35%] max-[1024px]:top-[30%] -translate-y-1/2 left-[10%] max-[1024px]:left-0 max-[1024px]:right-0 max-[1024px]:mx-auto ar_banner_text">
-            <h1 class='text-[3rem] max-[1024px]:text-[2rem] syne leading-[1] mb-3'>Rent a Car in Dubai with Hala Drive</h1>
-            <p class='leading-[1] w-[80%] max-[1024px]:w-full'>Your trusted partner for affordable and luxury car rentals across Dubai and the UAE. Drive with confidence and convenience every time with well-maintained vehicles</p>
-            <div class="bg-[#E02D3C] p-2 w-fit rounded-[5px] text-white mt-3">Explore More</div>
+            <h1 class='text-[3rem] max-[1024px]:text-[2rem] syne leading-[1] mb-3'><?= $messages['bannernewh'] ?></h1>
+            <p class='leading-[1] w-[80%] max-[1024px]:w-full'><?= $messages['bannernewp'] ?></p>
+            <div class="bg-[#E02D3C] p-2 w-fit rounded-[5px] text-white mt-3"><?= $messages['exploremore'] ?></div>
         </div>
 
         <!-- <div class="swiper mySwiper w-full h-full">
@@ -69,15 +69,15 @@ require_once 'header.php';
             <form action="" class='w-full'>
                 <div class="gap-6 items-center grid grid-cols-3">
                     <div class="w-full">
-                        <label class='text-[#333333] block' for="">Date</label>
+                        <label class='text-[#333333] block' for=""><?= $messages['date'] ?></label>
                         <input class="px-4 py-2 bg-[#F4F4F4] w-full text-[#535353] rounded-[2px]" type="date" name="" id="">
                     </div>
                     <div class="w-full">
-                        <label class='text-[#333333] block' for="">time</label>
+                        <label class='text-[#333333] block' for=""><?= $messages['time'] ?></label>
                         <input class="px-4 py-2 bg-[#F4F4F4] w-full text-[#535353] rounded-[2px]" type="time" name="" id="">
                     </div>
                     <a href="cars" class=''>
-                        <div class="cursor-pointer text-center bg-[#E02D3C] text-white rounded-[5px] px-4 py-2">Find A Car</div>
+                        <div class="cursor-pointer text-center bg-[#E02D3C] text-white rounded-[5px] px-4 py-2"><?= $messages['find'] ?></div>
                     </a>
                 </div>
             </form>

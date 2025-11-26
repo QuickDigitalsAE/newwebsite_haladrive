@@ -62,6 +62,17 @@ return [
     //     Home
 
     'homeFirstHeading' => 'استأجر سيارة في دبي مع هلا درايف - خدمة تأجير سيارات, بأسعار معقولة وموثوقة وبدون عناء',
+    'homeNewHeading' => 'لأسباب حقيقية',
+    'viewall' => 'عرض الكل',
+    'exploremore' => 'استكشف المزيد',
+    'date' => 'التاريخ',
+    'time' => 'الوقت',
+    'find' => 'ابحث عن سيارة',
+    'bannernewh' => 'استئجر سيارة في دبي مع هلا درايف',
+    'bannernewp' => 'شريكك الموثوق لتأجير السيارات الفاخرة والمناسبة بأسعار معقولة في دبي والإمارات. قد بثقة وراحة مع سيارات مُعتنى بها جيدًا في كل مرة.',
+
+
+
     //   Home One section
     'homeSectionOneHeading_1' => 'مرحبًا بك في هلا درايف - شريكك الموثوق لتأجير السيارات في دبي',
     'homeSectionOnePera_1' => 'A reliable rent a car Dubai service provides Dubai visitors endless possibilities to maximize their experience. Hala Drive provides a complete collection of vehicles that serve both business requirements and leisure activities. Customers can choose between luxury car models of BMW, Mercedes, Audi and economical rental options to serve every travel requirement. We deliver smooth and hassle-free journeys in Dubai through our competitive car rental prices and exceptional service to customers.',
