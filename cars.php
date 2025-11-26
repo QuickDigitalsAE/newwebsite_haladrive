@@ -211,6 +211,7 @@ include_once('header.php');
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $messages['carsBannerHeading'];
 $banner_subtitle = $messages['carsBannerPera'];
+$heading = 'h1';
 include_once('banner.php');
 ?>
 
