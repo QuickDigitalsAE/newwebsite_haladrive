@@ -91,10 +91,11 @@ try {
                             <a href="#" class=""><?= $messages['brands'] ?></a>
                             <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
                         </div>
-                        <ul class="absolute left-0 ar_header_drop mt-3 z-[999] bg-[#e9ecef] rounded-md grid grid-cols-2 dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
+                        <ul class="absolute left-0 ar_header_drop max-[1024px]:h-[18rem] max-[1024px]:overflow-auto mt-3 z-[9999] bg-white rounded-md grid grid-cols-3 max-[1024px]:grid-cols-2 px-4 gap-2 w-[45rem] max-[1024px]:w-[23rem] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                             <?php foreach($headerContentData["brands"] as $brands): ?>
-                                <li>
-                                    <a href="brands/<?php echo $brands["slug"]; ?>" class="block px-4 py-2 text-[#212529] hover:bg-[#E02D3C] hover:text-white duration-300"><?php echo $brands["name_{$lang}"]; ?></a>
+                                <li class='flex items-center gap-2'>
+                                    <img class='w-[2.4rem] h-[2.4rem] object-contain' src="<?php echo $brands["logo_url"]; ?>" alt="">
+                                    <a href="brands/<?php echo $brands["slug"]; ?>" class="block w-full px-4 py-2 text-[#212529] hover:bg-[#E02D3C] hover:text-white duration-300"><?php echo $brands["name_{$lang}"]; ?></a>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
@@ -116,7 +117,7 @@ try {
                             <a href="#" class=""><?= $messages['lease'] ?></a>
                             <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
                         </div>
-                        <ul class="absolute left-0 ar_header_drop mt-3 z-[999] bg-[#e9ecef] rounded-md dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
+                        <ul class="absolute left-0 ar_header_drop mt-3 z-[9999] bg-white rounded-md dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                             <?php foreach($headerContentData["lease"] as $lease): ?>
                                 <li>
                                     <a href="lease/<?php echo $lease["slug"]; ?>" class="block px-4 py-2 text-[#212529] hover:bg-[#E02D3C] hover:text-white duration-300"><?php echo $lease["title_{$lang}"]; ?></a>
@@ -132,7 +133,7 @@ try {
                             <?= ($lang === 'ar') ? 'العربية' : $lang ?>
                             <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
                         </div>
-                        <ul class="absolute top-[3rem] left-0 w-[8.3rem] p-[.5rem] ar_header_drop z-[999] bg-[#e9ecef] rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
+                        <ul class="absolute top-[3rem] left-0 w-[8.3rem] p-[.5rem] ar_header_drop z-[999] bg-white rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                             <a href="<?= $englishUrl; ?>" class="flex rounded-[5px] items-center gap-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
                                 <img src="<?= $imagePath ?>flags/flag-en.webp" alt="" class="w-6 h-6 rounded-full">
                                 <div class='text-black'>English</div>
