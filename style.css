@@ -104,6 +104,15 @@ html[dir="rtl"] .ar_px {
     padding-left: -0.35rem;
     padding-right: -0.35rem;
 }
+html[dir="rtl"] .ar_banner_text {
+    left: unset;
+    right: 10%;
+}
+html[dir="rtl"] .ar_banner_img {
+    left: 0;
+    right: unset;
+    transform: scale(-1);
+}
 
 .modal {
   display: none;

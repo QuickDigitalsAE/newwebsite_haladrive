@@ -36,8 +36,8 @@ require_once 'header.php';
 
     <section class="relative w-full max-[1024px]:h-[55vh] max-[1024px]: pb-[4rem]">
         <img class='w-full object-cover h-full' src="<?= $imagePath ?>banner/bg.webp" alt="">
-        <img class='absolute right-0 max-[1024px]:left-0 max-[1024px]:w-[95%] max-[1024px]:mx-auto bottom-[-2rem] max-[1024px]:bottom-[-1rem]' src="<?= $imagePath ?>banner/car.webp" alt="">
-        <div class="text-[#333333] w-[40%] max-[1024px]:w-[95%] absolute top-[35%] max-[1024px]:top-[30%] -translate-y-1/2 left-[10%] max-[1024px]:left-0 max-[1024px]:right-0 max-[1024px]:mx-auto">
+        <img class='absolute right-0 max-[1024px]:left-0 max-[1024px]:w-[95%] max-[1024px]:mx-auto ar_banner_img bottom-[-2rem] max-[1024px]:bottom-[-1rem]' src="<?= $imagePath ?>banner/car.webp" alt="">
+        <div class="text-[#333333] w-[40%] max-[1024px]:w-[95%] absolute top-[35%] max-[1024px]:top-[30%] -translate-y-1/2 left-[10%] max-[1024px]:left-0 max-[1024px]:right-0 max-[1024px]:mx-auto ar_banner_text">
             <h1 class='text-[3rem] max-[1024px]:text-[2rem] syne leading-[1] mb-3'>Rent a Car in Dubai with Hala Drive</h1>
             <p class='leading-[1] w-[80%] max-[1024px]:w-full'>Your trusted partner for affordable and luxury car rentals across Dubai and the UAE. Drive with confidence and convenience every time with well-maintained vehicles</p>
             <div class="bg-[#E02D3C] p-2 w-fit rounded-[5px] text-white mt-3">Explore More</div>
