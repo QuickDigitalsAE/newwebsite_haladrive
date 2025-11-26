@@ -119,7 +119,7 @@ try {
                         <a href="contact"
                             class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['contact'] ?></a>
                     </li>
-                    <div class="flex gap-2 ml-3 max-[1024px]:flex-col">
+                    <div class="flex gap-2 ar_ml3 ml-3 max-[1024px]:flex-col">
                         <a href="<?= $englishUrl; ?>" class="flex rounded-[5px] items-center gap-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
                             <img src="<?= $imagePath ?>flags/flag-en.webp" alt="" class="w-6 h-6 rounded-full">
                             <div class='text-black'>English</div>

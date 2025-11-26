@@ -116,6 +116,10 @@ html[dir="rtl"] .ar_banner_img {
 html[dir="rtl"] .ar_img {
     transform: scaleX(-1);
 }
+html[dir="rtl"] .ar_ml3 {
+    margin-left: 0rem;
+}
+
 
 
 .modal {
