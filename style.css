@@ -111,7 +111,7 @@ html[dir="rtl"] .ar_banner_text {
 html[dir="rtl"] .ar_banner_img {
     left: 0;
     right: unset;
-    transform: scale(-1);
+    transform: scaleX(-1);
 }
 
 .modal {
