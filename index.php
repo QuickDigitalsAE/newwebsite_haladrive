@@ -67,7 +67,7 @@ require_once 'header.php';
     <section class="relative py-8 max-[1024px]:hidden">
         <div class="w-[60%] mx-auto justify-between items-center shadow-[0px_0px_50px_#1D293914] p-4 rounded-[10px]">
             <form action="" class='w-full'>
-                <div class="gap-6 items-center grid grid-cols-3">
+                <div class="gap-6 items-end grid grid-cols-3">
                     <div class="w-full">
                         <label class='text-[#333333] block' for=""><?= $messages['date'] ?></label>
                         <input class="px-4 py-2 bg-[#F4F4F4] w-full text-[#535353] rounded-[2px]" type="date" name="" id="">
@@ -139,8 +139,8 @@ require_once 'header.php';
                                     <div class="text-[1rem]"><?php echo $car["price_monthly"]; ?>/<?= $messages['monthly'] ?></div>
                                 </div>
                             </div>
-                            <a href='cars/<?php echo $car["slug"]; ?>' class="w-[60%] max-[1024px]:w-full">
-                                <img src="<?php echo $car["image_url"]; ?>" alt="<?php echo $car["name_{$lang}"]; ?>">
+                            <a href='cars/<?php echo $car["slug"]; ?>' class="w-[60%] h-[11.5rem] max-[1024px]:w-full">
+                                <img class='w-full h-full object-contain' src="<?php echo $car["image_url"]; ?>" alt="<?php echo $car["name_{$lang}"]; ?>">
                             </a>
                         </div>      
                         <div class="mt-4">  
