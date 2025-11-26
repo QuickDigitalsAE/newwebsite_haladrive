@@ -298,7 +298,7 @@ require_once 'header.php';
         <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>footerbg.webp" alt="">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
             <div class="text-white text-center w-[60%] max-[1024px]:w-full mx-auto flex flex-col mb-4 max-[1024px]:mb-10">
-                <div class="text-[2rem] leading-[1] mb-3 syne max-[1024px]:text-[1.5rem] max-[1024px]:leading-[1]"><?= $messages['homeSectionForthHeading_1'] ?></div>
+                <h3 class="text-[2rem] leading-[1] mb-3 syne max-[1024px]:text-[1.5rem] max-[1024px]:leading-[1]"><?= $messages['homeSectionForthHeading_1'] ?></h3>
                 <div class=""><?= $messages['homeSectionForthPera_1'] ?></div>
             </div>
             <div class="">
@@ -323,9 +323,9 @@ require_once 'header.php';
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
             <div class="items-center">
                 <div class="text-[#333333] mb-4">
-                    <div class="text-[3rem] leading-[1] text-center max-[1024px]:text-[2rem]">
+                    <h3 class="text-[3rem] leading-[1] text-center max-[1024px]:text-[2rem]">
                         <?= $messages['satisfied_1'] ?> <span class="text-[3rem] leading-[1] max-[1024px]:text-[2rem] syne "><?= $messages['satisfied_2'] ?></span>
-                    </div>
+                    </h3>
                     <div class="text-[1.5rem] text-center syne leading-[1] mt-4"><?= $messages['satisfied_3'] ?></div>
                 </div>
             </div>
