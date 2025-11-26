@@ -87,20 +87,16 @@ try {
                         </ul>
                     </li>
                     <li class="relative ">
-                        <a href="cars"
-                            class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['cars'] ?></a>
+                        <a href="cars" class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['cars'] ?></a>
                     </li>
                     <li class="relative ">
-                        <a href="faq"
-                            class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['faq'] ?></a>
+                        <a href="faq" class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['faq'] ?></a>
                     </li>
                     <li class="relative ">
-                        <a href="blogs"
-                            class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['blogs'] ?></a>
+                        <a href="blogs" class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['blogs'] ?></a>
                     </li>
                     <li class="relative ">
-                        <a href="locations"
-                            class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['locations'] ?></a>
+                        <a href="locations" class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['locations'] ?></a>
                     </li>
                     <li class="relative group ">
                         <div class="flex items-center gap-1 transition-all duration-300 hover:bg-[#ff000d] ar_px py-4 px-3 max-[1024px]:py-2">
@@ -116,20 +112,27 @@ try {
                         </ul>
                     </li>
                     <li class="relative ">
-                        <a href="contact"
-                            class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['contact'] ?></a>
+                        <a href="contact" class="transition-all duration-300 hover:bg-[#ff000d] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['contact'] ?></a>
                     </li>
-                    <div class="flex gap-2 ar_ml3 ml-3 max-[1024px]:flex-col">
-                        <a href="<?= $englishUrl; ?>" class="flex rounded-[5px] items-center gap-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
-                            <img src="<?= $imagePath ?>flags/flag-en.webp" alt="" class="w-6 h-6 rounded-full">
-                            <div class='text-black'>English</div>
-                        </a>
-                        <a href="<?= $arabicUrl; ?>" class="flex rounded-[5px] items-center gap-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
-                            <img src="<?= $imagePath ?>flags/flag-ar.webp" alt="" class="w-6 h-6 rounded-full">
-                            <div class='text-black'>العربية</div>
-                        </a>
-                        <div class="bg-[#E02D3C] max-[1024px]:hidden openModalBtn rounded-[5px] cursor-pointer text-white px-3 py-1"><?= $messages['inquiry'] ?></div>
-                    </div>
+                    <li class="flex gap-2 bg-[#E02D3C] ar_ml3 ml-3 max-[1024px]:flex-col rounded-[5px] group relative">
+                        <div class="flex items-center gap-1 transition-all duration-300 cursor-pointer text-white px-3 py-1 max-[1024px]:py-2">
+                            <div class=""><?= $messages['language'] ?></div>
+                            <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
+                        </div>
+                        <ul class="absolute top-[3rem] left-0 right-0 mx-auto w-fit ar_header_drop z-[999] bg-[#e9ecef] rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
+                            <a href="<?= $englishUrl; ?>" class="flex rounded-[5px] items-center gap-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
+                                <img src="<?= $imagePath ?>flags/flag-en.webp" alt="" class="w-6 h-6 rounded-full">
+                                <div class='text-black'>English</div>
+                            </a>
+                            <a href="<?= $arabicUrl; ?>" class="flex rounded-[5px] items-center gap-2 mt-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
+                                <img src="<?= $imagePath ?>flags/flag-ar.webp" alt="" class="w-6 h-6 rounded-full">
+                                <div class='text-black'>العربية</div>
+                            </a>
+                        </ul>
+                    </li>
+                    <li class="relative ">
+                        <div class="bg-[#E02D3C] ar_ml3 ml-3 max-[1024px]:hidden openModalBtn rounded-[5px] cursor-pointer text-white px-3 py-1"><?= $messages['inquiry'] ?></div>
+                    </li>
                 </ul>
             </div>
         </nav>
