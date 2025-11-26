@@ -182,9 +182,9 @@ try {
                     </div>
                     <?php endforeach; ?>
                 </div>
-                <!-- <div class="text-black mt-6 string">
-                    <?php echo $brandData["cars"]["data"]["description_{$lang}"]; ?>
-                </div> -->
+                <div class="text-black mt-6 string">
+                    <?php echo $brandData["brand"]["description_{$lang}"]; ?>
+                </div>
             </div>
         </div>
         </div>

@@ -161,6 +161,10 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^/]+)/?$ location.php?slug=$1&lang=en [L,QSA]
 
+# Redirect old URL with & to new URL with 'and'
+RewriteCond %{REQUEST_URI} ^/blogs/luxury-car-rental-for-weddings-&-events-in-dubai-deals-2025$ [NC]
+RewriteRule ^ /blogs/luxury-car-rental-for-weddings-and-events-in-dubai-deals-2025 [R=301,L]
+
 
 <IfModule mod_expires.c>
     ExpiresActive On
