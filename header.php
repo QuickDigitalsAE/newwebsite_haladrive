@@ -83,7 +83,7 @@ try {
                             class="transition-all duration-300 hover:bg-[#E02D3C] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['home'] ?></a>
                     </li> -->
                     <li class="relative ">
-                        <a href="about"
+                        <a href="about-us"
                             class="transition-all duration-300 hover:bg-[#E02D3C] ar_px block py-4 max-[1024px]:py-2 px-3"><?= $messages['about'] ?></a>
                     </li>
                     <li class="relative group ">
