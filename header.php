@@ -106,7 +106,7 @@ try {
                         <ul class="absolute left-0 ar_header_drop max-[1024px]:h-[18rem] max-[1024px]:overflow-auto mt-3 z-[9999] bg-white rounded-md grid grid-cols-3 max-[1024px]:grid-cols-2 px-4 gap-2 w-[45rem] max-[1024px]:w-[23rem] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                             <?php foreach($headerContentData["brands"] as $brands): ?>
                                 <li class='flex items-center gap-2'>
-                                    <img loading="lazy" class='w-[2.4rem] h-[2.4rem] object-contain' src="<?php echo $brands["logo_url"]; ?>" alt="">
+                                    <img class='w-[2.4rem] h-[2.4rem] object-contain' src="<?php echo $brands["logo_url"]; ?>" alt="">
                                     <a href="brands/<?php echo $brands["slug"]; ?>" class="block w-full px-4 py-2 text-[#212529] hover:bg-[#E02D3C] hover:text-white duration-300"><?php echo $brands["name_{$lang}"]; ?></a>
                                 </li>
                             <?php endforeach; ?>
