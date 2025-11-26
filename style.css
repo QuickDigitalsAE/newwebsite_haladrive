@@ -120,7 +120,13 @@ html[dir="rtl"] .ar_ml3 {
     margin-left: 0rem;
 }
 
+a.px-4.py-2.bg-white.text-\[\#333\]:first-child {
+    width: 122px;
+}
 
+a.px-4.py-2.bg-white.text-\[\#333\]:last-child {
+    width: 122px;
+}
 
 .modal {
   display: none;

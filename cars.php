@@ -342,16 +342,12 @@ include_once('banner.php');
                         </div>
                     </div>
                     <?php endforeach; ?>
-
                     <?php 
                     if (!empty($carContentData["cars"]["links"])): ?>
                         <div class="flex justify-center mt-10">
-                            <div class="flex gap-2 items-center">
-
+                            <div class="flex gap-2 max-[1024px]:flex-wrap items-center">
                                 <?php foreach ($carContentData["cars"]["links"] as $link): ?>
-
                                     <?php if ($link["url"]): ?>
-                                        
                                         <?php if ($link["active"]): ?>
                                             <a 
                                                 href="/newwebsite_haladrive/cars?page=<?= $link['page'] ?>" 
@@ -360,7 +356,6 @@ include_once('banner.php');
                                                 <?= $link["label"] ?>
                                             </a>
 
-                                        <!-- Inactive Page -->
                                         <?php else: ?>
                                             <a 
                                                 href="cars?page=<?= $link['page'] ?>" 
@@ -369,17 +364,13 @@ include_once('banner.php');
                                                 <?= $link["label"] ?>
                                             </a>
                                         <?php endif; ?>
-
                                     <?php else: ?>
                                         <span class="px-4 py-2 text-gray-500"><?= $link["label"] ?></span>
                                     <?php endif; ?>
-
                                 <?php endforeach; ?>
-
                             </div>
                         </div>
                     <?php endif; ?>
-
                 </div>
             </div>
         </div>
