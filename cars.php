@@ -363,7 +363,7 @@ include_once('banner.php');
                                         <!-- Inactive Page -->
                                         <?php else: ?>
                                             <a 
-                                                href="/newwebsite_haladrive/cars?page=<?= $link['page'] ?>" 
+                                                href="cars?page=<?= $link['page'] ?>" 
                                                 class="px-4 py-2 bg-white text-[#333] border rounded hover:bg-[#ff000d] hover:text-white"
                                             >
                                                 <?= $link["label"] ?>
