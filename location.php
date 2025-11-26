@@ -261,9 +261,9 @@ include_once('banner.php');
                     </div>
                     <?php endforeach; ?>
                 </div>
-                <!-- <div class="text-black mt-6 string">
-                    <?php echo $locationData["cars"]["data"]["description_{$lang}"]; ?>
-                </div> -->
+                <div class="text-black mt-6 string">
+                    <?php echo $locationData["location"]["description_{$lang}"]; ?>
+                </div>
             </div>
         </div>
         </div>
