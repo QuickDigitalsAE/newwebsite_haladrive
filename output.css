@@ -660,6 +660,10 @@ video {
   top: 3rem;
 }
 
+.left-2 {
+  left: 0.5rem;
+}
+
 .z-\[-1\] {
   z-index: -1;
 }
