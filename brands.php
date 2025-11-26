@@ -6,17 +6,18 @@ require_once 'global.php';
 $meta_title = '';
 $meta_desc  = '';
 
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
+    || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 
-// $slug = $_GET['slug'] ?? null;
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 $host = $_SERVER['HTTP_HOST'];
 $uri = $_SERVER['REQUEST_URI'];
 
 $fullUrl = $protocol . $host . $uri;
 
+// -------------------------------
+// GET SLUG
+// -------------------------------
 $slug = basename(parse_url($uri, PHP_URL_PATH));
-
-
 
 if (!$slug) {
     echo "Brand not found.";
@@ -24,37 +25,73 @@ if (!$slug) {
     exit;
 }
 
+// -------------------------------
+// DETECT PAGE TYPE
+// -------------------------------
+if (strpos($uri, '/brands/') !== false) {
+    $pageType = 'brand'; // Brand page SEO
+} elseif (strpos($uri, '/carsbrands/') !== false) {
+    $pageType = 'cars_brand'; // Car listing page SEO
+} else {
+    $pageType = 'unknown';
+}
+
 $sort = $_GET['sort'] ?? null;
 
+
+// -------------------------------
+// LOAD DATA
+// -------------------------------
 try {
     $brandContent = $api->loadData('brand', 'brand', ['sort' => $sort], $slug);
+
     if ($brandContent['success']) {
+
         $brandData = $brandContent['data']["data"];
 
         $titleKey = "title_" . $lang;
         $descKey  = "description_" . $lang;
 
-        $meta_title = $brandData["meta_data"][$titleKey] ?? '';
-        $meta_desc  = $brandData["meta_data"][$descKey] ?? '';
+        // -------------------------------
+        // META FOR BRAND PAGE
+        // -------------------------------
+        if ($pageType === 'brand') {
+            $meta_title = $brandData["meta_data"][$titleKey] ?? $brandData["brand"]["name_{$lang}"];
+            $meta_desc  = $brandData["meta_data"][$descKey] ?? '';
+        }
 
-        // print_r($brandData);
+        // -------------------------------
+        // META FOR CARS BRAND PAGE
+        // -------------------------------
+        if ($pageType === 'cars_brand') {
+            $brandName = $brandData["brand"]["name_{$lang}"];
+
+            $meta_title = "Rent $brandName Cars in Dubai | Best Prices & Deals";
+            $meta_desc  = "Explore $brandName cars available for rent in Dubai. Daily, weekly, and monthly rental options with affordable prices.";
+        }
+
     } else {
         echo "Brand data not found.";
         include_once('footer.php');
         exit;
     }
-    } catch (Exception $e) {
-        echo "Error loading brand data: " . $e->getMessage();
-        include_once('footer.php');
-        exit;
-    }
 
-    include_once('header.php');
+} catch (Exception $e) {
+    echo "Error loading brand data: " . $e->getMessage();
+    include_once('footer.php');
+    exit;
+}
 
-    $banner_image = "$imagePath/about/top-banner.webp";
-    $banner_title =  $brandData["brand"]["name_{$lang}"];
-    include_once('banner.php');
-    ?>
+// -------------------------------
+// HEADER + BANNER
+// -------------------------------
+include_once('header.php');
+
+$banner_image = "$imagePath/about/top-banner.webp";
+$banner_title = $brandData["brand"]["name_{$lang}"];
+
+include_once('banner.php');
+?>
 
     <!--------------------------------- cars ------------------------------->
 
