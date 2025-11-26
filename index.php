@@ -332,17 +332,17 @@ require_once 'header.php';
             <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 max-[1024px]:gap-6 gap-10">
                 <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
                     <div class="text-[3rem] leading-[1]">"</div>
-                    <p class=""><?= $messages['homeSectionFifthPera_1'] ?></p>
+                    <p class="text-left"><?= $messages['homeSectionFifthPera_1'] ?></p>
                     <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_1'] ?></div>
                 </div>
                 <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
                     <div class="text-[3rem] leading-[1]">"</div>
-                    <p class=""><?= $messages['homeSectionFifthPera_2'] ?></p>
+                    <p class="text-left"><?= $messages['homeSectionFifthPera_2'] ?></p>
                     <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_2'] ?></div>
                 </div>
                 <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
                     <div class="text-[3rem] leading-[1]">"</div>
-                    <p class=""><?= $messages['homeSectionFifthPera_3'] ?></p>
+                    <p class="text-left"><?= $messages['homeSectionFifthPera_3'] ?></p>
                     <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_3'] ?></div>
                 </div>
             </div>
