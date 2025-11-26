@@ -79,10 +79,10 @@
                 <div class="banner-1 first-1">
                     <div class="flex flex-col mt-6 max-[1024px]:mt-4">
                         <!-- <span class="font-bold text-[1.5rem] border-l-2 pl-2 border-[#ff000d] text-white "><?= $messages['details'] ?></span> -->
-                        <span class="font-bold text-[1.5rem] text-[#FF000D] "><?= $messages['quick'] ?></span>
+                        <span class="font-bold text-[1.5rem] text-[#FF000D] "><?= $messages['touch'] ?></span>
                         <div class="flex relative gap-4 mt-2 ">
                             <img  class='absolute top-1/2 -translate-y-1/2 right-0 cursor-pointer ar_img ar_banner_img' src="<?= $imagePath ?>icons/redarrow.webp" alt="">
-                            <input class='placeholder:text-[#808080] focus:outline-none border-b border-[#808080] py-3 bg-transparent w-full' type="email" placeholder='<?= $messages['email'] ?>'>
+                            <input class='placeholder:text-[#808080] openModalBtn focus:outline-none border-b border-[#808080] py-3 bg-transparent w-full' type="email" placeholder='<?= $messages['email'] ?>'>
                         </div>
                     </div>
                     <div class="flex flex-col mt-6 max-[1024px]:mt-4">
