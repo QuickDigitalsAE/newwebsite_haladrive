@@ -25,9 +25,10 @@ if (!$slug) {
 }
 
 $sort = $_GET['sort'] ?? null;
+$currentPage = $_GET['page'] ?? 1;
 
 try {
-    $brandContent = $api->loadData('lease', 'lease', ['sort' => $sort], $slug);
+    $brandContent = $api->loadData('lease', 'lease', ['sort' => $sort, 'page' => $currentPage ], $slug);
     if ($brandContent['success']) {
         $brandData = $brandContent['data']["data"];
 
@@ -116,7 +117,7 @@ try {
                                             <a href="carsbrands/<?php echo $brands["slug"]; ?>"
                                             class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             <img class="w-6 h-6 me-2 rounded-full"
-                                                src="<?php echo $brands["logo_url"]; ?>" alt="<?php echo $brands["name_{$lang}"]; ?>">
+                                                src="<?php echo $brands["logo_url"]; ?>" alt="audi">
                                             <?php echo $brands["name_{$lang}"]; ?>
                                         </a>
                                         </li>
@@ -133,11 +134,11 @@ try {
                             <div
                                 class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
                                 <?= $messages['instock'] ?></div>
-                            <img width="0" hight='0' src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="brand logo">
+                            <img width="0" hight='0' src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="">
                         </div>
                         <div class="flex items-center max-[1024px]:flex-col gap-4">
                             <a href='cars/<?php echo $car["slug"]; ?>' class="w-[50%] max-[1024px]:w-full">
-                                <img src="<?php echo $car["image_url"]; ?>" alt="image">
+                                <img src="<?php echo $car["image_url"]; ?>" alt="">
                                 <div class="flex gap-2 justify-center items-center mt-3">
                                     <div
                                         class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
@@ -161,19 +162,19 @@ try {
                                 <ul
                                     class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
                                     <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="star">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                         <div class=""><?= $messages['engine'] ?> Size 1.5 L</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="star">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                         <div class=""><?= $messages['bluetooth'] ?> Yes</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="star">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                         <div class=""><?= $messages['control'] ?> Yes</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="star">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
                                         <div class=""><?= $messages['luggage'] ?> Yes</div>
                                     </li>
                                 </ul>
@@ -185,7 +186,55 @@ try {
                             </div>
                         </div>
                     </div>
-                    <?php endforeach; ?>
+                    <?php endforeach; 
+                    $baseUrl = "";
+                    
+                    $baseUrl = './lease/'.$brandData['lease']['slug']; ; 
+                    
+                    if (!empty($brandData["cars"]["links"])): ?>
+                    <div class="flex justify-center mt-10">
+                        <div class="flex gap-2 max-[1024px]:flex-wrap items-center">
+                            
+                            <?php foreach ($brandData["cars"]["links"] as $link): ?>
+                                
+                                <?php if ($link["url"]): ?>
+
+                                    <?php 
+                                        // Build full URL
+                                        $pageUrl = !empty($baseUrl) ? $baseUrl. "?page=" . $link["page"] : "#";
+                                    ?>
+
+                                    <?php if ($link["active"]): ?>
+
+                                        <a 
+                                            href="<?= $pageUrl ?>" 
+                                            class="px-4 py-2 bg-[#ff000d] text-white rounded"
+                                        >
+                                            <?= $link["label"] ?>
+                                        </a>
+
+                                    <?php else: ?>
+
+                                        <a 
+                                            href="<?= $pageUrl ?>" 
+                                            class="px-4 py-2 bg-white text-[#333] border rounded hover:bg-[#ff000d] hover:text-white"
+                                        >
+                                            <?= $link["label"] ?>
+                                        </a>
+
+                                    <?php endif; ?>
+
+                                <?php else: ?>
+
+                                    <span class="px-4 py-2 text-gray-500"><?= $link["label"] ?></span>
+
+                                <?php endif; ?>
+
+                            <?php endforeach; ?>
+
+                        </div>
+                    </div>
+                    <?php endif; ?>
                 </div>
                 <div class="text-black mt-6 string col-span-4 max-[1024px]:col-span-1">
                     <?php echo $brandData["lease"]["lease_description_{$lang}"]; ?>
