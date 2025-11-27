@@ -203,6 +203,11 @@ try {
         $meta_title = $carContentData["meta_data"][$titleKey] ?? '';
         $meta_desc  = $carContentData["meta_data"][$descKey] ?? '';
 
+        if (!empty($currentPage) && $currentPage > 1) {
+            $meta_title .= " - Page " . $currentPage;
+            $meta_desc  .= " (Page " . $currentPage . ")";
+        }
+
     }
 } catch (Exception $e) {
     echo "Error loading car list: " . $e->getMessage();
@@ -214,6 +219,9 @@ $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $messages['carsBannerHeading'];
 $banner_subtitle = $messages['carsBannerPera'];
 $heading = 'h1';
+if (!empty($currentPage) && $currentPage > 1) {
+    $banner_title .= "- Page " . $currentPage;
+}
 include_once('banner.php');
 ?>
 
@@ -344,13 +352,12 @@ include_once('banner.php');
                     <?php endforeach; ?>
                     <?php 
                     if (!empty($carContentData["cars"]["links"])): ?>
-                        <div class="flex justify-center mt-10">
+                        <div class="flex justify-center mt-10 mmm">
                             <div class="flex gap-2 max-[1024px]:flex-wrap items-center pagination">
                                 <?php foreach ($carContentData["cars"]["links"] as $link): ?>
                                     <?php if ($link["url"]): ?>
                                         <?php if ($link["active"]): ?>
-                                            <a 
-                                                href="cars?page=<?= $link['page'] ?>" 
+                                            <a href="cars<?= $link['page'] == '1' ? '' : '?page=' . $link['page'] ?>" 
                                                 class="px-4 py-2 bg-[#ff000d] text-white rounded"
                                             >
                                                 <?= $link["label"] ?>
@@ -358,7 +365,7 @@ include_once('banner.php');
 
                                         <?php else: ?>
                                             <a 
-                                                href="cars?page=<?= $link['page'] ?>" 
+                                                href="cars<?= $link['page'] == '1' ? '' : '?page=' . $link['page'] ?>" 
                                                 class="px-4 py-2 bg-white text-[#333] border rounded hover:bg-[#ff000d] hover:text-white"
                                             >
                                                 <?= $link["label"] ?>

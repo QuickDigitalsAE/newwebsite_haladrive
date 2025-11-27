@@ -58,6 +58,11 @@ try {
         if ($pageType === 'brand') {
             $meta_title = $brandData["meta_data"][$titleKey] ?? $brandData["brand"]["name_{$lang}"];
             $meta_desc  = $brandData["meta_data"][$descKey] ?? '';
+
+            if (!empty($currentPage) && $currentPage > 1) {
+                $meta_title .= " - Page " . $currentPage;
+                $meta_desc  .= " (Page " . $currentPage . ")";
+            }
         }
 
         // -------------------------------
@@ -66,7 +71,7 @@ try {
         if ($pageType === 'cars_brand') {
             $brandName = $brandData["brand"]["name_{$lang}"];
 
-            $meta_title = "$brandName";
+            $meta_title = "$brandName $currentPage";
             $meta_desc  = "$brandName";
         }
 
@@ -89,6 +94,10 @@ include_once('header.php');
 
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $brandData["brand"]["name_{$lang}"];
+
+if (!empty($currentPage) && $currentPage > 1) {
+    $banner_title .= "- Page " . $currentPage;
+}
 
 include_once('banner.php');
 ?>
@@ -231,18 +240,13 @@ include_once('banner.php');
                         <div class="flex gap-2 max-[1024px]:flex-wrap items-center">
                             
                             <?php foreach ($brandData["cars"]["links"] as $link): ?>
-                                
                                 <?php if ($link["url"]): ?>
-
-                                    <?php 
-                                        // Build full URL
-                                        $pageUrl = !empty($baseUrl) ? $baseUrl. "?page=" . $link["page"] : "#";
+                                    <?php $pageUrl = !empty($baseUrl) ?  $link['page'] == '1' ? $baseUrl : $baseUrl. "?page=" . $link["page"] : "#";
                                     ?>
 
                                     <?php if ($link["active"]): ?>
 
-                                        <a 
-                                            href="<?= $pageUrl ?>" 
+                                        <a href="<?= $pageUrl ?>" 
                                             class="px-4 py-2 bg-[#ff000d] text-white rounded"
                                         >
                                             <?= $link["label"] ?>
