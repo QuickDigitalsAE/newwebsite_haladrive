@@ -24,7 +24,7 @@ try {
     <meta property="title" content="<?php echo $meta_title ?? 'Default Title'; ?>" />
     <meta property="description" content="<?php echo $meta_desc ?? 'Default desc'; ?>" />
     <!-- <meta name="robots" content="noindex"> -->
-    <link rel="canonical" href="<?php echo $liveBaseUrls?><?php echo $uri?>" />
+    <link rel="canonical" href="https://new.haladrive.ae<?php echo $uri?>" />
     <link href="<?= $imagePath; ?>icons/favicon.ico" rel="icon">
     <base href="<?= $baseHref; ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
