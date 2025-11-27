@@ -112,21 +112,19 @@ include_once('banner.php');
                             <?php if ($link["url"]): ?>
 
                                 <?php 
-                                    // fix URLs
-                                    $pageUrl = "blogs?page=" . $link["page"];
+                                    $pageUrl = ($link["page"] == 1) 
+                                    ? "blogs"
+                                    : "blogs?page=" . $link["page"];
                                 ?>
-
                                 <?php if ($link["active"]): ?>
-                                    <a 
-                                        href="<?= $pageUrl ?>" 
+                                    <a href="<?= $pageUrl ?>" 
                                         class="px-4 py-2 min-w-[40px] text-center bg-[#ff000d] text-white rounded-md text-sm max-[500px]:px-3 max-[500px]:py-1"
                                     >
                                         <?= $link["label"] ?>
                                     </a>
 
                                 <?php else: ?>
-                                    <a 
-                                        href="<?= $pageUrl ?>" 
+                                    <a href="<?= $pageUrl ?>" 
                                         class="px-4 py-2 min-w-[40px] text-center bg-white text-[#333] border rounded-md hover:bg-[#ff000d] hover:text-white text-sm max-[500px]:px-3 max-[500px]:py-1"
                                     >
                                         <?= $link["label"] ?>
@@ -136,8 +134,7 @@ include_once('banner.php');
 
                             <?php else: ?>
 
-                                <span 
-                                    class="px-4 py-2 min-w-[40px] text-center text-gray-500 text-sm max-[500px]:px-3 max-[500px]:py-1"
+                                <span class="px-4 py-2 min-w-[40px] text-center text-gray-500 text-sm max-[500px]:px-3 max-[500px]:py-1"
                                 >
                                     <?= $link["label"] ?>
                                 </span>
