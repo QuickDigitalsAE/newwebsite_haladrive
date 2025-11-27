@@ -38,6 +38,11 @@ try {
         $meta_title = $brandData["lease"][$titleKey] ?? '';
         $meta_desc  = $brandData["lease"][$descKey] ?? '';
 
+        if (!empty($currentPage) && $currentPage > 1) {
+            $meta_title .= " - Page " . $currentPage;
+            $meta_desc  .= " (Page " . $currentPage . ")";
+        }
+
         // print_r($brandData);
     } else {
         echo "Brand data not found.";
@@ -56,6 +61,9 @@ try {
     $banner_image = "$imagePath/about/top-banner.webp";
     $banner_title = $brandData["lease"]["title_{$lang}"];
     $banner_subtitle = $messages['locationsBannerPera'];
+    if (!empty($currentPage) && $currentPage > 1) {
+        $banner_title .= "- Page " . $currentPage;
+    }
     include_once('banner.php');
     ?>
 
@@ -179,8 +187,7 @@ try {
                                     </li>
                                 </ul>
                                 <div class="mt-4">
-                                    <div
-                                        class="text-white openModalBtn bg-[#ff000d] px-[5rem] py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-center max-[1024px]:mx-auto w-fit">
+                                    <div class="text-white openModalBtn bg-[#ff000d] px-[5rem] py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-center max-[1024px]:mx-auto w-fit">
                                         <?= $messages['inquiry'] ?></div>
                                 </div>
                             </div>
@@ -199,10 +206,7 @@ try {
                                 
                                 <?php if ($link["url"]): ?>
 
-                                    <?php 
-                                        // Build full URL
-                                        $pageUrl = !empty($baseUrl) ? $baseUrl. "?page=" . $link["page"] : "#";
-                                    ?>
+                                    <?php $pageUrl = !empty($baseUrl) ?  $link['page'] == '1' ? $baseUrl : $baseUrl. "?page=" . $link["page"] : "#";?>
 
                                     <?php if ($link["active"]): ?>
 
@@ -225,9 +229,7 @@ try {
                                     <?php endif; ?>
 
                                 <?php else: ?>
-
-                                    <span class="px-4 py-2 text-gray-500"><?= $link["label"] ?></span>
-
+                                    <span class="px-4 py-2 text-gray-500 w-[122px]"><?= $link["label"] ?></span>
                                 <?php endif; ?>
 
                             <?php endforeach; ?>
