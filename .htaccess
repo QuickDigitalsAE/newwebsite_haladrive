@@ -7,9 +7,9 @@ RewriteEngine On
 # ---------------------------------------
 # FORCE HTTPS and REMOVE WWW
 # ---------------------------------------
-# RewriteCond %{HTTPS} off [OR]
-# RewriteCond %{HTTP_HOST} ^www\. [NC]
-# RewriteRule ^(.*)$ https://new.haladrive.ae/$1 [L,R=301]
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://new.haladrive.ae/$1 [L,R=301]
 
 # ----------------- ARABIC HOME -----------------
 RewriteCond %{REQUEST_FILENAME} !-f
