@@ -350,7 +350,7 @@ include_once('banner.php');
                                     <?php if ($link["url"]): ?>
                                         <?php if ($link["active"]): ?>
                                             <a 
-                                                href="/newwebsite_haladrive/cars?page=<?= $link['page'] ?>" 
+                                                href="cars?page=<?= $link['page'] ?>" 
                                                 class="px-4 py-2 bg-[#ff000d] text-white rounded"
                                             >
                                                 <?= $link["label"] ?>
