@@ -345,7 +345,7 @@ include_once('banner.php');
                     <?php 
                     if (!empty($carContentData["cars"]["links"])): ?>
                         <div class="flex justify-center mt-10">
-                            <div class="flex gap-2 max-[1024px]:flex-wrap items-center">
+                            <div class="flex gap-2 max-[1024px]:flex-wrap items-center pagination">
                                 <?php foreach ($carContentData["cars"]["links"] as $link): ?>
                                     <?php if ($link["url"]): ?>
                                         <?php if ($link["active"]): ?>

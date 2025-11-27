@@ -283,3 +283,6 @@ textarea.custom_input {
         height: fit-content;
     }
 }
+.pagination span {
+    width: 122px;
+}

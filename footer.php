@@ -28,43 +28,6 @@
                         <img src="<?= $imagePath ?>/logo/Hala-Drive-resize.webp" alt="" class="max-[1000px]:m-auto max-[1024px]:w-[100px]">
                     </a>
                     <p class="text-[13px] py-4"><?= $messages['content'] ?></p>
-                    <!-- <ul class="flex social gap-2">
-                        <li>
-                            <div class="bg-[#ff000d] p-3 rounded-full">
-                                <a href="https://www.facebook.com/HalaDrive"><img src="<?= $imagePath ?>icons/facebook.svg" class="w-6" alt=""></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bg-[#ff000d] p-3 rounded-full">
-                                <a href="https://www.instagram.com/hala_drive_car_rental/"><img src="<?= $imagePath ?>icons/insta.svg" class="w-6" alt=""></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bg-[#ff000d] p-3 rounded-full">
-                                <a href="https://wa.me/971501837112?text=Hi"><img src="<?= $imagePath ?>icons/whatsapp.svg" class="w-6" alt=""></a>
-                            </div>
-                        </li>
-                    </ul> -->
-    
-                    <!-- <div class="social_icon">
-                        <ul class="flex gap-1 list social_icom" style="margin-top:20px;">
-                            <li>
-                                <a href="https://www.facebook.com/quickdigitaldubai" target="_blank">
-                                    <img src="<?= $imagePath ?>icons/facebook.svg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.linkedin.com/company/quick-digital-solutions/" target="_blank">
-                                    <img src="<?= $imagePath ?>icons/linkedin.svg" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/quickdigitaldubai/" target="_blank">
-                                    <img src="<?= $imagePath ?>icons/insta.svg" alt="">
-                                </a>
-                            </li>
-                        </ul>
-                    </div> -->
                 </div>
                 <div class="flex gap-[2rem] banner-1 first-1">
                     <ul class="flex flex-col gap-5 mt-6 max-[1024px]:mt-0">
@@ -85,7 +48,6 @@
                         </div>
                     </div>
                     <div class="flex flex-col mt-6 max-[1024px]:mt-4">
-                        <!-- <span class="font-bold text-[1.5rem] border-l-2 pl-2 border-[#ff000d] text-white "><?= $messages['details'] ?></span> -->
                         <span class="font-bold text-[1.5rem] text-[#FF000D] "><?= $messages['quick'] ?></span>
                         <ul class="flex gap-4 mt-2 ">
                             <li><a href="about"><?= $messages['about'] ?></a></li>
