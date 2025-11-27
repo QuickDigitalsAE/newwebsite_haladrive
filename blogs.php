@@ -8,12 +8,10 @@ $meta_desc  = '';
 
 $slug = $_GET['slug'] ?? null;
 
-$currentPage = $_GET['page'] ?? 1;
-
 if ($slug) {
 
     try {
-        $singleBlogContent = $api->loadData('blogs', 'single', ['page' => $currentPage], $slug);
+        $singleBlogContent = $api->loadData('blogs', 'single', [], $slug);
 
         if ($singleBlogContent['success']) {
             $singleBlogContentData = $singleBlogContent['data']["data"];
@@ -63,9 +61,10 @@ if ($slug) {
 // -----------------------------------------
 // PAGE WITHOUT SLUG → SHOW MAIN PAGE
 // -----------------------------------------
+$currentPage = $_GET['page'] ?? 1;
 
 try {
-    $blogsContent = $api->loadData('blogs', 'main', []);
+    $blogsContent = $api->loadData('blogs', 'main', ['page' => $currentPage]);
     if ($blogsContent['success']) {
         $blogsContentData = $blogsContent['data']["data"];
 
