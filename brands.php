@@ -38,12 +38,12 @@ if (strpos($uri, '/brands/') !== false) {
 
 $sort = $_GET['sort'] ?? null;
 
-
+$currentPage = $_GET['page'] ?? 1;
 // -------------------------------
 // LOAD DATA
 // -------------------------------
 try {
-    $brandContent = $api->loadData('brand', 'brand', ['sort' => $sort], $slug);
+    $brandContent = $api->loadData('brand', 'brand', ['sort' => $sort, 'page' => $currentPage], $slug);
 
     if ($brandContent['success']) {
 
@@ -217,7 +217,59 @@ include_once('banner.php');
                             </div>
                         </div>
                     </div>
-                    <?php endforeach; ?>
+                    <?php endforeach; 
+                
+                    $baseUrl = "";
+                    if ($pageType === 'brand') {
+                        $baseUrl = './brands/'.$brandData['brand']['slug']; ; 
+                    } elseif ($pageType === 'cars_brand') {
+                        $baseUrl = './carsbrands/'.$brandData['brand']['slug']; ; // Car listing page SEO
+                    }
+
+                    if (!empty($brandData["cars"]["links"])): ?>
+                    <div class="flex justify-center mt-10">
+                        <div class="flex gap-2 max-[1024px]:flex-wrap items-center">
+                            
+                            <?php foreach ($brandData["cars"]["links"] as $link): ?>
+                                
+                                <?php if ($link["url"]): ?>
+
+                                    <?php 
+                                        // Build full URL
+                                        $pageUrl = !empty($baseUrl) ? $baseUrl. "?page=" . $link["page"] : "#";
+                                    ?>
+
+                                    <?php if ($link["active"]): ?>
+
+                                        <a 
+                                            href="<?= $pageUrl ?>" 
+                                            class="px-4 py-2 bg-[#ff000d] text-white rounded"
+                                        >
+                                            <?= $link["label"] ?>
+                                        </a>
+
+                                    <?php else: ?>
+
+                                        <a 
+                                            href="<?= $pageUrl ?>" 
+                                            class="px-4 py-2 bg-white text-[#333] border rounded hover:bg-[#ff000d] hover:text-white"
+                                        >
+                                            <?= $link["label"] ?>
+                                        </a>
+
+                                    <?php endif; ?>
+
+                                <?php else: ?>
+
+                                    <span class="px-4 py-2 text-gray-500"><?= $link["label"] ?></span>
+
+                                <?php endif; ?>
+
+                            <?php endforeach; ?>
+
+                        </div>
+                    </div>
+                <?php endif; ?>
                 </div>
                 <div class="text-black mt-6 string col-span-4 max-[1024px]:col-span-1">
                     <?php echo $brandData["brand"]["description_{$lang}"]; ?>
