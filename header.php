@@ -21,8 +21,8 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $meta_title ?? 'Default Title'; ?></title>
-    <meta property="title" content="<?php echo $meta_title ?? 'Default Title'; ?>" />
-    <meta property="description" content="<?php echo $meta_desc ?? 'Default desc'; ?>" />
+    <meta name="title" content="<?php echo $meta_title ?? 'Default Title'; ?>" />
+    <meta name="description" content="<?php echo $meta_desc ?? 'Default desc'; ?>" />
     <!-- <meta name="robots" content="noindex"> -->
     <link rel="canonical" href="https://new.haladrive.ae<?php echo $uri?>" />
     <link href="<?= $imagePath; ?>icons/favicon.ico" rel="icon">
