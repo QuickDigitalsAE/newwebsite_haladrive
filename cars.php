@@ -43,7 +43,7 @@ if ($slug) {
                         <div class="">
                             <div class="text-black text-[2rem] syne"><?php echo $carSingleContentData["car"]["name_{$lang}"]; ?></div>
                             <div class="w-[100%] max-[1024px]:w-full">
-                                <img src="<?php echo $carSingleContentData["car"]["image_url"]; ?>" alt="">
+                                <img src="<?php echo $carSingleContentData["car"]["image_url"]; ?>" alt="Cars">
                             </div>
                         </div>
                         <div class="">
@@ -134,19 +134,19 @@ if ($slug) {
                         <div class=""><?= $messages['residents'] ?></div>
                         <ul class="mt-4">
                             <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="passport">
                                 <div class="text-[#939393]"><?= $messages['passport'] ?></div>
                             </li>
                             <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="residentialvisa">
                                 <div class="text-[#939393]"><?= $messages['residentialvisa'] ?></div>
                             </li>
                             <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="license1">
                                 <div class="text-[#939393]"><?= $messages['license1'] ?></div>
                             </li>
                             <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="emiratesid">
                                 <div class="text-[#939393]"><?= $messages['emiratesid'] ?></div>
                             </li>
                         </ul>
@@ -155,15 +155,15 @@ if ($slug) {
                         <div class=""><?= $messages['tourists'] ?></div>
                         <ul class="mt-4">
                             <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="passport">
                                 <div class="text-[#939393]"><?= $messages['passport'] ?></div>
                             </li>
                             <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="visitvisa">
                                 <div class="text-[#939393]"><?= $messages['visitvisa'] ?></div>
                             </li>
                             <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="">
+                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="license2">
                                 <div class="text-[#939393]"><?= $messages['license2'] ?></div>
                             </li>
                         </ul>
@@ -273,7 +273,7 @@ include_once('banner.php');
                                             <a href="carsbrands/<?php echo $brands["slug"]; ?>"
                                             class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             <img class="w-6 h-6 me-2 rounded-full"
-                                                src="<?php echo $brands["logo_url"]; ?>" alt="audi">
+                                                src="<?php echo $brands["logo_url"]; ?>" alt="<?php echo $brands["name_{$lang}"]; ?>">
                                             <?php echo $brands["name_{$lang}"]; ?>
                                         </a>
                                         </li>
@@ -290,11 +290,11 @@ include_once('banner.php');
                             <div
                                 class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
                                 <?= $messages['instock'] ?></div>
-                            <img width="0" hight='0' src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="">
+                            <img width="0" hight='0' src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="brand logo">
                         </div>
                         <div class="flex items-center max-[1024px]:flex-col gap-4">
                             <a href='cars/<?php echo $car["slug"]; ?>' class="w-[50%] max-[1024px]:w-full">
-                                <img src="<?php echo $car["image_url"]; ?>" alt="">
+                                <img src="<?php echo $car["image_url"]; ?>" alt="image_url">
                                 <div class="flex gap-2 justify-center items-center mt-3">
                                     <div
                                         class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
@@ -317,19 +317,19 @@ include_once('banner.php');
                                 <div class="text-[2rem] font-bold leading-[1] max-[1024px]:text-center syne"><?php echo $car["name_{$lang}"]; ?></div>
                                 <ul class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
                                     <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="star">
                                         <div class=""><?= $messages['engine'] ?> 1.5 L</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="star">
                                         <div class=""><?= $messages['bluetooth'] ?> Yes</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="star">
                                         <div class=""><?= $messages['control'] ?> Yes</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="star">
                                         <div class=""><?= $messages['luggage'] ?> Yes</div>
                                     </li>
                                 </ul>

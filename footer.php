@@ -2,10 +2,10 @@
     <!--------------------------------- footer ------------------------------->
 
     <footer class="pt-[6rem] max-[1024px]:pt-[2rem] pb-[1rem] relative ">
-        <img src="<?= $imagePath ?>footerbg.webp" class="w-full h-full object-cover absolute inset-0 z-[-1] " alt="">
+        <img src="<?= $imagePath ?>footerbg.webp" class="w-full h-full object-cover absolute inset-0 z-[-1] " alt="footerbg">
          <div class="whatsapp_btn">
             <a target="_blank" href="https://wa.me/971501837112?text=Hi">
-                <img  src="<?= $imagePath ?>icons/whatsapp.svg" alt="">
+                <img  src="<?= $imagePath ?>icons/whatsapp.svg" alt="whatsapp">
             </a>
         </div>
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
@@ -13,7 +13,7 @@
                 <div class="flex max-[1024px]:flex-col items-center justify-between col-span-3 max-[1024px]:col-span-1">
                     <div class="text-white flex items-center gap-4">
                         <div class="text-[3rem] max-[1024px]:text-[2rem] font-bold"><?= $messages['withus'] ?></div>
-                        <img src="<?= $imagePath ?>icons/arrow.webp" alt="">
+                        <img src="<?= $imagePath ?>icons/arrow.webp" alt="arrow">
                     </div>
                     <div class="">
                         <ul class='flex gap-4 '>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="">
                     <a href="">
-                        <img src="<?= $imagePath ?>/logo/Hala-Drive-resize.webp" alt="" class="max-[1000px]:m-auto max-[1024px]:w-[100px]">
+                        <img src="<?= $imagePath ?>/logo/Hala-Drive-resize.webp" alt="Hala-Drive" class="max-[1000px]:m-auto max-[1024px]:w-[100px]">
                     </a>
                     <p class="text-[13px] py-4"><?= $messages['content'] ?></p>
                 </div>
@@ -50,7 +50,7 @@
                     <div class="flex flex-col mt-6 max-[1024px]:mt-4">
                         <span class="font-bold text-[1.5rem] text-[#FF000D] "><?= $messages['quick'] ?></span>
                         <ul class="flex gap-4 mt-2 ">
-                            <li><a href="about"><?= $messages['about'] ?></a></li>
+                            <li><a href="about-us"><?= $messages['about'] ?></a></li>
                             <li><a href="cars"><?= $messages['cars'] ?></a></li>
                             <li><a href="faq"><?= $messages['faq'] ?></a></li>
                             <li><a href="locations"><?= $messages['locations'] ?></a></li>
@@ -71,9 +71,9 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <div class="modal-header background_image">
-                <img src="https://haladrive.ae/img/Hala-Drive.webp" style="display: block; width: 10rem; margin: 0 auto;" width="100" class="block">
+                <img src="<?= $imagePath ?>logo/Hala-Drive-resize.webp" style="display: block; width: 10rem; margin: 0 auto;" width="100" class="block" alt='Hala-Drive'>
                 <button type="button" class="btn-close close custom_butnclose">
-                    <img src="<?= $imagePath ?>icons/close.svg" alt="">
+                    <img src="<?= $imagePath ?>icons/close.svg" alt="close">
                 </button>
             </div>
             <div></div>
@@ -83,23 +83,23 @@
                 <form method="POST" id="inquire-form" class="w-full Poppins">
                     <input type="hidden" name="_token" value="FV5HbL6ZEq4mAded9gT90jqo2DrRpPtDjioznKXj">                    <!-- Name -->
                     <div class="relative w-full mb-3">
-                        <img class='w-6 absolute top-1/2 -translate-y-1/2 left-2' src="<?= $imagePath ?>icons/user.svg" alt="">
+                        <img class='w-6 absolute top-1/2 -translate-y-1/2 left-2' src="<?= $imagePath ?>icons/user.svg" alt="user">
                         <input type="text" name="name" id="name" placeholder="<?= $messages['name'] ?>" required="" class="custom_input pl-10 pr-4 py-2 rounded-lg placeholder focus:outline-none">
                     </div>
                     <div class="relative w-full mb-3">
-                        <img class='w-6 absolute top-1/2 -translate-y-1/2 left-2' src="<?= $imagePath ?>icons/calender.svg" alt="">
+                        <img class='w-6 absolute top-1/2 -translate-y-1/2 left-2' src="<?= $imagePath ?>icons/calender.svg" alt="calender">
                         <input type="date" name="date_from" onfocus="this.showPicker()" oninput="document.getElementById('date_to_modal').min = this.value;" id="date_from_modal" placeholder="Date From" required="" class="custom_input pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" min="2025-11-21">
                     </div>
                     <div class="relative w-full mb-3">
-                        <img class='w-6 absolute top-1/2 -translate-y-1/2 left-2' src="<?= $imagePath ?>icons/calender.svg" alt="">
+                        <img class='w-6 absolute top-1/2 -translate-y-1/2 left-2' src="<?= $imagePath ?>icons/calender.svg" alt="calender">
                         <input type="date" name="date_to" onfocus="this.showPicker()" id="date_to_modal" placeholder="Date to" required="" class="custom_input pl-10 pr-4 py-2 rounded-lg placeholder focus:outline-none" min="2025-11-21">
                     </div>
                     <div class="relative w-full mb-3">
-                        <img class='w-6 absolute top-1/2 -translate-y-1/2 left-2' src="<?= $imagePath ?>icons/phone-red.svg" alt="">
+                        <img class='w-6 absolute top-1/2 -translate-y-1/2 left-2' src="<?= $imagePath ?>icons/phone-red.svg" alt="phone">
                         <input type="text" name="number" id="contact_number" placeholder="<?= $messages['number'] ?>" required="" class="custom_input pl-10 pr-4 py-2 rounded-lg placeholder focus:outline-none">
                     </div>
                     <div class="relative w-full mb-3">
-                        <img class='w-6 absolute top-1/2 -translate-y-1/2 left-2' src="<?= $imagePath ?>icons/email.svg" alt="">
+                        <img class='w-6 absolute top-1/2 -translate-y-1/2 left-2' src="<?= $imagePath ?>icons/email.svg" alt="email">
                         <input type="email" name="email" id="email" placeholder="<?= $messages['email'] ?>" class="custom_input pl-10 pr-4 py-2 rounded-lg placeholder focus:outline-none">
                     </div>
                     <input type="hidden" name="car_name" id="car_name" value="">

@@ -35,8 +35,8 @@ require_once 'header.php';
     <!--------------------------------- banner ------------------------------->
 
     <section class="relative w-full max-[1024px]:h-[55vh] max-[1024px]: pb-[4rem]">
-        <img fetchpriority=high class='w-full object-cover ar_img h-full' src="<?= $imagePath ?>banner/bg.webp" alt="">
-        <img class='absolute right-0 max-[1024px]:left-0 max-[1024px]:w-[95%] max-[1024px]:mx-auto ar_banner_img bottom-[-2rem] max-[1024px]:bottom-[-1rem]' src="<?= $imagePath ?>banner/car.webp" alt="">
+        <img fetchpriority=high class='w-full object-cover ar_img h-full' src="<?= $imagePath ?>banner/bg.webp" alt="banner">
+        <img class='absolute right-0 max-[1024px]:left-0 max-[1024px]:w-[95%] max-[1024px]:mx-auto ar_banner_img bottom-[-2rem] max-[1024px]:bottom-[-1rem]' src="<?= $imagePath ?>banner/car.webp" alt="banner car">
         <div class="text-[#333333] w-[40%] max-[1024px]:w-[95%] absolute top-[35%] max-[1024px]:top-[30%] -translate-y-1/2 left-[10%] max-[1024px]:left-0 max-[1024px]:right-0 max-[1024px]:mx-auto ar_banner_text">
             <div class='text-[3rem] max-[1024px]:text-[2rem] syne leading-[1] mb-3'><?= $messages['bannernewh'] ?></div>
             <p class='leading-[1.4] w-[80%] max-[1024px]:w-full '><?= $messages['bannernewp'] ?></p>
@@ -122,7 +122,7 @@ require_once 'header.php';
                     <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
                         <div class="flex items-center justify-between ">
                             <div class="text-[1.5rem] font-bold leading-[1] max-[1024px]:text-center"><?php echo $car["name_{$lang}"]; ?></div>
-                            <a target="_blank" href="https://wa.me/971501837112?text=Hi" class="bg-[#29a71a] flex items-center justify-center w-9 h-9 rounded-full cursor-pointer"><img src="<?= $imagePath ?>icons/whatsapp.svg" class="w-5" alt=""></a>
+                            <a target="_blank" href="https://wa.me/971501837112?text=Hi" class="bg-[#29a71a] flex items-center justify-center w-9 h-9 rounded-full cursor-pointer"><img src="<?= $imagePath ?>icons/whatsapp.svg" class="w-5" alt="whatsapp"></a>
                         </div>
                         <div class="flex items-center gap-4 max-[1024px]:flex-col-reverse">
                             <div class="flex flex-col w-[40%] max-[1024px]:w-full gap-2 max-[1024px]:justify-center items-center mt-3">
@@ -156,7 +156,7 @@ require_once 'header.php';
     <!--------------------------------- 1st content ------------------------------->
 
     <section class='relative py-16 max-[1024px]:py-10'>
-        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>home1.webp" alt="">
+        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>home1.webp" alt="home1">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
             <h2 class="text-[2.5rem] max-[1024px]:text-[1.7rem] mb-6 capitalize syne text-center w-[80%] max-[1024px]:w-full mx-auto leading-[1] font-bold"><?= $messages['homeSectionOneHeading_1'] ?></h2>
             <div class="flex max-[1024px]:flex-col-reverse items-center gap-10 max-[1024px]:gap-2">
@@ -164,12 +164,12 @@ require_once 'header.php';
                     <p class="text-[#333333] mt-4"><?= $messages['homeSectionOnePera_1'] ?></p>
                 </div>
                 <div class="w-[45%] max-[1024px]:w-full">
-                    <img class='w-full h-full object-cover' src="<?= $imagePath ?>home2.webp" alt="">
+                    <img class='w-full h-full object-cover' src="<?= $imagePath ?>home2.webp" alt="home2">
                 </div>
             </div>
             <div class="flex max-[1024px]:flex-col bg-white mt-6 p-6 max-[1024px]:p-[.7rem] rounded-[10px] items-center gap-10 max-[1024px]:gap-2">
                 <div class="w-[40%] max-[1024px]:w-full">
-                    <img class='w-full h-full object-cover' src="<?= $imagePath ?>home3.webp" alt="">
+                    <img class='w-full h-full object-cover' src="<?= $imagePath ?>home3.webp" alt="home3">
                 </div>
                 <div class="w-[60%] max-[1024px]:w-full">
                     <p class="text-[#333333]"><?= $messages['homeSectionOnePera_2'] ?></p>
@@ -188,7 +188,7 @@ require_once 'header.php';
                     <?php foreach($homeContentData["brands"] as $brand): ?>
                         <div class="swiper-slide">
                             <a href="brands/<?php echo $brand["slug"]; ?>">
-                                <img class='slider_image' src="<?php echo $brand["logo_url"]; ?>" class="mx-auto" alt="Image 1">
+                                <img class='slider_image' src="<?php echo $brand["logo_url"]; ?>" class="mx-auto" alt="slider_image">
                             </a>
                         </div>
                     <?php endforeach; ?>
@@ -200,14 +200,14 @@ require_once 'header.php';
     <!--------------------------------- 3rd content ------------------------------->
 
     <section class="relative py-16 max-[1024px]:py-10 ">
-        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>footerbg.webp" alt="">
+        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>footerbg.webp" alt="footerbg">
         <div class="w-[80%] mx-auto max-[1024px]:w-[90%]">
             <div class="text-white text-[2.5rem] max-[1024px]:text-[1.7rem] max-[1024px]:leading-[1] text-center syne mb-6"><?= $messages['homeNewHeading'] ?></div>
             <div class="w-[75%] max-[1024px]:w-full mx-auto">
                 <div class="grid text-white grid-cols-3 max-[1024px]:grid-cols-2 items-center gap-2 mb-4">
                     <div class="flex items-center gap-2 border border-white rounded-[5px] justify-center max-[1024px]:py-1 max-[1024px]:gap-1 max-[1024px]:px-2 max-[1024px]:justify-start">
                         <div class="w-8 h-8 flex items-center justify-center">
-                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="">
+                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="common">
                         </div>
                         <div class="max-[1024px]:leading-[1]">
                             <?= $messages['timely'] ?>
@@ -215,7 +215,7 @@ require_once 'header.php';
                     </div>
                     <div class="flex items-center gap-2 border border-white rounded-[5px] justify-center max-[1024px]:py-1 max-[1024px]:gap-1 max-[1024px]:px-2 max-[1024px]:justify-start">
                         <div class="w-8 h-8 flex items-center justify-center">
-                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="">
+                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="common">
                         </div>
                         <div class="max-[1024px]:leading-[1]">
                             <?= $messages['unbeatable'] ?>
@@ -223,7 +223,7 @@ require_once 'header.php';
                     </div>
                     <div class="flex items-center gap-2 border border-white rounded-[5px] justify-center max-[1024px]:py-1 max-[1024px]:gap-1 max-[1024px]:px-2 max-[1024px]:justify-start">
                         <div class="w-8 h-8 flex items-center justify-center">
-                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="">
+                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="common">
                         </div>
                         <div class="max-[1024px]:leading-[1]">
                             <?= $messages['professional'] ?>
@@ -231,7 +231,7 @@ require_once 'header.php';
                     </div>
                     <div class="flex items-center gap-2 border border-white rounded-[5px] justify-center max-[1024px]:py-1 max-[1024px]:gap-1 max-[1024px]:px-2 max-[1024px]:justify-start">
                         <div class="w-8 h-8 flex items-center justify-center">
-                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="">
+                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="common">
                         </div>
                         <div class="max-[1024px]:leading-[1]">
                             <?= $messages['flexible'] ?>
@@ -239,7 +239,7 @@ require_once 'header.php';
                     </div>
                     <div class="flex items-center gap-2 border border-white rounded-[5px] justify-center max-[1024px]:py-1 max-[1024px]:gap-1 max-[1024px]:px-2 max-[1024px]:justify-start">
                         <div class="w-8 h-8 flex items-center justify-center">
-                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="">
+                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="common">
                         </div>
                         <div class="max-[1024px]:leading-[1]">
                             <?= $messages['online'] ?>
@@ -247,7 +247,7 @@ require_once 'header.php';
                     </div>
                     <div class="flex items-center gap-2 border border-white rounded-[5px] justify-center max-[1024px]:py-1 max-[1024px]:gap-1 max-[1024px]:px-2 max-[1024px]:justify-start">
                         <div class="w-8 h-8 flex items-center justify-center">
-                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="">
+                            <img src="<?= $imagePath ?>icons/common.webp" class="w-6" alt="common">
                         </div>
                         <div class="max-[1024px]:leading-[1]">
                             <?= $messages['fully'] ?>
@@ -262,7 +262,7 @@ require_once 'header.php';
     <!--------------------------------- 2nd content ------------------------------->
 
     <section class="py-16 relative max-[1024px]:py-10 ">
-        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>homebg.webp" alt="">
+        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>homebg.webp" alt="homebg">
         <div class="">
             <div class="flex max-[1024px]:flex-col-reverse items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
                 <div class="w-[60%] max-[1024px]:w-full">
@@ -270,12 +270,12 @@ require_once 'header.php';
                     <p class="text-[#333333] mt-4"><?= $messages['homeSectionTwoPera_1'] ?></p>
                 </div>
                 <div class="w-[40%] max-[1024px]:w-full">
-                    <img src="<?= $imagePath ?>home4.webp" class="h-full w-full object-cover" alt="">
+                    <img src="<?= $imagePath ?>home4.webp" class="h-full w-full object-cover" alt="home4">
                 </div>
             </div>
             <div class="flex max-[1024px]:flex-col items-center gap-10 max-[1024px]:gap-2 w-[80%] max-[1024px]:w-[90%] mx-auto max-[1024px]:mt-6">
                 <div class="w-[40%] max-[1024px]:w-full">
-                    <img src="<?= $imagePath ?>home5.webp" class="h-full rounded-[10px] w-full object-cover" alt="">
+                    <img src="<?= $imagePath ?>home5.webp" class="h-full rounded-[10px] w-full object-cover" alt="home5">
                 </div>
                 <div class="w-[60%] max-[1024px]:w-full">
                     <p class="text-[#333333] mt-4"><?= $messages['homeSectionTwoPera_2'] ?></p>
@@ -295,7 +295,7 @@ require_once 'header.php';
     <!--------------------------------- section 4 ------------------------------->
 
     <section class="relative">
-        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>footerbg.webp" alt="">
+        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>footerbg.webp" alt="footerbg">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
             <div class="text-white text-center w-[60%] max-[1024px]:w-full mx-auto flex flex-col mb-4 max-[1024px]:mb-10">
                 <h3 class="text-[2rem] leading-[1] mb-3 syne max-[1024px]:text-[1.5rem] max-[1024px]:leading-[1]"><?= $messages['homeSectionForthHeading_1'] ?></h3>
@@ -319,7 +319,7 @@ require_once 'header.php';
     <!--------------------------------- section 5 ------------------------------->
 
     <section class="py-16 relative max-[1024px]:py-10">
-        <img src="<?= $imagePath ?>testimonials.webp" class='w-full absolute inset-0 h-full object-cover z-[-1]' alt="">
+        <img src="<?= $imagePath ?>testimonials.webp" class='w-full absolute inset-0 h-full object-cover z-[-1]' alt="testimonials">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
             <div class="items-center">
                 <div class="text-[#333333] mb-4">
@@ -354,7 +354,7 @@ require_once 'header.php';
     <section class="w-[80%] gap-6 flex max-[1024px]:flex-col max-[1024px]:w-[90%] mx-auto py-16 max-[1024px]:py-10">
         <div class='w-[40%] max-[1024px]:w-full'>
             <h3 class="text-[2rem] max-[1024px]:text-[1.5rem] syne text-[#333333] mb-4 md:text-3xl font-bold leading-[1]"><?= $messages['homeFaqs_1'] ?></h3>
-            <img src="<?= $imagePath ?>FAQs.webp" alt="" class='rounded-[10px] max-[1024px]:hidden'>
+            <img src="<?= $imagePath ?>FAQs.webp" alt="FAQs" class='rounded-[10px] max-[1024px]:hidden'>
         </div>
         <div class="space-y-3 w-[60%] max-[1024px]:w-full">
             <?php foreach($homeContentData["faqs"] as $faqs): ?>
@@ -374,7 +374,7 @@ require_once 'header.php';
     <!--------------------------------- blogs ------------------------------->
 
     <section class="py-16 max-[1024px]:py-10 relative">
-        <img class='w-full h-full object-cover absolute inset-0 z-[-1]' src="<?= $imagePath ?>blogbg.webp" alt="">
+        <img class='w-full h-full object-cover absolute inset-0 z-[-1]' src="<?= $imagePath ?>blogbg.webp" alt="blogbg">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
             <div class="flex items-center justify-between max-[1024px]:flex-col max-[1024px]:gap-4 mb-6">
                 <h3 class="text-[#333333] text-[2rem] syne font-bold"><?= $messages['ourblogs'] ?></h3>
@@ -414,12 +414,12 @@ require_once 'header.php';
                     <p class="text-[#333333]"><?= $messages['homeSectionSixthPera_3'] ?></p>
                 </div>
                 <div class="w-[45%] max-[1024px]:w-full">
-                    <img class='w-full h-full object-cover rounded-[10px]' src="<?= $imagePath ?>home6.webp" alt="">
+                    <img class='w-full h-full object-cover rounded-[10px]' src="<?= $imagePath ?>home6.webp" alt="home6">
                 </div>
             </div>
             <div class="flex max-[1024px]:flex-col max-[1024px]:mt-0 mt-6 py-6 rounded-[10px] items-center gap-10 max-[1024px]:gap-6">
                 <div class="w-[40%] max-[1024px]:w-full">
-                    <img class='w-full h-full object-cover rounded-[10px]' src="<?= $imagePath ?>home7.webp" alt="">
+                    <img class='w-full h-full object-cover rounded-[10px]' src="<?= $imagePath ?>home7.webp" alt="home7">
                 </div>
                 <div class="w-[60%] max-[1024px]:w-full">
                     <p class="text-[#333333]"><?= $messages['homeSectionSixthPera_4'] ?></p>

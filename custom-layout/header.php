@@ -21,13 +21,13 @@
 
     <header class="relative">
         <img src="<?= $imagePath ?>logo/Hala-Drive-resize.webp" class="absolute top-[40%] -translate-y-1/2 left-10 w-[110px]"
-            alt="">
+            alt="Hala-Drive">
         <div class="flex justify-between items-center container mx-auto py-2">
             <div class="w-[85%] ml-auto flex items-center justify-between">
                 <ul class="flex items-center gap-5 ">
                     <li class="flex items-center gap-2 max-[1000px]:ml-auto">
                         <div class="bg-[#ff000d] py-[.2rem] px-[.3rem] flex items-center justify-center -skew-x-12">
-                            <img src="./images/icons/phone.svg" alt="" class="w-5">
+                            <img src="./images/icons/phone.svg" alt="phone" class="w-5">
                         </div>
                         <a class="text-[#ff000d]" href="tel:+971501837112" class="">+971501837112</a>
                     </li>
@@ -38,17 +38,17 @@
                 <div class="flex items-center gap-3">
                     <div
                         class="flex items-center gap-2 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-4 py-2 bg-white">
-                        <img src="<?= $imagePath ?>flags/flag-en.webp" alt="" class="w-6">
+                        <img src="<?= $imagePath ?>flags/flag-en.webp" alt="flag-en" class="w-6">
                         <div class="">English</div>
                     </div>
                     <div
                         class="flex items-center gap-2 -skew-x-12 cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-4 py-2 bg-white">
-                        <img src="<?= $imagePath ?>flags/flag-ar.webp" alt="" class="w-6">
+                        <img src="<?= $imagePath ?>flags/flag-ar.webp" alt="flag-ar" class="w-6">
                         <div class="">العربية</div>
                     </div>
                     <div class="-skew-x-12 bg-[#ff000d] cursor-pointer text-white px-4 py-2"><?= $messages['inquiry'] ?></div>
                     <div class="bg-[#29a71a] -skew-x-12 px-2 py-2 cursor-pointer">
-                        <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="" class="w-6">
+                        <img src="<?= $imagePath ?>icons/whatsapp.svg" alt="whatsapp" class="w-6">
                     </div>
                 </div>
             </div>

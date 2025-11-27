@@ -46,7 +46,7 @@ include_once('banner.php');
                     <button class="p-2 rounded-[6px] border border-[#ff000d] uppercase"><?= $messages['journy'] ?></button>
                 </div>
                 <div class="">
-                    <img src="<?php echo $aboutContentData["about"]["image_url"]; ?>" alt="">
+                    <img src="<?php echo $aboutContentData["about"]["image_url"]; ?>" alt="About Us">
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@ include_once('banner.php');
                         <p class="text-[#939393]"><?= $messages['aboutSectionOneHeading_2'] ?></p>
                     </div>
                     <div class="">
-                        <img src="<?= $imagePath ?>sections/arrow.webp" alt="">
+                        <img src="<?= $imagePath ?>sections/arrow.webp" alt="About Us">
                     </div>
                 </div>
             </div>

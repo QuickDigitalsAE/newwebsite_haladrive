@@ -25,12 +25,7 @@ try {
     <base href="<?= $baseHref; ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400..700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400..700&display=swap">
-    </noscript>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400..700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400..700&display=swap">
@@ -40,7 +35,6 @@ try {
     <!-- <link defer rel="stylesheet" href="<?= $outputCssPath; ?>"> -->
     <link rel="preload" href="<?= $outputCssPath; ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="<?= $outputCssPath; ?>"></noscript>
-
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
      <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <script>
@@ -63,7 +57,7 @@ try {
             <div class="flex items-center gap-4">
                 <div class="bg-[#E02D3C] openModalBtn rounded-[5px] cursor-pointer text-white px-3 py-1"><?= $messages['inquiry'] ?>
                 </div>
-                <img src="<?= $imagePath ?>icons/hamburger.svg" class="w-8" alt="" id="menuBtn" />
+                <img src="<?= $imagePath ?>icons/hamburger.svg" class="w-8" alt="hamburger" id="menuBtn" />
             </div>
         </div>
         <a href="" class="">
@@ -76,7 +70,7 @@ try {
                     <ul class="flex justify-end items-center gap-5 ">
                         <li class="flex items-center gap-2 max-[1000px]:ml-auto">
                             <div class="">
-                                <img src="<?= $imagePath ?>icons/phone.svg" alt="" class="w-5">
+                                <img src="<?= $imagePath ?>icons/phone.svg" alt="phone" class="w-5">
                             </div>
                             <a class="text-white" href="tel:+971501837112" class="">+971501837112</a>
                         </li>
@@ -101,12 +95,12 @@ try {
                     <li class="relative group ">
                         <div class="flex items-center gap-1 transition-all duration-300 hover:bg-[#E02D3C] ar_px py-4 px-3 max-[1024px]:py-2 ">
                             <a href="#" class=""><?= $messages['brands'] ?></a>
-                            <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
+                            <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="arrow-down">
                         </div>
                         <ul class="absolute left-0 ar_header_drop max-[1024px]:h-[18rem] max-[1024px]:overflow-auto mt-3 z-[9999] bg-white rounded-md grid grid-cols-3 max-[1024px]:grid-cols-2 px-4 gap-2 w-[45rem] max-[1024px]:w-[23rem] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                             <?php foreach($headerContentData["brands"] as $brands): ?>
                                 <li class='flex items-center gap-2'>
-                                    <img class='w-[2.4rem] h-[2.4rem] object-contain' src="<?php echo $brands["logo_url"]; ?>" alt="">
+                                    <img class='w-[2.4rem] h-[2.4rem] object-contain' src="<?php echo $brands["logo_url"]; ?>" alt="logo_url">
                                     <a href="brands/<?php echo $brands["slug"]; ?>" class="block w-full px-4 py-2 text-[#212529] hover:bg-[#E02D3C] hover:text-white duration-300"><?php echo $brands["name_{$lang}"]; ?></a>
                                 </li>
                             <?php endforeach; ?>
@@ -127,7 +121,7 @@ try {
                     <li class="relative group ">
                         <div class="flex items-center gap-1 transition-all duration-300 hover:bg-[#E02D3C] ar_px py-4 px-3 max-[1024px]:py-2">
                             <a href="#" class=""><?= $messages['lease'] ?></a>
-                            <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
+                            <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="arrow-down">
                         </div>
                         <ul class="absolute left-0 ar_header_drop mt-3 z-[9999] bg-white rounded-md dropdown opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                             <?php foreach($headerContentData["lease"] as $lease): ?>
@@ -143,15 +137,15 @@ try {
                     <li class="flex gap-2 bg-[#E02D3C] ar_ml3 ml-3 max-[1024px]:flex-col rounded-[5px] group relative">
                         <div class="flex items-center gap-1 transition-all duration-300 cursor-pointer text-white px-3 py-1 max-[1024px]:py-2">
                             <?= ($lang === 'ar') ? 'العربية' : $lang ?>
-                            <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="">
+                            <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="arrow-down">
                         </div>
                         <ul class="absolute top-[3rem] left-0 w-[8.3rem] p-[.5rem] ar_header_drop z-[999] bg-white rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                             <a href="<?= $englishUrl; ?>" class="flex rounded-[5px] items-center gap-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
-                                <img src="<?= $imagePath ?>flags/flag-en.webp" alt="" class="w-6 h-6 rounded-full">
+                                <img src="<?= $imagePath ?>flags/flag-en.webp" alt="flag-en" class="w-6 h-6 rounded-full">
                                 <div class='text-black'>English</div>
                             </a>
                             <a href="<?= $arabicUrl; ?>" class="flex rounded-[5px] items-center gap-2 mt-2 cursor-pointer Poppins shadow-[0_4px_10px_rgba(0,0,0,0.3)] px-3 py-1 bg-white">
-                                <img src="<?= $imagePath ?>flags/flag-ar.webp" alt="" class="w-6 h-6 rounded-full">
+                                <img src="<?= $imagePath ?>flags/flag-ar.webp" alt="flag-ar" class="w-6 h-6 rounded-full">
                                 <div class='text-black'>العربية</div>
                             </a>
                         </ul>

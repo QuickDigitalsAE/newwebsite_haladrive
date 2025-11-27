@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     class="rounded-[10px] px-6 py-10 shadow-[0_5px_90px_0_rgba(110,123,131,0.1)] border-b-[6px] border-transparent hover:border-[#ff000d] hover:scale-[1.03] transition-all duration-300 ease-in-out">
                     <h5 class="font-bold pl-2 text-[1.5rem] border-l-4 border-[#ff000d]"><?= $messages['contactaddress1'] ?></h5>
                     <div class="mt-6 flex gap-2">
-                        <img src="<?= $imagePath ?>icons/location-red.svg" class="w-8" alt="">
+                        <img src="<?= $imagePath ?>icons/location-red.svg" class="w-8" alt="location">
                         <h6 class="font-bold text-black leading-[1]"><?= $messages['contactaddress2'] ?></h6>
                     </div>
                 </div>
@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     class="rounded-[10px] px-6 py-10 shadow-[0_5px_90px_0_rgba(110,123,131,0.1)] border-b-[6px] border-transparent hover:border-[#ff000d] hover:scale-[1.03] transition-all duration-300 ease-in-out">
                     <h5 class="font-bold pl-2 text-[1.5rem] border-l-4 border-[#ff000d]"><?= $messages['contacthours'] ?></h5>
                     <div class="mt-6 flex gap-2 items-center">
-                        <img src="<?= $imagePath ?>icons/clock.svg" class="w-8" alt="">
+                        <img src="<?= $imagePath ?>icons/clock.svg" class="w-8" alt="clock">
                         <h5 class="font-bold text-black leading-[1]"><?= $messages['contacttime'] ?></h5>
                     </div>
                 </div>
@@ -126,11 +126,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     class="rounded-[10px] px-6 py-10 shadow-[0_5px_90px_0_rgba(110,123,131,0.1)] border-b-[6px] border-transparent hover:border-[#ff000d] hover:scale-[1.03] transition-all duration-300 ease-in-out">
                     <h5 class="font-bold pl-2 text-[1.5rem] border-l-4 border-[#ff000d]"><?= $messages['contactsupport'] ?></h5>
                     <div class="mt-6 flex gap-2 items-center">
-                        <img src="<?= $imagePath ?>icons/phone-red.svg" class="w-8" alt="">
+                        <img src="<?= $imagePath ?>icons/phone-red.svg" class="w-8" alt="phone">
                         <a href="tel:+971501837112" class="font-bold text-black leading-[1]">+971501837112</a>
                     </div>
                     <div class="mt-2 flex gap-2 items-center">
-                        <img src="<?= $imagePath ?>icons/phone-red.svg" class="w-8" alt="">
+                        <img src="<?= $imagePath ?>icons/phone-red.svg" class="w-8" alt="phone">
                         <a href="tel:+97142711125" class="font-bold text-black leading-[1]">+97142711125</a>
                     </div>
                 </div>

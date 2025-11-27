@@ -150,7 +150,7 @@ include_once('banner.php');
                                             <a href="carsbrands/<?php echo $brands["slug"]; ?>"
                                             class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                             <img class="w-6 h-6 me-2 rounded-full"
-                                                src="<?php echo $brands["logo_url"]; ?>" alt="audi">
+                                                src="<?php echo $brands["logo_url"]; ?>" alt="<?php echo $brands["name_{$lang}"]; ?>">
                                             <?php echo $brands["name_{$lang}"]; ?>
                                         </a>
                                         </li>
@@ -165,11 +165,11 @@ include_once('banner.php');
                     <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
                         <div class="flex items-center justify-between mb-2">
                             <div class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">in Stock</div>
-                            <img width="0" hight='0' src="<?php echo $brandData["brand"]["logo_url"]; ?>" class="w-16" alt="">
+                            <img width="0" hight='0' src="<?php echo $brandData["brand"]["logo_url"]; ?>" class="w-16" alt="Brands">
                         </div>
                         <div class="flex items-center max-[1024px]:flex-col gap-4">
                             <a href='cars/<?php echo $car["slug"]; ?>' class="w-[50%] max-[1024px]:w-full">
-                                <img src="<?php echo $car["image_url"]; ?>" alt="">
+                                <img src="<?php echo $car["image_url"]; ?>" alt="Brands cars">
                                 <div class="flex gap-2 justify-center items-center mt-3">
                                     <div
                                         class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
@@ -193,19 +193,19 @@ include_once('banner.php');
                                 <ul
                                     class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
                                     <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="Star">
                                         <div class=""><?= $messages['engine'] ?> Size 1.5 L</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="Star">
                                         <div class=""><?= $messages['bluetooth'] ?> Yes</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="Star">
                                         <div class=""><?= $messages['control'] ?> Yes</div>
                                     </li>
                                     <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="">
+                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="Star">
                                         <div class=""><?= $messages['luggage'] ?> Yes</div>
                                     </li>
                                 </ul>
