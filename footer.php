@@ -2,6 +2,7 @@
     <!--------------------------------- footer ------------------------------->
 
     <footer class="pt-[6rem] max-[1024px]:pt-[2rem] pb-[1rem] relative ">
+        <button id="scrollTopBtn" class="scroll-top-btn "><img src="<?= $imagePath ?>icons/arrow.webp" alt="arrow" class='rotate-[-45deg] w-[1rem] h-[1rem] object-contain m-auto'></button>
         <img src="<?= $imagePath ?>footerbg.webp" class="w-full h-full object-cover absolute inset-0 z-[-1] " alt="footerbg">
          <div class="whatsapp_btn">
             <a target="_blank" href="https://wa.me/971501837112?text=Hi">
@@ -116,6 +117,25 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        const scrollBtn = document.getElementById("scrollTopBtn");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 200) {
+                scrollBtn.classList.add("show");
+            } else {
+                scrollBtn.classList.remove("show");
+            }
+        });
+
+        scrollBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
 
     <script>
         const modal = document.getElementById("myModal");

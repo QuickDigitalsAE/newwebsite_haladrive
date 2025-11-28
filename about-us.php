@@ -43,7 +43,7 @@ include_once('banner.php');
                 <div class="text-black">
                     <div class="mb-4 string"><?php echo $aboutContentData["about"]["our_mission_brief_{$lang}"]; ?></div>
                     <!-- <p class="text-[#939393] mb-4">The prosperity of Hala Drive continues to this day. Our car rental guiding ideals and modest beginnings revolve around personal honesty and integrity. We believe it's essential to collaborate in order to enhance our communities. Treating our customers like they're a part of the family—and rewarding hard work.</p> -->
-                    <button class="p-2 rounded-[6px] border border-[#ff000d] uppercase"><?= $messages['journy'] ?></button>
+                    <a href='contact' class="p-2 rounded-[6px] border border-[#ff000d] uppercase"><?= $messages['journy'] ?></a>
                 </div>
                 <div class="">
                     <img src="<?php echo $aboutContentData["about"]["image_url"]; ?>" alt="About Us">
