@@ -53,6 +53,18 @@ p {
     font-size: 1.4rem;
     font-weight: 600;
 }
+.string h2,
+.string h3 {
+    line-height: 1;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.string h4,
+.string h5 {
+    line-height: 1;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
 .string p{
     padding-block: 1rem;
 }
