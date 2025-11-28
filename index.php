@@ -384,15 +384,19 @@ require_once 'header.php';
                 </div>
             </div>
             <div class="grid grid-cols-2 max-[1024px]:grid-cols-1 gap-4">
-                <?php foreach($homeContentData["blogs"] as $blog): ?>
+                <?php foreach($homeContentData["blogs"] as $blog): 
+                    $date = new DateTime($blog['blog_schedule']); // Convert string to DateTime object
+                    $formattedDate = $date->format('d M Y');
+                    ?>
                     <div class="flex max-[1024px]:flex-col items-center shadow-[0px_0px_50px_#0000000D] bg-white max-[1024px]:p-3 rounded-[10px]">
                         <div class="w-1/2 max-[1024px]:w-full">
                             <img src="<?php echo $blog["image_url"]; ?>" class="rounded-[10px]" alt="<?php echo $blog["img_alt_{$lang}"]; ?>">
                         </div>
                         <div class="w-1/2 max-[1024px]:w-full p-4 max-[1024px]:p-0 max-[1024px]:pt-3">
+                            <div class="font-bold text-[#E02D3C] text-[.7rem] mb-2"><?php echo $formattedDate; ?></div>
                             <a href="blogs/<?php echo $blog["slug"]; ?>" class="">
-                                <div class="text-[#333333] syne text-[1.1rem] leading-[1]"><?php echo $blog["title_{$lang}"]; ?></div>
-                                <div class="text-[#333333] syne font-bold mt-2"><?= $messages['read_more'] ?></div>
+                                <div class="text-[#333333] syne text-[.9rem] leading-[1]"><?php echo $blog["title_{$lang}"]; ?></div>
+                                <div class="text-white text-[.7rem] w-fit rounded-[5px] bg-[#E02D3C] px-3 py-1 syne font-bold mt-2"><?= $messages['read_more'] ?></div>
                             </a>
                         </div>
                     </div>

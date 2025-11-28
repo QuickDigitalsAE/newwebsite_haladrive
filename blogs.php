@@ -32,6 +32,9 @@ if ($slug) {
     $banner_title = $messages['blogsBannerHeading'];
     $banner_subtitle = $messages['blogsBannerPera'];
     include_once('banner.php');
+
+    $date = new DateTime($singleBlogContentData['blog']['created_at']); // Convert string to DateTime object
+    $formattedDate = $date->format('d M Y');
     ?>
 
     <!--------------------------------- blogs inner ------------------------------->
@@ -42,7 +45,7 @@ if ($slug) {
                 <div class="">
                     <img src="<?php echo $singleBlogContentData["blog"]["image_url"]; ?>" class="rounded-[10px]" alt="<?php echo $singleBlogContentData["blog"]["img_alt_{$lang}"]; ?>">
                     <div class="">
-                        <div class="font-bold text-[#939393] text-[1rem] mt-12">10 Nov 2025</div>
+                        <div class="font-bold text-[#939393] text-[1rem] mt-12"><?php echo $formattedDate; ?></div>
                     </div>
                     <div class="mt-6 string">
                         <?php echo $singleBlogContentData["blog"]["description_{$lang}"]; ?>
