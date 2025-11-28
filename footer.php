@@ -161,9 +161,11 @@
                     alert(data.message || 'Inquiry sent successfully!');
 
                     // Close modal
-                    // const modal = document.getElementById('myModal');
-                    // const bsModal = bootstrap.Modal.getInstance(modal);
-                    // if (bsModal) bsModal.hide();
+                   const modal = document.getElementById('myModal');
+
+                    if (modal) {  
+                        modal.style.display = "none";
+                    }
 
                     // Reset form
                     form.reset();
