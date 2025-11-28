@@ -145,14 +145,14 @@ return [
 
 
     //     cars
-    'carsBannerHeading' => "Explore Our Signature Collection",
+    'carsBannerHeading' => "Explore Our Signature Collection of Car Marvels",
     'carsBannerPera' => "Top rated car rental in Dubai!",
 
 
 
     //    blogs
     'blogsBannerHeading' => 'Blogs',
-    'blogsBannerPera' => "Top rated car rental in Dubai. Low prices & great deals!",
+    'blogsBannerPera' => "Top rated car rental in Dubai. Low prices, great deals, convenient pick-up, top-notch service!",
 
 
     //    locations 
