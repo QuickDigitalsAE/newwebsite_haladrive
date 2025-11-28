@@ -152,7 +152,7 @@ include_once('banner.php');
                             </button>
 
                             <div id="dropdownUsers" class="z-[99999] relative hidden bg-white rounded-lg shadow-sm dark:bg-gray-700">
-                                <ul class="h-48 py-2 overflow-y-auto text-gray-700 dark:text-gray-200"
+                                <ul class="h-48 py-2 overflow-y-auto text-gray-700 dark:text-gray-200 !bg-white"
                                     aria-labelledby="dropdownUsersButton">
                                     <?php foreach($brandData["brands"] as $brands): ?>
                                         <li>
