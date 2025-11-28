@@ -35,7 +35,6 @@ p {
 .string h1 strong{
     line-height: 1;
     font-size: 2rem;
-    font-weight: 600;
 }
 .string h1 {
     line-height: 1;
@@ -45,13 +44,21 @@ p {
 .string h3 strong {
     line-height: 1;
     font-size: 1.8rem;
-    font-weight: 600;
 }
 .string h4 strong,
 .string h5 strong {
     line-height: 1;
     font-size: 1.4rem;
-    font-weight: 600;
+}
+.string h2,
+.string h3 {
+    line-height: 1;
+    font-size: 1.8rem;
+}
+.string h4,
+.string h5 {
+    line-height: 1;
+    font-size: 1.4rem;
 }
 .string p{
     padding-block: 1rem;
