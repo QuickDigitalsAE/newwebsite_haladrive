@@ -302,10 +302,11 @@ require_once 'header.php';
                 <div class=""><?= $messages['homeSectionForthPera_1'] ?></div>
             </div>
             <div class="">
-                <form action="" class="grid grid-cols-4 gap-4 max-[1024px]:grid-cols-1">
-                    <input class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2" placeholder="<?= $messages['name'] ?>" type="text">
-                    <input class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2" placeholder="<?= $messages['number'] ?>" type="tel">
-                    <input class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2" placeholder="<?= $messages['email'] ?>" type="email">
+                <form method="POST" id="inquire-form" class="grid grid-cols-4 gap-4 max-[1024px]:grid-cols-1">
+                    <input type="hidden" name="_token" value="FV5HbL6ZEq4mAded9gT90jqo2DrRpPtDjioznKXj">                    <!-- Name -->    
+                    <input name="name" id="name" class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2" placeholder="<?= $messages['name'] ?>" type="text">
+                    <input name="number" id="contact_number"  class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2" placeholder="<?= $messages['number'] ?>" type="text">
+                    <input name="email" id="email" class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2" placeholder="<?= $messages['email'] ?>" type="email">
                     <button class="text-white bg-[#E02D3C] rounded-[5px] px-4 py-2"><?= $messages['send'] ?></button>
                 </form>
             </div>
