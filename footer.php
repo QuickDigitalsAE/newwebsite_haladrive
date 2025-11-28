@@ -156,19 +156,21 @@
             })
             .then(response => response.json())
             .then(data => {
-                 if (data.status === true) {
+                // Show message in JS alert
+                if (data.success) {
                     alert(data.message || 'Inquiry sent successfully!');
-
-                    // Close modal
-                    const modal = document.getElementById('myModal');
-                    const bsModal = bootstrap.Modal.getInstance(modal);
-                    if (bsModal) bsModal.hide();
-
-                    // Reset form
-                    form.reset();
                 } else {
                     alert(data.message || 'Error submitting inquiry.');
                 }
+
+                // Close the modal
+                const modal = document.getElementById('myModal');
+                const bsModal = bootstrap.Modal.getInstance(modal);
+                if (bsModal) bsModal.hide();
+
+                // Reset the form
+                form.reset();
+
             })
             .catch(err => {
                 alert('A server error occurred.');
