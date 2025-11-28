@@ -144,20 +144,19 @@
 
         // AJAX form submission with JS alert
         document.getElementById('inquire-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // prevent default form submission
 
             const form = e.target;
             const formData = new FormData(form);
             const base_url = 'https://admin.haladrive.ae/api/v1';
 
-            fetch(base_url + '/en/contact/send/inquire', {
+            fetch(base_url+'/en/contact/send/inquire', { // relative API endpoint
                 method: 'POST',
                 body: formData
             })
             .then(response => response.json())
             .then(data => {
-
-                if (data.status === true) {
+                 if (data.status === true) {
                     alert(data.message || 'Inquiry sent successfully!');
 
                     // Close modal
@@ -170,13 +169,11 @@
                 } else {
                     alert(data.message || 'Error submitting inquiry.');
                 }
-
             })
             .catch(err => {
                 alert('A server error occurred.');
             });
         });
-
     </script>
 
 
