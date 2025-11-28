@@ -40,7 +40,7 @@ require_once 'header.php';
         <div class="text-[#333333] w-[40%] max-[1024px]:w-[95%] absolute top-[35%] max-[1024px]:top-[30%] -translate-y-1/2 left-[10%] max-[1024px]:left-0 max-[1024px]:right-0 max-[1024px]:mx-auto ar_banner_text">
             <div class='text-[3rem] max-[1024px]:text-[2rem] syne leading-[1] mb-3'><?= $messages['bannernewh'] ?></div>
             <p class='leading-[1.4] w-[80%] max-[1024px]:w-full '><?= $messages['bannernewp'] ?></p>
-            <div class="bg-[#E02D3C] p-2 w-fit rounded-[5px] text-white mt-3"><?= $messages['exploremore'] ?></div>
+            <a href='cars' class="bg-[#E02D3C] p-2 w-fit rounded-[5px] text-white mt-3 inline-block"><?= $messages['exploremore'] ?></a>
         </div>
 
         <!-- <div class="swiper mySwiper w-full h-full">
@@ -91,28 +91,28 @@ require_once 'header.php';
         <div class="">
             <h1 class="text-[#333333] capitalize syne font-semibold text-[2.5rem] max-[1024px]:text-[1.5rem] leading-[1] text-center w-[80%] max-[1024px]:w-[90%] mx-auto"><?= $messages['homeFirstHeading'] ?></h1>
             <ul class="grid grid-cols-5 max-[1024px]:grid-cols-2 w-[80%] max-[1024px]:w-[90%] mx-auto mt-4 gap-4 items-center justify-center">
-                <li class="px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a rel="nofollow" href="cars?sort=Economy&id=1">
+                <li class="">
+                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars?sort=Economy&id=1">
                         <?= $messages['economy'] ?>
                     </a>
                 </li>
-                <li class="px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a rel="nofollow" href="cars?sort=SUV&id=2">
+                <li class="">
+                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars?sort=SUV&id=2">
                         <?= $messages['suv'] ?>
                     </a>
                 </li>
-                <li class="px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a rel="nofollow" href="cars?sort=Midsize&id=3">
+                <li class="">
+                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars?sort=Midsize&id=3">
                         <?= $messages['midsize'] ?>
                     </a>
                 </li>
-                <li class="px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a rel="nofollow" href="cars?sort=Featured&id=4">
+                <li class="">
+                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars?sort=Featured&id=4">
                         <?= $messages['featured'] ?>
                     </a>
                 </li>
-                <li class="px-4 py-2 bg-[#F4F4F4] text-center max-[1024px]:col-span-2 text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 ">
-                    <a rel="nofollow" href="cars?sort=Crossover&id=5">
+                <li class="max-[1024px]:col-span-2">
+                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars?sort=Crossover&id=5">
                         <?= $messages['crossover'] ?>
                     </a>
                 </li>
@@ -155,8 +155,8 @@ require_once 'header.php';
 
     <!--------------------------------- 1st content ------------------------------->
 
-    <section class='relative py-16 max-[1024px]:py-10'>
-        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>home1.webp" alt="home1">
+    <section class='relative animate_sec1 py-16 max-[1024px]:py-10'>
+        <!-- <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>home1.webp" alt="home1"> -->
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
             <h2 class="text-[2.5rem] max-[1024px]:text-[1.7rem] mb-6 capitalize syne text-center w-[80%] max-[1024px]:w-full mx-auto leading-[1] font-bold"><?= $messages['homeSectionOneHeading_1'] ?></h2>
             <div class="flex max-[1024px]:flex-col-reverse items-center gap-10 max-[1024px]:gap-2">
@@ -261,8 +261,8 @@ require_once 'header.php';
 
     <!--------------------------------- 2nd content ------------------------------->
 
-    <section class="py-16 relative max-[1024px]:py-10 ">
-        <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>homebg.webp" alt="homebg">
+    <section class="py-16 animate_sec relative max-[1024px]:py-10 ">
+        <!-- <img class='absolute z-[-1] w-full h-full object-cover inset-0' src="<?= $imagePath ?>homebg.webp" alt="homebg"> -->
         <div class="">
             <div class="flex max-[1024px]:flex-col-reverse items-center gap-10 w-[80%] max-[1024px]:w-[90%] mx-auto">
                 <div class="w-[60%] max-[1024px]:w-full">

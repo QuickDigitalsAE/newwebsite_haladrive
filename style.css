@@ -286,3 +286,17 @@ textarea.custom_input {
 .pagination span {
     width: 122px;
 }
+.animate_sec1 {
+  background-image: url("images/home1.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.animate_sec {
+  background-image: url("images/homebg.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
