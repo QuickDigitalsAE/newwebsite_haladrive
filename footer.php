@@ -80,7 +80,7 @@
             <div class="modal-body w-full p-6">
                 <h5 class="text-xl text-center font-semibold mb-4 Poppins"><?= $messages['book'] ?></h5>
 
-                <form method="POST" id="inquire-form" class="w-full Poppins">
+                <form method="POST" class="inquire-form w-full Poppins">
                     <input type="hidden" name="_token" value="FV5HbL6ZEq4mAded9gT90jqo2DrRpPtDjioznKXj">                    <!-- Name -->
                     <div class="relative w-full mb-3">
                         <img class='w-6 absolute top-1/2 -translate-y-1/2 left-2' src="<?= $imagePath ?>icons/user.svg" alt="user">
@@ -143,41 +143,42 @@
 
 
         // AJAX form submission with JS alert
-        document.getElementById('inquire-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        document.querySelectorAll('.inquire-form').forEach(form => {
 
-            const form = e.target;
-            const formData = new FormData(form);
-            const base_url = 'https://admin.haladrive.ae/api/v1';
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-            fetch(base_url + '/en/contact/send/inquire', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
+                const formData = new FormData(form);
+                const base_url = 'https://admin.haladrive.ae/api/v1';
 
-                if (data.status === true) {
-                    alert(data.message || 'Inquiry sent successfully!');
+                fetch(base_url + '/en/contact/send/inquire', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
 
-                    // Close modal
-                   const modal = document.getElementById('myModal');
-
-                    if (modal) {  
-                        modal.style.display = "none";
+                    // Success / Error Alert
+                    if (data.status === true) {
+                        alert(data.message || 'Inquiry sent successfully!');
+                    } else {
+                        alert(data.message || 'Error submitting inquiry.');
                     }
 
-                    // Reset form
-                    form.reset();
-                } else {
-                    alert(data.message || 'Error submitting inquiry.');
-                }
+                    // Hide modal if exists
+                    const modal = document.getElementById('myModal');
+                    if (modal) modal.style.display = "none";
 
-            })
-            .catch(err => {
-                alert('A server error occurred.');
+                    // Reset the form
+                    form.reset();
+                })
+                .catch(err => {
+                    alert('A server error occurred.');
+                });
+
             });
         });
+
 
     </script>
 
