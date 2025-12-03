@@ -142,6 +142,18 @@ include_once('banner.php');
                             >
                                 <?= $messages['economy'] ?>
                             </a>
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'sort=suv';
+                                    document.cookie = 'id=2';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
+                                <?= $messages['suv'] ?>
+                            </a>
                             <a href='brands/<?php echo $brandData["brand"]["slug"]; ?>?sort=SUV&id=2' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['suv'] ?></a>
                             <a href='brands/<?php echo $brandData["brand"]["slug"]; ?>?sort=Midsize&id=3' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['midsize'] ?></a>
                             <a href='brands/<?php echo $brandData["brand"]["slug"]; ?>?sort=Featured&id=4' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['featured'] ?></a>
