@@ -40,7 +40,7 @@ if(isset($_COOKIE['sort'])){
     $_GET['sort'] = $_COOKIE['sort'];
 }
 
-
+echo $_GET['sort'];
 
 $sort = $_GET['sort'] ?? null;
 
