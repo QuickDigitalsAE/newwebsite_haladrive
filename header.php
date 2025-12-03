@@ -23,7 +23,7 @@ try {
     <title><?php echo $meta_title ?? 'Default Title'; ?></title>
     <meta name="title" content="<?php echo $meta_title ?? 'Default Title'; ?>" />
     <meta name="description" content="<?php echo $meta_desc ?? 'Default desc'; ?>" />
-    <!-- <meta name="robots" content="noindex"> -->
+    <meta name="robots" content="noindex">
     <link rel="canonical" href="https://new.haladrive.ae<?php echo $uri?>" />
     <link href="<?= $imagePath; ?>icons/favicon.ico" rel="icon">
     <base href="<?= $baseHref; ?>">
