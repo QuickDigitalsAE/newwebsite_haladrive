@@ -36,7 +36,14 @@ if (strpos($uri, '/brands/') !== false) {
     $pageType = 'unknown';
 }
 
+if(isset($_COOKIE['sort'])){
+    $_GET['sort'] = $_COOKIE['sort'];
+}
+
+
+
 $sort = $_GET['sort'] ?? null;
+
 
 $currentPage = $_GET['page'] ?? 1;
 // -------------------------------
@@ -123,7 +130,18 @@ include_once('banner.php');
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
                         <div class="mb-4 text-[1.3rem]"><?= $messages['typesofcars'] ?></div>
                         <div class="grid grid-cols-2 gap-2 font-semibold text-[12px]">
-                            <a href='brands/<?php echo $brandData["brand"]["slug"]; ?>?sort=Economy&id=1' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['economy'] ?></a>
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'sort=Economy';
+                                    document.cookie = 'id=1';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
+                                <?= $messages['economy'] ?>
+                            </a>
                             <a href='brands/<?php echo $brandData["brand"]["slug"]; ?>?sort=SUV&id=2' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['suv'] ?></a>
                             <a href='brands/<?php echo $brandData["brand"]["slug"]; ?>?sort=Midsize&id=3' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['midsize'] ?></a>
                             <a href='brands/<?php echo $brandData["brand"]["slug"]; ?>?sort=Featured&id=4' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['featured'] ?></a>
