@@ -189,11 +189,12 @@ if ($slug) {
 
 
 $sort = $_GET['sort'] ?? null;
+$id = $_GET['id'] ?? null;
 
 $currentPage = $_GET['page'] ?? 1;
 
 try {
-    $carContent = $api->loadData('car', 'main', ['sort' => $sort, 'page' => $currentPage]);
+    $carContent = $api->loadData('car', 'main', ['sort' => $sort, 'id' => $id, 'page' => $currentPage]);
     if ($carContent['success']) {
         $carContentData = $carContent['data']["data"];
 

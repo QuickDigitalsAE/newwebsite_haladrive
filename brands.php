@@ -50,7 +50,7 @@ $currentPage = $_GET['page'] ?? 1;
 // LOAD DATA
 // -------------------------------
 try {
-    $brandContent = $api->loadData('brand', 'brand', ['sort' => $sort, 'page' => $currentPage], $slug);
+    $brandContent = $api->loadData('brand', 'brand', ['sort' => $sort,  'page' => $currentPage], $slug);
 
     if ($brandContent['success']) {
 
