@@ -1234,6 +1234,11 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
+.border-\[\#E02D3C\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(224 45 60 / var(--tw-border-opacity, 1));
+}
+
 .\!bg-white {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1)) !important;
