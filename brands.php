@@ -307,119 +307,133 @@ include_once('banner.php');
                     </div>
                 </div>
                 <div class="col-span-3 max-[1024px]:col-span-1 flex flex-col gap-10">
-                    <?php foreach($brandData["cars"]["data"] as $car): ?>
-                    <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
-                        <div class="flex items-center justify-between mb-2">
-                            <?php if (!empty($car["stock"]) && $car["stock"] == "Yes"): ?>
-                                <div class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
-                                    <?= $messages['instock'] ?>
-                                </div>
-                            <?php else: ?>
-                                <div class="bg-[#d60000] text-white border border-[#d60000] rounded-full text-[.8rem] px-2 py-1">
-                                    <?= $messages['outofstock'] ?>
-                                </div>
-                            <?php endif; ?>
-                            <img width="0" hight='0' src="<?php echo $brandData["brand"]["logo_url"]; ?>" class="w-16" alt="Brands">
+                    <?php if (empty($brandData["cars"]["data"])): ?>
+                        <div class="text-[2rem] font-bold leading-[1] text-center syne">
+                            <?= $messages['nocarsfound'] ?? 'No Cars Found' ?>
                         </div>
-                        <div class="flex items-center max-[1024px]:flex-col gap-4">
-                            <a href='cars/<?php echo $car["slug"]; ?>' class="w-[50%] max-[1024px]:w-full">
-                                <img src="<?php echo $car["image_url"]; ?>" alt="Brands cars">
-                                <div class="flex gap-2 justify-center items-center mt-3">
-                                    <div
-                                        class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                        <div class=""><?= $messages['daily'] ?></div>
-                                        <div class="font-bold"><?php echo $car["price_daily"]; ?></div>
-                                    </div>
-                                    <div
-                                        class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                        <div class=""><?= $messages['weekly'] ?></div>
-                                        <div class="font-bold"><?php echo $car["price_weekly"]; ?></div>
-                                    </div>
-                                    <div
-                                        class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
-                                        <div class=""><?= $messages['monthly'] ?></div>
-                                        <div class="font-bold"><?php echo $car["price_monthly"]; ?></div>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="w-[50%] max-[1024px]:w-full">
-                                <div class="text-[2rem] font-bold leading-[1] max-[1024px]:text-center syne"><?php echo $car["name_{$lang}"]; ?></div>
-                                <ul
-                                    class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
-                                    <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="Star">
-                                        <div class=""><?= $messages['engine'] ?> Size 1.5 L</div>
-                                    </li>
-                                    <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="Star">
-                                        <div class=""><?= $messages['bluetooth'] ?> Yes</div>
-                                    </li>
-                                    <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="Star">
-                                        <div class=""><?= $messages['control'] ?> Yes</div>
-                                    </li>
-                                    <li class="flex items-center gap-2 ">
-                                        <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="Star">
-                                        <div class=""><?= $messages['luggage'] ?> Yes</div>
-                                    </li>
-                                </ul>
-                                <div class="mt-4">
-                                    <div
-                                        class="text-white openModalBtn bg-[#ff000d] px-[5rem] py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-center max-[1024px]:mx-auto w-fit">
-                                        <?= $messages['inquiry'] ?></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php endforeach; 
-                
-                    $baseUrl = "";
-                    if ($pageType === 'brand') {
-                        $baseUrl = './brands/'.$brandData['brand']['slug']; ; 
-                    } elseif ($pageType === 'cars_brand') {
-                        $baseUrl = './carsbrands/'.$brandData['brand']['slug']; ; // Car listing page SEO
-                    }
+                    <?php else: ?>
 
-                    if (!empty($brandData["cars"]["links"])): ?>
-                    <div class="flex justify-center mt-10">
-                        <div class="flex gap-2 max-[1024px]:flex-wrap items-center">
-                            
-                            <?php foreach ($brandData["cars"]["links"] as $link): ?>
-                                <?php if ($link["url"]): ?>
-                                    <?php $pageUrl = !empty($baseUrl) ?  $link['page'] == '1' ? $baseUrl : $baseUrl. "?page=" . $link["page"] : "#";
-                                    ?>
+                        <?php foreach($brandData["cars"]["data"] as $car): ?>
+                            <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
+                                <div class="flex items-center justify-between mb-2">
 
-                                    <?php if ($link["active"]): ?>
-
-                                        <a href="<?= $pageUrl ?>" 
-                                            class="px-4 py-2 bg-[#ff000d] text-white rounded"
-                                        >
-                                            <?= $link["label"] ?>
-                                        </a>
-
+                                    <?php if (!empty($car["stock"]) && $car["stock"] == "Yes"): ?>
+                                        <div class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
+                                            <?= $messages['instock'] ?>
+                                        </div>
                                     <?php else: ?>
-
-                                        <a 
-                                            href="<?= $pageUrl ?>" 
-                                            class="px-4 py-2 bg-white text-[#333] border rounded hover:bg-[#ff000d] hover:text-white"
-                                        >
-                                            <?= $link["label"] ?>
-                                        </a>
-
+                                        <div class="bg-[#d60000] text-white border border-[#d60000] rounded-full text-[.8rem] px-2 py-1">
+                                            <?= $messages['outofstock'] ?>
+                                        </div>
                                     <?php endif; ?>
 
-                                <?php else: ?>
+                                    <img width="0" height="0" src="<?php echo $brandData["brand"]["logo_url"]; ?>" class="w-16" alt="Brands">
+                                </div>
 
-                                    <span class="px-4 py-2 text-gray-500"><?= $link["label"] ?></span>
+                                <div class="flex items-center max-[1024px]:flex-col gap-4">
+                                    <a href='cars/<?php echo $car["slug"]; ?>' class="w-[50%] max-[1024px]:w-full">
+                                        <img src="<?php echo $car["image_url"]; ?>" alt="Brands cars">
 
-                                <?php endif; ?>
+                                        <div class="flex gap-2 justify-center items-center mt-3">
+                                            <div class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                                <div><?= $messages['daily'] ?></div>
+                                                <div class="font-bold"><?php echo $car["price_daily"]; ?></div>
+                                            </div>
 
-                            <?php endforeach; ?>
+                                            <div class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                                <div><?= $messages['weekly'] ?></div>
+                                                <div class="font-bold"><?php echo $car["price_weekly"]; ?></div>
+                                            </div>
 
-                        </div>
-                    </div>
-                <?php endif; ?>
+                                            <div class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
+                                                <div><?= $messages['monthly'] ?></div>
+                                                <div class="font-bold"><?php echo $car["price_monthly"]; ?></div>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <div class="w-[50%] max-[1024px]:w-full">
+                                        <div class="text-[2rem] font-bold leading-[1] max-[1024px]:text-center syne">
+                                            <?php echo $car["name_{$lang}"]; ?>
+                                        </div>
+
+                                        <ul class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
+                                            <li class="flex items-center gap-2">
+                                                <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="Star">
+                                                <div><?= $messages['engine'] ?> Size 1.5 L</div>
+                                            </li>
+
+                                            <li class="flex items-center gap-2">
+                                                <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="Star">
+                                                <div><?= $messages['bluetooth'] ?> Yes</div>
+                                            </li>
+
+                                            <li class="flex items-center gap-2">
+                                                <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="Star">
+                                                <div><?= $messages['control'] ?> Yes</div>
+                                            </li>
+
+                                            <li class="flex items-center gap-2">
+                                                <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="Star">
+                                                <div><?= $messages['luggage'] ?> Yes</div>
+                                            </li>
+                                        </ul>
+
+                                        <div class="mt-4">
+                                            <div class="text-white openModalBtn bg-[#ff000d] px-[5rem] py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-center max-[1024px]:mx-auto w-fit">
+                                                <?= $messages['inquiry'] ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+
+                        <?php
+                            $baseUrl = "";
+
+                            if ($pageType === 'brand') {
+                                $baseUrl = './brands/'.$brandData['brand']['slug'];
+                            } elseif ($pageType === 'cars_brand') {
+                                $baseUrl = './carsbrands/'.$brandData['brand']['slug'];
+                            }
+                        ?>
+
+                        <?php if (!empty($brandData["cars"]["links"])): ?>
+                            <div class="flex justify-center mt-10">
+                                <div class="flex gap-2 max-[1024px]:flex-wrap items-center">
+
+                                    <?php foreach ($brandData["cars"]["links"] as $link): ?>
+                                        <?php if ($link["url"]): ?>
+
+                                            <?php 
+                                            $pageUrl = ($link['page'] == '1') 
+                                                ? $baseUrl 
+                                                : $baseUrl . "?page=" . $link["page"];
+                                            ?>
+
+                                            <?php if ($link["active"]): ?>
+                                                <a href="<?= $pageUrl ?>" class="px-4 py-2 bg-[#ff000d] text-white rounded">
+                                                    <?= $link["label"] ?>
+                                                </a>
+                                            <?php else: ?>
+                                                <a href="<?= $pageUrl ?>" class="px-4 py-2 bg-white text-[#333] border rounded hover:bg-[#ff000d] hover:text-white">
+                                                    <?= $link["label"] ?>
+                                                </a>
+                                            <?php endif; ?>
+
+                                        <?php else: ?>
+                                            <span class="px-4 py-2 text-gray-500"><?= $link["label"] ?></span>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
+                    <?php endif; ?>
                 </div>
+
                 <div class="text-black mt-6 string col-span-4 max-[1024px]:col-span-1">
                     <?php echo $brandData["brand"]["description_{$lang}"]; ?>
                 </div>
