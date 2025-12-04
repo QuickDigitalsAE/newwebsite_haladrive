@@ -291,7 +291,7 @@ include_once('banner.php');
                                         <li>
                                             <a href="carsbrands/<?php echo $brands["slug"]; ?>"
                                             class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                            <img class="w-6 h-6 me-2 rounded-full"
+                                            <img class="w-6 h-6 me-2 rounded-full object-contain"
                                                 src="<?php echo $brands["logo_url"]; ?>" alt="<?php echo $brands["name_{$lang}"]; ?>">
                                             <?php echo $brands["name_{$lang}"]; ?>
                                         </a>

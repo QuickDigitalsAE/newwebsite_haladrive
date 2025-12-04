@@ -411,7 +411,7 @@ include_once('banner.php');
                                         <li>
                                             <a href="carsbrands/<?php echo $brands["slug"]; ?>"
                                             class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                            <img class="w-6 h-6 me-2 rounded-full"
+                                            <img class="w-6 h-6 me-2 rounded-full object-contain"
                                                 src="<?php echo $brands["logo_url"]; ?>" alt="<?php echo $brands["name_{$lang}"]; ?>">
                                             <?php echo $brands["name_{$lang}"]; ?>
                                         </a>
@@ -426,9 +426,7 @@ include_once('banner.php');
                     <?php foreach($carContentData["cars"]["data"] as $car): ?>
                     <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
                         <div class="flex items-center justify-between mb-2">
-                            <div
-                                class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
-                                <?= $messages['instock'] ?></div>
+                            <div class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1"><?= $messages['instock'] ?></div>
                             <img width="0" hight='0' src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="brand logo">
                         </div>
                         <div class="flex items-center max-[1024px]:flex-col gap-4">
