@@ -274,7 +274,7 @@ try {
                                     <?= $messages['instock'] ?>
                                 </div>
                             <?php else: ?>
-                                <div class="bg-[#ffe4e4] text-[#d60000] border border-[#d60000] rounded-full text-[.8rem] px-2 py-1">
+                                <div class="bg-[#d60000] text-white border border-[#d60000] rounded-full text-[.8rem] px-2 py-1">
                                     <?= $messages['outofstock'] ?>
                                 </div>
                             <?php endif; ?>
