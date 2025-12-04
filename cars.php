@@ -264,7 +264,7 @@ include_once('banner.php');
                                     location.reload();
                                 " 
                                 rel="nofollow" 
-                                class="<?= ($_GET['sort'] ?? '') == 'price_asc' ? 'bg-[#E02D3C] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
+                                class="<?= ($_GET['sort'] ?? '') == 'price_asc' ? 'bg-[#ff000d] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
                             >
                                 <?= $messages['lowtohigh'] ?>
                             </a>
@@ -277,7 +277,7 @@ include_once('banner.php');
                                     location.reload();
                                 " 
                                 rel="nofollow" 
-                                class="<?= ($_GET['sort'] ?? '') == 'price_desc' ? 'bg-[#E02D3C] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
+                                class="<?= ($_GET['sort'] ?? '') == 'price_desc' ? 'bg-[#ff000d] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
                             >
                                 <?= $messages['hightolow'] ?>
                             </a>
@@ -295,7 +295,7 @@ include_once('banner.php');
                                     location.reload();
                                 " 
                                 rel="nofollow" 
-                                class="<?= ($_GET['sort'] ?? '') == 'Economy' ? 'bg-[#E02D3C] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
+                                class="<?= ($_GET['sort'] ?? '') == 'Economy' ? 'bg-[#ff000d] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
                             >
                                 <?= $messages['economy'] ?>
                             </a>
@@ -308,7 +308,7 @@ include_once('banner.php');
                                     location.reload();
                                 " 
                                 rel="nofollow" 
-                                class="<?= ($_GET['sort'] ?? '') == 'suv' ? 'bg-[#E02D3C] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
+                                class="<?= ($_GET['sort'] ?? '') == 'suv' ? 'bg-[#ff000d] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
                             >
                                 <?= $messages['suv'] ?>
                             </a>
@@ -321,7 +321,7 @@ include_once('banner.php');
                                     location.reload();
                                 " 
                                 rel="nofollow" 
-                                class="<?= ($_GET['sort'] ?? '') == 'Midsize' ? 'bg-[#E02D3C] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
+                                class="<?= ($_GET['sort'] ?? '') == 'Midsize' ? 'bg-[#ff000d] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
                             >
                                 <?= $messages['midsize'] ?>
                             </a>
@@ -334,7 +334,7 @@ include_once('banner.php');
                                     location.reload();
                                 " 
                                 rel="nofollow" 
-                                class="<?= ($_GET['sort'] ?? '') == 'Featured' ? 'bg-[#E02D3C] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
+                                class="<?= ($_GET['sort'] ?? '') == 'Featured' ? 'bg-[#ff000d] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
                             >
                                 <?= $messages['featured'] ?>
                             </a>
@@ -347,7 +347,7 @@ include_once('banner.php');
                                     location.reload();
                                 " 
                                 rel="nofollow" 
-                                class="<?= ($_GET['sort'] ?? '') == 'Crossover' ? 'bg-[#E02D3C] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4 col-span-2"
+                                class="<?= ($_GET['sort'] ?? '') == 'Crossover' ? 'bg-[#ff000d] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4 col-span-2"
                             >
                                 <?= $messages['crossover'] ?>
                             </a>
@@ -363,7 +363,7 @@ include_once('banner.php');
                                     location.reload();
                                 " 
                                 rel="nofollow" 
-                                class="<?= ($_GET['stock'] ?? '') == 'in_stock' ? 'bg-[#E02D3C] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
+                                class="<?= ($_GET['stock'] ?? '') == 'in_stock' ? 'bg-[#ff000d] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
                                 >
                                 <?= $messages['instock'] ?>
                             </a>
@@ -374,7 +374,7 @@ include_once('banner.php');
                             location.reload();
                             " 
                             rel="nofollow" 
-                                class="<?= ($_GET['stock'] ?? '') == 'out_of_stock' ? 'bg-[#E02D3C] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
+                                class="<?= ($_GET['stock'] ?? '') == 'out_of_stock' ? 'bg-[#ff000d] text-white' : 'bg-white' ?> border border-[#E02D3C] py-2 px-4"
                             >
                                 <?= $messages['outofstock'] ?>
                             </a>
