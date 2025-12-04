@@ -381,7 +381,7 @@ include_once('banner.php');
                                         </ul>
 
                                         <div class="mt-4">
-                                            <div class="text-white openModalBtn bg-[#ff000d] px-[5rem] py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-center max-[1024px]:mx-auto w-fit">
+                                            <div class="text-white openModalBtn bg-[#ff000d] px-[5rem] py-1 cursor-pointer shadow-[10px_7px_20px_rgb(255,9,9,38%)] text-center max-[1024px]:mx-auto w-fit rounded-[5px]">
                                                 <?= $messages['inquiry'] ?>
                                             </div>
                                         </div>
