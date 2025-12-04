@@ -387,7 +387,7 @@ include_once('banner.php');
                                     location.reload();
                                 " 
                                 rel="nofollow" 
-                                class="bg-[#E02D3C] text-white uppercase py-3 text-[1rem]"
+                                class="bg-[#ff000d] text-white uppercase py-3 text-[1rem]"
                             >
                                 <?= $messages['reset'] ?>
                             </a>
