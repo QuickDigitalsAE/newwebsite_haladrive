@@ -24,8 +24,12 @@ if (!$slug) {
     exit;
 }
 
+
 if(isset($_COOKIE['sort'])){
     $_GET['sort'] = $_COOKIE['sort'];
+}
+if(isset($_COOKIE['stock'])){
+    $_GET['stock'] = $_COOKIE['stock'];
 }
 if(isset($_COOKIE['id'])){
     $_GET['id'] = $_COOKIE['id'];
@@ -33,10 +37,13 @@ if(isset($_COOKIE['id'])){
 
 $sort = $_GET['sort'] ?? null;
 $id = $_GET['id'] ?? null;
+$stock = $_GET['stock'] ?? null;
+
+
 $currentPage = $_GET['page'] ?? 1;
 
 try {
-    $brandContent = $api->loadData('lease', 'lease', ['sort' => $sort, 'id' => $id, 'page' => $currentPage ], $slug);
+    $brandContent = $api->loadData('lease', 'lease', ['sort' => $sort, 'id' => $id, 'stock' => $stock, 'page' => $currentPage ], $slug);
     if ($brandContent['success']) {
         $brandData = $brandContent['data']["data"];
 

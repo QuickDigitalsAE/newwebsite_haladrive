@@ -198,6 +198,7 @@ if(isset($_COOKIE['id'])){
 
 $sort = $_GET['sort'] ?? null;
 $id = $_GET['id'] ?? null;
+$stock = $_GET['stock'] ?? null;
 
 $currentPage = $_GET['page'] ?? 1;
 

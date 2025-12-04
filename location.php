@@ -31,15 +31,19 @@ if (!$slug) {
 if(isset($_COOKIE['sort'])){
     $_GET['sort'] = $_COOKIE['sort'];
 }
+if(isset($_COOKIE['stock'])){
+    $_GET['stock'] = $_COOKIE['stock'];
+}
 if(isset($_COOKIE['id'])){
     $_GET['id'] = $_COOKIE['id'];
 }
 
 $sort = $_GET['sort'] ?? null;
 $id = $_GET['id'] ?? null;
+$stock = $_GET['stock'] ?? null;
 
 try {
-    $locationContent = $api->loadData('location', 'single', ['sort' => $sort, 'id' => $id], $slug);
+    $locationContent = $api->loadData('location', 'single', ['sort' => $sort, 'id' => $id, 'stock' => $stock], $slug);
 
     if ($locationContent['success']) {
         $singleLocationContentData = $locationContent['data']["data"];

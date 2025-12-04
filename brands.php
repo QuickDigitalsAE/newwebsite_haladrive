@@ -39,14 +39,16 @@ if (strpos($uri, '/brands/') !== false) {
 if(isset($_COOKIE['sort'])){
     $_GET['sort'] = $_COOKIE['sort'];
 }
+if(isset($_COOKIE['stock'])){
+    $_GET['stock'] = $_COOKIE['stock'];
+}
 if(isset($_COOKIE['id'])){
     $_GET['id'] = $_COOKIE['id'];
 }
 
-// echo $_GET['sort'];
-
 $sort = $_GET['sort'] ?? null;
 $id = $_GET['id'] ?? null;
+$stock = $_GET['stock'] ?? null;
 
 
 $currentPage = $_GET['page'] ?? 1;
@@ -54,7 +56,7 @@ $currentPage = $_GET['page'] ?? 1;
 // LOAD DATA
 // -------------------------------
 try {
-    $brandContent = $api->loadData('brand', 'brand', ['sort' => $sort, 'id' => $id, 'page' => $currentPage], $slug);
+    $brandContent = $api->loadData('brand', 'brand', ['sort' => $sort, 'id' => $id, 'stock' => $stock, 'page' => $currentPage], $slug);
 
     if ($brandContent['success']) {
 
