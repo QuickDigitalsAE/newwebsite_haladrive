@@ -238,11 +238,36 @@ include_once('banner.php');
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
                         <div class="mb-4 text-[1.3rem]"><?= $messages['price'] ?></div>
                         <div class="flex flex-col gap-2 font-semibold text-[12px]">
-                            <a href='cars' class="bg-white border border-[#b8101f] py-2"><?= $messages['default'] ?></a>
-                            <a href="cars?sort=price_asc" rel="nofollow" class="bg-white border border-[#b8101f] py-2">
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
+                                <?= $messages['default'] ?>
+                            </a>
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'sort=price_asc';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
                                 <?= $messages['lowtohigh'] ?>
                             </a>
-                            <a href="cars?sort=price_desc" rel="nofollow" class="bg-white border border-[#b8101f] py-2">
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'sort=price_desc';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
                                 <?= $messages['hightolow'] ?>
                             </a>
                         </div>
@@ -317,7 +342,16 @@ include_once('banner.php');
                         <div class="grid grid-cols-1 gap-2 font-semibold text-[12px]">
                             <!-- <div rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['instock'] ?></div>
                             <div rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['outofstock'] ?></div> -->
-                            <a href='cars' class="bg-[#ff000d] text-white uppercase py-3 text-[1rem]"><?= $messages['reset'] ?></a>
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-[#ff000d] text-white uppercase py-3 text-[1rem]"
+                            >
+                                <?= $messages['reset'] ?>
+                            </a>
                         </div>
                     </div>
                     <div class="text-black text-center bg-[#f1f4f8] p-4">
