@@ -189,6 +189,9 @@ if ($slug) {
 if(isset($_COOKIE['sort'])){
     $_GET['sort'] = $_COOKIE['sort'];
 }
+if(isset($_COOKIE['stock'])){
+    $_GET['stock'] = $_COOKIE['stock'];
+}
 if(isset($_COOKIE['id'])){
     $_GET['id'] = $_COOKIE['id'];
 }
@@ -199,7 +202,7 @@ $id = $_GET['id'] ?? null;
 $currentPage = $_GET['page'] ?? 1;
 
 try {
-    $carContent = $api->loadData('car', 'main', ['sort' => $sort, 'id' => $id, 'page' => $currentPage]);
+    $carContent = $api->loadData('car', 'main', ['sort' => $sort, 'id' => $id, 'stock' => $stock, 'page' => $currentPage]);
     if ($carContent['success']) {
         $carContentData = $carContent['data']["data"];
 
@@ -342,8 +345,28 @@ include_once('banner.php');
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
                         <div class="mb-4 text-[1.3rem]"><?= $messages['availability'] ?></div>
                         <div class="grid grid-cols-1 gap-2 font-semibold text-[12px]">
-                            <!-- <div rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['instock'] ?></div>
-                            <div rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['outofstock'] ?></div> -->
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'stock=in_stock';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
+                                <?= $messages['instock'] ?>
+                            </a>
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'stock=out_of_stock';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
+                                <?= $messages['outofstock'] ?>
+                            </a>
                             <a 
                                 href="javascript:void(0);" 
                                 onClick="
