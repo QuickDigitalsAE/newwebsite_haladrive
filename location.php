@@ -168,6 +168,7 @@ include_once('banner.php');
                                 onClick="
                                     document.cookie = 'sort=price_asc';
                                     document.cookie = 'stock=;';
+                                    document.cookie = 'id=;';
                                     location.reload();
                                 " 
                                 rel="nofollow" 
@@ -180,6 +181,7 @@ include_once('banner.php');
                                 onClick="
                                     document.cookie = 'sort=price_desc';
                                     document.cookie = 'stock=;';
+                                    document.cookie = 'id=;';
                                     location.reload();
                                 " 
                                 rel="nofollow" 
