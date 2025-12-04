@@ -28,8 +28,18 @@ if (!$slug) {
     exit;
 }
 
+if(isset($_COOKIE['sort'])){
+    $_GET['sort'] = $_COOKIE['sort'];
+}
+if(isset($_COOKIE['id'])){
+    $_GET['id'] = $_COOKIE['id'];
+}
+
+$sort = $_GET['sort'] ?? null;
+$id = $_GET['id'] ?? null;
+
 try {
-    $locationContent = $api->loadData('location', 'single', [], $slug);
+    $locationContent = $api->loadData('location', 'single', ['sort' => $sort, 'id' => $id], $slug);
 
     if ($locationContent['success']) {
         $singleLocationContentData = $locationContent['data']["data"];
@@ -152,11 +162,66 @@ include_once('banner.php');
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
                         <div class="mb-4 text-[1.3rem]"><?= $messages['typesofcars'] ?></div>
                         <div class="grid grid-cols-2 gap-2 font-semibold text-[12px]">
-                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=Economy&id=1' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['economy'] ?></a>
-                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=SUV&id=2' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['suv'] ?></a>
-                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=Midsize&id=3' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['midsize'] ?></a>
-                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=Featured&id=4' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['featured'] ?></a>
-                            <a href='<?php echo $locationData["location"]["slug"]; ?>?sort=Crossover&id=5' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['crossover'] ?></a>
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'sort=Economy';
+                                    document.cookie = 'id=1';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
+                                <?= $messages['economy'] ?>
+                            </a>
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'sort=suv';
+                                    document.cookie = 'id=2';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
+                                <?= $messages['suv'] ?>
+                            </a>
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'sort=Midsize';
+                                    document.cookie = 'id=3';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
+                                <?= $messages['midsize'] ?>
+                            </a>
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'sort=Featured';
+                                    document.cookie = 'id=4';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
+                                <?= $messages['featured'] ?>
+                            </a>
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'sort=Crossover';
+                                    document.cookie = 'id=5';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
+                                <?= $messages['crossover'] ?>
+                            </a>
                         </div>
                     </div>
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">

@@ -274,9 +274,42 @@ include_once('banner.php');
                             >
                                 <?= $messages['suv'] ?>
                             </a>
-                            <a href='cars?sort=Midsize&id=3' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['midsize'] ?></a>
-                            <a href='cars?sort=Featured&id=4' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['featured'] ?></a>
-                            <a href='cars?sort=Crossover&id=5' rel="nofollow" class="bg-white border border-[#b8101f] py-2 px-4"><?= $messages['crossover'] ?></a>
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'sort=Midsize';
+                                    document.cookie = 'id=3';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
+                                <?= $messages['midsize'] ?>
+                            </a>
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'sort=Featured';
+                                    document.cookie = 'id=4';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
+                                <?= $messages['featured'] ?>
+                            </a>
+                            <a 
+                                href="javascript:void(0);" 
+                                onClick="
+                                    document.cookie = 'sort=Crossover';
+                                    document.cookie = 'id=5';
+                                    location.reload();
+                                " 
+                                rel="nofollow" 
+                                class="bg-white border border-[#b8101f] py-2 px-4"
+                            >
+                                <?= $messages['crossover'] ?>
+                            </a>
                         </div>
                     </div>
                     <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
