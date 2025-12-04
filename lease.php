@@ -187,7 +187,7 @@ try {
                                     location.reload();
                                 " 
                                 rel="nofollow" 
-                                class="bg-white border border-[#b8101f] py-2 px-4"
+                                class="bg-white border border-[#b8101f] py-2 px-4 col-span-2"
                             >
                                 <?= $messages['crossover'] ?>
                             </a>
