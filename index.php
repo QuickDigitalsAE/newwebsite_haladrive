@@ -37,7 +37,7 @@ require_once 'header.php';
     <section class="relative w-full max-[1024px]:h-[65vh] max-[1024px]: pb-[4rem]">
         <img fetchpriority=high class='w-full object-cover ar_img h-full' src="<?= $imagePath ?>banner/bg.webp" alt="banner">
         <img class='absolute right-0 max-[1024px]:left-0 max-[1024px]:w-[95%] max-[1024px]:mx-auto ar_banner_img bottom-[-2rem] max-[1024px]:bottom-[-1rem]' src="<?= $imagePath ?>banner/car.webp" alt="banner car">
-        <div class="text-[#333333] w-[40%] max-[1024px]:w-[95%] absolute top-[35%] max-[1024px]:top-[30%] -translate-y-1/2 left-[10%] max-[1024px]:left-0 max-[1024px]:right-0 max-[1024px]:mx-auto ar_banner_text">
+        <div class="text-[#333333] w-[40%] max-[1024px]:w-[85%] absolute top-[35%] max-[1024px]:top-[30%] -translate-y-1/2 left-[10%] max-[1024px]:left-0 max-[1024px]:right-0 max-[1024px]:mx-auto ar_banner_text">
             <div class='text-[3rem] max-[1024px]:text-[2rem] syne leading-[1] mb-3'><?= $messages['bannernewh'] ?></div>
             <p class='leading-[1.4] w-[80%] max-[1024px]:w-full '><?= $messages['bannernewp'] ?></p>
             <a href='cars' class="bg-[#E02D3C] p-2 w-fit rounded-[5px] text-white mt-3 inline-block"><?= $messages['exploremore'] ?></a>
@@ -333,17 +333,17 @@ require_once 'header.php';
             <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 max-[1024px]:gap-6 gap-10">
                 <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
                     <div class="text-[3rem] leading-[1] mb-[-.9rem]">"</div>
-                    <p class="text-left"><?= $messages['homeSectionFifthPera_1'] ?></p>
+                    <p class="text-left text_ar"><?= $messages['homeSectionFifthPera_1'] ?></p>
                     <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_1'] ?></div>
                 </div>
                 <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
                     <div class="text-[3rem] leading-[1] mb-[-.9rem]">"</div>
-                    <p class="text-left"><?= $messages['homeSectionFifthPera_2'] ?></p>
+                    <p class="text-left text_ar"><?= $messages['homeSectionFifthPera_2'] ?></p>
                     <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_2'] ?></div>
                 </div>
                 <div class="text-[#333333] bg-white hover:bg-[#FF000D] hover:text-white group p-4 rounded-[10px] cursor-pointer transition-all duration-300">
                     <div class="text-[3rem] leading-[1] mb-[-.9rem]">"</div>
-                    <p class="text-left"><?= $messages['homeSectionFifthPera_3'] ?></p>
+                    <p class="text-left text_ar"><?= $messages['homeSectionFifthPera_3'] ?></p>
                     <div class="font-bold text-[.9rem] mt-2 text-[#FF000D] group-hover:text-white"><?= $messages['homeSectionFifthHeading_3'] ?></div>
                 </div>
             </div>

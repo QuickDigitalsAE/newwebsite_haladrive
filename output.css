@@ -1960,6 +1960,10 @@ video {
     width: 100%;
   }
 
+  .max-\[1024px\]\:w-\[85\%\] {
+    width: 85%;
+  }
+
   .max-\[1024px\]\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }

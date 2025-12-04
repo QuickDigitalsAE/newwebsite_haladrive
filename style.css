@@ -113,7 +113,7 @@ html[dir="rtl"] .ar_px {
 }
 html[dir="rtl"] .ar_banner_text {
     left: unset;
-    right: 10%;
+    right: 5%;
 }
 html[dir="rtl"] .ar_banner_img {
     left: 0;
@@ -125,6 +125,12 @@ html[dir="rtl"] .ar_img {
 }
 html[dir="rtl"] .ar_ml3 {
     margin-left: 0rem;
+}
+html[dir="rtl"] .faq-toggle {
+    text-align: right !important;
+}
+html[dir="rtl"] .text_ar {
+    text-align: right !important;
 }
 
 a.px-4.py-2.bg-white.text-\[\#333\]:first-child {
