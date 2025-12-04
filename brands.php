@@ -106,8 +106,8 @@ include_once('header.php');
 $banner_image = "$imagePath/about/top-banner.webp";
 $banner_title = $brandData["brand"]["name_{$lang}"];
 
-if (!empty($currentPage) && $currentPage > 1) {
-    $banner_title .= "- Page " . $currentPage;
+if (!empty($currentPage) && (int)$currentPage > 1) {
+    $banner_title .= " - Page " . (int)$currentPage;
 }
 
 include_once('banner.php');
