@@ -87,9 +87,9 @@ try {
                             <a 
                                 href="javascript:void(0);" 
                                 onClick="
-                                    document.cookie = 'sort=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
-                                    document.cookie = 'id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
-                                    document.cookie = 'stock=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+                                    document.cookie = 'sort=;';
+                                    document.cookie = 'id=;';
+                                    document.cookie = 'stock=;';
                                     location.reload();
                                 " 
                                 rel="nofollow" 
@@ -101,7 +101,7 @@ try {
                                 href="javascript:void(0);" 
                                 onClick="
                                     document.cookie = 'sort=price_asc';
-                                    document.cookie = 'stock=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+                                    document.cookie = 'stock=;';
                                     location.reload();
                                 " 
                                 rel="nofollow" 
@@ -113,7 +113,7 @@ try {
                                 href="javascript:void(0);" 
                                 onClick="
                                     document.cookie = 'sort=price_desc';
-                                    document.cookie = 'stock=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+                                    document.cookie = 'stock=;';
                                     location.reload();
                                 " 
                                 rel="nofollow" 
@@ -131,7 +131,7 @@ try {
                                 onClick="
                                     document.cookie = 'sort=Economy';
                                     document.cookie = 'id=1';
-                                    document.cookie = 'stock=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+                                    document.cookie = 'stock=;';
                                     location.reload();
                                 " 
                                 rel="nofollow" 
@@ -144,7 +144,7 @@ try {
                                 onClick="
                                     document.cookie = 'sort=suv';
                                     document.cookie = 'id=2';
-                                    document.cookie = 'stock=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+                                    document.cookie = 'stock=;';
                                     location.reload();
                                 " 
                                 rel="nofollow" 
@@ -157,7 +157,7 @@ try {
                                 onClick="
                                     document.cookie = 'sort=Midsize';
                                     document.cookie = 'id=3';
-                                    document.cookie = 'stock=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+                                    document.cookie = 'stock=;';
                                     location.reload();
                                 " 
                                 rel="nofollow" 
@@ -170,7 +170,7 @@ try {
                                 onClick="
                                     document.cookie = 'sort=Featured';
                                     document.cookie = 'id=4';
-                                    document.cookie = 'stock=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+                                    document.cookie = 'stock=;';
                                     location.reload();
                                 " 
                                 rel="nofollow" 
@@ -183,7 +183,7 @@ try {
                                 onClick="
                                     document.cookie = 'sort=Crossover';
                                     document.cookie = 'id=5';
-                                    document.cookie = 'stock=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+                                    document.cookie = 'stock=;';
                                     location.reload();
                                 " 
                                 rel="nofollow" 
@@ -221,9 +221,9 @@ try {
                             <a 
                                 href="javascript:void(0);" 
                                 onClick="
-                                    document.cookie = 'sort=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
-                                    document.cookie = 'id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
-                                    document.cookie = 'stock=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+                                    document.cookie = 'sort=;';
+                                    document.cookie = 'id=;';
+                                    document.cookie = 'stock=;';
                                     location.reload();
                                 " 
                                 rel="nofollow" 
