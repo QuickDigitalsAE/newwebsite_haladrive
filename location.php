@@ -336,9 +336,15 @@ include_once('banner.php');
                     <?php foreach($locationData["cars"] as $car): ?>
                     <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
                         <div class="flex items-center justify-between mb-2">
-                            <div
-                                class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
-                                <?= $messages['instock'] ?></div>
+                            <?php if (!empty($car["stock"]) && $car["stock"] == "Yes"): ?>
+                                <div class="bg-[#daffda] text-[#29a71a] border border-[#29a71a] rounded-full text-[.8rem] px-2 py-1">
+                                    <?= $messages['instock'] ?>
+                                </div>
+                            <?php else: ?>
+                                <div class="bg-[#ffe4e4] text-[#d60000] border border-[#d60000] rounded-full text-[.8rem] px-2 py-1">
+                                    <?= $messages['outofstock'] ?>
+                                </div>
+                            <?php endif; ?>
                             <img width="0" hight='0' src="<?php echo $car["brand"]["logo_url"]; ?>" class="w-16" alt="brand logo">
                         </div>
                         <div class="flex items-center max-[1024px]:flex-col gap-4">
