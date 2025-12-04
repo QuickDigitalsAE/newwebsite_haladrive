@@ -101,7 +101,7 @@ try {
                             <a href="#" class=""><?= $messages['brands'] ?></a>
                             <img class='z-[999] icon_dropdown' src="<?= $imagePath ?>icons/arrow-down.svg" alt="arrow-down">
                         </div>
-                        <ul class="absolute left-0 ar_header_drop max-[1024px]:h-[18rem] max-[1024px]:overflow-auto mt-3 z-[9999] bg-white rounded-md grid grid-cols-3 max-[1024px]:grid-cols-2 px-4 gap-2 w-[45rem] max-[1024px]:w-[91vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
+                        <ul class="absolute left-0 ar_header_drop max-[1024px]:h-[18rem] max-[1024px]:overflow-auto mt-3 z-[9999] bg-white rounded-md grid grid-cols-3 max-[1024px]:grid-cols-2 px-4 gap-2 w-[45rem] max-[1024px]:w-[23rem] opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                             <?php foreach($headerContentData["brands"] as $brands): ?>
                                 <li class='flex items-center gap-2'>
                                     <img class='w-[2.4rem] h-[2.4rem] object-contain' src="<?php echo $brands["logo_url"]; ?>" alt="logo_url">

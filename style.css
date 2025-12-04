@@ -272,9 +272,6 @@ textarea.custom_input {
 
 /* Responsive */
 @media (max-width: 600px) {
-    .dropdown {
-        width: 91vw;
-    }
     .modal-body {
         padding: 1.5rem 1rem;
     }
