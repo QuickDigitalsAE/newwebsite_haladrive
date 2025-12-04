@@ -372,6 +372,7 @@ include_once('banner.php');
                                 onClick="
                                     document.cookie = 'sort=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
                                     document.cookie = 'id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+                                    document.cookie = 'stock=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
                                     location.reload();
                                 " 
                                 rel="nofollow" 
