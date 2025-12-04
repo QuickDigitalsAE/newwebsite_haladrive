@@ -34,7 +34,7 @@ require_once 'header.php';
 
     <!--------------------------------- banner ------------------------------->
 
-    <section class="relative w-full max-[1024px]:h-[55vh] max-[1024px]: pb-[4rem]">
+    <section class="relative w-full max-[1024px]:h-[65vh] max-[1024px]: pb-[4rem]">
         <img fetchpriority=high class='w-full object-cover ar_img h-full' src="<?= $imagePath ?>banner/bg.webp" alt="banner">
         <img class='absolute right-0 max-[1024px]:left-0 max-[1024px]:w-[95%] max-[1024px]:mx-auto ar_banner_img bottom-[-2rem] max-[1024px]:bottom-[-1rem]' src="<?= $imagePath ?>banner/car.webp" alt="banner car">
         <div class="text-[#333333] w-[40%] max-[1024px]:w-[95%] absolute top-[35%] max-[1024px]:top-[30%] -translate-y-1/2 left-[10%] max-[1024px]:left-0 max-[1024px]:right-0 max-[1024px]:mx-auto ar_banner_text">
