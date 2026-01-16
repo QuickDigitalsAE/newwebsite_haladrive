@@ -339,7 +339,7 @@ include_once('banner.php');
                     </div>
                 </div>
                 <div class="col-span-3 max-[1024px]:col-span-1 flex flex-col gap-10">
-                    <?php if (empty($locationData["cars"]["data"])): ?>
+                    <?php if (empty($locationData["cars"])): ?>
                         <div class="text-[2rem] font-bold leading-[1] text-center syne">
                             <?= $messages['nocarsfound'] ?? 'No Cars Found' ?>
                         </div>
