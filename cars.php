@@ -8,12 +8,42 @@ $meta_desc  = '';
 
 $slug = $_GET['slug'] ?? null;
 
+if (!$slug) {
+    $pathInfo = $_SERVER['PATH_INFO'] ?? '';
+
+    if ($pathInfo !== '') {
+        $slug = trim($pathInfo, '/');
+    } else {
+        $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '/';
+        $basePath = '/newwebsite_haladrive';
+
+        if (strpos($requestPath, $basePath) === 0) {
+            $requestPath = substr($requestPath, strlen($basePath));
+        }
+
+        $requestPath = trim($requestPath, '/');
+        $segments = $requestPath === '' ? [] : explode('/', $requestPath);
+
+        if (count($segments) >= 2) {
+            $carsIndex = array_search('cars', $segments, true);
+
+            if ($carsIndex !== false && isset($segments[$carsIndex + 1])) {
+                $slug = $segments[$carsIndex + 1];
+            }
+        }
+    }
+}
+
+if ($slug) {
+    $slug = urldecode(trim($slug, '/'));
+}
+
 if ($slug) {
 
     try {
         $carSingleContent = $api->loadData('car', 'single', [], $slug);
 
-        if ($carSingleContent['success']) {
+        if (!empty($carSingleContent['success']) && !empty($carSingleContent['data']['data'])) {
             $carSingleContentData = $carSingleContent['data']["data"];
 
             $titleKey = "title_" . $lang;
@@ -21,25 +51,28 @@ if ($slug) {
 
             $meta_title = $carSingleContentData["meta_data"][$titleKey] ?? '';
             $meta_desc  = $carSingleContentData["meta_data"][$descKey] ?? '';
+        } else {
+            $slug = null;
         }
     } catch (Exception $e) {
-        echo "Error loading car details: " . $e->getMessage();
+        error_log("Error loading car details: " . $e->getMessage());
+        $slug = null;
     }
 
-    include_once('header.php');
+    if ($slug) {
+        include_once('header.php');
 
-    $banner_image = "$imagePath/about/top-banner.webp";
-    $banner_title = $messages['cars'];
-    $banner_subtitle = $messages['aboutBannerPera'];
-    include_once('banner.php');
-    ?>
+        $banner_image = "$imagePath/about/top-banner.webp";
+        $banner_title = $messages['cars'];
+        $banner_subtitle = $messages['aboutBannerPera'];
+        include_once('banner.php');
+        ?>
 
 
     <section class="relative py-16 max-[1024px]:py-10">
         <div class="w-[80%] max-[1024px]:w-[90%] mx-auto">
-            <div class="grid grid-cols-3 max-[1024px]:grid-cols-1 gap-10">
-                <div class="col-span-2 max-[1024px]:col-span-1 flex flex-col gap-10">
-                    <div class="relative p-4 rounded-[10px] ">
+            <div class="flex flex-col gap-10">
+                <div class="relative p-4 rounded-[10px] tableStyle">
                         <div class="">
                             <div class="text-black text-[2rem] syne"><?php echo $carSingleContentData["car"]["name_{$lang}"]; ?></div>
                             <div class="w-[100%] max-[1024px]:w-full">
@@ -67,13 +100,12 @@ if ($slug) {
                                 </div>
                             </div>
                         </div>
-                        <div class="text-black mt-6 string">
-                            <?php echo $carSingleContentData["car"]["description_{$lang}"]; ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-1">
-                    <div class="text-black text-center bg-[#f1f4f8] p-4 mb-6">
+                        <div class="mt-8 grid grid-cols-1 xl:grid-cols-[minmax(0,1.5fr)_minmax(320px,1fr)] gap-6 items-start">
+                            <div class="text-black mt-0 string order-2 xl:order-1">
+                                <?php echo $carSingleContentData["car"]["description_{$lang}"]; ?>
+                            </div>
+                            <div class="flex flex-col gap-4 order-1 xl:order-2">
+                                <div class="text-black text-center bg-[#f1f4f8] p-4 rounded-[10px]">
                         <div class="mb-4 text-[1.3rem]"><?= $messages['rentcost'] ?></div>
                         <div class="flex gap-2 justify-center items-center mt-3">
                             <div
@@ -89,7 +121,7 @@ if ($slug) {
                             <div
                                 class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                 <div class=""><?= $messages['monthly'] ?></div>
-                                <div class="font-bold"><?php echo $carSingleContentData["car"]["price_weekly"]; ?></div>
+                                <div class="font-bold"><?php echo $carSingleContentData["car"]["price_monthly"]; ?></div>
                             </div>
                         </div>
                         <div class="mt-4">
@@ -97,79 +129,84 @@ if ($slug) {
                                 class="text-white openModalBtn bg-[#ff000d] px-[5rem] py-1 cursor-pointer -skew-x-12 shadow-[10px_7px_20px_rgb(255,9,9,38%)] border-r border-b border-[#198754] text-center mx-auto w-fit">
                                 <?= $messages['inquiry'] ?></div>
                         </div>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-3 rounded-[10px]">
+                                        <div class="text-[1rem] text-[#939393]"><?= $messages['availability'] ?></div>
+                                        <div class=""><?= $messages['instock'] ?></div>
+                                    </div>
+                                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-3 rounded-[10px]">
+                                        <div class="text-[1rem] text-[#939393]"><?= $messages['securityamount'] ?></div>
+                                        <div class="">1000 AED</div>
+                                    </div>
+                                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-3 rounded-[10px]">
+                                        <div class="text-[1rem] text-[#939393]"><?= $messages['securitytype'] ?></div>
+                                        <div class="">Card only</div>
+                                    </div>
+                                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-3 rounded-[10px]">
+                                        <div class="text-[1rem] text-[#939393]"><?= $messages['paymenttype'] ?></div>
+                                        <div class="">Credit Card, Cash</div>
+                                    </div>
+                                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-3 rounded-[10px]">
+                                        <div class="text-[1rem] text-[#939393]"><?= $messages['support'] ?></div>
+                                        <div class="">Yes</div>
+                                    </div>
+                                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-3 rounded-[10px]">
+                                        <div class="text-[1rem] text-[#939393]"><?= $messages['delivery'] ?></div>
+                                        <div class="">Yes</div>
+                                    </div>
+                                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-3 rounded-[10px]">
+                                        <div class="text-[1rem] text-[#939393]"><?= $messages['cancellation'] ?></div>
+                                        <div class="">Yes</div>
+                                    </div>
+                                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-3 rounded-[10px]">
+                                        <div class="text-[1rem] text-[#939393]"><?= $messages['insurance'] ?></div>
+                                        <div class="">Yes</div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="text-black bg-[#f1f4f8] px-4 py-4 rounded-[10px]">
+                                        <div class="font-semibold"><?= $messages['residents'] ?></div>
+                                        <ul class="mt-4 space-y-3">
+                                            <li class="flex items-center gap-2">
+                                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="passport">
+                                                <div class="text-[#939393]"><?= $messages['passport'] ?></div>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="residentialvisa">
+                                                <div class="text-[#939393]"><?= $messages['residentialvisa'] ?></div>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="license1">
+                                                <div class="text-[#939393]"><?= $messages['license1'] ?></div>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="emiratesid">
+                                                <div class="text-[#939393]"><?= $messages['emiratesid'] ?></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="text-black bg-[#f1f4f8] px-4 py-4 rounded-[10px]">
+                                        <div class="font-semibold"><?= $messages['tourists'] ?></div>
+                                        <ul class="mt-4 space-y-3">
+                                            <li class="flex items-center gap-2">
+                                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="passport">
+                                                <div class="text-[#939393]"><?= $messages['passport'] ?></div>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="visitvisa">
+                                                <div class="text-[#939393]"><?= $messages['visitvisa'] ?></div>
+                                            </li>
+                                            <li class="flex items-center gap-2">
+                                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="license2">
+                                                <div class="text-[#939393]"><?= $messages['license2'] ?></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]"><?= $messages['availability'] ?></div>
-                        <div class=""><?= $messages['instock'] ?></div>
-                    </div>
-                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]"><?= $messages['securityamount'] ?></div>
-                        <div class="">1000 AED</div>
-                    </div>
-                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]"><?= $messages['securitytype'] ?></div>
-                        <div class="">Card only</div>
-                    </div>
-                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]"><?= $messages['paymenttype'] ?></div>
-                        <div class="">Credit Card, Cash</div>
-                    </div>
-                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]"><?= $messages['support'] ?></div>
-                        <div class="">Yes</div>
-                    </div>
-                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]"><?= $messages['delivery'] ?></div>
-                        <div class="">Yes</div>
-                    </div>
-                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]"><?= $messages['cancellation'] ?></div>
-                        <div class="">Yes</div>
-                    </div>
-                    <div class="text-black flex justify-between items-center bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class="text-[1rem] text-[#939393]"><?= $messages['insurance'] ?></div>
-                        <div class="">Yes</div>
-                    </div>
-                    <div class="text-black bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class=""><?= $messages['residents'] ?></div>
-                        <ul class="mt-4">
-                            <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="passport">
-                                <div class="text-[#939393]"><?= $messages['passport'] ?></div>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="residentialvisa">
-                                <div class="text-[#939393]"><?= $messages['residentialvisa'] ?></div>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="license1">
-                                <div class="text-[#939393]"><?= $messages['license1'] ?></div>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="emiratesid">
-                                <div class="text-[#939393]"><?= $messages['emiratesid'] ?></div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="text-black bg-[#f1f4f8] px-4 py-2 mb-6">
-                        <div class=""><?= $messages['tourists'] ?></div>
-                        <ul class="mt-4">
-                            <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="passport">
-                                <div class="text-[#939393]"><?= $messages['passport'] ?></div>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="visitvisa">
-                                <div class="text-[#939393]"><?= $messages['visitvisa'] ?></div>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <img src="<?= $imagePath ?>icons/tick-red.svg" class="w-8" alt="license2">
-                                <div class="text-[#939393]"><?= $messages['license2'] ?></div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
             </div>
         </div>
         </div>
@@ -179,8 +216,9 @@ if ($slug) {
     <!--------------------------------- footer ------------------------------->
 
  <?php
-    include_once('footer.php');
-    exit;
+        include_once('footer.php');
+        exit;
+    }
 }
 
 // -----------------------------------------

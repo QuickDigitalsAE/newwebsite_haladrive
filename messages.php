@@ -371,7 +371,9 @@ return [
     'locations_h1' => 'A Journey through the Enchanting Locations of Haladrive.ae',
     'policy_seo_title' => 'Navigating the Halo of Your Privacy at Haladrive.ae',
     'policy_seo_brief' => 'Haladrive | Privacy Policy',
-    'blogs_seo_brief' => 'Haladrive | Our Blogs'
+    'blogs_seo_brief' => 'Haladrive | Our Blogs',
+    'sales' => 'Sales',
+    'accounts' => 'Accounts',
 ];
 
 ?>

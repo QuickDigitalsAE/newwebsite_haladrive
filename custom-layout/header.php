@@ -7,7 +7,7 @@
     <meta property="og:title" content="Dubai’s Top E-Commerce Website Design Agency | Best Way to Grow Businesses" />
     <meta property="og:description"
         content="Build, grow, and succeed your business with a trusted and leading e-commerce website design agency in Dubai. Boost the online presence of your business." />
-    <meta name="robots" content="noindex, nofollow">
+    
     <title>Hala Drive</title>
     <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="style.css">

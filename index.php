@@ -92,27 +92,27 @@ require_once 'header.php';
             <h1 class="text-[#333333] capitalize syne font-semibold text-[2.5rem] max-[1024px]:text-[1.5rem] leading-[1] text-center w-[80%] max-[1024px]:w-[90%] mx-auto"><?= $messages['homeFirstHeading'] ?></h1>
             <ul class="grid grid-cols-5 max-[1024px]:grid-cols-2 w-[80%] max-[1024px]:w-[90%] mx-auto mt-4 gap-4 items-center justify-center">
                 <li class="">
-                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars?sort=Economy&id=1">
+                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars">
                         <?= $messages['economy'] ?>
                     </a>
                 </li>
                 <li class="">
-                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars?sort=SUV&id=2">
+                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars">
                         <?= $messages['suv'] ?>
                     </a>
                 </li>
                 <li class="">
-                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars?sort=Midsize&id=3">
+                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars">
                         <?= $messages['midsize'] ?>
                     </a>
                 </li>
                 <li class="">
-                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars?sort=Featured&id=4">
+                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars">
                         <?= $messages['featured'] ?>
                     </a>
                 </li>
                 <li class="max-[1024px]:col-span-2">
-                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars?sort=Crossover&id=5">
+                    <a class='px-4 py-2 bg-[#F4F4F4] text-center text-black cursor-pointer rounded-[5px] hover:text-white hover:bg-[#ff000d] duration-300 w-full inline-block' rel="nofollow" href="cars">
                         <?= $messages['crossover'] ?>
                     </a>
                 </li>
@@ -143,8 +143,44 @@ require_once 'header.php';
                                 <img class='w-full h-full object-contain' src="<?php echo $car["image_url"]; ?>" alt="<?php echo $car["name_{$lang}"]; ?>">
                             </a>
                         </div>      
-                        <div class="mt-4">  
-                            <div class="text-white openModalBtn bg-[#FF000D] px-4 py-2 cursor-pointer text-[16px] w-full text-center rounded-[5px]"><?= $messages['inquiry'] ?></div>
+                        <div class="mt-5 grid grid-cols-2 gap-3">
+
+                            <!-- Book Now Button -->
+                            <a href="javascript:void(0)"
+                            class="openModalBtn flex items-center justify-center gap-2 bg-[#FF000D] text-white px-4 py-3 rounded-xl text-[15px] font-semibold shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 11l9-8 9 8"></path>
+                                    <path d="M5 10v10h14V10"></path>
+                                </svg>
+
+                                <span>
+                                    Book Now
+                                    <span class="block text-[11px] font-medium opacity-90">(5% OFF)</span>
+                                </span>
+                            </a>
+
+                            <!-- Pay Later Button -->
+                            <a href="javascript:void(0)"
+                            class="openModalBtn flex items-center justify-center gap-2 bg-white border border-gray-300 text-black px-4 py-3 rounded-xl text-[15px] font-semibold shadow-md hover:border-black hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                                    <path d="M2 10h20"></path>
+                                </svg>
+
+                                <span>
+                                    Pay Later
+                                    <span class="block text-[11px] font-medium text-gray-500">
+                                        Reserve First
+                                    </span>
+                                </span>
+                            </a>
+
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -302,13 +338,25 @@ require_once 'header.php';
                 <div class=""><?= $messages['homeSectionForthPera_1'] ?></div>
             </div>
             <div class="">
-                <form method="POST" class="inquire-form grid grid-cols-4 gap-4 max-[1024px]:grid-cols-1">
-                    <input type="hidden" name="_token" value="FV5HbL6ZEq4mAded9gT90jqo2DrRpPtDjioznKXj">                    <!-- Name -->    
-                    <input name="name" id="name" class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2" placeholder="<?= $messages['name'] ?>" type="text">
-                    <input name="number" id="contact_number"  class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2" placeholder="<?= $messages['number'] ?>" type="text">
-                    <input name="email" id="email" class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2" placeholder="<?= $messages['email'] ?>" type="email">
-                    <button class="text-white bg-[#E02D3C] rounded-[5px] px-4 py-2"><?= $messages['send'] ?></button>
+                <form method="POST" class="contact-form grid grid-cols-4 gap-4 max-[1024px]:grid-cols-1">
+                    <input name="name" id="name"
+                        class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2"
+                        placeholder="<?= $messages['name'] ?>" type="text">
+                
+                    <input name="number" id="contact_number"
+                        class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2"
+                        placeholder="<?= $messages['number'] ?>" type="text">
+                
+                    <input name="email" id="email"
+                        class="focus:outline-none rounded-[5px] placeholder:text-[#BABABA] px-4 py-2"
+                        placeholder="<?= $messages['email'] ?>" type="email">
+                
+                    <button type="submit"
+                        class="submit-btn text-white bg-[#E02D3C] rounded-[5px] px-4 py-2">
+                        <?= $messages['send'] ?>
+                    </button>
                 </form>
+
             </div>
             <div class="text-white text-center mt-12">
                 <p class='text-center'><?= $messages['homeSectionForthPera_2'] ?></p>
@@ -448,5 +496,53 @@ require_once 'header.php';
             </div>
         </div>
     </section> -->
+
+<script>
+document.querySelectorAll('.contact-form').forEach(form => {
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const button = form.querySelector('.submit-btn');
+        button.classList.add('loading');
+        button.disabled = true;
+        button.textContent = 'Sending...';
+
+        const formData = new FormData(form);
+
+        const base_url = 'https://admin.haladrive.ae/api/v1'; // apna base URL set karein
+
+        fetch(base_url + '/en/contact/inquire/store', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+
+            if (data.status === true) {
+                alert(data.message || 'Thanks for contacting us, we\'ll get back to you.');
+                form.reset();
+            } else {
+                alert(data.message || 'Error submitting inquiry.');
+            }
+
+        })
+        .catch(error => {
+            console.error(error);
+            alert('Server error occurred.');
+        })
+        .finally(() => {
+            // Remove loading class & enable button
+            button.classList.remove('loading');
+            button.disabled = false;
+            button.textContent = '<?= $messages['send'] ?>';
+        });
+
+    });
+
+});
+</script>
+
+    
 
 <?php include_once('footer.php');?>

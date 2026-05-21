@@ -389,7 +389,7 @@ try {
                         <?php endif; ?>
                     <?php endif; ?>
                 </div>
-                <div class="text-black mt-6 string col-span-4 max-[1024px]:col-span-1">
+                <div class="text-black mt-6 string col-span-4 max-[1024px]:col-span-1 tableStyle">
                     <?php echo $brandData["lease"]["lease_description_{$lang}"]; ?>
                 </div>
             </div>

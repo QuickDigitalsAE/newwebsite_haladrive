@@ -23,10 +23,30 @@ try {
     <title><?php echo $meta_title ?? 'Default Title'; ?></title>
     <meta name="title" content="<?php echo $meta_title ?? 'Default Title'; ?>" />
     <meta name="description" content="<?php echo $meta_desc ?? 'Default desc'; ?>" />
-    <meta name="robots" content="noindex">
-    <link rel="canonical" href="https://new.haladrive.ae<?php echo $uri?>" />
+    
+    <link rel="canonical" href="https://haladrive.ae<?php echo $uri?>" />
     <link href="<?= $imagePath; ?>icons/favicon.ico" rel="icon">
     <base href="<?= $baseHref; ?>">
+    <!-- Google Tag Manager -->
+ <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T6WNLDRM');
+</script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TFTP6SXV3W"></script>
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-TFTP6SXV3W'); </script>
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ipuuhhhj3h");
+</script>
+  <!-- Google tag (gtag.js) --> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -68,20 +88,29 @@ try {
             <img src="<?= $imagePath ?>logo/Hala-Drive-resize.webp"
             class="absolute top-[50%] ar_logo z-[9999] -translate-y-1/2 left-10 w-[110px] max-[1023px]:hidden" alt="logo">
         </a>
-        <div class="flex bg-[#E02D3C] ar_header justify-between items-center py-2 max-[1024px]:hidden">
+ <div class="flex bg-[#E02D3C] ar_header justify-between items-center py-2 max-[1024px]:hidden">
             <div class="container mx-auto">
-                <div class="w-[85%] ar_ml ml-auto">
-                    <ul class="flex justify-end items-center gap-5 ">
+                <div class="w-[85%] ar_ml ml-auto flex justify-end items-center gap-4">
+                    <div class="flex justify-end items-center">
+                        <span class="text-white"><?= $messages['sales'] ?>:</span>
+                         <ul class="flex justify-end items-center gap-1 ">
                         <li class="flex items-center gap-2 max-[1000px]:ml-auto">
-                            <div class="">
-                                <img src="<?= $imagePath ?>icons/phone.svg" alt="phone" class="w-5">
-                            </div>
-                            <a class="text-white" href="tel:+971501837112" class="">+971501837112</a>
+                            <a class="text-white" href="tel:+971501837112" class="">+971501837112</a> <span class="text-white">|</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <a class="text-white" href="tel:+97142711125" class=" text-[22px]">+97142711125</a>
                         </li>
                     </ul>
+                    </div>
+                    <div class="flex justify-end items-center">
+                        <span class="text-white"><?= $messages['accounts'] ?>:</span>
+                         <ul class="flex justify-end items-center gap-5 ">
+                        <li class="flex items-center gap-2 max-[1000px]:ml-auto">
+                            <a class="text-white" href="tel:+971569481053" class="">+971569481053</a>
+                        </li>
+                    </ul>
+                    </div>
+                   
                 </div>
             </div>
         </div>

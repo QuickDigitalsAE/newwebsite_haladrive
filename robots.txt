@@ -1,11 +1,10 @@
-User-agent:*
+User-agent: *
+Allow: /
 
-Disallow:/*?page
-Disallow:/search
-Disallow:/admin
-Disallow:/order/
-Disallow:/careers/
+Disallow: /*?page
+Disallow: /search
+Disallow: /admin
+Disallow: /order/
+Disallow: /careers/
 
-
-Host: https://new.haladrive.ae/
-Sitemap: https://www.new.haladrive.ae/sitemap.xml
+Sitemap: https://haladrive.ae/sitemap.xml

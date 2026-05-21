@@ -1,15 +1,12 @@
+DirectoryIndex index.php
+Options -MultiViews
+
 RewriteEngine On
+RewriteBase /newwebsite_haladrive/
 
-####################################
-# ARABIC VERSION
-####################################
-
-# ---------------------------------------
-# FORCE HTTPS and REMOVE WWW
-# ---------------------------------------
-RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^www\. [NC]
-RewriteRule ^(.*)$ https://new.haladrive.ae/$1 [L,R=301]
+# Remove /index URL
+RewriteRule ^index/?$ /newwebsite_haladrive/ [R=301,L,QSD]
+RewriteRule ^index\.php/?$ /newwebsite_haladrive/ [R=301,L,QSD]
 
 # ----------------- ARABIC HOME -----------------
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -88,7 +85,7 @@ RewriteRule ^ar/([^/]+)/?$ location.php?slug=$1&lang=ar [L,QSA]
 # ----------------- ENGLISH HOME -----------------
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^$ index.php?lang=en [L,QSA]
+RewriteRule ^$ index.php?lang=en [L]
 
 # Cars single
 RewriteCond %{REQUEST_FILENAME} !-f

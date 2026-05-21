@@ -107,9 +107,43 @@
                     <div class="relative w-full mb-3">
                         <textarea name="message" id="carName" placeholder="<?= $messages['message'] ?>" rows="4" required="" class="custom_input pl-10 pr-4 py-2 rounded-lg placeholder focus:outline-none"></textarea>
                     </div>
+                    
+                    <div class="w-full mb-3 p-4 bg-gray-50 border rounded-lg">
 
-                    <button type="submit" class="w-full mx-auto custom_button_modal">
-                        <?= $messages['send'] ?>
+                        <label class="block mb-2 font-semibold text-gray-700">
+                            Security Check
+                        </label>
+                    
+                        <div class="flex items-center gap-3 mb-3">
+                    
+                            <div class="bg-white px-4 py-2 border rounded-md text-lg font-bold">
+                                <span class="captcha-question"></span>
+                            </div>
+                    
+                            <!-- Refresh Button -->
+                            <!--<button type="button"-->
+                            <!--    onclick="window.location.reload();"-->
+                            <!--    class="px-3 py-2 bg-gray-200 hover:bg-gray-300 rounded-md text-sm">-->
+                            <!--    ↻ Refresh-->
+                            <!--</button>-->
+
+                    
+                        </div>
+                    
+                        <input type="number"
+                            class="captcha-input custom_input w-full px-4 py-2 rounded-lg"
+                            placeholder="Enter answer"
+                            required>    
+                    
+                    </div>
+                    
+                    <input type="hidden" class="captcha-correct">
+
+                    <button type="submit" class="w-full submit-btn mx-auto custom_button_modal">
+                        
+                        <span class="btn-text"><?= $messages['send'] ?></span>
+                        <span class="loader"></span>
+                        
                     </button>
                 </form>
             </div>
@@ -138,28 +172,49 @@
     </script>
 
     <script>
-        const modal = document.getElementById("myModal");
-        const buttons = document.querySelectorAll(".openModalBtn");
-        const closeBtn = document.querySelector(".close");
-
-        // Loop through all buttons
-        buttons.forEach(btn => {
-            btn.onclick = function () {
-                modal.style.display = "block";
-            };
-        });
-
-        // Close modal
-        closeBtn.onclick = function () {
-            modal.style.display = "none";
-        }
-
-        // Close modal on outside click
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+        function generateCaptcha(form) {
+            const num1 = Math.floor(Math.random() * 10) + 1;
+            const num2 = Math.floor(Math.random() * 10) + 1;
+    
+            const question = form.querySelector('.captcha-question');
+            const correct = form.querySelector('.captcha-correct');
+    
+            if (question && correct) {
+                question.innerText = num1 + " + " + num2 + " = ?";
+                correct.value = num1 + num2;
             }
         }
+            const modal = document.getElementById("myModal");
+            const buttons = document.querySelectorAll(".openModalBtn");
+            const closeBtn = document.querySelector(".close");
+    
+            // Loop through all buttons
+            buttons.forEach(btn => {
+                btn.onclick = function () {
+                    modal.style.display = "block";
+                };
+            });
+    
+            // Close modal
+            closeBtn.onclick = function () {
+                modal.style.display = "none";
+            }
+    
+            // Close modal on outside click
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            
+            
+            
+        document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.inquire-form').forEach(form => {
+            generateCaptcha(form);
+        });
+    
+    });
 
 
         // AJAX form submission with JS alert
@@ -167,36 +222,53 @@
 
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-
+        
+                const button = form.querySelector('.submit-btn');
+        
+                const userAnswer = form.querySelector('.captcha-input').value;
+                const correctAnswer = form.querySelector('.captcha-correct').value;
+        
+                // ptcha Validation
+                if (parseInt(userAnswer) !== parseInt(correctAnswer)) {
+                    alert('Captcha incorrect. Please try again.');
+                    generateCaptcha(form); // new captcha
+                    return;
+                }
+        
+                // Add loading class
+                button.classList.add('loading');
+        
                 const formData = new FormData(form);
                 const base_url = 'https://admin.haladrive.ae/api/v1';
-
+        
                 fetch(base_url + '/en/contact/send/inquire', {
                     method: 'POST',
                     body: formData
                 })
                 .then(res => res.json())
                 .then(data => {
-
-                    // Success / Error Alert
+        
                     if (data.status === true) {
                         alert(data.message || 'Inquiry sent successfully!');
                     } else {
                         alert(data.message || 'Error submitting inquiry.');
                     }
-
-                    // Hide modal if exists
+        
                     const modal = document.getElementById('myModal');
                     if (modal) modal.style.display = "none";
-
-                    // Reset the form
+        
                     form.reset();
+                    generateCaptcha(form); // reset captcha after submit
                 })
                 .catch(err => {
                     alert('A server error occurred.');
+                })
+                .finally(() => {
+                    button.classList.remove('loading');
                 });
-
+        
             });
+        
         });
 
 
