@@ -29,9 +29,6 @@ try {
 // Include header (SEO variables will be used there)
 require_once 'header.php';
 ?>
-
-
-
     <!--------------------------------- banner ------------------------------->
 
     <section class="relative w-full max-[1024px]:h-[65vh] max-[1024px]: pb-[4rem]">
@@ -128,15 +125,15 @@ require_once 'header.php';
                             <div class="flex flex-col w-[40%] max-[1024px]:w-full gap-2 max-[1024px]:justify-center items-center mt-3">
                                 <div class="text-black w-full bg-[#F7F7F7] text-center cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                     <!-- <div class=""></div> -->
-                                    <div class="text-[1rem]"><?php echo $car["price_daily"]; ?>/<?= $messages['daily'] ?></div>
+                                    <div class="text-[1rem] inline-flex items-center gap-1"><img src="<?= $imagePath ?>darham.png" class="h-[1em] w-auto object-contain" alt="AED"><?php echo $car["price_daily"]; ?>/<?= $messages['daily'] ?></div>
                                 </div>
                                 <div class="text-black w-full bg-[#F7F7F7] text-center cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                     <!-- <div class=""></div> -->
-                                    <div class="text-[1rem]"><?php echo $car["price_weekly"]; ?>/<?= $messages['weekly'] ?></div>
+                                    <div class="text-[1rem] inline-flex items-center gap-1"><img src="<?= $imagePath ?>darham.png" class="h-[1em] w-auto object-contain" alt="AED"><?php echo $car["price_weekly"]; ?>/<?= $messages['weekly'] ?></div>
                                 </div>
                                 <div class="text-black w-full bg-[#F7F7F7] text-center cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                     <!-- <div class=""></div> -->
-                                    <div class="text-[1rem]"><?php echo $car["price_monthly"]; ?>/<?= $messages['monthly'] ?></div>
+                                    <div class="text-[1rem] inline-flex items-center gap-1"><img src="<?= $imagePath ?>darham.png" class="h-[1em] w-auto object-contain" alt="AED"><?php echo $car["price_monthly"]; ?>/<?= $messages['monthly'] ?></div>
                                 </div>
                             </div>
                             <a href='cars/<?php echo $car["slug"]; ?>' class="w-[60%] h-[11.5rem] max-[1024px]:w-full">
@@ -146,8 +143,8 @@ require_once 'header.php';
                         <div class="mt-5 grid grid-cols-2 gap-3">
 
                             <!-- Book Now Button -->
-                            <a href="javascript:void(0)"
-                            class="openModalBtn flex items-center justify-center gap-2 bg-[#FF000D] text-white px-4 py-3 rounded-xl text-[15px] font-semibold shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                            <a href="cars/<?php echo $car["slug"]; ?>?payment_flow=now"
+                                class="book-now-btn bg-[#FF000D] group flex items-center justify-center gap-2  text-white px-4 py-3 rounded-xl text-[15px] font-semibold shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -156,15 +153,17 @@ require_once 'header.php';
                                     <path d="M5 10v10h14V10"></path>
                                 </svg>
 
-                                <span>
+                                <span class="leading-tight">
                                     Book Now
-                                    <span class="block text-[11px] font-medium opacity-90">(5% OFF)</span>
+                                    <span class="block text-[11px] font-medium opacity-90">
+                                        (5% OFF)
+                                    </span>
                                 </span>
                             </a>
 
                             <!-- Pay Later Button -->
-                            <a href="javascript:void(0)"
-                            class="openModalBtn flex items-center justify-center gap-2 bg-white border border-gray-300 text-black px-4 py-3 rounded-xl text-[15px] font-semibold shadow-md hover:border-black hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                            <a href="cars/<?php echo $car["slug"]; ?>?payment_flow=later"
+                            class="group flex items-center justify-center gap-2 bg-white border border-gray-300 text-black px-4 py-3 rounded-xl text-[15px] font-semibold shadow-md book-now-btn hover:text-white hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -173,9 +172,9 @@ require_once 'header.php';
                                     <path d="M2 10h20"></path>
                                 </svg>
 
-                                <span>
+                                <span class="leading-tight">
                                     Pay Later
-                                    <span class="block text-[11px] font-medium text-gray-500">
+                                    <span class="block text-[11px] font-medium text-gray-500 group-hover:text-white transition-all duration-300">
                                         Reserve First
                                     </span>
                                 </span>

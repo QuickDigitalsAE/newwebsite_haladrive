@@ -3,6 +3,7 @@
 
 return [
     'base_url' => 'https://admin.haladrive.ae/api/v1',
+    'promo_base_url' => 'https://admin.haladrive.ae/api',
     
     'webcontent' => [
         'home' => '/en/home',
@@ -37,6 +38,12 @@ return [
     ],
     'inquire' => [
         'store' => '/en/contact/send/inquire', // The relative path
+    ],
+    'promo_codes' => [
+        'apply' => '/promo-codes/apply',
+    ],
+    'website' => [
+        'bookings' => '/website/bookings',
     ]
 ];
 ?>

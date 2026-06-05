@@ -301,17 +301,17 @@ try {
                                         <div
                                             class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                             <div class=""><?= $messages['daily'] ?></div>
-                                            <div class="font-bold"><?php echo $car["price_daily"]; ?></div>
+                                            <div class="font-bold car-card-price inline-flex items-center gap-1"><img src="<?= $imagePath ?>darham.png" class="h-[1em] w-auto object-contain" alt="AED"><?php echo $car["price_daily"]; ?></div>
                                         </div>
                                         <div
                                             class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                             <div class=""><?= $messages['weekly'] ?></div>
-                                            <div class="font-bold"><?php echo $car["price_weekly"]; ?></div>
+                                            <div class="font-bold car-card-price inline-flex items-center gap-1"><img src="<?= $imagePath ?>darham.png" class="h-[1em] w-auto object-contain" alt="AED"><?php echo $car["price_weekly"]; ?></div>
                                         </div>
                                         <div
                                             class="text-black bg-[#f2fdff] text-[10px] -skew-x-12 border-2 text-center border-[#d1eaee] cursor-pointer hover:text-white hover:bg-[#ff000d] duration-300 py-1 px-2">
                                             <div class=""><?= $messages['monthly'] ?></div>
-                                            <div class="font-bold"><?php echo $car["price_monthly"]; ?></div>
+                                            <div class="font-bold car-card-price inline-flex items-center gap-1"><img src="<?= $imagePath ?>darham.png" class="h-[1em] w-auto object-contain" alt="AED"><?php echo $car["price_monthly"]; ?></div>
                                         </div>
                                     </div>
                                 </a>
@@ -336,9 +336,46 @@ try {
                                             <div class=""><?= $messages['luggage'] ?> Yes</div>
                                         </li>
                                     </ul>
-                                    <div class="mt-4">
-                                        <div class="text-white openModalBtn bg-[#ff000d] px-[5rem] py-1 cursor-pointer shadow-[10px_7px_20px_rgb(255,9,9,38%)] text-center max-[1024px]:mx-auto w-fit rounded-[5px]">
-                                            <?= $messages['inquiry'] ?></div>
+                                    <div class="mt-4 grid grid-cols-2 gap-3 max-w-[430px] max-[1024px]:mx-auto">
+
+                                        <!-- Book Now -->
+                                        <a href="cars/<?php echo $car['slug']; ?>?payment_flow=now"
+                                            class="group flex items-center justify-center gap-2 book-now-btn bg-[#FF000D] text-white px-4 py-3 rounded-xl text-[15px] font-semibold shadow-md hover:bg-black hover:text-white hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M3 11l9-8 9 8"></path>
+                                                <path d="M5 10v10h14V10"></path>
+                                            </svg>
+
+                                            <span class="leading-tight">
+                                                Book Now
+                                                <span class="block text-[11px] font-medium opacity-90">
+                                                    (5% OFF)
+                                                </span>
+                                            </span>
+                                        </a>
+
+                                        <!-- Pay Later -->
+                                        <a href="cars/<?php echo $car['slug']; ?>?payment_flow=later"
+                                            class="group flex items-center justify-center gap-2 book-now-btn bg-white border border-gray-300 text-black px-4 py-3 rounded-xl text-[15px] font-semibold shadow-md  hover:text-white hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                                                <path d="M2 10h20"></path>
+                                            </svg>
+
+                                            <span class="leading-tight">
+                                                Pay Later
+                                                <span class="block text-[11px] font-medium text-gray-500 group-hover:text-white transition-all duration-300">
+                                                    Reserve First
+                                                </span>
+                                            </span>
+                                        </a>
+
                                     </div>
                                 </div>
                             </div>
