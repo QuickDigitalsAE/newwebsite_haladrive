@@ -465,18 +465,51 @@ if ($slug) {
 
                                 <div class="hd-location-block">
                                     <div class="hd-location-block__label">Delivery location</div>
-                                    <select class="hd-booking-input hd-location-select" data-hd-delivery-zone>
+                                    <div class="hd-zone-picker" data-hd-custom-select-wrap>
+                                        <button type="button" class="hd-zone-picker__trigger" data-hd-custom-select-trigger aria-expanded="false">
+                                            <span class="hd-zone-picker__trigger-text">Select a delivery zone</span>
+                                            <span class="hd-zone-picker__trigger-price is-hidden" data-hd-custom-select-price></span>
+                                            <span class="hd-zone-picker__trigger-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                                        </button>
+                                        <div class="hd-zone-picker__menu is-hidden" data-hd-custom-select-menu>
+                                            <button type="button" class="hd-zone-picker__option is-placeholder" data-hd-custom-option data-value="" data-price="0">
+                                                <span class="hd-zone-picker__label">Select a delivery zone</span>
+                                            </button>
+                                            <?php if (!empty($deliveryLocations)): ?>
+                                                <?php foreach ($deliveryLocations as $location): ?>
+                                                    <button type="button" class="hd-zone-picker__option" data-hd-custom-option data-value="<?= htmlspecialchars((string) ($location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>" data-price="<?= htmlspecialchars((string) ($location['price'] ?? 0), ENT_QUOTES, 'UTF-8'); ?>">
+                                                        <span class="hd-zone-picker__label"><?= htmlspecialchars((string) ($location['label'] ?? $location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></span>
+                                                        <?php if (!empty($location['price'])): ?>
+                                                            <span class="hd-zone-picker__price"><img src="<?= $imagePath ?>darham.png" class="hd-zone-picker__price-icon" alt="AED"><span><?= number_format((float) $location['price'], 2); ?></span></span>
+                                                        <?php endif; ?>
+                                                    </button>
+                                                <?php endforeach; ?>
+                                                <button type="button" class="hd-zone-picker__option" data-hd-custom-option data-value="other" data-price="0">
+                                                    <span class="hd-zone-picker__label">Other</span>
+                                                </button>
+                                            <?php else: ?>
+                                                <button type="button" class="hd-zone-picker__option is-placeholder" data-hd-custom-option data-value="" data-price="0">
+                                                    <span class="hd-zone-picker__label">No delivery locations available</span>
+                                                </button>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <select class="hd-booking-input hd-location-select is-native-hidden" data-hd-delivery-zone data-hd-zone-select="delivery">
                                         <?php if (!empty($deliveryLocations)): ?>
                                             <option value="" data-price="0">Select a delivery zone</option>
                                             <?php foreach ($deliveryLocations as $location): ?>
-                                                <option value="<?= htmlspecialchars($location['city'], ENT_QUOTES, 'UTF-8'); ?>" data-price="<?= htmlspecialchars((string) $location['price'], ENT_QUOTES, 'UTF-8'); ?>">
-                                                    <?= htmlspecialchars($location['city'], ENT_QUOTES, 'UTF-8'); ?><?= $location['price'] > 0 ? ' - AED ' . number_format((float) $location['price'], 2) : ''; ?>
+                                                <option value="<?= htmlspecialchars((string) ($location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>" data-price="<?= htmlspecialchars((string) ($location['price'] ?? 0), ENT_QUOTES, 'UTF-8'); ?>">
+                                                    <?= htmlspecialchars((string) ($location['label'] ?? $location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?><?= !empty($location['price']) ? ' - AED ' . number_format((float) $location['price'], 2) : ''; ?>
                                                 </option>
                                             <?php endforeach; ?>
+                                            <option value="other" data-price="0">Other</option>
                                         <?php else: ?>
                                             <option value="" data-price="0">No delivery locations available</option>
                                         <?php endif; ?>
                                     </select>
+                                    <div class="mt-3 is-hidden" data-hd-custom-address-block="delivery">
+                                        <input class="hd-booking-input" type="text" name="hd_delivery_custom_address" placeholder="Type delivery address" data-hd-custom-address-input="delivery">
+                                    </div>
                                 </div>
 
                                 <div class="hd-location-block">
@@ -518,18 +551,51 @@ if ($slug) {
                                 <div class="hd-return-block is-hidden" data-hd-return-block>
                                     <div class="hd-location-block">
                                         <div class="hd-location-block__label">Return location</div>
-                                        <select class="hd-booking-input hd-location-select" data-hd-return-zone>
+                                        <div class="hd-zone-picker" data-hd-custom-select-wrap>
+                                            <button type="button" class="hd-zone-picker__trigger" data-hd-custom-select-trigger aria-expanded="false">
+                                                <span class="hd-zone-picker__trigger-text">Select your return address</span>
+                                                <span class="hd-zone-picker__trigger-price is-hidden" data-hd-custom-select-price></span>
+                                                <span class="hd-zone-picker__trigger-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                                            </button>
+                                            <div class="hd-zone-picker__menu is-hidden" data-hd-custom-select-menu>
+                                                <button type="button" class="hd-zone-picker__option is-placeholder" data-hd-custom-option data-value="" data-price="0">
+                                                    <span class="hd-zone-picker__label">Select your return address</span>
+                                                </button>
+                                                <?php if (!empty($returnLocations)): ?>
+                                                    <?php foreach ($returnLocations as $location): ?>
+                                                        <button type="button" class="hd-zone-picker__option" data-hd-custom-option data-value="<?= htmlspecialchars((string) ($location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>" data-price="<?= htmlspecialchars((string) ($location['price'] ?? 0), ENT_QUOTES, 'UTF-8'); ?>">
+                                                            <span class="hd-zone-picker__label"><?= htmlspecialchars((string) ($location['label'] ?? $location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></span>
+                                                            <?php if (!empty($location['price'])): ?>
+                                                                <span class="hd-zone-picker__price"><img src="<?= $imagePath ?>darham.png" class="hd-zone-picker__price-icon" alt="AED"><span><?= number_format((float) $location['price'], 2); ?></span></span>
+                                                            <?php endif; ?>
+                                                        </button>
+                                                    <?php endforeach; ?>
+                                                    <button type="button" class="hd-zone-picker__option" data-hd-custom-option data-value="other" data-price="0">
+                                                        <span class="hd-zone-picker__label">Other</span>
+                                                    </button>
+                                                <?php else: ?>
+                                                    <button type="button" class="hd-zone-picker__option is-placeholder" data-hd-custom-option data-value="" data-price="0">
+                                                        <span class="hd-zone-picker__label">No return locations available</span>
+                                                    </button>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                        <select class="hd-booking-input hd-location-select is-native-hidden" data-hd-return-zone data-hd-zone-select="return">
                                             <?php if (!empty($returnLocations)): ?>
                                                 <option value="" data-price="0">Select your return address</option>
                                                 <?php foreach ($returnLocations as $location): ?>
-                                                    <option value="<?= htmlspecialchars($location['city'], ENT_QUOTES, 'UTF-8'); ?>" data-price="<?= htmlspecialchars((string) $location['price'], ENT_QUOTES, 'UTF-8'); ?>">
-                                                        <?= htmlspecialchars($location['city'], ENT_QUOTES, 'UTF-8'); ?><?= $location['price'] > 0 ? ' - AED ' . number_format((float) $location['price'], 2) : ''; ?>
+                                                    <option value="<?= htmlspecialchars((string) ($location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>" data-price="<?= htmlspecialchars((string) ($location['price'] ?? 0), ENT_QUOTES, 'UTF-8'); ?>">
+                                                        <?= htmlspecialchars((string) ($location['label'] ?? $location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?><?= !empty($location['price']) ? ' - AED ' . number_format((float) $location['price'], 2) : ''; ?>
                                                     </option>
                                                 <?php endforeach; ?>
+                                                <option value="other" data-price="0">Other</option>
                                             <?php else: ?>
                                                 <option value="" data-price="0">No return locations available</option>
                                             <?php endif; ?>
                                         </select>
+                                        <div class="mt-3 is-hidden" data-hd-custom-address-block="return">
+                                            <input class="hd-booking-input" type="text" name="hd_return_custom_address" placeholder="Type return address" data-hd-custom-address-input="return">
+                                        </div>
                                     </div>
 
                                     <div class="hd-location-block">
@@ -703,7 +769,7 @@ if ($slug) {
 
                             <div class="hd-order-panel" data-hd-location-summary>
                                 <div class="hd-order-loc">
-                                    <div class="hd-order-loc__title">
+                                    <div class="hd-order-loc__title" data-hd-summary-pickup-title>
                                         <span class="hd-order-loc__icon"><i class="fa-solid fa-location-dot"></i></span>
                                         <span>Pickup</span>
                                     </div>
@@ -712,7 +778,7 @@ if ($slug) {
                                 </div>
                                 <div class="hd-order-divider"></div>
                                 <div class="hd-order-loc">
-                                    <div class="hd-order-loc__title">
+                                    <div class="hd-order-loc__title" data-hd-summary-dropoff-title>
                                         <span class="hd-order-loc__icon" style="background: rgba(37, 99, 235, 0.12); color: #2563eb;"><i class="fa-solid fa-square-check"></i></span>
                                         <span>Drop-off</span>
                                     </div>
@@ -890,6 +956,8 @@ if ($slug) {
             const returnZone = root.querySelector('[data-hd-return-zone]');
             const returnSameToggle = root.querySelector('[data-hd-return-same]');
             const returnBlock = root.querySelector('[data-hd-return-block]');
+            const deliveryCustomAddressInput = root.querySelector('[data-hd-custom-address-input="delivery"]');
+            const returnCustomAddressInput = root.querySelector('[data-hd-custom-address-input="return"]');
             const promoInput = root.querySelector('[data-hd-promo-code]');
             const promoApplyBtn = root.querySelector('[data-hd-promo-apply]');
             const promoRemoveBtn = root.querySelector('[data-hd-promo-remove]');
@@ -913,6 +981,9 @@ if ($slug) {
             const pickupCards = Array.from(root.querySelectorAll('.hd-pickup-card'));
             const pickupBranchInputs = Array.from(root.querySelectorAll('input[name="hd_pickup_branch"]'));
             const returnBranchInputs = Array.from(root.querySelectorAll('input[name="hd_return_branch"]'));
+            const pickupTitleNode = root.querySelector('[data-hd-summary-pickup-title]');
+            const dropoffTitleNode = root.querySelector('[data-hd-summary-dropoff-title]');
+            const customSelects = Array.from(root.querySelectorAll('[data-hd-custom-select-wrap]'));
             let phoneIti = null;
 
             if (phoneInput instanceof HTMLInputElement && typeof window.intlTelInput === 'function') {
@@ -1170,6 +1241,10 @@ if ($slug) {
                 });
             }
 
+            function hasZoneValue(select) {
+                return !!(select && typeof select.value === 'string' && select.value.trim() !== '');
+            }
+
             function formatBookingDate(value) {
                 if (!value) return '-';
                 const date = new Date(value);
@@ -1189,6 +1264,110 @@ if ($slug) {
                 return option.textContent.replace(/\s+-\s+AED\s+\d+(?:\.\d+)?\s*$/i, '').trim();
             }
 
+            function getCustomAddressBlock(kind) {
+                return root.querySelector('[data-hd-custom-address-block="' + kind + '"]');
+            }
+
+            function getCustomAddressInput(kind) {
+                return root.querySelector('[data-hd-custom-address-input="' + kind + '"]');
+            }
+
+            function getCustomAddressValue(kind) {
+                const node = getCustomAddressInput(kind);
+                return node instanceof HTMLInputElement ? node.value.trim() : '';
+            }
+
+            function closeCustomSelects(exceptWrap) {
+                customSelects.forEach(function (wrap) {
+                    if (!(wrap instanceof HTMLElement) || wrap === exceptWrap) return;
+                    wrap.classList.remove('is-open');
+                    const menu = wrap.querySelector('[data-hd-custom-select-menu]');
+                    const trigger = wrap.querySelector('[data-hd-custom-select-trigger]');
+                    if (menu instanceof HTMLElement) {
+                        menu.classList.add('is-hidden');
+                    }
+                    if (trigger instanceof HTMLElement) {
+                        trigger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+
+            function formatCustomSelectText(select) {
+                if (!(select instanceof HTMLSelectElement) || select.selectedIndex < 0) {
+                    return '';
+                }
+                const option = select.options[select.selectedIndex];
+                if (!option) return '';
+                return option.textContent.replace(/\s+-\s+AED\s+\d+(?:\.\d+)?\s*$/i, '').trim();
+            }
+
+            function syncCustomSelectUi(select) {
+                if (!(select instanceof HTMLSelectElement)) return;
+                const wrap = select.previousElementSibling;
+                if (!(wrap instanceof HTMLElement) || !wrap.hasAttribute('data-hd-custom-select-wrap')) return;
+                const triggerText = wrap.querySelector('.hd-zone-picker__trigger-text');
+                const triggerPrice = wrap.querySelector('[data-hd-custom-select-price]');
+                const optionButtons = Array.from(wrap.querySelectorAll('[data-hd-custom-option]'));
+                const selectedValue = select.value || '';
+                const text = formatCustomSelectText(select) || (optionButtons[0]?.textContent || '').trim();
+                const option = select.selectedIndex >= 0 ? select.options[select.selectedIndex] : null;
+                const price = option ? parseAmount(option.dataset.price || 0) : 0;
+
+                if (triggerText instanceof HTMLElement) {
+                    triggerText.textContent = text;
+                    triggerText.classList.toggle('is-placeholder', !selectedValue);
+                }
+
+                if (triggerPrice instanceof HTMLElement) {
+                    if (selectedValue && price > 0) {
+                        triggerPrice.innerHTML = '<img src="<?= $imagePath ?>darham.png" class="hd-zone-picker__price-icon" alt="AED"><span>' + formatAmount(price) + '</span>';
+                        triggerPrice.classList.remove('is-hidden');
+                    } else {
+                        triggerPrice.innerHTML = '';
+                        triggerPrice.classList.add('is-hidden');
+                    }
+                }
+
+                optionButtons.forEach(function (button) {
+                    if (!(button instanceof HTMLElement)) return;
+                    button.classList.toggle('is-active', button.dataset.value === selectedValue);
+                });
+            }
+
+            function initCustomSelect(select) {
+                if (!(select instanceof HTMLSelectElement)) return;
+                const wrap = select.previousElementSibling;
+                if (!(wrap instanceof HTMLElement) || !wrap.hasAttribute('data-hd-custom-select-wrap')) return;
+                const trigger = wrap.querySelector('[data-hd-custom-select-trigger]');
+                const menu = wrap.querySelector('[data-hd-custom-select-menu]');
+                const optionButtons = Array.from(wrap.querySelectorAll('[data-hd-custom-option]'));
+                if (!(trigger instanceof HTMLButtonElement) || !(menu instanceof HTMLElement)) return;
+
+                trigger.addEventListener('click', function () {
+                    const willOpen = !wrap.classList.contains('is-open');
+                    closeCustomSelects(wrap);
+                    wrap.classList.toggle('is-open', willOpen);
+                    menu.classList.toggle('is-hidden', !willOpen);
+                    trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+                });
+
+                optionButtons.forEach(function (button) {
+                    if (!(button instanceof HTMLButtonElement)) return;
+                    button.addEventListener('click', function () {
+                        select.value = button.dataset.value || '';
+                        syncCustomSelectUi(select);
+                        closeCustomSelects();
+                        select.dispatchEvent(new Event('change', { bubbles: true }));
+                    });
+                });
+
+                select.addEventListener('change', function () {
+                    syncCustomSelectUi(select);
+                });
+
+                syncCustomSelectUi(select);
+            }
+
             function clearRadioGroup(inputs) {
                 inputs.forEach(function (input) {
                     input.checked = false;
@@ -1197,7 +1376,7 @@ if ($slug) {
 
             function syncLocationSelection(type) {
                 if (type === 'pickup') {
-                    if (deliveryZone && deliveryZone.value) {
+                    if (hasZoneValue(deliveryZone)) {
                         clearRadioGroup(pickupBranchInputs);
                     } else if (!pickupBranchInputs.some(function (input) { return input.checked; })) {
                         const defaultPickup = root.querySelector('input[name="hd_pickup_branch"][value="dubai_marina"]');
@@ -1210,7 +1389,7 @@ if ($slug) {
                         updatePickupCards();
                         return;
                     }
-                    if (returnZone && returnZone.value) {
+                    if (hasZoneValue(returnZone)) {
                         clearRadioGroup(returnBranchInputs);
                     } else if (!returnBranchInputs.some(function (input) { return input.checked; })) {
                         const defaultReturnPickup = root.querySelector('input[name="hd_return_branch"][value="dubai_marina"]');
@@ -1221,30 +1400,109 @@ if ($slug) {
                 updatePickupCards();
             }
 
-            function getPickupLocationLabel() {
+            function buildPickupSummaryData() {
                 const deliveryLabel = getSelectedOptionLabel(deliveryZone);
-                if (deliveryLabel) return deliveryLabel;
+                const deliveryCustomAddress = getCustomAddressValue('delivery');
+                if (deliveryLabel) {
+                    return {
+                        primary: deliveryLabel,
+                        secondary: deliveryCustomAddress && deliveryCustomAddress !== deliveryLabel ? deliveryCustomAddress : '',
+                        plain: deliveryCustomAddress ? deliveryLabel + ' ' + deliveryCustomAddress : deliveryLabel
+                    };
+                }
                 const branchInput = root.querySelector('input[name="hd_pickup_branch"]:checked');
-                if (branchInput) return getBranchLabel('hd_pickup_branch', branchInput.value);
-                return 'Not selected';
+                const branchLabel = branchInput ? getBranchLabel('hd_pickup_branch', branchInput.value) : 'Not selected';
+                return {
+                    primary: branchLabel,
+                    secondary: '',
+                    plain: branchLabel
+                };
             }
 
-            function getDropoffLocationLabel() {
+            function buildDropoffSummaryData() {
                 if (returnSameToggle && returnSameToggle.checked) {
-                    return getPickupLocationLabel();
+                    return buildPickupSummaryData();
                 }
 
                 const returnLabel = getSelectedOptionLabel(returnZone);
-                if (returnLabel) return returnLabel;
+                const returnCustomAddress = getCustomAddressValue('return');
+                const fallbackPickup = buildPickupSummaryData().primary;
+                if (returnLabel) {
+                    return {
+                        primary: returnLabel,
+                        secondary: returnCustomAddress && returnCustomAddress !== returnLabel ? returnCustomAddress : '',
+                        plain: returnCustomAddress ? returnLabel + ' ' + returnCustomAddress : returnLabel
+                    };
+                }
                 const branchInput = root.querySelector('input[name="hd_return_branch"]:checked');
-                if (branchInput) return getBranchLabel('hd_return_branch', branchInput.value);
-                return 'Not selected';
+                const branchLabel = branchInput ? getBranchLabel('hd_return_branch', branchInput.value) : fallbackPickup || 'Not selected';
+                return {
+                    primary: branchLabel,
+                    secondary: '',
+                    plain: branchLabel
+                };
             }
 
             function hasCheckedRadio(inputs) {
                 return inputs.some(function (input) {
                     return !!input.checked;
                 });
+            }
+
+            function renderSummaryBranch(node, summaryData) {
+                if (!(node instanceof HTMLElement)) return;
+                const primary = summaryData && summaryData.primary ? summaryData.primary : '—';
+                const secondary = summaryData && summaryData.secondary ? summaryData.secondary : '';
+
+                if (!secondary) {
+                    node.textContent = primary;
+                    return;
+                }
+
+                node.innerHTML = '';
+
+                const primaryNode = document.createElement('span');
+                primaryNode.className = 'hd-order-loc__branch-main';
+                primaryNode.textContent = primary;
+                node.appendChild(primaryNode);
+
+                const secondaryNode = document.createElement('span');
+                secondaryNode.className = 'hd-order-loc__branch-sub';
+                secondaryNode.textContent = secondary;
+                node.appendChild(secondaryNode);
+            }
+
+            function syncCustomAddressUi(kind) {
+                const select = kind === 'return' ? returnZone : deliveryZone;
+                const block = getCustomAddressBlock(kind);
+                const input = getCustomAddressInput(kind);
+                if (!(block instanceof HTMLElement) || !(input instanceof HTMLInputElement)) return;
+
+                const shouldShow = kind === 'return'
+                    ? !!(!returnSameToggle?.checked && hasZoneValue(select))
+                    : hasZoneValue(select);
+
+                block.classList.toggle('is-hidden', !shouldShow);
+                if (!shouldShow) {
+                    input.value = '';
+                }
+            }
+
+            function canUseReturnSameLocation() {
+                return !hasZoneValue(deliveryZone);
+            }
+
+            function syncReturnSameUi() {
+                if (!(returnSameToggle instanceof HTMLInputElement)) return;
+                const canUseSameLocation = canUseReturnSameLocation();
+                if (!canUseSameLocation) {
+                    returnSameToggle.checked = false;
+                }
+                returnSameToggle.disabled = !canUseSameLocation;
+                const toggleLabel = returnSameToggle.closest('.hd-return-toggle');
+                if (toggleLabel instanceof HTMLElement) {
+                    toggleLabel.classList.toggle('is-disabled', !canUseSameLocation);
+                }
             }
 
             function getDepositAmount() {
@@ -1324,6 +1582,7 @@ if ($slug) {
             }
 
             function updateLocationVisibility() {
+                syncReturnSameUi();
                 if (returnBlock && returnSameToggle) {
                     returnBlock.classList.toggle('is-hidden', returnSameToggle.checked);
                 }
@@ -1333,6 +1592,8 @@ if ($slug) {
                     }
                     clearRadioGroup(returnBranchInputs);
                 }
+                syncCustomAddressUi('delivery');
+                syncCustomAddressUi('return');
                 syncLocationSelection('pickup');
                 syncLocationSelection('return');
             }
@@ -1474,11 +1735,30 @@ if ($slug) {
                 if (summary.dropoffTime) {
                     summary.dropoffTime.textContent = formatBookingDate(toInput.value);
                 }
+                if (pickupTitleNode instanceof HTMLElement) {
+                    const titleText = hasZoneValue(deliveryZone) ? 'Delivery' : 'Pickup';
+                    const icon = pickupTitleNode.querySelector('.hd-order-loc__icon');
+                    pickupTitleNode.textContent = titleText;
+                    if (icon) {
+                        pickupTitleNode.prepend(icon);
+                    }
+                }
+                if (dropoffTitleNode instanceof HTMLElement) {
+                    const icon = dropoffTitleNode.querySelector('.hd-order-loc__icon');
+                    dropoffTitleNode.textContent = 'Drop-off';
+                    if (icon) {
+                        dropoffTitleNode.prepend(icon);
+                    }
+                }
+
+                const pickupSummary = buildPickupSummaryData();
+                const dropoffSummary = buildDropoffSummaryData();
+
                 if (summary.pickupBranch) {
-                    summary.pickupBranch.textContent = getPickupLocationLabel();
+                    renderSummaryBranch(summary.pickupBranch, pickupSummary);
                 }
                 if (summary.dropoffBranch) {
-                    summary.dropoffBranch.textContent = getDropoffLocationLabel();
+                    renderSummaryBranch(summary.dropoffBranch, dropoffSummary);
                 }
 
                 if (submitAmount) {
@@ -1534,24 +1814,30 @@ if ($slug) {
                 const start = fromInput && fromInput.value ? new Date(fromInput.value) : null;
                 const end = toInput && toInput.value ? new Date(toInput.value) : null;
                 const payNowSelected = isPayNowSelected();
-                const pickupBranch = payNowSelected ? getPickupLocationLabel() : '';
-                const dropoffBranch = payNowSelected ? getDropoffLocationLabel() : '';
+                const pickupSummary = buildPickupSummaryData();
+                const dropoffSummary = buildDropoffSummaryData();
+                const pickupBranch = payNowSelected ? pickupSummary.primary : '';
+                const dropoffBranch = payNowSelected ? dropoffSummary.primary : '';
                 const phoneNumber = [
                     phoneCountryHidden instanceof HTMLInputElement ? phoneCountryHidden.value.trim() : '',
                     phoneInput instanceof HTMLInputElement ? phoneInput.value.trim() : ''
                 ].filter(Boolean).join(' ').trim();
-                const hasDeliveryZone = payNowSelected && !!(deliveryZone && deliveryZone.value);
-                const hasReturnZone = payNowSelected && !!(returnZone && returnZone.value);
+                const hasDeliveryZone = payNowSelected && hasZoneValue(deliveryZone);
+                const hasReturnZone = payNowSelected && hasZoneValue(returnZone);
                 const returnSame = !!(returnSameToggle && returnSameToggle.checked);
+                const deliveryCustomAddress = getCustomAddressValue('delivery');
+                const returnCustomAddress = getCustomAddressValue('return');
                 const roundedDays = pricing.rawDays.toFixed(1).replace('.0', '');
                 const payNowAmount = pricing.total * 0.2;
                 const payLaterAmount = pricing.total - payNowAmount;
 
                 let deliveryLocation = null;
+                let deliveryCustomAddressValue = null;
                 let deliveryLocationPrice = 0;
                 let selfPickupLocation = null;
                 let selfPickupAddress = null;
                 let returnLocation = null;
+                let returnCustomAddressValue = null;
                 let returnLocationPrice = 0;
                 let selfReturnLocation = null;
                 let selfReturnAddress = null;
@@ -1559,6 +1845,7 @@ if ($slug) {
                 if (payNowSelected) {
                     if (hasDeliveryZone) {
                         deliveryLocation = deliveryZone.value || '';
+                        deliveryCustomAddressValue = deliveryCustomAddress || null;
                         deliveryLocationPrice = pricing.delivery;
                     } else if (pickupBranch) {
                         selfPickupLocation = pickupBranch;
@@ -1575,6 +1862,7 @@ if ($slug) {
                         }
                     } else if (hasReturnZone) {
                         returnLocation = returnZone.value || '';
+                        returnCustomAddressValue = returnCustomAddress || null;
                         returnLocationPrice = pricing.returnFee;
                     } else if (dropoffBranch) {
                         selfReturnLocation = dropoffBranch;
@@ -1603,11 +1891,13 @@ if ($slug) {
                     deposit_waiver: waiverToggle && waiverToggle.checked ? 'Waiver' : 'Deposit',
                     deposit_waiver_price: waiverToggle && waiverToggle.checked ? getExtraPrice('waiver') : pricing.depositCharge,
                     delivery_location: deliveryLocation,
+                    delivery_custom_address: deliveryCustomAddressValue,
                     delivery_location_price: payNowSelected ? deliveryLocationPrice : 0,
                     different_city_dropoff_fee: 0,
                     self_pickup_location: payNowSelected ? selfPickupLocation : null,
                     self_pickup_address: payNowSelected ? selfPickupAddress : null,
                     return_location: returnLocation,
+                    return_custom_address: returnCustomAddressValue,
                     return_location_price: payNowSelected ? returnLocationPrice : 0,
                     self_return_location: payNowSelected ? selfReturnLocation : null,
                     self_return_address: payNowSelected ? selfReturnAddress : null,
@@ -1767,13 +2057,28 @@ if ($slug) {
                 if (!input) return;
                 input.addEventListener('change', function () {
                     clearAppliedPromo(true);
-                    if (input === deliveryZone && deliveryZone.value) {
+                    if (input === deliveryZone && hasZoneValue(deliveryZone)) {
                         clearRadioGroup(pickupBranchInputs);
                         updatePickupCards();
                     }
-                    if (input === returnZone && returnZone.value) {
+                    if (input === returnZone && hasZoneValue(returnZone)) {
                         clearRadioGroup(returnBranchInputs);
                         updatePickupCards();
+                    }
+                    updateLocationVisibility();
+                    updateSummary();
+                });
+            });
+
+            [deliveryZone, returnZone].forEach((select) => {
+                if (!(select instanceof HTMLSelectElement)) return;
+                select.addEventListener('input', function () {
+                    clearAppliedPromo(true);
+                    if (select === deliveryZone && hasZoneValue(deliveryZone)) {
+                        clearRadioGroup(pickupBranchInputs);
+                    }
+                    if (select === returnZone && hasZoneValue(returnZone)) {
+                        clearRadioGroup(returnBranchInputs);
                     }
                     updateLocationVisibility();
                     updateSummary();
@@ -1788,11 +2093,21 @@ if ($slug) {
                     clearAppliedPromo(true);
                     if (input.name === 'hd_pickup_branch' && deliveryZone) {
                         deliveryZone.value = '';
+                        syncCustomSelectUi(deliveryZone);
                     }
                     if (input.name === 'hd_return_branch' && returnZone) {
                         returnZone.value = '';
+                        syncCustomSelectUi(returnZone);
                     }
+                    updateLocationVisibility();
                     updatePickupCards();
+                    updateSummary();
+                });
+            });
+
+            [deliveryCustomAddressInput, returnCustomAddressInput].forEach((input) => {
+                if (!(input instanceof HTMLInputElement)) return;
+                input.addEventListener('input', function () {
                     updateSummary();
                 });
             });
@@ -1827,6 +2142,24 @@ if ($slug) {
                 });
             });
 
+            customSelects.forEach(function (wrap) {
+                const nativeSelect = wrap.nextElementSibling;
+                if (nativeSelect instanceof HTMLSelectElement) {
+                    initCustomSelect(nativeSelect);
+                }
+            });
+
+            document.addEventListener('click', function (event) {
+                const target = event.target;
+                if (!(target instanceof Node)) return;
+                const clickedInside = customSelects.some(function (wrap) {
+                    return wrap.contains(target);
+                });
+                if (!clickedInside) {
+                    closeCustomSelects();
+                }
+            });
+
             continueBtn.addEventListener('click', function () {
                 if (!fromInput.value || !toInput.value) {
                     showToast('error', 'Missing dates', 'Please select pickup and return date/time.');
@@ -1838,12 +2171,12 @@ if ($slug) {
                     return;
                 }
 
-                if (!deliveryZone?.value && !hasCheckedRadio(pickupBranchInputs)) {
+                if (!hasZoneValue(deliveryZone) && !hasCheckedRadio(pickupBranchInputs)) {
                     showToast('error', 'Pickup missing', 'Please select a delivery zone or self-pick-up location.');
                     return;
                 }
 
-                if (returnSameToggle && !returnSameToggle.checked && !returnZone?.value && !hasCheckedRadio(returnBranchInputs)) {
+                if (returnSameToggle && !returnSameToggle.checked && !hasZoneValue(returnZone) && !hasCheckedRadio(returnBranchInputs)) {
                     showToast('error', 'Drop-off missing', 'Please select a return location or self-return location.');
                     return;
                 }
