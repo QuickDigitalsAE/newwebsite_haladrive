@@ -124,6 +124,10 @@ if (!function_exists('fetchHdSpeedLocations')) {
                 CURLOPT_TIMEOUT => 10,
                 CURLOPT_CONNECTTIMEOUT => 5,
                 CURLOPT_HTTPHEADER => ['Accept: application/json'],
+                CURLOPT_PROXY => '',
+                CURLOPT_NOPROXY => '*',
+                CURLOPT_SSL_VERIFYPEER => false,
+                CURLOPT_SSL_VERIFYHOST => 0,
             ]);
             $response = curl_exec($ch);
             curl_close($ch);
@@ -133,6 +137,11 @@ if (!function_exists('fetchHdSpeedLocations')) {
                     'method' => 'GET',
                     'timeout' => 10,
                     'header' => "Accept: application/json\r\n",
+                    'proxy' => null,
+                ],
+                'ssl' => [
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
                 ],
             ]);
             $response = @file_get_contents($endpoint, false, $context);
@@ -195,7 +204,6 @@ if (!function_exists('normalizeHdBranchLocations')) {
 }
 
 $locationsEndpoint = rtrim((string) ($promoApiBaseUrl), '/') . '/speed/getLocations';
-$branchLocations = normalizeHdBranchLocations(fetchHdSpeedLocations($locationsEndpoint));
 
 $slug = $_GET['slug'] ?? null;
 
@@ -608,20 +616,10 @@ if ($slug) {
                                 <div class="hd-location-block">
                                     <div class="hd-location-block__label">Self-pick-up locations</div>
                                     <div class="hd-pickup-list" data-hd-pickup-list>
-                                        <?php if (!empty($branchLocations)): ?>
-                                            <?php foreach ($branchLocations as $index => $location): ?>
-                                                <label class="hd-pickup-card<?= $index === 0 ? ' is-active' : ''; ?>">
-                                                    <input type="radio" name="hd_pickup_branch" value="<?= htmlspecialchars((string) $location['value'], ENT_QUOTES, 'UTF-8'); ?>" <?= $index === 0 ? 'checked' : ''; ?>>
-                                                    <span class="hd-pickup-card__dot"></span>
-                                                    <span class="hd-pickup-card__body">
-                                                        <span class="hd-pickup-card__title"><?= htmlspecialchars((string) $location['label'], ENT_QUOTES, 'UTF-8'); ?></span>
-                                                        <span class="hd-pickup-card__meta">km <button type="button" class="hd-pickup-card__link" data-hd-branch-info data-hd-branch-id="<?= htmlspecialchars((string) $location['value'], ENT_QUOTES, 'UTF-8'); ?>">Branch Info</button></span>
-                                                    </span>
-                                                </label>
-                                            <?php endforeach; ?>
-                                        <?php else: ?>
-                                            <div class="hd-booking-note">No self-pick-up locations available</div>
-                                        <?php endif; ?>
+                                        <div class="hd-pickup-loader" data-hd-pickup-loader>
+                                            <span class="hd-pickup-loader__spinner" aria-hidden="true"></span>
+                                            <span class="hd-pickup-loader__text">Loading pickup locations...</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -684,20 +682,10 @@ if ($slug) {
                                     <div class="hd-location-block">
                                         <div class="hd-location-block__label">Self-return locations</div>
                                         <div class="hd-pickup-list" data-hd-return-pickup-list>
-                                            <?php if (!empty($branchLocations)): ?>
-                                                <?php foreach ($branchLocations as $index => $location): ?>
-                                                    <label class="hd-pickup-card<?= $index === 0 ? ' is-active' : ''; ?>">
-                                                        <input type="radio" name="hd_return_branch" value="<?= htmlspecialchars((string) $location['value'], ENT_QUOTES, 'UTF-8'); ?>" <?= $index === 0 ? 'checked' : ''; ?>>
-                                                        <span class="hd-pickup-card__dot"></span>
-                                                        <span class="hd-pickup-card__body">
-                                                            <span class="hd-pickup-card__title"><?= htmlspecialchars((string) $location['label'], ENT_QUOTES, 'UTF-8'); ?></span>
-                                                            <span class="hd-pickup-card__meta">km <button type="button" class="hd-pickup-card__link" data-hd-branch-info data-hd-branch-id="<?= htmlspecialchars((string) $location['value'], ENT_QUOTES, 'UTF-8'); ?>">Branch Info</button></span>
-                                                        </span>
-                                                    </label>
-                                                <?php endforeach; ?>
-                                            <?php else: ?>
-                                                <div class="hd-booking-note">No self-return locations available</div>
-                                            <?php endif; ?>
+                                            <div class="hd-pickup-loader" data-hd-return-pickup-loader>
+                                                <span class="hd-pickup-loader__spinner" aria-hidden="true"></span>
+                                                <span class="hd-pickup-loader__text">Loading return locations...</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1051,9 +1039,12 @@ if ($slug) {
             const waiverToggle = root.querySelector('[data-hd-waiver-toggle]');
             const waiverStateOn = root.querySelector('[data-hd-waiver-state="on"]');
             const waiverStateOff = root.querySelector('[data-hd-waiver-state="off"]');
-            const pickupCards = Array.from(root.querySelectorAll('.hd-pickup-card'));
-            const pickupBranchInputs = Array.from(root.querySelectorAll('input[name="hd_pickup_branch"]'));
-            const returnBranchInputs = Array.from(root.querySelectorAll('input[name="hd_return_branch"]'));
+            let pickupCards = [];
+            let pickupBranchInputs = [];
+            let returnBranchInputs = [];
+            let speedLocationOptions = [];
+            const pickupList = root.querySelector('[data-hd-pickup-list]');
+            const returnPickupList = root.querySelector('[data-hd-return-pickup-list]');
             const pickupTitleNode = root.querySelector('[data-hd-summary-pickup-title]');
             const dropoffTitleNode = root.querySelector('[data-hd-summary-dropoff-title]');
             const customSelects = Array.from(root.querySelectorAll('[data-hd-custom-select-wrap]'));
@@ -1120,18 +1111,7 @@ if ($slug) {
             const modal = document.querySelector('[data-hd-modal]');
             const modalTitle = modal ? modal.querySelector('[data-hd-modal-title]') : null;
             const modalBody = modal ? modal.querySelector('[data-hd-modal-body]') : null;
-            const branchMap = <?php
-                $branchMapForJs = [];
-                foreach ($branchLocations as $location) {
-                    $branchMapForJs[(string) $location['value']] = [
-                        'branch' => (string) $location['label'],
-                        'address' => (string) $location['address'],
-                        'map' => (string) $location['map'],
-                        'hours' => [],
-                    ];
-                }
-                echo json_encode($branchMapForJs, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-                ?>;
+            const locationsEndpoint = <?= json_encode($locationsEndpoint, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>;
 
             function formatAmount(value) {
                 return Number(value || 0).toFixed(2);
@@ -1206,6 +1186,202 @@ if ($slug) {
                     .finally(function () {
                         window.clearTimeout(timer);
                     });
+            }
+
+            function slugifyLocationValue(value, fallback) {
+                const source = String(value || fallback || '').trim().toLowerCase();
+                const slug = source.replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+                return slug || ('location_' + Date.now());
+            }
+
+            function normalizeSpeedLocations(data) {
+                const rawItems = Array.isArray(data && data.result)
+                    ? data.result
+                    : (Array.isArray(data && data.items)
+                        ? data.items
+                        : (Array.isArray(data && data.data && data.data.items)
+                            ? data.data.items
+                            : (Array.isArray(data && data.data) ? data.data : [])));
+
+                return rawItems.map(function (item, index) {
+                    if (!item || typeof item !== 'object') return null;
+                    const name = String(item.name || item.title || item.location || item.address || '').trim();
+                    if (!name) return null;
+                    const code = String(item.code || '').trim();
+                    const rawId = item.id ?? item.location_id ?? item.locationId ?? item.ID ?? '';
+                    const id = rawId == null ? '' : String(rawId).trim();
+
+                    return {
+                        id: id,
+                        code: code,
+                        name: name,
+                        value: slugifyLocationValue(code || name || id, String(index + 1))
+                    };
+                }).filter(Boolean);
+            }
+
+            function refreshBranchCollections() {
+                pickupCards = Array.from(root.querySelectorAll('.hd-pickup-card'));
+                pickupBranchInputs = Array.from(root.querySelectorAll('input[name="hd_pickup_branch"]'));
+                returnBranchInputs = Array.from(root.querySelectorAll('input[name="hd_return_branch"]'));
+            }
+
+            function renderPickupLoader(container, message, isError) {
+                if (!(container instanceof HTMLElement)) return;
+                const loader = document.createElement('div');
+                loader.className = 'hd-pickup-loader' + (isError ? ' is-error' : '');
+
+                const spinner = document.createElement('span');
+                spinner.className = 'hd-pickup-loader__spinner';
+                spinner.setAttribute('aria-hidden', 'true');
+                if (isError) {
+                    spinner.style.display = 'none';
+                }
+
+                const text = document.createElement('span');
+                text.className = 'hd-pickup-loader__text';
+                text.textContent = String(message || '').trim() || 'Loading locations...';
+
+                loader.appendChild(spinner);
+                loader.appendChild(text);
+
+                container.innerHTML = '';
+                container.appendChild(loader);
+            }
+
+            function createSpeedLocationOption(groupName, location, checked) {
+                const label = document.createElement('label');
+                label.className = 'hd-pickup-card' + (checked ? ' is-active' : '');
+
+                const input = document.createElement('input');
+                input.type = 'radio';
+                input.name = groupName;
+                input.value = location.value;
+                input.dataset.locationId = location.id || '';
+                input.checked = !!checked;
+
+                const dot = document.createElement('span');
+                dot.className = 'hd-pickup-card__dot';
+
+                const body = document.createElement('span');
+                body.className = 'hd-pickup-card__body';
+
+                const title = document.createElement('span');
+                title.className = 'hd-pickup-card__title';
+                title.textContent = location.name || location.code || location.value;
+                body.appendChild(title);
+                label.appendChild(input);
+                label.appendChild(dot);
+                label.appendChild(body);
+
+                return label;
+            }
+
+            function renderSpeedLocationOptions(container, groupName, locations) {
+                if (!(container instanceof HTMLElement)) return;
+                if (!Array.isArray(locations) || !locations.length) return;
+
+                const currentValue = getSelectedRadioValue(groupName);
+                const selectedValue = locations.some(function (location) {
+                    return location.value === currentValue;
+                }) ? currentValue : locations[0].value;
+
+                container.innerHTML = '';
+                locations.forEach(function (location) {
+                    container.appendChild(createSpeedLocationOption(groupName, location, location.value === selectedValue));
+                });
+            }
+
+            function getSelectedRadioValue(name) {
+                const checked = root.querySelector('input[name="' + name + '"]:checked');
+                if (!(checked instanceof HTMLInputElement)) return '';
+                return checked.value || '';
+            }
+
+            function getSelectedRadioLabel(name) {
+                const checked = root.querySelector('input[name="' + name + '"]:checked');
+                if (!(checked instanceof HTMLInputElement)) return '';
+                const label = checked.closest('label');
+                const title = label ? label.querySelector('.hd-pickup-card__title') : null;
+                if (title) return String(title.textContent || '').trim();
+                return getBranchLabel(name, checked.value || '');
+            }
+
+            function getSelectedSpeedLocation(name) {
+                const selectedValue = getSelectedRadioValue(name);
+                if (!selectedValue) return null;
+                return speedLocationOptions.find(function (location) {
+                    return location.value === selectedValue;
+                }) || null;
+            }
+
+            function getSelectedSpeedLocationId(name) {
+                const checked = root.querySelector('input[name="' + name + '"]:checked');
+                if (checked instanceof HTMLInputElement && checked.dataset.locationId) {
+                    return checked.dataset.locationId;
+                }
+                const selectedLocation = getSelectedSpeedLocation(name);
+                return selectedLocation && selectedLocation.id ? selectedLocation.id : '';
+            }
+
+            async function loadSpeedLocations() {
+                if (!(pickupList instanceof HTMLElement) || !(returnPickupList instanceof HTMLElement)) return;
+
+                renderPickupLoader(pickupList, 'Loading pickup locations...');
+                renderPickupLoader(returnPickupList, 'Loading return locations...');
+
+                const endpoints = [locationsEndpoint];
+                let lastErrorMessage = 'Could not load location data right now.';
+
+                for (let i = 0; i < endpoints.length; i += 1) {
+                    const endpoint = endpoints[i];
+                    let response;
+
+                    try {
+                        response = await fetchWithTimeout(endpoint, {
+                            method: 'GET',
+                            headers: {
+                                'Accept': 'application/json',
+                                'X-Requested-With': 'XMLHttpRequest'
+                            }
+                        });
+                    } catch (requestErr) {
+                        lastErrorMessage = requestErr && requestErr.name === 'AbortError'
+                            ? 'Location request timed out. Please try again.'
+                            : 'Could not connect to location service.';
+                        continue;
+                    }
+
+                    const data = await response.json().catch(function () { return {}; });
+                    if (!response.ok) {
+                        lastErrorMessage = 'Request failed (' + response.status + ')';
+                        continue;
+                    }
+
+                    const locations = normalizeSpeedLocations(data);
+                    if (!locations.length) {
+                        lastErrorMessage = 'No locations available right now.';
+                        continue;
+                    }
+
+                    speedLocationOptions = locations;
+                    renderSpeedLocationOptions(pickupList, 'hd_pickup_branch', locations);
+                    renderSpeedLocationOptions(returnPickupList, 'hd_return_branch', locations);
+                    refreshBranchCollections();
+                    syncLocationSelection('pickup');
+                    syncLocationSelection('return');
+                    syncReturnSameUi();
+                    updatePickupCards();
+                    updateSummary();
+                    return;
+                }
+
+                speedLocationOptions = [];
+                renderPickupLoader(pickupList, lastErrorMessage, true);
+                renderPickupLoader(returnPickupList, lastErrorMessage, true);
+                refreshBranchCollections();
+                updatePickupCards();
+                updateSummary();
             }
 
             function isPayNowSelected() {
@@ -1294,8 +1470,12 @@ if ($slug) {
             }
 
             function getBranchLabel(name, fallback) {
-                const id = getCheckedValue(name, fallback);
-                return branchMap[id] ? branchMap[id].branch : String(fallback || '').replace(/_/g, ' ');
+                const checked = root.querySelector('input[name="' + name + '"]:checked');
+                const title = checked ? checked.closest('label')?.querySelector('.hd-pickup-card__title') : null;
+                if (title) {
+                    return String(title.textContent || '').trim();
+                }
+                return String(fallback || '').replace(/_/g, ' ');
             }
 
             function getSelectedOptionLabel(select) {
@@ -2121,26 +2301,6 @@ if ($slug) {
                 });
             });
 
-            pickupCards.forEach((card) => {
-                const input = card.querySelector('input[type="radio"]');
-                if (!input) return;
-                input.addEventListener('change', function () {
-                    if (!input.checked) return;
-                    clearAppliedPromo(true);
-                    if (input.name === 'hd_pickup_branch' && deliveryZone) {
-                        deliveryZone.value = '';
-                        syncCustomSelectUi(deliveryZone);
-                    }
-                    if (input.name === 'hd_return_branch' && returnZone) {
-                        returnZone.value = '';
-                        syncCustomSelectUi(returnZone);
-                    }
-                    updateLocationVisibility();
-                    updatePickupCards();
-                    updateSummary();
-                });
-            });
-
             [deliveryCustomAddressInput, returnCustomAddressInput].forEach((input) => {
                 if (!(input instanceof HTMLInputElement)) return;
                 input.addEventListener('input', function () {
@@ -2148,34 +2308,38 @@ if ($slug) {
                 });
             });
 
-            root.querySelectorAll('[data-hd-branch-info]').forEach((button) => {
-                button.addEventListener('click', function (event) {
+            root.addEventListener('change', function (event) {
+                const target = event.target;
+                if (!(target instanceof HTMLInputElement)) return;
+
+                if (target.name === 'hd_pickup_branch' || target.name === 'hd_return_branch') {
+                    if (!target.checked) return;
+                    clearAppliedPromo(true);
+                    if (target.name === 'hd_pickup_branch' && deliveryZone) {
+                        deliveryZone.value = '';
+                        syncCustomSelectUi(deliveryZone);
+                    }
+                    if (target.name === 'hd_return_branch' && returnZone) {
+                        returnZone.value = '';
+                        syncCustomSelectUi(returnZone);
+                    }
+                    updateLocationVisibility();
+                    updatePickupCards();
+                    updateSummary();
+                }
+            });
+
+            root.addEventListener('click', function (event) {
+                const target = event.target;
+                if (!(target instanceof HTMLElement)) return;
+                if (target.closest('[data-hd-back-to-booking]')) {
                     event.preventDefault();
-                    event.stopPropagation();
-                    if (!modal || !modalTitle || !modalBody) return;
-
-                    const branchId = button.dataset.hdBranchId || '';
-                    const branch = branchMap[branchId];
-                    if (!branch) return;
-
-                    const hoursMarkup = Array.isArray(branch.hours) && branch.hours.length ? branch.hours.map(function (item) {
-                        return '<div class="hd-branch-hours__row"><span class="hd-branch-hours__day">' + item[0] + ':</span><span class="hd-branch-hours__time">' + item[1] + '</span></div>';
-                    }).join('') : '<div class="hd-modal-copy">Timing information is not available.</div>';
-
-                    modalTitle.textContent = 'Branch Information';
-                    modalBody.innerHTML =
-                        '<div class="hd-branch-modal__header"></div>' +
-                        '<div class="hd-branch-modal__grid">' +
-                            '<div class="hd-branch-modal__label">Branch:</div>' +
-                            '<div class="hd-branch-modal__value">' + branch.branch + '</div>' +
-                            '<div class="hd-branch-modal__label">Address:</div>' +
-                            '<div class="hd-branch-modal__value">' + branch.address + '</div>' +
-                        '</div>' +
-                        '<div class="hd-branch-modal__section">Working Hours</div>' +
-                        '<div class="hd-branch-hours">' + hoursMarkup + '</div>' +
-                        '<a class="hd-branch-modal__map" href="' + branch.map + '" target="_blank" rel="noopener noreferrer">View on Google Maps</a>';
-                    modal.classList.remove('is-hidden');
-                });
+                    openBookingFormStep();
+                }
+                if (target.closest('[data-hd-pay-now-only]')) {
+                    event.preventDefault();
+                    submitBooking();
+                }
             });
 
             customSelects.forEach(function (wrap) {
@@ -2414,6 +2578,7 @@ if ($slug) {
             setActivePeriod(state.period, true);
             syncPromoUi();
             updateSegmentStates();
+            void loadSpeedLocations();
             updatePickupCards();
             updateLocationVisibility();
             updateWaiverState();
