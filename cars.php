@@ -13,6 +13,8 @@ $monthlyPrice = 0.0;
 $isInStock = false;
 $deliveryLocations = [];
 $returnLocations = [];
+$branchLocations = [];
+$locationsEndpoint = '';
 $fullInsuranceAmount = 40.0;
 $additionalDriverAmount = 100.0;
 $babySeatAmount = 40.0;
@@ -103,6 +105,97 @@ if (!function_exists('normalizeHdAmount')) {
         return $amount > 0 ? $amount : $default;
     }
 }
+
+
+if (!function_exists('fetchHdSpeedLocations')) {
+    function fetchHdSpeedLocations(string $endpoint): array
+    {
+        $endpoint = trim($endpoint);
+        if ($endpoint === '') {
+            return [];
+        }
+
+        $response = null;
+
+        if (function_exists('curl_init')) {
+            $ch = curl_init($endpoint);
+            curl_setopt_array($ch, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT => 10,
+                CURLOPT_CONNECTTIMEOUT => 5,
+                CURLOPT_HTTPHEADER => ['Accept: application/json'],
+            ]);
+            $response = curl_exec($ch);
+            curl_close($ch);
+        } else {
+            $context = stream_context_create([
+                'http' => [
+                    'method' => 'GET',
+                    'timeout' => 10,
+                    'header' => "Accept: application/json\r\n",
+                ],
+            ]);
+            $response = @file_get_contents($endpoint, false, $context);
+        }
+
+        if (!is_string($response) || trim($response) === '') {
+            return [];
+        }
+
+        $decoded = json_decode($response, true);
+        if (!is_array($decoded) || empty($decoded['success']) || !isset($decoded['result']) || !is_array($decoded['result'])) {
+            return [];
+        }
+
+        return $decoded['result'];
+    }
+}
+
+if (!function_exists('normalizeHdBranchLocations')) {
+    function normalizeHdBranchLocations($locations): array
+    {
+        if (!is_array($locations)) {
+            return [];
+        }
+
+        $normalized = [];
+
+        foreach ($locations as $location) {
+            if (is_object($location)) {
+                $location = (array) $location;
+            }
+
+            if (!is_array($location)) {
+                continue;
+            }
+
+            $label = trim((string) ($location['name'] ?? $location['title'] ?? $location['location'] ?? $location['address'] ?? ''));
+            if ($label === '') {
+                continue;
+            }
+
+            $value = trim((string) ($location['code'] ?? $location['id'] ?? preg_replace('/[^a-z0-9]+/i', '_', strtolower($label))));
+            if ($value === '') {
+                $value = preg_replace('/[^a-z0-9]+/i', '_', strtolower($label));
+            }
+
+            $normalized[] = [
+                'id' => $location['id'] ?? null,
+                'tenantId' => $location['tenantId'] ?? null,
+                'value' => $value,
+                'code' => trim((string) ($location['code'] ?? $value)),
+                'label' => $label,
+                'address' => trim((string) ($location['address'] ?? $label)),
+                'map' => 'https://maps.google.com/?q=' . rawurlencode($label),
+            ];
+        }
+
+        return $normalized;
+    }
+}
+
+$locationsEndpoint = rtrim((string) ($promoApiBaseUrl), '/') . '/speed/getLocations';
+$branchLocations = normalizeHdBranchLocations(fetchHdSpeedLocations($locationsEndpoint));
 
 $slug = $_GET['slug'] ?? null;
 
@@ -515,30 +608,20 @@ if ($slug) {
                                 <div class="hd-location-block">
                                     <div class="hd-location-block__label">Self-pick-up locations</div>
                                     <div class="hd-pickup-list" data-hd-pickup-list>
-                                        <label class="hd-pickup-card is-active">
-                                            <input type="radio" name="hd_pickup_branch" value="dubai_marina" checked>
-                                            <span class="hd-pickup-card__dot"></span>
-                                            <span class="hd-pickup-card__body">
-                                                <span class="hd-pickup-card__title">Dubai Marina Branch - Dubai - UAE</span>
-                                                <span class="hd-pickup-card__meta">km <button type="button" class="hd-pickup-card__link" data-hd-branch-info data-hd-branch-id="dubai_marina">Branch Info</button></span>
-                                            </span>
-                                        </label>
-                                        <label class="hd-pickup-card">
-                                            <input type="radio" name="hd_pickup_branch" value="silicon_oasis">
-                                            <span class="hd-pickup-card__dot"></span>
-                                            <span class="hd-pickup-card__body">
-                                                <span class="hd-pickup-card__title">Silicon Oasis - Dubai - United Arab Emirates</span>
-                                                <span class="hd-pickup-card__meta">km <button type="button" class="hd-pickup-card__link" data-hd-branch-info data-hd-branch-id="silicon_oasis">Branch Info</button></span>
-                                            </span>
-                                        </label>
-                                        <label class="hd-pickup-card">
-                                            <input type="radio" name="hd_pickup_branch" value="al_bateen">
-                                            <span class="hd-pickup-card__dot"></span>
-                                            <span class="hd-pickup-card__body">
-                                                <span class="hd-pickup-card__title">Al Bateen Airport - Abu Dhabi - United Arab Emirates</span>
-                                                <span class="hd-pickup-card__meta">km <button type="button" class="hd-pickup-card__link" data-hd-branch-info data-hd-branch-id="al_bateen">Branch Info</button></span>
-                                            </span>
-                                        </label>
+                                        <?php if (!empty($branchLocations)): ?>
+                                            <?php foreach ($branchLocations as $index => $location): ?>
+                                                <label class="hd-pickup-card<?= $index === 0 ? ' is-active' : ''; ?>">
+                                                    <input type="radio" name="hd_pickup_branch" value="<?= htmlspecialchars((string) $location['value'], ENT_QUOTES, 'UTF-8'); ?>" <?= $index === 0 ? 'checked' : ''; ?>>
+                                                    <span class="hd-pickup-card__dot"></span>
+                                                    <span class="hd-pickup-card__body">
+                                                        <span class="hd-pickup-card__title"><?= htmlspecialchars((string) $location['label'], ENT_QUOTES, 'UTF-8'); ?></span>
+                                                        <span class="hd-pickup-card__meta">km <button type="button" class="hd-pickup-card__link" data-hd-branch-info data-hd-branch-id="<?= htmlspecialchars((string) $location['value'], ENT_QUOTES, 'UTF-8'); ?>">Branch Info</button></span>
+                                                    </span>
+                                                </label>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <div class="hd-booking-note">No self-pick-up locations available</div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
 
@@ -601,30 +684,20 @@ if ($slug) {
                                     <div class="hd-location-block">
                                         <div class="hd-location-block__label">Self-return locations</div>
                                         <div class="hd-pickup-list" data-hd-return-pickup-list>
-                                            <label class="hd-pickup-card is-active">
-                                                <input type="radio" name="hd_return_branch" value="dubai_marina" checked>
-                                                <span class="hd-pickup-card__dot"></span>
-                                                <span class="hd-pickup-card__body">
-                                                    <span class="hd-pickup-card__title">Dubai Marina Branch - Dubai - UAE</span>
-                                                    <span class="hd-pickup-card__meta">km <button type="button" class="hd-pickup-card__link" data-hd-branch-info data-hd-branch-id="dubai_marina">Branch Info</button></span>
-                                                </span>
-                                            </label>
-                                            <label class="hd-pickup-card">
-                                                <input type="radio" name="hd_return_branch" value="silicon_oasis">
-                                                <span class="hd-pickup-card__dot"></span>
-                                                <span class="hd-pickup-card__body">
-                                                    <span class="hd-pickup-card__title">Silicon Oasis - Dubai - United Arab Emirates</span>
-                                                    <span class="hd-pickup-card__meta">km <button type="button" class="hd-pickup-card__link" data-hd-branch-info data-hd-branch-id="silicon_oasis">Branch Info</button></span>
-                                                </span>
-                                            </label>
-                                            <label class="hd-pickup-card">
-                                                <input type="radio" name="hd_return_branch" value="al_bateen">
-                                                <span class="hd-pickup-card__dot"></span>
-                                                <span class="hd-pickup-card__body">
-                                                    <span class="hd-pickup-card__title">Al Bateen Airport - Abu Dhabi - United Arab Emirates</span>
-                                                    <span class="hd-pickup-card__meta">km <button type="button" class="hd-pickup-card__link" data-hd-branch-info data-hd-branch-id="al_bateen">Branch Info</button></span>
-                                                </span>
-                                            </label>
+                                            <?php if (!empty($branchLocations)): ?>
+                                                <?php foreach ($branchLocations as $index => $location): ?>
+                                                    <label class="hd-pickup-card<?= $index === 0 ? ' is-active' : ''; ?>">
+                                                        <input type="radio" name="hd_return_branch" value="<?= htmlspecialchars((string) $location['value'], ENT_QUOTES, 'UTF-8'); ?>" <?= $index === 0 ? 'checked' : ''; ?>>
+                                                        <span class="hd-pickup-card__dot"></span>
+                                                        <span class="hd-pickup-card__body">
+                                                            <span class="hd-pickup-card__title"><?= htmlspecialchars((string) $location['label'], ENT_QUOTES, 'UTF-8'); ?></span>
+                                                            <span class="hd-pickup-card__meta">km <button type="button" class="hd-pickup-card__link" data-hd-branch-info data-hd-branch-id="<?= htmlspecialchars((string) $location['value'], ENT_QUOTES, 'UTF-8'); ?>">Branch Info</button></span>
+                                                        </span>
+                                                    </label>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <div class="hd-booking-note">No self-return locations available</div>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -1047,50 +1120,18 @@ if ($slug) {
             const modal = document.querySelector('[data-hd-modal]');
             const modalTitle = modal ? modal.querySelector('[data-hd-modal-title]') : null;
             const modalBody = modal ? modal.querySelector('[data-hd-modal-body]') : null;
-            const branchMap = {
-                dubai_marina: {
-                    branch: 'Dubai Marina Branch - Dubai - UAE',
-                    address: 'Shop No - 2 Seba St - opposite to KG Tower - Marsa Dubai - Dubai Marina - Dubai - United Arab Emirates',
-                    map: 'https://maps.google.com/?q=Dubai+Marina+Branch+Dubai+UAE',
-                    hours: [
-                        ['Monday', '09:00 - 20:00'],
-                        ['Tuesday', '09:00 - 20:00'],
-                        ['Wednesday', '09:00 - 20:00'],
-                        ['Thursday', '09:00 - 20:00'],
-                        ['Friday', '09:00 - 20:00'],
-                        ['Saturday', '09:00 - 20:00'],
-                        ['Sunday', '10:00 - 20:00']
-                    ]
-                },
-                silicon_oasis: {
-                    branch: 'Silicon Oasis - Dubai - United Arab Emirates',
-                    address: 'Silicon Oasis Branch - Dubai Digital Park vicinity - Dubai - United Arab Emirates',
-                    map: 'https://maps.google.com/?q=Silicon+Oasis+Dubai+United+Arab+Emirates',
-                    hours: [
-                        ['Monday', '09:00 - 19:00'],
-                        ['Tuesday', '09:00 - 19:00'],
-                        ['Wednesday', '09:00 - 19:00'],
-                        ['Thursday', '09:00 - 19:00'],
-                        ['Friday', '09:00 - 19:00'],
-                        ['Saturday', '10:00 - 18:00'],
-                        ['Sunday', '10:00 - 18:00']
-                    ]
-                },
-                al_bateen: {
-                    branch: 'Al Bateen Airport - Abu Dhabi - United Arab Emirates',
-                    address: 'Al Bateen Executive Airport service area - Abu Dhabi - United Arab Emirates',
-                    map: 'https://maps.google.com/?q=Al+Bateen+Airport+Abu+Dhabi+United+Arab+Emirates',
-                    hours: [
-                        ['Monday', '09:00 - 20:00'],
-                        ['Tuesday', '09:00 - 20:00'],
-                        ['Wednesday', '09:00 - 20:00'],
-                        ['Thursday', '09:00 - 20:00'],
-                        ['Friday', '09:00 - 20:00'],
-                        ['Saturday', '09:00 - 20:00'],
-                        ['Sunday', '10:00 - 20:00']
-                    ]
+            const branchMap = <?php
+                $branchMapForJs = [];
+                foreach ($branchLocations as $location) {
+                    $branchMapForJs[(string) $location['value']] = [
+                        'branch' => (string) $location['label'],
+                        'address' => (string) $location['address'],
+                        'map' => (string) $location['map'],
+                        'hours' => [],
+                    ];
                 }
-            };
+                echo json_encode($branchMapForJs, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+                ?>;
 
             function formatAmount(value) {
                 return Number(value || 0).toFixed(2);
@@ -1254,7 +1295,7 @@ if ($slug) {
 
             function getBranchLabel(name, fallback) {
                 const id = getCheckedValue(name, fallback);
-                return branchMap[id] ? branchMap[id].branch : fallback.replace(/_/g, ' ');
+                return branchMap[id] ? branchMap[id].branch : String(fallback || '').replace(/_/g, ' ');
             }
 
             function getSelectedOptionLabel(select) {
@@ -1379,7 +1420,7 @@ if ($slug) {
                     if (hasZoneValue(deliveryZone)) {
                         clearRadioGroup(pickupBranchInputs);
                     } else if (!pickupBranchInputs.some(function (input) { return input.checked; })) {
-                        const defaultPickup = root.querySelector('input[name="hd_pickup_branch"][value="dubai_marina"]');
+                        const defaultPickup = pickupBranchInputs[0] || null;
                         if (defaultPickup) defaultPickup.checked = true;
                     }
                 }
@@ -1392,7 +1433,7 @@ if ($slug) {
                     if (hasZoneValue(returnZone)) {
                         clearRadioGroup(returnBranchInputs);
                     } else if (!returnBranchInputs.some(function (input) { return input.checked; })) {
-                        const defaultReturnPickup = root.querySelector('input[name="hd_return_branch"][value="dubai_marina"]');
+                        const defaultReturnPickup = returnBranchInputs[0] || null;
                         if (defaultReturnPickup) defaultReturnPickup.checked = true;
                     }
                 }
@@ -1599,9 +1640,6 @@ if ($slug) {
             }
 
             function updatePaymentPanels() {
-                if (locationSummaryPanel) {
-                    locationSummaryPanel.classList.toggle('is-hidden', !isPayNowSelected());
-                }
                 if (paySplitPanel) {
                     paySplitPanel.classList.toggle('is-hidden', !isPayNowSelected());
                 }
@@ -1816,14 +1854,14 @@ if ($slug) {
                 const payNowSelected = isPayNowSelected();
                 const pickupSummary = buildPickupSummaryData();
                 const dropoffSummary = buildDropoffSummaryData();
-                const pickupBranch = payNowSelected ? pickupSummary.primary : '';
-                const dropoffBranch = payNowSelected ? dropoffSummary.primary : '';
+                const pickupBranch = pickupSummary.primary;
+                const dropoffBranch = dropoffSummary.primary;
                 const phoneNumber = [
                     phoneCountryHidden instanceof HTMLInputElement ? phoneCountryHidden.value.trim() : '',
                     phoneInput instanceof HTMLInputElement ? phoneInput.value.trim() : ''
                 ].filter(Boolean).join(' ').trim();
-                const hasDeliveryZone = payNowSelected && hasZoneValue(deliveryZone);
-                const hasReturnZone = payNowSelected && hasZoneValue(returnZone);
+                const hasDeliveryZone = hasZoneValue(deliveryZone);
+                const hasReturnZone = hasZoneValue(returnZone);
                 const returnSame = !!(returnSameToggle && returnSameToggle.checked);
                 const deliveryCustomAddress = getCustomAddressValue('delivery');
                 const returnCustomAddress = getCustomAddressValue('return');
@@ -1842,32 +1880,30 @@ if ($slug) {
                 let selfReturnLocation = null;
                 let selfReturnAddress = null;
 
-                if (payNowSelected) {
-                    if (hasDeliveryZone) {
-                        deliveryLocation = deliveryZone.value || '';
-                        deliveryCustomAddressValue = deliveryCustomAddress || null;
-                        deliveryLocationPrice = pricing.delivery;
-                    } else if (pickupBranch) {
-                        selfPickupLocation = pickupBranch;
-                        selfPickupAddress = pickupBranch;
-                    }
+                if (hasDeliveryZone) {
+                    deliveryLocation = deliveryZone.value || '';
+                    deliveryCustomAddressValue = deliveryCustomAddress || null;
+                    deliveryLocationPrice = pricing.delivery;
+                } else if (pickupBranch) {
+                    selfPickupLocation = pickupBranch;
+                    selfPickupAddress = pickupBranch;
+                }
 
-                    if (returnSame) {
-                        if (hasDeliveryZone) {
-                            returnLocation = deliveryZone.value || '';
-                            returnLocationPrice = pricing.returnFee;
-                        } else if (pickupBranch) {
-                            selfReturnLocation = pickupBranch;
-                            selfReturnAddress = pickupBranch;
-                        }
-                    } else if (hasReturnZone) {
-                        returnLocation = returnZone.value || '';
-                        returnCustomAddressValue = returnCustomAddress || null;
+                if (returnSame) {
+                    if (hasDeliveryZone) {
+                        returnLocation = deliveryZone.value || '';
                         returnLocationPrice = pricing.returnFee;
-                    } else if (dropoffBranch) {
-                        selfReturnLocation = dropoffBranch;
-                        selfReturnAddress = dropoffBranch;
+                    } else if (pickupBranch) {
+                        selfReturnLocation = pickupBranch;
+                        selfReturnAddress = pickupBranch;
                     }
+                } else if (hasReturnZone) {
+                    returnLocation = returnZone.value || '';
+                    returnCustomAddressValue = returnCustomAddress || null;
+                    returnLocationPrice = pricing.returnFee;
+                } else if (dropoffBranch) {
+                    selfReturnLocation = dropoffBranch;
+                    selfReturnAddress = dropoffBranch;
                 }
 
                 const payload = {
@@ -1892,15 +1928,15 @@ if ($slug) {
                     deposit_waiver_price: waiverToggle && waiverToggle.checked ? getExtraPrice('waiver') : pricing.depositCharge,
                     delivery_location: deliveryLocation,
                     delivery_custom_address: deliveryCustomAddressValue,
-                    delivery_location_price: payNowSelected ? deliveryLocationPrice : 0,
+                    delivery_location_price: deliveryLocationPrice,
                     different_city_dropoff_fee: 0,
-                    self_pickup_location: payNowSelected ? selfPickupLocation : null,
-                    self_pickup_address: payNowSelected ? selfPickupAddress : null,
+                    self_pickup_location: selfPickupLocation,
+                    self_pickup_address: selfPickupAddress,
                     return_location: returnLocation,
                     return_custom_address: returnCustomAddressValue,
-                    return_location_price: payNowSelected ? returnLocationPrice : 0,
-                    self_return_location: payNowSelected ? selfReturnLocation : null,
-                    self_return_address: payNowSelected ? selfReturnAddress : null,
+                    return_location_price: returnLocationPrice,
+                    self_return_location: selfReturnLocation,
+                    self_return_address: selfReturnAddress,
                     coupon_code: state.promoCode || '',
                     coupon_amount: pricing.promoDiscount,
                     pay_now_discount: pricing.payNowDiscount,
@@ -1910,8 +1946,8 @@ if ($slug) {
                     vat_amount: pricing.vat,
                     total_amount: pricing.total,
                     payment_flow: payNowSelected ? 'now' : 'later',
-                    'pay_now_20%_to_Reserve': payNowSelected ? payNowAmount : null,
-                    'pay_at_pickup_80%': payNowSelected ? payLaterAmount : null,
+                    'pay_now_20%_to_Reserve': payNowSelected ? payNowAmount : 0,
+                    'pay_at_pickup_80%': payNowSelected ? payLaterAmount : pricing.total,
                     paid_id: '',
                     paid_date: '',
                     paid_status: '',
@@ -2122,9 +2158,9 @@ if ($slug) {
                     const branch = branchMap[branchId];
                     if (!branch) return;
 
-                    const hoursMarkup = branch.hours.map(function (item) {
+                    const hoursMarkup = Array.isArray(branch.hours) && branch.hours.length ? branch.hours.map(function (item) {
                         return '<div class="hd-branch-hours__row"><span class="hd-branch-hours__day">' + item[0] + ':</span><span class="hd-branch-hours__time">' + item[1] + '</span></div>';
-                    }).join('');
+                    }).join('') : '<div class="hd-modal-copy">Timing information is not available.</div>';
 
                     modalTitle.textContent = 'Branch Information';
                     modalBody.innerHTML =
@@ -2333,8 +2369,8 @@ if ($slug) {
                             if (returnZone) returnZone.value = '';
                             if (returnSameToggle) returnSameToggle.checked = true;
                             if (paymentToggle) paymentToggle.checked = true;
-                            const defaultPickup = root.querySelector('input[name="hd_pickup_branch"][value="dubai_marina"]');
-                            const defaultReturnPickup = root.querySelector('input[name="hd_return_branch"][value="dubai_marina"]');
+                            const defaultPickup = pickupBranchInputs[0] || null;
+                            const defaultReturnPickup = returnBranchInputs[0] || null;
                             if (defaultPickup) defaultPickup.checked = true;
                             if (defaultReturnPickup) defaultReturnPickup.checked = true;
                             if (phoneInput instanceof HTMLInputElement) {
