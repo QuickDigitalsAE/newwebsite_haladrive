@@ -234,6 +234,8 @@ if ($slug) {
             $babySeatAmount = normalizeHdAmount($car['baby_seat_amount'] ?? $carSingleContentData['baby_seat_amount'] ?? null, $babySeatAmount);
             $depositAmount = normalizeHdAmount($car['deposit_amount'] ?? $carSingleContentData['deposit_amount'] ?? null, $depositAmount);
             $waiverAmount = normalizeHdAmount($car['waiver_amount'] ?? $carSingleContentData['waiver_amount'] ?? null, $waiverAmount);
+            $vehicleGroupId = $car['vehicle_group_id'] ?? $carSingleContentData['vehicle_group_id'] ?? null;
+            $tariffGroupId = $car['tariff_group_id'] ?? $carSingleContentData['tariff_group_id'] ?? null;
         }
     } catch (Exception $e) {
         echo "Error loading car details: " . $e->getMessage();
@@ -406,6 +408,12 @@ if ($slug) {
                 <div class="col-span-1">
                     <aside class="hd-booking-sidebar" data-hd-booking-sidebar>
                         <div data-hd-booking-step="form">
+                            <div hidden aria-hidden="true">
+                                <input type="hidden" name="self_pickup_location_id" data-hd-post-field="self_pickup_location_id">
+                                <input type="hidden" name="self_return_location_id" data-hd-post-field="self_return_location_id">
+                                <input type="hidden" name="vehicle_group_id" data-hd-post-field="vehicle_group_id">
+                                <input type="hidden" name="tariff_group_id" data-hd-post-field="tariff_group_id">
+                            </div>
                             
                             <div class="hd-booking-tabs mb-2" role="tablist" aria-label="Rental period">
                                 <button type="button" class="hd-booking-tab is-active" data-hd-period="daily" data-hd-price="<?= htmlspecialchars((string) $dailyPrice, ENT_QUOTES, 'UTF-8'); ?>"><?= $messages['daily'] ?></button>
@@ -1039,6 +1047,10 @@ if ($slug) {
             const waiverToggle = root.querySelector('[data-hd-waiver-toggle]');
             const waiverStateOn = root.querySelector('[data-hd-waiver-state="on"]');
             const waiverStateOff = root.querySelector('[data-hd-waiver-state="off"]');
+            const bookingMeta = {
+                vehicle_group_id: <?= json_encode($vehicleGroupId); ?>,
+                tariff_group_id: <?= json_encode($tariffGroupId); ?>
+            };
             let pickupCards = [];
             let pickupBranchInputs = [];
             let returnBranchInputs = [];
@@ -1158,6 +1170,12 @@ if ($slug) {
             function parseAmount(value) {
                 const amount = Number(value || 0);
                 return Number.isFinite(amount) ? amount : 0;
+            }
+
+            function setPostField(name, value) {
+                const node = root.querySelector('[data-hd-post-field="' + name + '"]');
+                if (!(node instanceof HTMLInputElement)) return;
+                node.value = value == null ? '' : String(value);
             }
 
             function getExtraInput(extraName) {
@@ -2069,6 +2087,8 @@ if ($slug) {
                     selfPickupAddress = pickupBranch;
                 }
 
+                const selfPickupLocationId = hasDeliveryZone ? '' : getSelectedSpeedLocationId('hd_pickup_branch');
+
                 if (returnSame) {
                     if (hasDeliveryZone) {
                         returnLocation = deliveryZone.value || '';
@@ -2085,6 +2105,8 @@ if ($slug) {
                     selfReturnLocation = dropoffBranch;
                     selfReturnAddress = dropoffBranch;
                 }
+
+                const selfReturnLocationId = (hasReturnZone || returnSame) ? (returnSame ? selfPickupLocationId : getSelectedSpeedLocationId('hd_return_branch')) : '';
 
                 const payload = {
                     name: submitForm.querySelector('input[name="name"]')?.value.trim() || '',
@@ -2111,11 +2133,13 @@ if ($slug) {
                     delivery_location_price: deliveryLocationPrice,
                     different_city_dropoff_fee: 0,
                     self_pickup_location: selfPickupLocation,
+                    self_pickup_location_id: selfPickupLocationId,
                     self_pickup_address: selfPickupAddress,
                     return_location: returnLocation,
                     return_custom_address: returnCustomAddressValue,
                     return_location_price: returnLocationPrice,
                     self_return_location: selfReturnLocation,
+                    self_return_location_id: selfReturnLocationId,
                     self_return_address: selfReturnAddress,
                     coupon_code: state.promoCode || '',
                     coupon_amount: pricing.promoDiscount,
@@ -2135,10 +2159,17 @@ if ($slug) {
                     contact_preference: submitForm.querySelector('[data-hd-no-whatsapp]')?.checked ? 'phone' : 'whatsapp',
                     term_22_years: !!(confirmAge && confirmAge.checked),
                     term_6_month_experience: !!(confirmDriving && confirmDriving.checked),
+                    vehicle_group_id: bookingMeta.vehicle_group_id,
+                    tariff_group_id: bookingMeta.tariff_group_id,
                     send_booking_id: '',
                     notes: '',
                     speed_response: ''
                 };
+
+                setPostField('self_pickup_location_id', payload.self_pickup_location_id);
+                setPostField('self_return_location_id', payload.self_return_location_id);
+                setPostField('vehicle_group_id', payload.vehicle_group_id);
+                setPostField('tariff_group_id', payload.tariff_group_id);
 
                 const notesPayload = {
                         source: 'newwebsite_haladrive',
