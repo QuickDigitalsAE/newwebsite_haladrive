@@ -16,10 +16,19 @@ $returnLocations = [];
 $branchLocations = [];
 $locationsEndpoint = '';
 $fullInsuranceAmount = 40.0;
+$fullInsuranceDailyAmount = $fullInsuranceAmount;
+$fullInsuranceWeeklyAmount = $fullInsuranceAmount;
+$fullInsuranceMonthlyAmount = $fullInsuranceAmount;
 $additionalDriverAmount = 100.0;
 $babySeatAmount = 40.0;
+$babySeatDailyAmount = $babySeatAmount;
+$babySeatWeeklyAmount = $babySeatAmount;
+$babySeatMonthlyAmount = $babySeatAmount;
 $depositAmount = 1500.0;
 $waiverAmount = 30.0;
+$waiverDailyAmount = $waiverAmount;
+$waiverWeeklyAmount = $waiverAmount;
+$waiverMonthlyAmount = $waiverAmount;
 $apiEndpoints = include __DIR__ . '/apis/api_endpoints.php';
 $promoApiBaseUrl = rtrim((string) ($apiEndpoints['promo_base_url'] ?? preg_replace('#/v1/?$#', '', (string) ($apiEndpoints['base_url'] ?? 'https://admin.haladrive.ae/api/v1'))), '/');
 $promoApplyEndpoint = $promoApiBaseUrl . (string) ($apiEndpoints['promo_codes']['apply'] ?? '/promo-codes/apply');
@@ -230,10 +239,19 @@ if ($slug) {
             $deliveryLocations = $carSingleContentData['delivery_locations'] ?? [];
             $returnLocations = $carSingleContentData['return_locations'] ?? [];
             $fullInsuranceAmount = normalizeHdAmount($car['full_insurance_amount'] ?? $carSingleContentData['full_insurance_amount'] ?? null, $fullInsuranceAmount);
+            $fullInsuranceDailyAmount = normalizeHdAmount($car['full_insurance_daily'] ?? $carSingleContentData['full_insurance_daily'] ?? null, $fullInsuranceDailyAmount);
+            $fullInsuranceWeeklyAmount = normalizeHdAmount($car['full_insurance_weekly'] ?? $carSingleContentData['full_insurance_weekly'] ?? null, $fullInsuranceWeeklyAmount);
+            $fullInsuranceMonthlyAmount = normalizeHdAmount($car['full_insurance_monthly'] ?? $carSingleContentData['full_insurance_monthly'] ?? null, $fullInsuranceMonthlyAmount);
             $additionalDriverAmount = normalizeHdAmount($car['additional_driver_amount'] ?? $carSingleContentData['additional_driver_amount'] ?? null, $additionalDriverAmount);
             $babySeatAmount = normalizeHdAmount($car['baby_seat_amount'] ?? $carSingleContentData['baby_seat_amount'] ?? null, $babySeatAmount);
+            $babySeatDailyAmount = normalizeHdAmount($car['baby_seat_daily'] ?? $carSingleContentData['baby_seat_daily'] ?? null, $babySeatDailyAmount);
+            $babySeatWeeklyAmount = normalizeHdAmount($car['baby_seat_weekly'] ?? $carSingleContentData['baby_seat_weekly'] ?? null, $babySeatWeeklyAmount);
+            $babySeatMonthlyAmount = normalizeHdAmount($car['baby_seat_monthly'] ?? $carSingleContentData['baby_seat_monthly'] ?? null, $babySeatMonthlyAmount);
             $depositAmount = normalizeHdAmount($car['deposit_amount'] ?? $carSingleContentData['deposit_amount'] ?? null, $depositAmount);
             $waiverAmount = normalizeHdAmount($car['waiver_amount'] ?? $carSingleContentData['waiver_amount'] ?? null, $waiverAmount);
+            $waiverDailyAmount = normalizeHdAmount($car['waiver_daily'] ?? $carSingleContentData['waiver_daily'] ?? null, $waiverDailyAmount);
+            $waiverWeeklyAmount = normalizeHdAmount($car['waiver_weekly'] ?? $carSingleContentData['waiver_weekly'] ?? null, $waiverWeeklyAmount);
+            $waiverMonthlyAmount = normalizeHdAmount($car['waiver_monthly'] ?? $carSingleContentData['waiver_monthly'] ?? null, $waiverMonthlyAmount);
             $vehicleGroupId = $car['vehicle_group_id'] ?? $carSingleContentData['vehicle_group_id'] ?? null;
             $tariffGroupId = $car['tariff_group_id'] ?? $carSingleContentData['tariff_group_id'] ?? null;
         }
@@ -499,9 +517,9 @@ if ($slug) {
                                         <div class="hd-booking-option__sub">Complete coverage add-on</div>
                                     </div>
                                     <div class="hd-booking-option__action">
-                                        <div class="hd-booking-option__price"><span class="hd-price-inline"><img src="<?= $imagePath ?>darham.png" class="hd-price-inline__icon" alt="AED"><span><?= number_format($fullInsuranceAmount, 2); ?></span></span></div>
+                                        <div class="hd-booking-option__price"><span class="hd-price-inline"><img src="<?= $imagePath ?>darham.png" class="hd-price-inline__icon" alt="AED"><span data-hd-extra-display="insurance"><?= number_format($fullInsuranceAmount, 2); ?></span></span></div>
                                         <label class="hd-switch">
-                                            <input type="checkbox" data-hd-extra="insurance" data-hd-extra-price="<?= htmlspecialchars((string) $fullInsuranceAmount, ENT_QUOTES, 'UTF-8'); ?>">
+                                            <input type="checkbox" data-hd-extra="insurance" data-hd-extra-price="<?= htmlspecialchars((string) $fullInsuranceAmount, ENT_QUOTES, 'UTF-8'); ?>" data-hd-extra-daily="<?= htmlspecialchars((string) $fullInsuranceDailyAmount, ENT_QUOTES, 'UTF-8'); ?>" data-hd-extra-weekly="<?= htmlspecialchars((string) $fullInsuranceWeeklyAmount, ENT_QUOTES, 'UTF-8'); ?>" data-hd-extra-monthly="<?= htmlspecialchars((string) $fullInsuranceMonthlyAmount, ENT_QUOTES, 'UTF-8'); ?>">
                                             <span></span>
                                         </label>
                                     </div>
@@ -525,9 +543,9 @@ if ($slug) {
                                         <div class="hd-booking-option__sub">Ensure your child's safety and comfort on every journey with our clean, secure, and properly installed baby seats available for rent.</div>
                                     </div>
                                     <div class="hd-booking-option__action">
-                                        <div class="hd-booking-option__price"><span class="hd-price-inline"><img src="<?= $imagePath ?>darham.png" class="hd-price-inline__icon" alt="AED"><span><?= number_format($babySeatAmount, 2); ?></span></span></div>
+                                        <div class="hd-booking-option__price"><span class="hd-price-inline"><img src="<?= $imagePath ?>darham.png" class="hd-price-inline__icon" alt="AED"><span data-hd-extra-display="seat"><?= number_format($babySeatAmount, 2); ?></span></span></div>
                                         <label class="hd-switch">
-                                            <input type="checkbox" data-hd-extra="seat" data-hd-extra-price="<?= htmlspecialchars((string) $babySeatAmount, ENT_QUOTES, 'UTF-8'); ?>">
+                                            <input type="checkbox" data-hd-extra="seat" data-hd-extra-price="<?= htmlspecialchars((string) $babySeatAmount, ENT_QUOTES, 'UTF-8'); ?>" data-hd-extra-daily="<?= htmlspecialchars((string) $babySeatDailyAmount, ENT_QUOTES, 'UTF-8'); ?>" data-hd-extra-weekly="<?= htmlspecialchars((string) $babySeatWeeklyAmount, ENT_QUOTES, 'UTF-8'); ?>" data-hd-extra-monthly="<?= htmlspecialchars((string) $babySeatMonthlyAmount, ENT_QUOTES, 'UTF-8'); ?>">
                                             <span></span>
                                         </label>
                                     </div>
@@ -535,11 +553,11 @@ if ($slug) {
                                 <div class="hd-waiver-card" data-hd-waiver-card>
                                     <div class="hd-waiver-card__top">
                                         <div class="hd-waiver-card__copy">
-                                            <div class="hd-waiver-card__title">Enjoy a deposit-free ride for <span class="hd-price-inline"><img src="<?= $imagePath ?>darham.png" class="hd-price-inline__icon" alt="AED"><span><?= number_format($waiverAmount, 2); ?></span></span></div>
+                                            <div class="hd-waiver-card__title">Enjoy a deposit-free ride for <span class="hd-price-inline"><img src="<?= $imagePath ?>darham.png" class="hd-price-inline__icon" alt="AED"><span data-hd-extra-display="waiver"><?= number_format($waiverAmount, 2); ?></span></span></div>
                                             <div class="hd-waiver-card__sub">Rent a car without a security deposit by adding a non-refundable waiver fee to your rental price</div>
                                         </div>
                                         <label class="hd-switch hd-switch--green">
-                                            <input type="checkbox" data-hd-extra="waiver" data-hd-extra-price="<?= htmlspecialchars((string) $waiverAmount, ENT_QUOTES, 'UTF-8'); ?>" data-hd-waiver-toggle>
+                                            <input type="checkbox" data-hd-extra="waiver" data-hd-extra-price="<?= htmlspecialchars((string) $waiverAmount, ENT_QUOTES, 'UTF-8'); ?>" data-hd-extra-daily="<?= htmlspecialchars((string) $waiverDailyAmount, ENT_QUOTES, 'UTF-8'); ?>" data-hd-extra-weekly="<?= htmlspecialchars((string) $waiverWeeklyAmount, ENT_QUOTES, 'UTF-8'); ?>" data-hd-extra-monthly="<?= htmlspecialchars((string) $waiverMonthlyAmount, ENT_QUOTES, 'UTF-8'); ?>" data-hd-waiver-toggle>
                                             <span></span>
                                         </label>
                                     </div>
@@ -551,7 +569,7 @@ if ($slug) {
                                             </div>
                                             <div class="hd-waiver-state__price">
                                                 <span class="hd-waiver-state__old"><span class="hd-price-inline"><img src="<?= $imagePath ?>darham.png" class="hd-price-inline__icon" alt="AED"><span><?= number_format($depositAmount, 2); ?></span></span></span>
-                                                <strong><span class="hd-price-inline"><img src="<?= $imagePath ?>darham.png" class="hd-price-inline__icon" alt="AED"><span><?= number_format($waiverAmount, 2); ?></span></span></strong>
+                                                <strong><span class="hd-price-inline"><img src="<?= $imagePath ?>darham.png" class="hd-price-inline__icon" alt="AED"><span data-hd-extra-display="waiver"><?= number_format($waiverAmount, 2); ?></span></span></strong>
                                             </div>
                                         </div>
                                         <div class="hd-waiver-state hd-waiver-state--off" data-hd-waiver-state="off">
@@ -1184,6 +1202,55 @@ if ($slug) {
                 }) || null;
             }
 
+            function getRentalDurationDays() {
+                const start = fromInput && fromInput.value ? new Date(fromInput.value) : null;
+                const end = toInput && toInput.value ? new Date(toInput.value) : null;
+
+                if (start && end && !Number.isNaN(start.getTime()) && !Number.isNaN(end.getTime())) {
+                    return Math.max(diffInDays(start, end), 1);
+                }
+
+                return 1;
+            }
+
+            function calcTieredPrice(days, rates) {
+                const daysCount = Number(days || 0);
+                if (!Number.isFinite(daysCount) || daysCount <= 0) return 0;
+
+                const dailyPrice = parseAmount(rates && rates.daily ? rates.daily : 0);
+                const weeklyPrice = parseAmount(rates && rates.weekly ? rates.weekly : 0);
+                const monthlyPrice = parseAmount(rates && rates.monthly ? rates.monthly : 0);
+
+                if (daysCount <= 6) {
+                    return daysCount * dailyPrice;
+                }
+                if (daysCount >= 7 && daysCount < 30) {
+                    return (daysCount / 7) * weeklyPrice;
+                }
+                return (daysCount / 30) * monthlyPrice;
+            }
+
+            function syncExtraPricing(days) {
+                const rawDays = Number(days || 0) > 0 ? Number(days) : getRentalDurationDays();
+                ['insurance', 'seat', 'waiver'].forEach(function (extraName) {
+                    const input = getExtraInput(extraName);
+                    if (!input) return;
+
+                    const price = calcTieredPrice(rawDays, {
+                        daily: input.dataset.hdExtraDaily,
+                        weekly: input.dataset.hdExtraWeekly,
+                        monthly: input.dataset.hdExtraMonthly
+                    });
+
+                    input.dataset.hdExtraPrice = String(price);
+                    root.querySelectorAll('[data-hd-extra-display="' + extraName + '"]').forEach(function (node) {
+                        if (node instanceof HTMLElement) {
+                            node.textContent = formatAmount(price);
+                        }
+                    });
+                });
+            }
+
             function isExtraChecked(extraName) {
                 const input = getExtraInput(extraName);
                 return !!(input && input.checked);
@@ -1335,8 +1402,23 @@ if ($slug) {
 
             function getSelectedSpeedLocationId(name) {
                 const checked = root.querySelector('input[name="' + name + '"]:checked');
-                if (checked instanceof HTMLInputElement && checked.dataset.locationId) {
-                    return checked.dataset.locationId;
+                if (checked instanceof HTMLInputElement) {
+                    const directId = String(
+                        checked.getAttribute('data-location-id')
+                        || checked.dataset.locationId
+                        || ''
+                    ).trim();
+                    if (directId) {
+                        return directId;
+                    }
+
+                    const label = checked.closest('label');
+                    const labelId = label instanceof HTMLElement
+                        ? String(label.getAttribute('data-location-id') || label.dataset.locationId || '').trim()
+                        : '';
+                    if (labelId) {
+                        return labelId;
+                    }
                 }
                 const selectedLocation = getSelectedSpeedLocation(name);
                 return selectedLocation && selectedLocation.id ? selectedLocation.id : '';
@@ -1750,13 +1832,8 @@ if ($slug) {
 
             function getPricing(options) {
                 const pricingOptions = options || {};
-                let rawDays = 1;
-                const start = fromInput && fromInput.value ? new Date(fromInput.value) : null;
-                const end = toInput && toInput.value ? new Date(toInput.value) : null;
-
-                if (start && end && !Number.isNaN(start.getTime()) && !Number.isNaN(end.getTime())) {
-                    rawDays = Math.max(diffInDays(start, end), 1);
-                }
+                const rawDays = getRentalDurationDays();
+                syncExtraPricing(rawDays);
 
                 const rent = calcRentalPrice(rawDays);
                 const extras = getExtrasTotal();
@@ -2106,7 +2183,10 @@ if ($slug) {
                     selfReturnAddress = dropoffBranch;
                 }
 
-                const selfReturnLocationId = (hasReturnZone || returnSame) ? (returnSame ? selfPickupLocationId : getSelectedSpeedLocationId('hd_return_branch')) : '';
+                const selectedReturnBranchId = getSelectedSpeedLocationId('hd_return_branch');
+                const selfReturnLocationId = returnSame
+                    ? selfPickupLocationId
+                    : (hasReturnZone ? '' : selectedReturnBranchId);
 
                 const payload = {
                     name: submitForm.querySelector('input[name="name"]')?.value.trim() || '',
