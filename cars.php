@@ -2,6 +2,13 @@
 // Include global
 require_once 'global.php';
 
+// Keep older Laravel callback URLs compatible with the dedicated payment success page.
+if (($_GET['epg_payment'] ?? '') === 'success') {
+    $paymentBasePath = (($_SERVER['HTTP_HOST'] ?? '') === 'localhost') ? rtrim((string) ($basePath ?? ''), '/') : '';
+    header('Location: ' . ($paymentBasePath ?: '') . '/thank-you?payment=success', true, 302);
+    exit;
+}
+
 // Default SEO fallback values
 $meta_title = '';
 $meta_desc  = '';

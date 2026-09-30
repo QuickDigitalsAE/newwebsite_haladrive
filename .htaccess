@@ -82,6 +82,15 @@ RewriteRule ^ar/([^/]+)/?$ location.php?slug=$1&lang=ar [L,QSA]
 # ENGLISH VERSION
 ####################################
 
+# Payment success pages
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^thank-you/?$ thank-you.php?lang=en [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ar/thank-you/?$ thank-you.php?lang=ar [L,QSA]
+
 # ----------------- ENGLISH HOME -----------------
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
