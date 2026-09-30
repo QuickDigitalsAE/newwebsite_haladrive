@@ -267,6 +267,11 @@ if ($slug) {
         echo "Error loading car details: " . $e->getMessage();
     }
 
+    $detailCarEngine = trim((string) ($car['engine'] ?? '')) ?: 'N/A';
+    $detailCarBluetooth = trim((string) ($car['bluetooth'] ?? '')) ?: 'N/A';
+    $detailCarCruise = trim((string) ($car['cruise'] ?? '')) ?: 'N/A';
+    $detailCarLuggage = trim((string) ($car['luggage'] ?? '')) ?: 'N/A';
+
     include_once('header.php');
 
     $banner_image = "$imagePath/about/top-banner.webp";
@@ -306,7 +311,7 @@ if ($slug) {
                                     <span class="car-spec-icon"><i class="fa-solid fa-gauge-high"></i></span>
                                     <div>
                                         <div class="car-spec-label"><?= $messages['engine'] ?></div>
-                                        <div class="car-spec-value"><?php echo $carSingleContentData["car"]["engine"]; ?></div>
+                                        <div class="car-spec-value"><?= htmlspecialchars($detailCarEngine, ENT_QUOTES, 'UTF-8') ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -315,7 +320,7 @@ if ($slug) {
                                     <span class="car-spec-icon"><i class="fa-brands fa-bluetooth-b"></i></span>
                                     <div>
                                         <div class="car-spec-label"><?= $messages['bluetooth'] ?></div>
-                                        <div class="car-spec-value"><?php echo $carSingleContentData["car"]["bluetooth"]; ?></div>
+                                        <div class="car-spec-value"><?= htmlspecialchars($detailCarBluetooth, ENT_QUOTES, 'UTF-8') ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -324,7 +329,7 @@ if ($slug) {
                                     <span class="car-spec-icon"><i class="fa-solid fa-sliders"></i></span>
                                     <div>
                                         <div class="car-spec-label"><?= $messages['control'] ?></div>
-                                        <div class="car-spec-value"><?php echo $carSingleContentData["car"]["cruise"]; ?></div>
+                                        <div class="car-spec-value"><?= htmlspecialchars($detailCarCruise, ENT_QUOTES, 'UTF-8') ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -333,7 +338,7 @@ if ($slug) {
                                     <span class="car-spec-icon"><i class="fa-solid fa-suitcase-rolling"></i></span>
                                     <div>
                                         <div class="car-spec-label"><?= $messages['luggage'] ?></div>
-                                        <div class="car-spec-value"><?php echo $carSingleContentData["car"]["luggage"]; ?></div>
+                                        <div class="car-spec-value"><?= htmlspecialchars($detailCarLuggage, ENT_QUOTES, 'UTF-8') ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -3017,7 +3022,12 @@ include_once('banner.php');
                         </div>
                     <?php else: ?>
 
-                        <?php foreach($carContentData["cars"]["data"] as $car): ?>
+                        <?php foreach($carContentData["cars"]["data"] as $car):
+                            $carEngine = trim((string) ($car['engine'] ?? '')) ?: 'N/A';
+                            $carBluetooth = trim((string) ($car['bluetooth'] ?? '')) ?: 'N/A';
+                            $carCruise = trim((string) ($car['cruise'] ?? '')) ?: 'N/A';
+                            $carLuggage = trim((string) ($car['luggage'] ?? '')) ?: 'N/A';
+                        ?>
                             <div class="relative p-4 rounded-[10px] shadow-[4px_7px_15px_rgba(75,75,77,.25)]">
                                 <div class="flex items-center justify-between mb-2">
                                     <?php if (!empty($car["stock"]) && $car["stock"] == "Yes"): ?>
@@ -3057,19 +3067,19 @@ include_once('banner.php');
                                         <ul class="list-disc text-[#939393] text-[11px] mt-4 max-[1024px]:mx-auto max-[1024px]:w-fit">
                                             <li class="flex items-center gap-2 ">
                                                 <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="star">
-                                                <div class=""><?= $messages['engine'] ?> 1.5 L</div>
+                                                <div class=""><?= htmlspecialchars((string) $messages['engine'], ENT_QUOTES, 'UTF-8') ?> <?= htmlspecialchars($carEngine, ENT_QUOTES, 'UTF-8') ?></div>
                                             </li>
                                             <li class="flex items-center gap-2 ">
                                                 <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="star">
-                                                <div class=""><?= $messages['bluetooth'] ?> Yes</div>
+                                                <div class=""><?= htmlspecialchars((string) $messages['bluetooth'], ENT_QUOTES, 'UTF-8') ?> <?= htmlspecialchars($carBluetooth, ENT_QUOTES, 'UTF-8') ?></div>
                                             </li>
                                             <li class="flex items-center gap-2 ">
                                                 <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="star">
-                                                <div class=""><?= $messages['control'] ?> Yes</div>
+                                                <div class=""><?= htmlspecialchars((string) $messages['control'], ENT_QUOTES, 'UTF-8') ?> <?= htmlspecialchars($carCruise, ENT_QUOTES, 'UTF-8') ?></div>
                                             </li>
                                             <li class="flex items-center gap-2 ">
                                                 <img src="<?= $imagePath ?>cars/star.svg" class="w-3" alt="star">
-                                                <div class=""><?= $messages['luggage'] ?> Yes</div>
+                                                <div class=""><?= htmlspecialchars((string) $messages['luggage'], ENT_QUOTES, 'UTF-8') ?> <?= htmlspecialchars($carLuggage, ENT_QUOTES, 'UTF-8') ?></div>
                                             </li>
                                         </ul>
                                         <div class="mt-4 grid grid-cols-2 gap-3 max-w-[430px] max-[1024px]:mx-auto">
