@@ -1,9 +1,20 @@
 <?php
 // api_endpoints.php
 
+$host = strtolower($_SERVER['HTTP_HOST'] ?? 'localhost');
+$host = explode(':', $host)[0];
+
+if ($host === 'haladrive.ae') {
+    $baseUrl = 'https://admin.haladrive.ae/api/v1';
+} elseif ($host === 'dev.haladrive.ae') {
+    $baseUrl = 'https://dev-admin.haladrive.ae/api/v1';
+} else {
+    $baseUrl = 'http://localhost/admin_haladrive/public/api/v1';
+}
+
 return [
-    'base_url' => 'https://admin.haladrive.ae/api/v1',
-    'promo_base_url' => 'https://admin.haladrive.ae/api',
+    'base_url' => $baseUrl,
+    'promo_base_url' => 'https://dev-admin.haladrive.ae/api',
     
     'webcontent' => [
         'home' => '/en/home',

@@ -213,6 +213,7 @@ if (!function_exists('normalizeHdBranchLocations')) {
 }
 
 $locationsEndpoint = rtrim((string) ($promoApiBaseUrl), '/') . '/speed/getLocations';
+$preloadedSpeedLocations = fetchHdSpeedLocations($locationsEndpoint);
 
 $slug = $_GET['slug'] ?? null;
 
@@ -427,6 +428,7 @@ if ($slug) {
                     <aside class="hd-booking-sidebar" data-hd-booking-sidebar>
                         <div data-hd-booking-step="form">
                             <div hidden aria-hidden="true">
+                                <input type="hidden" name="pickup_location_id" data-hd-post-field="pickup_location_id">
                                 <input type="hidden" name="self_pickup_location_id" data-hd-post-field="self_pickup_location_id">
                                 <input type="hidden" name="self_return_location_id" data-hd-post-field="self_return_location_id">
                                 <input type="hidden" name="vehicle_group_id" data-hd-post-field="vehicle_group_id">
@@ -604,7 +606,7 @@ if ($slug) {
                                             </button>
                                             <?php if (!empty($deliveryLocations)): ?>
                                                 <?php foreach ($deliveryLocations as $location): ?>
-                                                    <button type="button" class="hd-zone-picker__option" data-hd-custom-option data-value="<?= htmlspecialchars((string) ($location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>" data-price="<?= htmlspecialchars((string) ($location['price'] ?? 0), ENT_QUOTES, 'UTF-8'); ?>">
+                                                    <button type="button" class="hd-zone-picker__option" data-hd-custom-option data-value="<?= htmlspecialchars((string) ($location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>" data-pickup-location-id="<?= htmlspecialchars((string) ($location['pickup_location_id'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>" data-price="<?= htmlspecialchars((string) ($location['price'] ?? 0), ENT_QUOTES, 'UTF-8'); ?>">
                                                         <span class="hd-zone-picker__label"><?= htmlspecialchars((string) ($location['label'] ?? $location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></span>
                                                         <?php if (!empty($location['price'])): ?>
                                                             <span class="hd-zone-picker__price"><img src="<?= $imagePath ?>darham.png" class="hd-zone-picker__price-icon" alt="AED"><span><?= number_format((float) $location['price'], 2); ?></span></span>
@@ -625,7 +627,7 @@ if ($slug) {
                                         <?php if (!empty($deliveryLocations)): ?>
                                             <option value="" data-price="0">Select a delivery zone</option>
                                             <?php foreach ($deliveryLocations as $location): ?>
-                                                <option value="<?= htmlspecialchars((string) ($location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>" data-price="<?= htmlspecialchars((string) ($location['price'] ?? 0), ENT_QUOTES, 'UTF-8'); ?>">
+                                                <option value="<?= htmlspecialchars((string) ($location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>" data-pickup-location-id="<?= htmlspecialchars((string) ($location['pickup_location_id'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>" data-price="<?= htmlspecialchars((string) ($location['price'] ?? 0), ENT_QUOTES, 'UTF-8'); ?>">
                                                     <?= htmlspecialchars((string) ($location['label'] ?? $location['city'] ?? ''), ENT_QUOTES, 'UTF-8'); ?><?= !empty($location['price']) ? ' - AED ' . number_format((float) $location['price'], 2) : ''; ?>
                                                 </option>
                                             <?php endforeach; ?>
@@ -1142,6 +1144,7 @@ if ($slug) {
             const modalTitle = modal ? modal.querySelector('[data-hd-modal-title]') : null;
             const modalBody = modal ? modal.querySelector('[data-hd-modal-body]') : null;
             const locationsEndpoint = <?= json_encode($locationsEndpoint, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>;
+            const preloadedSpeedLocations = <?= json_encode($preloadedSpeedLocations, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>;
 
             function formatAmount(value) {
                 return Number(value || 0).toFixed(2);
@@ -1430,6 +1433,22 @@ if ($slug) {
                 renderPickupLoader(pickupList, 'Loading pickup locations...');
                 renderPickupLoader(returnPickupList, 'Loading return locations...');
 
+                if (Array.isArray(preloadedSpeedLocations) && preloadedSpeedLocations.length) {
+                    const locations = normalizeSpeedLocations({ result: preloadedSpeedLocations });
+                    if (locations.length) {
+                        speedLocationOptions = locations;
+                        renderSpeedLocationOptions(pickupList, 'hd_pickup_branch', locations);
+                        renderSpeedLocationOptions(returnPickupList, 'hd_return_branch', locations);
+                        refreshBranchCollections();
+                        syncLocationSelection('pickup');
+                        syncLocationSelection('return');
+                        syncReturnSameUi();
+                        updatePickupCards();
+                        updateSummary();
+                        return;
+                    }
+                }
+
                 const endpoints = [locationsEndpoint];
                 let lastErrorMessage = 'Could not load location data right now.';
 
@@ -1441,8 +1460,7 @@ if ($slug) {
                         response = await fetchWithTimeout(endpoint, {
                             method: 'GET',
                             headers: {
-                                'Accept': 'application/json',
-                                'X-Requested-With': 'XMLHttpRequest'
+                                'Accept': 'application/json'
                             }
                         });
                     } catch (requestErr) {
@@ -1622,6 +1640,21 @@ if ($slug) {
                 return option.textContent.replace(/\s+-\s+AED\s+\d+(?:\.\d+)?\s*$/i, '').trim();
             }
 
+            function getSelectedDeliveryPickupLocationId(select) {
+                if (!(select instanceof HTMLSelectElement) || select.selectedIndex < 0) {
+                    return '';
+                }
+
+                const option = select.options[select.selectedIndex];
+                if (!option) return '';
+
+                return String(
+                    option.dataset.pickupLocationId
+                    || option.getAttribute('data-pickup-location-id')
+                    || ''
+                ).trim();
+            }
+
             function syncCustomSelectUi(select) {
                 if (!(select instanceof HTMLSelectElement)) return;
                 const wrap = select.previousElementSibling;
@@ -1653,6 +1686,10 @@ if ($slug) {
                     if (!(button instanceof HTMLElement)) return;
                     button.classList.toggle('is-active', button.dataset.value === selectedValue);
                 });
+
+                if (select === deliveryZone) {
+                    setPostField('pickup_location_id', getSelectedDeliveryPickupLocationId(select));
+                }
             }
 
             function initCustomSelect(select) {
@@ -2140,6 +2177,7 @@ if ($slug) {
                 const returnSame = !!(returnSameToggle && returnSameToggle.checked);
                 const deliveryCustomAddress = getCustomAddressValue('delivery');
                 const returnCustomAddress = getCustomAddressValue('return');
+                const pickupLocationId = hasDeliveryZone ? getSelectedDeliveryPickupLocationId(deliveryZone) : '';
                 const roundedDays = pricing.rawDays.toFixed(1).replace('.0', '');
                 const payNowAmount = pricing.total * 0.2;
                 const payLaterAmount = pricing.total - payNowAmount;
@@ -2209,6 +2247,7 @@ if ($slug) {
                     deposit_waiver: waiverToggle && waiverToggle.checked ? 'Waiver' : 'Deposit',
                     deposit_waiver_price: waiverToggle && waiverToggle.checked ? getExtraPrice('waiver') : pricing.depositCharge,
                     delivery_location: deliveryLocation,
+                    pickup_location_id: pickupLocationId,
                     delivery_custom_address: deliveryCustomAddressValue,
                     delivery_location_price: deliveryLocationPrice,
                     different_city_dropoff_fee: 0,
@@ -2248,6 +2287,7 @@ if ($slug) {
 
                 setPostField('self_pickup_location_id', payload.self_pickup_location_id);
                 setPostField('self_return_location_id', payload.self_return_location_id);
+                setPostField('pickup_location_id', payload.pickup_location_id);
                 setPostField('vehicle_group_id', payload.vehicle_group_id);
                 setPostField('tariff_group_id', payload.tariff_group_id);
 
