@@ -2673,6 +2673,25 @@ if ($slug) {
                 })
                     .then((response) => response.json())
                     .then((data) => {
+                        // Laravel owns the EPG flow for pay-now bookings and returns the hosted payment URL.
+                        if (payload.payment_flow === 'now') {
+                            const paymentRedirect = data && (
+                                data.redirect
+                                || data.payment_url
+                                || (data.data && (data.data.redirect || data.data.payment_url))
+                            );
+                            if (data && data.status === true && paymentRedirect) {
+                                window.location.assign(String(paymentRedirect));
+                                return;
+                            }
+
+                            const paymentMessage = data && (data.message || data.error)
+                                ? String(data.message || data.error)
+                                : 'Online payment could not be started.';
+                            showToast('error', 'Payment failed', paymentMessage);
+                            return;
+                        }
+
                         if (data && data.status === true) {
                             showToast('success', 'Booking submitted', data.message || 'Booking request submitted successfully.');
                             submitForm.reset();
