@@ -33,7 +33,7 @@ return [
     'features' => 'Features On',
 
     //    buttons
-    'journy' => 'Start Your Journy',
+    'journy' => 'Start Your Journey',
     'reset' => 'Reset',
 
     
