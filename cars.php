@@ -1205,6 +1205,10 @@ if ($slug) {
                 return Number.isFinite(amount) ? amount : 0;
             }
 
+            function roundMoney(value) {
+                return Math.round((Number(value || 0) + Number.EPSILON) * 100) / 100;
+            }
+
             function setPostField(name, value) {
                 const node = root.querySelector('[data-hd-post-field="' + name + '"]');
                 if (!(node instanceof HTMLInputElement)) return;
@@ -1890,17 +1894,17 @@ if ($slug) {
                 const depositCharge = waiverToggle && !waiverToggle.checked ? getDepositAmount() : 0;
                 const payNowDiscount = isPayNowSelected() ? rent * 0.05 : 0;
                 const rentAfterPayNowDiscount = rent - payNowDiscount;
-                const originalTotalBeforeDiscount = rent + extras + charges.delivery + charges.returnFee + depositCharge;
                 const subtotalBeforePromo = rentAfterPayNowDiscount + extras + charges.delivery + charges.returnFee + depositCharge;
-                const vat = originalTotalBeforeDiscount * 0.05;
-                const totalBeforePromo = subtotalBeforePromo + vat;
                 const rawPromoDiscount = pricingOptions.ignorePromo ? 0 : parseAmount(state.promoDiscount || 0);
+                const totalBeforePromo = subtotalBeforePromo * 1.05;
                 const promoDiscount = Math.min(rawPromoDiscount, totalBeforePromo);
                 const promoDiscountAppliedToRent = Math.min(promoDiscount, rentAfterPayNowDiscount);
                 const rentAfterDiscounts = Math.max(0, rentAfterPayNowDiscount - promoDiscountAppliedToRent);
                 const totalSavings = payNowDiscount + promoDiscount;
-                const total = Math.max(0, totalBeforePromo - promoDiscount);
-                const subtotal = Math.max(0, subtotalBeforePromo - promoDiscount);
+                const subtotal = roundMoney(Math.max(0, subtotalBeforePromo - promoDiscount));
+                // VAT is calculated from the displayed subtotal, then the final total is subtotal + VAT.
+                const vat = roundMoney(subtotal * 0.05);
+                const total = roundMoney(subtotal + vat);
 
                 return {
                     rawDays,
@@ -2072,8 +2076,8 @@ if ($slug) {
                     summary.savedInlineAmount.textContent = formatAmount(pricing.totalSavings);
                 }
 
-                const payNowAmount = pricing.total * 0.2;
-                const payLaterAmount = pricing.total - payNowAmount;
+                const payNowAmount = roundMoney(pricing.total * 0.2);
+                const payLaterAmount = roundMoney(pricing.total - payNowAmount);
                 summary.payNow.textContent = formatAmount(payNowAmount);
                 summary.payLater.textContent = formatAmount(payLaterAmount);
 
@@ -2191,8 +2195,8 @@ if ($slug) {
                 const returnCustomAddress = getCustomAddressValue('return');
                 const pickupLocationId = hasDeliveryZone ? getSelectedDeliveryPickupLocationId(deliveryZone) : '';
                 const roundedDays = pricing.rawDays.toFixed(1).replace('.0', '');
-                const payNowAmount = pricing.total * 0.2;
-                const payLaterAmount = pricing.total - payNowAmount;
+                const payNowAmount = roundMoney(pricing.total * 0.2);
+                const payLaterAmount = roundMoney(pricing.total - payNowAmount);
 
                 let deliveryLocation = null;
                 let deliveryCustomAddressValue = null;
